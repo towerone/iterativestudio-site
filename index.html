@@ -46,14 +46,11 @@
         ></iframe>
 
         <div class="hero-controls hero-controls-bottom" aria-hidden="false">
-          <div class="hero-controls-left">
-            <span class="map-mode" id="mapModeLabel">ocean-currents</span>
-          </div>
-
           <div class="hero-controls-right">
             <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
             <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
             <button class="pill" type="button" data-map="pm1" aria-label="Parti PM1">P</button>
+            <span class="map-mode" id="mapModeLabel">ocean-currents</span>
           </div>
         </div>
 
@@ -101,72 +98,30 @@
     <section class="section" id="what-i-do">
       <div class="container">
         <div class="section-head">
-          <h2>What I do</h2>
-          <p>I focus on tools that make real work faster, safer, and more legible: generators, checkers, and automation.</p>
+          <h2>Mythologies → mechanisms</h2>
+          <p>Turn fuzzy design beliefs into testable systems: constraints, scripts, and repeatable outputs.</p>
         </div>
 
         <div class="grid-2">
           <div class="panel">
-            <h3>Headed workflows</h3>
-            <p>Geometry and drawings stay controlled inside Rhino/Revit. AI supports the workflow without pretending to be ground truth.</p>
+            <h3>Computational design systems</h3>
+            <p>Parametric models that preserve intent: controllable geometry, readable parameters, and predictable behavior.</p>
             <ul class="bullets">
-              <li>Constraint-first pipelines</li>
-              <li>Reproducible outputs</li>
-              <li>Versioned assumptions</li>
+              <li>Constraint-first setup</li>
+              <li>Geometry that stays editable</li>
+              <li>Rationalization + documentation</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h3>Built for iteration</h3>
-            <p>The goal is not one perfect result. The goal is a system you can iterate, test, and ship.</p>
+            <h3>Automation + AI assist (headed)</h3>
+            <p>AI supports drafting and debugging, but production stays inside Rhino/Revit where you can verify every step.</p>
             <ul class="bullets">
-              <li>Parameter sets and presets</li>
-              <li>Edge-case checks</li>
-              <li>Documentation you can hand off</li>
+              <li>Scripted generators & checkers</li>
+              <li>Versioned assumptions</li>
+              <li>Hand-off ready outputs</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-muted">
-      <div class="container">
-        <div class="section-head">
-          <h2>Featured projects</h2>
-          <p>Five generative design anchors that bridge into AI development.</p>
-        </div>
-
-        <div class="projects-grid">
-          <a class="project-card" href="/projects/">
-            <div class="project-top">
-              <div class="project-title">Hista Powerplant</div>
-              <div class="project-year">2018</div>
-            </div>
-            <div class="project-desc">Closed-loop power plant concept + scripted carpet roof geometry.</div>
-            <div class="project-meta">Python • Parametric workflow</div>
-          </a>
-
-          <a class="project-card" href="/projects/">
-            <div class="project-top">
-              <div class="project-title">Daoist Temple</div>
-              <div class="project-year">2018</div>
-            </div>
-            <div class="project-desc">Curved wall geometry control and rationalization.</div>
-            <div class="project-meta">Parametric workflow</div>
-          </a>
-
-          <a class="project-card" href="/projects/">
-            <div class="project-top">
-              <div class="project-title">YoChand Museum</div>
-              <div class="project-year">2019</div>
-            </div>
-            <div class="project-desc">Complex facade logic as a repeatable parametric system.</div>
-            <div class="project-meta">Systems • Constraints</div>
-          </a>
-        </div>
-
-        <div class="section-actions">
-          <a class="btn" href="/projects/">See all projects</a>
         </div>
       </div>
     </section>
@@ -177,7 +132,7 @@
       <div>
         <div class="footer-brand">[i] Iterative Studio</div>
         <div class="footer-note">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.2</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.3</div>
       </div>
 
       <div class="footer-links">
@@ -194,11 +149,9 @@ currents: "https://earth.nullschool.net/#current/ocean/surface/currents/orthogra
 wind: "https://earth.nullschool.net/#current/wind/surface/level/orthographic=121,23,700",
 pm1: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm1/orthographic=121,23,700"
 };
+
 const i18n = {
 en: {
-wind: "Wind",
-air: "Air",
-pollution: "Pollution",
 kicker: "AI for the Built Environment",
 title: "Practical AI-assisted tools<br/>for architecture workflows.",
 lead: "I build reproducible systems: Python scripts + headed tools (Rhino/Grasshopper, Revit/Dynamo) + clear constraints. Not magic prompts.",
@@ -210,9 +163,6 @@ c3t: "AI Assistance",
 c3b: "Structure intent, generate/debug code, document systems."
 },
 zh: {
-wind: "風",
-air: "空氣",
-pollution: "污染",
 kicker: "建築與環境的 AI 工具",
 title: "用 AI 做出可重複的工具<br/>支援建築工作流程。",
 lead: "我做的是可重現的系統：Python 腳本 + 有頭工具（Rhino/Grasshopper、Revit/Dynamo）+ 清楚的約束條件。不是魔法提示詞。",
@@ -224,9 +174,12 @@ c3t: "AI 助手",
 c3b: "把意圖結構化，產生/除錯程式碼，整理文件。"
 }
 };
-const BUILD = "v0.1.2";
+
+const BUILD = "v0.1.3";
+
 const mapEl = document.getElementById("heroMap");
 let currentMapKey = null;
+
 function setMap(key) {
 if (!MAPS[key]) return;
 const nextUrl = MAPS[key];
@@ -237,9 +190,11 @@ setTimeout(() => { mapEl.src = nextUrl; }, 20);
 mapEl.src = nextUrl;
 }
 currentMapKey = key;
+
 document.querySelectorAll("[data-map]").forEach(btn => {
 btn.classList.toggle("is-active", btn.dataset.map === key);
 });
+
 const labelEl = document.getElementById("mapModeLabel");
 if (labelEl) {
 const labels = {
@@ -250,16 +205,20 @@ pm1: "parti - PM1"
 labelEl.innerHTML = labels[key] || key;
 }
 }
+
 let lang = "en";
 function setLang(next) {
 lang = next;
 const t = i18n[lang];
+
 if (langToggleEl) {
 langToggleEl.classList.toggle("is-en-active", lang === "en");
 }
+
 document.getElementById("kickerText").innerHTML = t.kicker;
 document.getElementById("heroTitle").innerHTML = t.title;
 document.getElementById("heroLead").innerHTML = t.lead;
+
 document.getElementById("card1Title").innerHTML = t.c1t;
 document.getElementById("card1Body").innerHTML = t.c1b;
 document.getElementById("card2Title").innerHTML = t.c2t;
@@ -267,15 +226,19 @@ document.getElementById("card2Body").innerHTML = t.c2b;
 document.getElementById("card3Title").innerHTML = t.c3t;
 document.getElementById("card3Body").innerHTML = t.c3b;
 }
+
 document.querySelectorAll("[data-map]").forEach(btn => {
 btn.addEventListener("click", () => setMap(btn.dataset.map));
 });
+
 const langToggleEl = document.getElementById("langToggle");
 langToggleEl.addEventListener("click", () => {
 setLang(lang === "en" ? "zh" : "en");
 });
+
 const buildEl = document.getElementById("buildVersion");
 if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
 setMap("currents");
 setLang("en");
   </script>
