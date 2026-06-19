@@ -196,36 +196,21 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   pointer-events:none;
 }
 
-.hero-controls{
-  position:absolute;
-  top:14px;
-  left:14px;
-  right:14px;
+.hero-map-controls{
+  position:relative;
   z-index:6;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  pointer-events:none;
-}
-
-.hero-controls .pill,
-.hero-controls .map-mode{
-  pointer-events:auto;
-}
-
-.hero-controls-bottom{
-  top: auto;
-  bottom: 24px;
-  justify-content:flex-end;
-}
-
-.hero-controls-left,
-.hero-controls-right{
   display:flex;
   align-items:center;
   gap:10px;
   flex-wrap:wrap;
+  max-width:680px;
+  margin:12px 0 10px;
+  pointer-events:none;
+}
+
+.hero-map-controls .pill,
+.hero-map-controls .map-mode{
+  pointer-events:auto;
 }
 
 .map-mode{
@@ -335,7 +320,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-copy h1{
   margin-top: 1.2vh;
-  margin-left: -2%;
+  margin-left: 2%;
 }
 
 .hero-inner a,
@@ -384,7 +369,7 @@ h1{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:16px;
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 .mini-card{
