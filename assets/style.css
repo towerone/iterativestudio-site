@@ -13,6 +13,7 @@
   --radius: 18px;
   --radius2: 26px;
   --max: 1120px;
+  --stack-gap: 28px;
   --hero-fade: #f6f7fa;
   --map-control-bg: rgba(255,255,255,.78);
   --map-control-text: rgba(15,18,25,.88);
@@ -300,7 +301,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   flex-direction:column;
   justify-content:flex-start;
   min-height: inherit;
-  padding: 34px 0 24px;
+  padding: 34px 0 0;
   pointer-events:none;
 }
 
@@ -419,9 +420,7 @@ h1{
   align-items:stretch;
   gap:12px;
   width:100%;
-  margin-top:auto;
-  padding-top:24px;
-  margin-bottom:-32px;
+  margin-top:var(--stack-gap);
   position:relative;
   z-index:3;
 }
@@ -430,8 +429,9 @@ h1{
   flex:1;
   overflow:hidden;
   border-radius: var(--radius);
-  border: 2px solid var(--line);
-  background: #ffffff;
+  border: 2px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(8px);
   box-shadow: var(--shadow);
   min-height: 230px;
 }
@@ -454,7 +454,7 @@ h1{
   letter-spacing:-0.01em;
   color: var(--text);
   text-align:center;
-  background: #ffffff;
+  background: transparent;
 }
 
 .carousel-arrow{
@@ -496,7 +496,8 @@ h1{
 }
 
 #what-i-do{
-  padding-top: 36px;
+  padding-top: var(--stack-gap);
+  padding-bottom: 0;
 }
 
 .section-muted{
@@ -612,15 +613,12 @@ h1{
 
 .site-footer{
   border-top: 1px solid var(--line);
-  padding: 26px 0;
+  padding: var(--stack-gap) 0;
   color: var(--muted);
 }
 
 .footer-inner{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:18px;
+  display:block;
 }
 
 .footer-brand{
@@ -638,15 +636,9 @@ h1{
   color: var(--faint);
 }
 
-.footer-links{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
 @media (max-width: 900px){
   .hero{ min-height: min(79vh, 792px); }
-  .hero-inner{ padding: 28px 0 68px; }
+  .hero-inner{ padding: 28px 0 0; }
   .hero-action-row{
     flex-direction:column;
     align-items:flex-start;
@@ -654,8 +646,7 @@ h1{
   }
   .hero-map-controls{ width:100%; justify-content:flex-end; }
   .hero-cards{ grid-template-columns: 1fr; }
-  .project-carousel{ gap:8px; padding-top:18px; margin-bottom:-20px; }
-  #what-i-do{ padding-top: 28px; }
+  .project-carousel{ gap:8px; }
   .carousel-arrow{ flex-basis:40px; min-height:176px; font-size:26px; }
   .carousel-viewport,
   .carousel-slide{ min-height:176px; }
