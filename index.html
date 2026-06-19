@@ -47,9 +47,10 @@
 
         <div class="hero-controls hero-controls-bottom" aria-hidden="false">
           <div class="hero-controls-right">
-            <button class="pill is-active" type="button" data-map="currents" data-i18n="currents">Currents</button>
+            <button class="pill is-active" type="button" data-map="water" data-i18n="water">Water</button>
             <button class="pill" type="button" data-map="wind" data-i18n="wind">Wind</button>
             <button class="pill" type="button" data-map="air" data-i18n="air">Air</button>
+            <button class="pill" type="button" data-map="pollution" data-i18n="pollution">Pollution</button>
           </div>
         </div>
 
@@ -186,16 +187,18 @@
 
   <script>
     const MAPS = {
-      currents: "https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=121,23,700",
+      water: "https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=121,23,700",
       wind: "https://earth.nullschool.net/#current/wind/surface/level/orthographic=121,23,700",
-      air: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/orthographic=121,23,700"
+      air: "https://earth.nullschool.net/#current/chem/surface/level/orthographic=121,23,700",
+      pollution: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/orthographic=121,23,700"
     };
 
     const i18n = {
       en: {
-        currents: "Currents",
+        water: "Water",
         wind: "Wind",
         air: "Air",
+        pollution: "Pollution",
         kicker: "AI for the Built Environment",
         title: "Practical AI-assisted tools<br/>for architecture workflows.",
         lead: "I build reproducible systems: Python scripts + headed tools (Rhino/Grasshopper, Revit/Dynamo) + clear constraints. Not magic prompts.",
@@ -207,9 +210,10 @@
         c3b: "Structure intent, generate/debug code, document systems."
       },
       zh: {
-        currents: "海流",
+        water: "水",
         wind: "風",
         air: "空氣",
+        pollution: "污染",
         kicker: "建築與環境的 AI 工具",
         title: "用 AI 做出可重複的工具<br/>支援建築工作流程。",
         lead: "我做的是可重現的系統：Python 腳本 + 有頭工具（Rhino/Grasshopper、Revit/Dynamo）+ 清楚的約束條件。不是魔法提示詞。",
@@ -225,6 +229,7 @@
     const BUILD = "v0.1.1";
 
     const mapEl = document.getElementById("heroMap");
+    const langToggle = document.getElementById("langToggle");
 
     function setMap(key) {
       if (!MAPS[key]) return;
@@ -254,20 +259,22 @@
         const key = btn.getAttribute("data-i18n");
         btn.textContent = t[key] || btn.textContent;
       });
+
+      langToggle.classList.toggle("is-en-active", lang === "en");
     }
 
     document.querySelectorAll("[data-map]").forEach(btn => {
       btn.addEventListener("click", () => setMap(btn.dataset.map));
     });
 
-    document.getElementById("langToggle").addEventListener("click", () => {
+    langToggle.addEventListener("click", () => {
       setLang(lang === "en" ? "zh" : "en");
     });
 
     const buildEl = document.getElementById("buildVersion");
     if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
 
-    setMap("currents");
+    setMap("water");
     setLang("en");
   </script>
 </body>
