@@ -179,7 +179,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   width:106%;
   height:110%;
   border:0;
-  filter: saturate(1.18) contrast(1.12) brightness(1.04);
+  filter: saturate(1.08) contrast(1.06);
   pointer-events:none;
 }
 
@@ -255,8 +255,16 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   inset:0;
   pointer-events:none;
   background:
-    radial-gradient(620px 380px at 14% 30%, rgba(246,247,250,.22), transparent 68%),
-    linear-gradient(180deg, rgba(246,247,250,.04), rgba(246,247,250,.14));
+    radial-gradient(560px 320px at 14% 24%, rgba(246,247,250,.16), transparent 70%),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 33%,
+      rgba(246,247,250,.18) 36%,
+      rgba(246,247,250,.62) 43%,
+      rgba(246,247,250,.9) 50%,
+      var(--hero-fade) 58%
+    );
 }
 
 .hero-fade-bottom{
@@ -264,10 +272,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   left:0;
   right:0;
   bottom:0;
-  height:40%;
+  height:18%;
   pointer-events:none;
   z-index:1;
-  background: linear-gradient(180deg, transparent 0%, transparent 42%, rgba(246,247,250,.28) 62%, rgba(246,247,250,.9) 84%, var(--hero-fade) 100%);
+  background: linear-gradient(180deg, transparent 0%, var(--hero-fade) 100%);
 }
 
 .hero-grain{
