@@ -47,16 +47,19 @@
 
         <div class="hero-overlay"></div>
         <div class="hero-grain"></div>
+        <div class="hero-fade-bottom" aria-hidden="true"></div>
       </div>
 
       <div class="container hero-inner">
-        <p class="kicker" id="kickerText">AI for the Built Environment</p>
-        <h1 id="heroTitle">Practical AI-assisted tools<br/>for architecture workflows.</h1>
+        <div class="hero-copy">
+          <p class="kicker" id="kickerText">AI for the Built Environment</p>
+          <h1 id="heroTitle">Practical AI-assisted tools<br/>for architecture workflows.</h1>
 
-        <p class="lead" id="heroLead">
-          I build reproducible systems: Python scripts + headed tools (Rhino/Grasshopper, Revit/Dynamo) + clear constraints.
-          Not magic prompts.
-        </p>
+          <p class="lead" id="heroLead">
+            I build reproducible systems: Python scripts + headed tools (Rhino/Grasshopper, Revit/Dynamo) + clear constraints.
+            Not magic prompts.
+          </p>
+        </div>
 
         <div class="hero-cards">
           <div class="mini-card">
@@ -119,7 +122,7 @@
       <div>
         <div class="footer-brand">[i] Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.5</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.6</div>
       </div>
 
       <div class="footer-links">
@@ -206,7 +209,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.5";
+const BUILD = "v0.1.6";
 
 const mapEl = document.getElementById("heroMap");
 let currentMapKey = null;
