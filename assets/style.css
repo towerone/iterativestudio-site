@@ -201,9 +201,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   z-index:6;
   display:flex;
   align-items:center;
+  justify-content:flex-end;
   gap:10px;
   flex-wrap:wrap;
-  max-width:680px;
+  width:100%;
   margin:12px 0 10px;
   pointer-events:none;
 }
@@ -373,11 +374,12 @@ h1{
 }
 
 .mini-card{
-  background: var(--panel);
-  border: 1px solid var(--line);
+  background: rgba(255,255,255,.30);
+  border: 1px solid rgba(255,255,255,.38);
   border-radius: var(--radius);
   padding: 14px 14px;
   box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
 }
 
 .mini-title{
