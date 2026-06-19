@@ -374,6 +374,10 @@ h1{
 
 .hero-copy .lead{
   margin-top: 12.5vh;
+  color: rgba(255,255,255,.92);
+  font-size: 16px;
+  line-height: 1.55;
+  text-shadow: 0 2px 14px rgba(0,0,0,.32);
 }
 
 .hero-cards{
