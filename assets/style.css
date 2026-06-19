@@ -259,11 +259,15 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
     linear-gradient(
       180deg,
       transparent 0%,
-      transparent 33%,
-      rgba(246,247,250,.18) 36%,
-      rgba(246,247,250,.62) 43%,
-      rgba(246,247,250,.9) 50%,
-      var(--hero-fade) 58%
+      transparent 38%,
+      rgba(246,247,250,.14) 41%,
+      rgba(246,247,250,.52) 47%,
+      rgba(246,247,250,.74) 54%,
+      rgba(246,247,250,.84) 64%,
+      rgba(246,247,250,.9) 76%,
+      rgba(246,247,250,.94) 88%,
+      rgba(246,247,250,.97) 96%,
+      var(--hero-fade) 100%
     );
 }
 
@@ -272,10 +276,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   left:0;
   right:0;
   bottom:0;
-  height:18%;
+  height:12%;
   pointer-events:none;
   z-index:1;
-  background: linear-gradient(180deg, transparent 0%, var(--hero-fade) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(246,247,250,.35) 100%);
 }
 
 .hero-grain{
