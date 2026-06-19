@@ -384,7 +384,7 @@ h1{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:16px;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .mini-card{
@@ -565,7 +565,7 @@ h1{
   .hero{ min-height: min(79vh, 792px); }
   .hero-inner{ padding: 28px 0 68px; }
   .hero-copy .lead{ margin-top: 10.5vh; }
-  .hero-cards{ grid-template-columns: 1fr; margin-top: 32px; }
+  .hero-cards{ grid-template-columns: 1fr; margin-top: 8px; }
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .section-head{ flex-direction: column; align-items:flex-start; }
