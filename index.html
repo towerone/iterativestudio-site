@@ -7,7 +7,7 @@
   <meta name="description" content="Iterative Studio builds AI-assisted tools for building design and construction workflows. Python scripting, computational design, and headed CAD/BIM pipelines." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
 
@@ -16,13 +16,13 @@
     <div class="container header-inner">
       <a class="brand" href="/">
         <span class="brand-mark">[i]</span>
-        <span class="brand-name">Iterative Studio</span>
+        <span class="brand-name header-link">Iterative Studio</span>
       </a>
 
       <nav class="nav">
-        <a href="/projects/" id="navProjects">Projects</a>
-        <a href="/about/" id="navAbout">About</a>
-        <a href="/contact/" id="navContact">Contact</a>
+        <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+        <a class="header-link" href="/about/" id="navAbout">About</a>
+        <a class="header-link" href="/contact/" id="navContact">Contact</a>
 
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
           <span class="lang-top">EN</span>
@@ -128,7 +128,7 @@
       <div>
         <div class="footer-brand">[i] Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.18</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.19</div>
       </div>
 
       <div class="footer-links">
@@ -215,7 +215,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.18";
+const BUILD = "v0.1.19";
 
 const mapEl = document.getElementById("heroMap");
 let currentMapKey = null;
