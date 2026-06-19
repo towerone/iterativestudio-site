@@ -179,7 +179,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   width:106%;
   height:110%;
   border:0;
-  filter: saturate(1.05) contrast(1.05);
+  filter: saturate(1.18) contrast(1.12) brightness(1.04);
   pointer-events:none;
 }
 
@@ -255,9 +255,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   inset:0;
   pointer-events:none;
   background:
-    radial-gradient(900px 520px at 20% 20%, rgba(74,127,212,.10), transparent 55%),
-    radial-gradient(900px 520px at 90% 10%, rgba(46,168,122,.08), transparent 55%),
-    linear-gradient(180deg, rgba(246,247,250,.42), rgba(246,247,250,.78));
+    radial-gradient(620px 380px at 14% 30%, rgba(246,247,250,.22), transparent 68%),
+    linear-gradient(180deg, rgba(246,247,250,.04), rgba(246,247,250,.14));
 }
 
 .hero-fade-bottom{
@@ -265,10 +264,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   left:0;
   right:0;
   bottom:0;
-  height:48%;
+  height:40%;
   pointer-events:none;
   z-index:1;
-  background: linear-gradient(180deg, transparent 0%, rgba(246,247,250,.55) 38%, rgba(246,247,250,.94) 72%, var(--hero-fade) 100%);
+  background: linear-gradient(180deg, transparent 0%, transparent 42%, rgba(246,247,250,.28) 62%, rgba(246,247,250,.9) 84%, var(--hero-fade) 100%);
 }
 
 .hero-grain{
@@ -277,7 +276,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   pointer-events:none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
-  opacity:.12;
+  opacity:.05;
 }
 
 .hero-inner{
@@ -301,6 +300,12 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   margin-left:0;
   padding-left:0;
   text-align:left;
+}
+
+.hero-copy .kicker,
+.hero-copy h1{
+  color: rgba(255,255,255,.96);
+  text-shadow: 0 2px 18px rgba(0,0,0,.38);
 }
 
 .hero-copy h1{
