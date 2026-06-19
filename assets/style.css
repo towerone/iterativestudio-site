@@ -89,9 +89,9 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:6px;
+  gap:4px;
   width:48px;
-  height:40px;
+  height:34px;
   border-radius:12px;
   background: linear-gradient(135deg, rgba(120,166,255,.22), rgba(155,255,207,.12));
   border: 1px solid rgba(255,255,255,.14);
@@ -110,8 +110,19 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
   line-height: 1;
 }
 
+.lang-bottom{
+  font-size: 9px;
+}
+
+.lang-toggle.is-en-active .lang-top{
+  color: rgba(255,255,255,.98);
+  text-shadow:
+    0 0 8px rgba(120,166,255,.75),
+    0 0 16px rgba(155,255,207,.45);
+}
+
 .lang-divider{
-  width:20px;
+  width:18px;
   height:1px;
   background: rgba(255,255,255,.35);
 }
@@ -179,7 +190,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
 .hero-inner{
   position:relative;
   z-index:2;
-  padding: 72px 0 64px;
+  padding: 56px 0 48px;
 }
 
 .kicker{
