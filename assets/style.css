@@ -192,12 +192,13 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
 .hero-controls-bottom{
   top: auto;
   bottom: 16px;
-  justify-content:space-between;
+  justify-content:flex-end;
 }
 
 .hero-controls-left,
 .hero-controls-right{
   display:flex;
+  align-items:center;
   gap:10px;
   flex-wrap:wrap;
 }
@@ -205,27 +206,27 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
 .map-mode{
   font-size: 12px;
   color: rgba(255,255,255,.70);
-  background: rgba(0,0,0,.22);
-  border: 1px solid rgba(255,255,255,.14);
-  padding: 6px 10px;
-  border-radius: 999px;
-  backdrop-filter: blur(10px);
+  line-height: 1.2;
+  align-self:center;
 }
 
 .pill{
   appearance:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  padding:0;
   border: 1px solid rgba(255,255,255,.22);
   background: rgba(0,0,0,.28);
   color: rgba(255,255,255,.90);
-  padding: 8px 10px;
-  border-radius: 999px;
+  border-radius: 50%;
   font: inherit;
   font-size: 12px;
   letter-spacing: .02em;
   cursor: pointer;
   backdrop-filter: blur(10px);
-  min-width: 34px;
-  text-align: center;
   font-weight: 600;
 }
 
@@ -346,6 +347,12 @@ h1{
   margin:0;
   color: var(--muted);
   max-width: 60ch;
+}
+
+#what-i-do .section-head{
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
 }
 
 .grid-2{
