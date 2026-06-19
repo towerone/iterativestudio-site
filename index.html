@@ -54,18 +54,20 @@
         <div class="hero-copy">
           <p class="kicker" id="kickerText">AI for the Built Environment</p>
           <h1 id="heroTitle">Practical AI-assisted tools<br/>for architecture workflows.</h1>
+        </div>
 
+        <div class="hero-action-row">
           <p class="lead" id="heroLead">
             Building reproducible systems: Python scripts + headed tools (Rhino/Grasshopper, Revit/Dynamo) + clear constraints.
             Not magic prompts.
           </p>
-        </div>
 
-        <div class="hero-map-controls" aria-hidden="false">
-          <span class="map-mode" id="mapModeLabel">ocean-currents</span>
-          <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
-          <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
-          <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
+          <div class="hero-map-controls" aria-hidden="false">
+            <span class="map-mode" id="mapModeLabel">ocean-currents</span>
+            <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
+            <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
+            <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
+          </div>
         </div>
 
         <div class="hero-cards">
@@ -120,7 +122,7 @@
       <div>
         <div class="footer-brand">[i] Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.27</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.28</div>
       </div>
 
       <div class="footer-links">
@@ -207,7 +209,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.27";
+const BUILD = "v0.1.28";
 
 const mapEl = document.getElementById("heroMap");
 let currentMapKey = null;
