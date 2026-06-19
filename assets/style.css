@@ -497,7 +497,7 @@ h1{
 
 #what-i-do{
   padding-top: var(--stack-gap);
-  padding-bottom: 0;
+  padding-bottom: var(--stack-gap);
 }
 
 .section-muted{
