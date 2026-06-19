@@ -42,8 +42,11 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   position:sticky;
   top:0;
   z-index:10;
-  background: transparent;
-  border-bottom: none;
+  width:100%;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
 }
 
 .header-inner{
@@ -51,8 +54,6 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   align-items:center;
   justify-content:space-between;
   padding:14px 0;
-  background: rgba(255,255,255,.82);
-  backdrop-filter: blur(10px);
 }
 
 .brand{
@@ -299,7 +300,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   flex-direction:column;
   justify-content:flex-start;
   min-height: inherit;
-  padding: 34px 0 80px;
+  padding: 34px 0 24px;
   pointer-events:none;
 }
 
@@ -418,7 +419,11 @@ h1{
   align-items:stretch;
   gap:12px;
   width:100%;
-  margin-top:14px;
+  margin-top:auto;
+  padding-top:24px;
+  margin-bottom:-32px;
+  position:relative;
+  z-index:3;
 }
 
 .carousel-viewport{
@@ -488,6 +493,10 @@ h1{
 
 .section{
   padding: 54px 0;
+}
+
+#what-i-do{
+  padding-top: 36px;
 }
 
 .section-muted{
@@ -645,7 +654,8 @@ h1{
   }
   .hero-map-controls{ width:100%; justify-content:flex-end; }
   .hero-cards{ grid-template-columns: 1fr; }
-  .project-carousel{ gap:8px; margin-top:12px; }
+  .project-carousel{ gap:8px; padding-top:18px; margin-bottom:-20px; }
+  #what-i-do{ padding-top: 28px; }
   .carousel-arrow{ flex-basis:40px; min-height:176px; font-size:26px; }
   .carousel-viewport,
   .carousel-slide{ min-height:176px; }
