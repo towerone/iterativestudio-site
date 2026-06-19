@@ -196,10 +196,10 @@ const labelEl = document.getElementById("mapModeLabel");
 if (labelEl) {
 const labels = {
 currents: "ocean-currents",
-wind: "air<br>wind",
-pm1: "parti - PM2.5"
+wind: "air-wind",
+pm1: "pollution-PM2.5"
 };
-labelEl.innerHTML = labels[key] || key;
+labelEl.textContent = labels[key] || key;
 }
 }
 
