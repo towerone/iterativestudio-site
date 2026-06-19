@@ -338,6 +338,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   text-shadow: 0 2px 14px rgba(0,0,0,.32);
 }
 
+.lead-finish{
+  white-space:nowrap;
+}
+
 .hero-copy .kicker,
 .hero-copy h1{
   color: rgba(255,255,255,.96);
