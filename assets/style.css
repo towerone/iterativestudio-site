@@ -465,7 +465,7 @@ h1{
   align-items:center;
   justify-content:center;
   min-height:230px;
-  border: none;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   background: transparent;
   color: var(--muted);
@@ -473,12 +473,13 @@ h1{
   line-height:1;
   cursor:pointer;
   box-shadow: none;
-  transition: color .15s ease, opacity .15s ease;
+  transition: color .15s ease, opacity .15s ease, border-color .15s ease;
 }
 
 .carousel-arrow:hover{
   color: var(--text);
   opacity: .92;
+  border-color: rgba(74,127,212,.28);
 }
 
 .carousel-arrow span{
