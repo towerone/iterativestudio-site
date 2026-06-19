@@ -82,7 +82,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
   color: var(--muted);
 }
 
-/* Align language toggle with Contact button */
+/* Align language toggle with nav links */
 .lang-toggle{
   margin-left: 2px;
   align-self: center;
@@ -169,7 +169,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
 
 .hero-iframe{
   position:absolute;
-  top:-6%;
+  top:-10%;
   left:-3%;
   width:106%;
   height:110%;
