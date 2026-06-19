@@ -82,6 +82,40 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
   color: var(--muted);
 }
 
+/* Language toggle styled to visually match the [i] brand mark */
+.lang-toggle{
+  appearance:none;
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  width:48px;
+  height:40px;
+  border-radius:12px;
+  background: linear-gradient(135deg, rgba(120,166,255,.22), rgba(155,255,207,.12));
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  color: rgba(255,255,255,.88);
+  font: inherit;
+  cursor:pointer;
+  padding:0;
+}
+
+.lang-toggle:hover{ filter: brightness(1.06); }
+
+.lang-top, .lang-bottom{
+  font-size: 11px;
+  letter-spacing: .06em;
+  line-height: 1;
+}
+
+.lang-divider{
+  width:20px;
+  height:1px;
+  background: rgba(255,255,255,.35);
+}
+
 .btn{
   display:inline-flex;
   align-items:center;
