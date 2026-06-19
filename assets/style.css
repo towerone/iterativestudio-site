@@ -181,11 +181,16 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
   top:14px;
   left:14px;
   right:14px;
-  z-index:4;
+  z-index:6;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
+  pointer-events:none;
+}
+
+.hero-controls .pill,
+.hero-controls .map-mode{
   pointer-events:auto;
 }
 
@@ -239,6 +244,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
 .hero-overlay{
   position:absolute;
   inset:0;
+  pointer-events:none;
   background:
     radial-gradient(900px 520px at 20% 20%, rgba(120,166,255,.18), transparent 55%),
     radial-gradient(900px 520px at 90% 10%, rgba(155,255,207,.12), transparent 55%),
@@ -248,6 +254,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
 .hero-grain{
   position:absolute;
   inset:0;
+  pointer-events:none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
   opacity:.35;
@@ -261,8 +268,14 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
 }
 
 .hero-inner a,
-.hero-inner button{
+.hero-inner button,
+.hero-inner .btn{
   pointer-events:auto;
+}
+
+.hero-cards,
+.mini-card{
+  pointer-events:none;
 }
 
 .kicker{
