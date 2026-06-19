@@ -331,14 +331,14 @@ h1{
 }
 
 .hero-copy .lead{
-  margin-top: 6.8vh;
+  margin-top: 13.6vh;
 }
 
 .hero-cards{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:16px;
-  margin-top: 40px;
+  margin-top: 44px;
 }
 
 .mini-card{
@@ -518,8 +518,8 @@ h1{
 @media (max-width: 900px){
   .hero{ min-height: min(79vh, 792px); }
   .hero-inner{ padding: 38px 0 68px; }
-  .hero-copy .lead{ margin-top: 5.8vh; }
-  .hero-cards{ grid-template-columns: 1fr; margin-top: 32px; }
+  .hero-copy .lead{ margin-top: 11.6vh; }
+  .hero-cards{ grid-template-columns: 1fr; margin-top: 36px; }
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .section-head{ flex-direction: column; align-items:flex-start; }
