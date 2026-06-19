@@ -24,7 +24,11 @@
         <a href="/about/">About</a>
         <a href="/contact/" class="btn btn-small">Contact</a>
 
-        <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">EN<br>中文</button>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+          <span class="lang-top">EN</span>
+          <span class="lang-divider"></span>
+          <span class="lang-bottom">中文</span>
+        </button>
       </nav>
     </div>
   </header>
@@ -42,6 +46,10 @@
         ></iframe>
 
         <div class="hero-controls hero-controls-bottom" aria-hidden="false">
+          <div class="hero-controls-left">
+            <span class="map-mode" id="mapModeLabel">Wind</span>
+          </div>
+
           <div class="hero-controls-right">
             <button class="pill is-active" type="button" data-map="wind" aria-label="Wind">W</button>
             <button class="pill" type="button" data-map="air" aria-label="Air">A</button>
@@ -224,10 +232,25 @@
 
     function setMap(key) {
       if (!MAPS[key]) return;
-      mapEl.src = MAPS[key];
+
+      const nextUrl = MAPS[key];
+
+      if (mapEl.src === nextUrl) {
+        mapEl.src = "about:blank";
+        setTimeout(() => { mapEl.src = nextUrl; }, 20);
+      } else {
+        mapEl.src = nextUrl;
+      }
+
       document.querySelectorAll("[data-map]").forEach(btn => {
         btn.classList.toggle("is-active", btn.dataset.map === key);
       });
+
+      const labelEl = document.getElementById("mapModeLabel");
+      if (labelEl) {
+        const labels = { wind: "Wind", air: "Air", pollution: "Pollution" };
+        labelEl.textContent = labels[key] || key;
+      }
     }
 
     let lang = "en";
