@@ -20,9 +20,9 @@
       </a>
 
       <nav class="nav">
-        <a href="/projects/">Projects</a>
-        <a href="/about/">About</a>
-        <a href="/contact/" class="btn btn-small">Contact</a>
+        <a href="/projects/" id="navProjects">Projects</a>
+        <a href="/about/" id="navAbout">About</a>
+        <a href="/contact/" class="btn btn-small" id="navContact">Contact</a>
 
         <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
           <span class="lang-top">EN</span>
@@ -58,11 +58,6 @@
           Not magic prompts.
         </p>
 
-        <div class="hero-actions">
-          <a class="btn" href="/projects/">View Projects</a>
-          <a class="btn btn-ghost" href="/about/">About</a>
-        </div>
-
         <div class="hero-cards">
           <div class="mini-card">
             <div class="mini-title" id="card1Title">Computational Design</div>
@@ -94,29 +89,24 @@
 
     <section class="section" id="what-i-do">
       <div class="container">
-        <div class="section-head">
-          <h2>Mythologies → mechanisms</h2>
-          <p>Turn fuzzy design beliefs into testable systems: constraints, scripts, and repeatable outputs.</p>
-        </div>
-
         <div class="grid-2">
           <div class="panel">
-            <h3>Computational design systems</h3>
-            <p>Parametric models that preserve intent: controllable geometry, readable parameters, and predictable behavior.</p>
+            <h3 id="panel1Title">Computational design systems</h3>
+            <p id="panel1Body">Parametric models that preserve intent: controllable geometry, readable parameters, and predictable behavior.</p>
             <ul class="bullets">
-              <li>Constraint-first setup</li>
-              <li>Geometry that stays editable</li>
-              <li>Rationalization + documentation</li>
+              <li id="panel1Li1">Constraint-first setup</li>
+              <li id="panel1Li2">Geometry that stays editable</li>
+              <li id="panel1Li3">Rationalization + documentation</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h3>Automation + AI assist (headed)</h3>
-            <p>AI supports drafting and debugging, but production stays inside Rhino/Revit where you can verify every step.</p>
+            <h3 id="panel2Title">Automation + AI assist (headed)</h3>
+            <p id="panel2Body">AI supports drafting and debugging, but production stays inside Rhino/Revit where you can verify every step.</p>
             <ul class="bullets">
-              <li>Scripted generators & checkers</li>
-              <li>Versioned assumptions</li>
-              <li>Hand-off ready outputs</li>
+              <li id="panel2Li1">Scripted generators & checkers</li>
+              <li id="panel2Li2">Versioned assumptions</li>
+              <li id="panel2Li3">Hand-off ready outputs</li>
             </ul>
           </div>
         </div>
@@ -128,14 +118,14 @@
     <div class="container footer-inner">
       <div>
         <div class="footer-brand">[i] Iterative Studio</div>
-        <div class="footer-note">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.4</div>
+        <div class="footer-note" id="footerNote">AI for the Built Environment</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.5</div>
       </div>
 
       <div class="footer-links">
-        <a href="/projects/">Projects</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
+        <a href="/projects/" id="footerProjects">Projects</a>
+        <a href="/about/" id="footerAbout">About</a>
+        <a href="/contact/" id="footerContact">Contact</a>
       </div>
     </div>
   </footer>
@@ -157,7 +147,29 @@ c1b: "Rules, parameters, constraints, repeatable intent.",
 c2t: "Python Scripting",
 c2b: "Geometry, drawings, automation, auditability.",
 c3t: "AI Assistance",
-c3b: "Structure intent, generate/debug code, document systems."
+c3b: "Structure intent, generate/debug code, document systems.",
+navProjects: "Projects",
+navAbout: "About",
+navContact: "Contact",
+panel1Title: "Computational design systems",
+panel1Body: "Parametric models that preserve intent: controllable geometry, readable parameters, and predictable behavior.",
+panel1Li1: "Constraint-first setup",
+panel1Li2: "Geometry that stays editable",
+panel1Li3: "Rationalization + documentation",
+panel2Title: "Automation + AI assist (headed)",
+panel2Body: "AI supports drafting and debugging, but production stays inside Rhino/Revit where you can verify every step.",
+panel2Li1: "Scripted generators & checkers",
+panel2Li2: "Versioned assumptions",
+panel2Li3: "Hand-off ready outputs",
+footerNote: "AI for the Built Environment",
+footerProjects: "Projects",
+footerAbout: "About",
+footerContact: "Contact",
+mapLabels: {
+currents: "ocean-currents",
+wind: "air-wind",
+pm1: "pollution-PM2.5"
+}
 },
 zh: {
 kicker: "建築與環境的 AI 工具",
@@ -168,11 +180,33 @@ c1b: "規則、參數、約束，讓意圖可重複。",
 c2t: "Python 腳本",
 c2b: "幾何、圖面、自動化，可驗證。",
 c3t: "AI 助手",
-c3b: "把意圖結構化，產生/除錯程式碼，整理文件。"
+c3b: "把意圖結構化，產生/除錯程式碼，整理文件。",
+navProjects: "專案",
+navAbout: "關於",
+navContact: "聯絡",
+panel1Title: "計算式設計系統",
+panel1Body: "保留設計意圖的參數化模型：可控制的幾何、可讀的參數、可預測的行為。",
+panel1Li1: "約束優先的設定",
+panel1Li2: "保持可編輯的幾何",
+panel1Li3: "合理化與文件化",
+panel2Title: "自動化 + AI 輔助（有頭）",
+panel2Body: "AI 協助繪圖與除錯，但產出仍留在 Rhino/Revit 內，每一步都可驗證。",
+panel2Li1: "腳本生成器與檢查器",
+panel2Li2: "版本化的假設",
+panel2Li3: "可交付的輸出",
+footerNote: "建築與環境的 AI 工具",
+footerProjects: "專案",
+footerAbout: "關於",
+footerContact: "聯絡",
+mapLabels: {
+currents: "海洋-洋流",
+wind: "空氣-風",
+pm1: "污染-PM2.5"
+}
 }
 };
 
-const BUILD = "v0.1.4";
+const BUILD = "v0.1.5";
 
 const mapEl = document.getElementById("heroMap");
 let currentMapKey = null;
@@ -192,21 +226,21 @@ document.querySelectorAll("[data-map]").forEach(btn => {
 btn.classList.toggle("is-active", btn.dataset.map === key);
 });
 
-const labelEl = document.getElementById("mapModeLabel");
-if (labelEl) {
-const labels = {
-currents: "ocean-currents",
-wind: "air-wind",
-pm1: "pollution-PM2.5"
-};
-labelEl.textContent = labels[key] || key;
+updateMapLabel();
 }
+
+function updateMapLabel() {
+const labelEl = document.getElementById("mapModeLabel");
+if (!labelEl || !currentMapKey) return;
+labelEl.textContent = i18n[lang].mapLabels[currentMapKey] || currentMapKey;
 }
 
 let lang = "en";
 function setLang(next) {
 lang = next;
 const t = i18n[lang];
+
+document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
 
 if (langToggleEl) {
 langToggleEl.classList.toggle("is-en-active", lang === "en");
@@ -222,6 +256,29 @@ document.getElementById("card2Title").innerHTML = t.c2t;
 document.getElementById("card2Body").innerHTML = t.c2b;
 document.getElementById("card3Title").innerHTML = t.c3t;
 document.getElementById("card3Body").innerHTML = t.c3b;
+
+document.getElementById("navProjects").textContent = t.navProjects;
+document.getElementById("navAbout").textContent = t.navAbout;
+document.getElementById("navContact").textContent = t.navContact;
+
+document.getElementById("panel1Title").textContent = t.panel1Title;
+document.getElementById("panel1Body").textContent = t.panel1Body;
+document.getElementById("panel1Li1").textContent = t.panel1Li1;
+document.getElementById("panel1Li2").textContent = t.panel1Li2;
+document.getElementById("panel1Li3").textContent = t.panel1Li3;
+
+document.getElementById("panel2Title").textContent = t.panel2Title;
+document.getElementById("panel2Body").textContent = t.panel2Body;
+document.getElementById("panel2Li1").textContent = t.panel2Li1;
+document.getElementById("panel2Li2").textContent = t.panel2Li2;
+document.getElementById("panel2Li3").textContent = t.panel2Li3;
+
+document.getElementById("footerNote").textContent = t.footerNote;
+document.getElementById("footerProjects").textContent = t.footerProjects;
+document.getElementById("footerAbout").textContent = t.footerAbout;
+document.getElementById("footerContact").textContent = t.footerContact;
+
+updateMapLabel();
 }
 
 document.querySelectorAll("[data-map]").forEach(btn => {
