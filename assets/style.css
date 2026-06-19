@@ -296,6 +296,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
   text-align:left;
 }
 
+.hero-copy h1{
+  margin-top: 1.7vh;
+}
+
 .hero-inner a,
 .hero-inner button,
 .hero-inner .btn{
