@@ -45,17 +45,17 @@
           tabindex="-1"
         ></iframe>
 
-        <div class="hero-controls hero-controls-bottom" aria-hidden="false">
-          <div class="hero-controls-right">
-            <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
-            <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
-            <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
-            <span class="map-mode" id="mapModeLabel">ocean-currents</span>
-          </div>
-        </div>
-
         <div class="hero-overlay"></div>
         <div class="hero-grain"></div>
+      </div>
+
+      <div class="hero-controls hero-controls-bottom" aria-hidden="false">
+        <div class="hero-controls-right">
+          <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
+          <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
+          <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
+          <span class="map-mode" id="mapModeLabel">ocean-currents</span>
+        </div>
       </div>
 
       <div class="container hero-inner">
@@ -180,8 +180,12 @@ let currentMapKey = null;
 function setMap(key) {
 if (!MAPS[key]) return;
 const nextUrl = MAPS[key];
+if (currentMapKey === key) {
 mapEl.src = "about:blank";
-setTimeout(() => { mapEl.src = nextUrl; }, 20);
+setTimeout(() => { mapEl.src = nextUrl; }, 50);
+} else {
+mapEl.src = nextUrl;
+}
 currentMapKey = key;
 
 document.querySelectorAll("[data-map]").forEach(btn => {

@@ -181,7 +181,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
   top:14px;
   left:14px;
   right:14px;
-  z-index:3;
+  z-index:4;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -257,6 +257,12 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(255,255,255,.25)
   position:relative;
   z-index:2;
   padding: 54px 0 54px;
+  pointer-events:none;
+}
+
+.hero-inner a,
+.hero-inner button{
+  pointer-events:auto;
 }
 
 .kicker{
