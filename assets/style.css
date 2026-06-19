@@ -20,7 +20,7 @@
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html,body{ min-height:100%; }
 html{ color-scheme: light; }
 body{
   margin:0;
@@ -174,7 +174,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero{
   position:relative;
-  overflow:hidden;
+  overflow:visible;
   min-height: min(85vh, 902px);
   border-bottom: none;
 }
@@ -183,6 +183,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   position:absolute;
   inset:0;
   z-index:0;
+  overflow:hidden;
+  pointer-events:none;
 }
 
 .hero-iframe{
@@ -423,10 +425,10 @@ h1{
   flex:1;
   overflow:hidden;
   border-radius: var(--radius);
-  border: 1px solid var(--line);
+  border: 2px solid var(--line);
   background: #ffffff;
   box-shadow: var(--shadow);
-  min-height: 288px;
+  min-height: 230px;
 }
 
 .carousel-track{
@@ -440,8 +442,8 @@ h1{
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:288px;
-  padding:32px 24px;
+  min-height:230px;
+  padding:26px 24px;
   font-size: clamp(20px, 2.4vw, 28px);
   font-weight:600;
   letter-spacing:-0.01em;
@@ -457,22 +459,21 @@ h1{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height:288px;
-  border: 1px solid var(--line);
+  min-height:230px;
+  border: none;
   border-radius: var(--radius);
-  background: #ffffff;
+  background: transparent;
   color: var(--muted);
   font-size: 32px;
   line-height:1;
   cursor:pointer;
-  box-shadow: var(--shadow);
-  transition: filter .15s ease, border-color .15s ease, color .15s ease;
+  box-shadow: none;
+  transition: color .15s ease, opacity .15s ease;
 }
 
 .carousel-arrow:hover{
-  filter: brightness(1.04);
-  border-color: rgba(74,127,212,.28);
   color: var(--text);
+  opacity: .92;
 }
 
 .carousel-arrow span{
@@ -645,9 +646,9 @@ h1{
   .hero-map-controls{ width:100%; justify-content:flex-end; }
   .hero-cards{ grid-template-columns: 1fr; }
   .project-carousel{ gap:8px; margin-top:12px; }
-  .carousel-arrow{ flex-basis:40px; min-height:220px; font-size:26px; }
+  .carousel-arrow{ flex-basis:40px; min-height:176px; font-size:26px; }
   .carousel-viewport,
-  .carousel-slide{ min-height:220px; }
+  .carousel-slide{ min-height:176px; }
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .section-head{ flex-direction: column; align-items:flex-start; }
