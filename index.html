@@ -24,11 +24,7 @@
         <a href="/about/">About</a>
         <a href="/contact/" class="btn btn-small">Contact</a>
 
-        <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
-          <span class="lang-top">EN</span>
-          <span class="lang-divider"></span>
-          <span class="lang-bottom">中文</span>
-        </button>
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">EN<br>中文</button>
       </nav>
     </div>
   </header>
@@ -47,10 +43,9 @@
 
         <div class="hero-controls hero-controls-bottom" aria-hidden="false">
           <div class="hero-controls-right">
-            <button class="pill is-active" type="button" data-map="water" data-i18n="water">Water</button>
-            <button class="pill" type="button" data-map="wind" data-i18n="wind">Wind</button>
-            <button class="pill" type="button" data-map="air" data-i18n="air">Air</button>
-            <button class="pill" type="button" data-map="pollution" data-i18n="pollution">Pollution</button>
+            <button class="pill is-active" type="button" data-map="wind" aria-label="Wind">W</button>
+            <button class="pill" type="button" data-map="air" aria-label="Air">A</button>
+            <button class="pill" type="button" data-map="pollution" aria-label="Pollution">P</button>
           </div>
         </div>
 
@@ -187,15 +182,13 @@
 
   <script>
     const MAPS = {
-      water: "https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=121,23,700",
       wind: "https://earth.nullschool.net/#current/wind/surface/level/orthographic=121,23,700",
-      air: "https://earth.nullschool.net/#current/chem/surface/level/orthographic=121,23,700",
-      pollution: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/orthographic=121,23,700"
+      air: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/orthographic=121,23,700",
+      pollution: "https://earth.nullschool.net/#current/chem/surface/level/overlay=co/orthographic=121,23,700"
     };
 
     const i18n = {
       en: {
-        water: "Water",
         wind: "Wind",
         air: "Air",
         pollution: "Pollution",
@@ -210,7 +203,6 @@
         c3b: "Structure intent, generate/debug code, document systems."
       },
       zh: {
-        water: "水",
         wind: "風",
         air: "空氣",
         pollution: "污染",
@@ -229,7 +221,6 @@
     const BUILD = "v0.1.1";
 
     const mapEl = document.getElementById("heroMap");
-    const langToggle = document.getElementById("langToggle");
 
     function setMap(key) {
       if (!MAPS[key]) return;
@@ -244,6 +235,10 @@
       lang = next;
       const t = i18n[lang];
 
+      if (langToggleEl) {
+        langToggleEl.classList.toggle("is-en-active", lang === "en");
+      }
+
       document.getElementById("kickerText").innerHTML = t.kicker;
       document.getElementById("heroTitle").innerHTML = t.title;
       document.getElementById("heroLead").innerHTML = t.lead;
@@ -254,27 +249,21 @@
       document.getElementById("card2Body").innerHTML = t.c2b;
       document.getElementById("card3Title").innerHTML = t.c3t;
       document.getElementById("card3Body").innerHTML = t.c3b;
-
-      document.querySelectorAll("[data-i18n]").forEach(btn => {
-        const key = btn.getAttribute("data-i18n");
-        btn.textContent = t[key] || btn.textContent;
-      });
-
-      langToggle.classList.toggle("is-en-active", lang === "en");
     }
 
     document.querySelectorAll("[data-map]").forEach(btn => {
       btn.addEventListener("click", () => setMap(btn.dataset.map));
     });
 
-    langToggle.addEventListener("click", () => {
+    const langToggleEl = document.getElementById("langToggle");
+    langToggleEl.addEventListener("click", () => {
       setLang(lang === "en" ? "zh" : "en");
     });
 
     const buildEl = document.getElementById("buildVersion");
     if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
 
-    setMap("water");
+    setMap("wind");
     setLang("en");
   </script>
 </body>
