@@ -321,7 +321,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-copy h1{
   margin-top: 1.2vh;
-  margin-left: 2%;
+  margin-left: 1%;
 }
 
 .hero-inner a,
@@ -359,7 +359,7 @@ h1{
 }
 
 .hero-copy .lead{
-  margin-top: 12.5vh;
+  margin-top: 13.5vh;
   color: rgba(255,255,255,.92);
   font-size: 16px;
   line-height: 1.55;
@@ -374,8 +374,8 @@ h1{
 }
 
 .mini-card{
-  background: rgba(255,255,255,.30);
-  border: 1px solid rgba(255,255,255,.38);
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.22);
   border-radius: var(--radius);
   padding: 14px 14px;
   box-shadow: var(--shadow);
@@ -551,7 +551,7 @@ h1{
 @media (max-width: 900px){
   .hero{ min-height: min(79vh, 792px); }
   .hero-inner{ padding: 28px 0 68px; }
-  .hero-copy .lead{ margin-top: 10.5vh; }
+  .hero-copy .lead{ margin-top: 11.3vh; }
   .hero-cards{ grid-template-columns: 1fr; margin-top: 8px; }
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
