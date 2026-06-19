@@ -1,170 +1,198 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Iterative Studio | AI for the Built Environment</title>
-<meta name="description" content="Iterative Studio builds AI-assisted tools for building design and construction workflows. Python scripting, computational design, and headed CAD/BIM pipelines." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Iterative Studio | AI for the Built Environment</title>
+  <meta name="description" content="Iterative Studio builds AI-assisted tools for building design and construction workflows. Python scripting, computational design, and headed CAD/BIM pipelines." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
 </head>
+
 <body>
-<header class="site-header">
-<div class="container header-inner">
-<a class="brand" href="/">
-<span class="brand-mark">[i]</span>
-<span class="brand-name">Iterative Studio</span>
-</a>
-<nav class="nav">
-<a href="/projects/">Projects</a>
-<a href="/about/">About</a>
-<a href="/contact/" class="btn btn-small">Contact</a>
-<button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
-<span class="lang-top">EN</span>
-<span class="lang-divider"></span>
-<span class="lang-bottom">中文</span>
-</button>
-</nav>
-</div>
-</header>
-<main>
-<section class="hero">
-<div class="hero-bg" aria-hidden="true">
-<iframe
-id="heroMap"
-class="hero-iframe"
-src="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=121,23,700"
-loading="lazy"
-referrerpolicy="no-referrer-when-downgrade"
-tabindex="-1"
-></iframe>
-<div class="hero-controls hero-controls-bottom" aria-hidden="false">
-<div class="hero-controls-right">
-<button class="pill is-active" type="button" data-map="wind" aria-label="Wind">W</button>
-<button class="pill" type="button" data-map="air" aria-label="Air">A</button>
-<button class="pill" type="button" data-map="pollution" aria-label="Pollution">P</button>
-</div>
-</div>
-<div class="hero-overlay"></div>
-<div class="hero-grain"></div>
-</div>
-<div class="container hero-inner">
-<p class="kicker" id="kickerText">AI for the Built Environment</p>
-<h1 id="heroTitle">Practical AI-assisted tools<br/>for architecture workflows.</h1>
-<p class="lead" id="heroLead">
-I build reproducible systems: Python scripts + headed tools (Rhino/Grasshopper, Revit/Dynamo) + clear constraints.
-Not magic prompts.
-</p>
-<div class="hero-actions">
-<a class="btn" href="/projects/">View Projects</a>
-<a class="btn btn-ghost" href="/about/">About</a>
-</div>
-<div class="hero-cards">
-<div class="mini-card">
-<div class="mini-title" id="card1Title">Computational Design</div>
-<div class="mini-body" id="card1Body">Rules, parameters, constraints, repeatable intent.</div>
-</div>
-<div class="mini-card">
-<div class="mini-title" id="card2Title">Python Scripting</div>
-<div class="mini-body" id="card2Body">Geometry, drawings, automation, auditability.</div>
-</div>
-<div class="mini-card">
-<div class="mini-title" id="card3Title">AI Assistance</div>
-<div class="mini-body" id="card3Body">Structure intent, generate/debug code, document systems.</div>
-</div>
-</div>
-<p class="micro-note">
-Deep dives live in Notion (process notes, scripts, assets). This site is the front door.
-</p>
-</div>
-</section>
-<section class="section" id="what-i-do">
-<div class="container">
-<div class="section-head">
-<h2>What I do</h2>
-<p>I focus on tools that make real work faster, safer, and more legible: generators, checkers, and automation.</p>
-</div>
-<div class="grid-2">
-<div class="panel">
-<h3>Headed workflows</h3>
-<p>Geometry and drawings stay controlled inside Rhino/Revit. AI supports the workflow without pretending to be ground truth.</p>
-<ul class="bullets">
-<li>Constraint-first pipelines</li>
-<li>Reproducible outputs</li>
-<li>Versioned assumptions</li>
-</ul>
-</div>
-<div class="panel">
-<h3>Built for iteration</h3>
-<p>The goal is not one perfect result. The goal is a system you can iterate, test, and ship.</p>
-<ul class="bullets">
-<li>Parameter sets and presets</li>
-<li>Edge-case checks</li>
-<li>Documentation you can hand off</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class="section section-muted">
-<div class="container">
-<div class="section-head">
-<h2>Featured projects</h2>
-<p>Five generative design anchors that bridge into AI development.</p>
-</div>
-<div class="projects-grid">
-<a class="project-card" href="/projects/">
-<div class="project-top">
-<div class="project-title">Hista Powerplant</div>
-<div class="project-year">2018</div>
-</div>
-<div class="project-desc">Closed-loop power plant concept + scripted carpet roof geometry.</div>
-<div class="project-meta">Python • Parametric workflow</div>
-</a>
-<a class="project-card" href="/projects/">
-<div class="project-top">
-<div class="project-title">Daoist Temple</div>
-<div class="project-year">2018</div>
-</div>
-<div class="project-desc">Curved wall geometry control and rationalization.</div>
-<div class="project-meta">Parametric workflow</div>
-</a>
-<a class="project-card" href="/projects/">
-<div class="project-top">
-<div class="project-title">YoChand Museum</div>
-<div class="project-year">2019</div>
-</div>
-<div class="project-desc">Complex facade logic as a repeatable parametric system.</div>
-<div class="project-meta">Systems • Constraints</div>
-</a>
-</div>
-<div class="section-actions">
-<a class="btn" href="/projects/">See all projects</a>
-</div>
-</div>
-</section>
-</main>
-<footer class="site-footer">
-<div class="container footer-inner">
-<div>
-<div class="footer-brand">[i] Iterative Studio</div>
-<div class="footer-note">AI for the Built Environment</div>
-<div class="footer-version" id="buildVersion">Build: v0.1.1</div>
-</div>
-<div class="footer-links">
-<a href="/projects/">Projects</a>
-<a href="/about/">About</a>
-<a href="/contact/">Contact</a>
-</div>
-</div>
-</footer>
-<script>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">[i]</span>
+        <span class="brand-name">Iterative Studio</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+        <a href="/contact/" class="btn btn-small">Contact</a>
+
+        <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+          <span class="lang-top">EN</span>
+          <span class="lang-divider"></span>
+          <span class="lang-bottom">中文</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <iframe
+          id="heroMap"
+          class="hero-iframe"
+          src="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=121,23,700"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          tabindex="-1"
+        ></iframe>
+
+        <div class="hero-controls hero-controls-bottom" aria-hidden="false">
+          <div class="hero-controls-left">
+            <span class="map-mode" id="mapModeLabel">ocean-currents</span>
+          </div>
+
+          <div class="hero-controls-right">
+            <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
+            <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
+            <button class="pill" type="button" data-map="pm1" aria-label="Parti PM1">P</button>
+          </div>
+        </div>
+
+        <div class="hero-overlay"></div>
+        <div class="hero-grain"></div>
+      </div>
+
+      <div class="container hero-inner">
+        <p class="kicker" id="kickerText">AI for the Built Environment</p>
+        <h1 id="heroTitle">Practical AI-assisted tools<br/>for architecture workflows.</h1>
+
+        <p class="lead" id="heroLead">
+          I build reproducible systems: Python scripts + headed tools (Rhino/Grasshopper, Revit/Dynamo) + clear constraints.
+          Not magic prompts.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="/projects/">View Projects</a>
+          <a class="btn btn-ghost" href="/about/">About</a>
+        </div>
+
+        <div class="hero-cards">
+          <div class="mini-card">
+            <div class="mini-title" id="card1Title">Computational Design</div>
+            <div class="mini-body" id="card1Body">Rules, parameters, constraints, repeatable intent.</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-title" id="card2Title">Python Scripting</div>
+            <div class="mini-body" id="card2Body">Geometry, drawings, automation, auditability.</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-title" id="card3Title">AI Assistance</div>
+            <div class="mini-body" id="card3Body">Structure intent, generate/debug code, document systems.</div>
+          </div>
+        </div>
+
+        <p class="micro-note">
+          Deep dives live in Notion (process notes, scripts, assets). This site is the front door.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="what-i-do">
+      <div class="container">
+        <div class="section-head">
+          <h2>What I do</h2>
+          <p>I focus on tools that make real work faster, safer, and more legible: generators, checkers, and automation.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3>Headed workflows</h3>
+            <p>Geometry and drawings stay controlled inside Rhino/Revit. AI supports the workflow without pretending to be ground truth.</p>
+            <ul class="bullets">
+              <li>Constraint-first pipelines</li>
+              <li>Reproducible outputs</li>
+              <li>Versioned assumptions</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Built for iteration</h3>
+            <p>The goal is not one perfect result. The goal is a system you can iterate, test, and ship.</p>
+            <ul class="bullets">
+              <li>Parameter sets and presets</li>
+              <li>Edge-case checks</li>
+              <li>Documentation you can hand off</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>Featured projects</h2>
+          <p>Five generative design anchors that bridge into AI development.</p>
+        </div>
+
+        <div class="projects-grid">
+          <a class="project-card" href="/projects/">
+            <div class="project-top">
+              <div class="project-title">Hista Powerplant</div>
+              <div class="project-year">2018</div>
+            </div>
+            <div class="project-desc">Closed-loop power plant concept + scripted carpet roof geometry.</div>
+            <div class="project-meta">Python • Parametric workflow</div>
+          </a>
+
+          <a class="project-card" href="/projects/">
+            <div class="project-top">
+              <div class="project-title">Daoist Temple</div>
+              <div class="project-year">2018</div>
+            </div>
+            <div class="project-desc">Curved wall geometry control and rationalization.</div>
+            <div class="project-meta">Parametric workflow</div>
+          </a>
+
+          <a class="project-card" href="/projects/">
+            <div class="project-top">
+              <div class="project-title">YoChand Museum</div>
+              <div class="project-year">2019</div>
+            </div>
+            <div class="project-desc">Complex facade logic as a repeatable parametric system.</div>
+            <div class="project-meta">Systems • Constraints</div>
+          </a>
+        </div>
+
+        <div class="section-actions">
+          <a class="btn" href="/projects/">See all projects</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">[i] Iterative Studio</div>
+        <div class="footer-note">AI for the Built Environment</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.2</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="/projects/">Projects</a>
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
 const MAPS = {
+currents: "https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=121,23,700",
 wind: "https://earth.nullschool.net/#current/wind/surface/level/orthographic=121,23,700",
-air: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/orthographic=121,23,700",
-pollution: "https://earth.nullschool.net/#current/chem/surface/level/overlay=co/orthographic=121,23,700"
+pm1: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm1/orthographic=121,23,700"
 };
 const i18n = {
 en: {
@@ -196,14 +224,31 @@ c3t: "AI 助手",
 c3b: "把意圖結構化，產生/除錯程式碼，整理文件。"
 }
 };
-const BUILD = "v0.1.1";
+const BUILD = "v0.1.2";
 const mapEl = document.getElementById("heroMap");
+let currentMapKey = null;
 function setMap(key) {
 if (!MAPS[key]) return;
-mapEl.src = MAPS[key];
+const nextUrl = MAPS[key];
+if (currentMapKey === key) {
+mapEl.src = "about:blank";
+setTimeout(() => { mapEl.src = nextUrl; }, 20);
+} else {
+mapEl.src = nextUrl;
+}
+currentMapKey = key;
 document.querySelectorAll("[data-map]").forEach(btn => {
 btn.classList.toggle("is-active", btn.dataset.map === key);
 });
+const labelEl = document.getElementById("mapModeLabel");
+if (labelEl) {
+const labels = {
+currents: "ocean-currents",
+wind: "air<br>wind",
+pm1: "parti - PM1"
+};
+labelEl.innerHTML = labels[key] || key;
+}
 }
 let lang = "en";
 function setLang(next) {
@@ -231,8 +276,8 @@ setLang(lang === "en" ? "zh" : "en");
 });
 const buildEl = document.getElementById("buildVersion");
 if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
-setMap("wind");
+setMap("currents");
 setLang("en");
-</script>
+  </script>
 </body>
 </html>
