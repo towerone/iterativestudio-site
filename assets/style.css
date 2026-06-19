@@ -94,13 +94,14 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .nav a{
   color: var(--muted);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .header-lines{
   display:flex;
   flex-direction:column;
   gap: 1vh;
+  margin-top: 10vh;
   padding: 0 0 1vh;
 }
 
