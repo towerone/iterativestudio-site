@@ -351,6 +351,11 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   pointer-events:auto;
 }
 
+.hero-cards,
+.mini-card{
+  pointer-events:none;
+}
+
 .project-carousel,
 .project-carousel button{
   pointer-events:auto;
@@ -379,23 +384,49 @@ h1{
   max-width: 62ch;
 }
 
+.hero-cards{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:16px;
+  margin-top:0;
+}
+
+.mini-card{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius);
+  padding: 14px 14px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.mini-title{
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+.mini-body{
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 .project-carousel{
   display:flex;
   align-items:stretch;
   gap:12px;
   width:100%;
-  margin-top:0;
+  margin-top:14px;
 }
 
 .carousel-viewport{
   flex:1;
   overflow:hidden;
   border-radius: var(--radius);
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.08);
+  border: 1px solid var(--line);
+  background: #ffffff;
   box-shadow: var(--shadow);
-  backdrop-filter: blur(6px);
-  min-height: 96px;
+  min-height: 288px;
 }
 
 .carousel-track{
@@ -409,33 +440,33 @@ h1{
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:96px;
-  padding:24px 20px;
-  font-size: clamp(17px, 2vw, 22px);
+  min-height:288px;
+  padding:32px 24px;
+  font-size: clamp(20px, 2.4vw, 28px);
   font-weight:600;
   letter-spacing:-0.01em;
   color: var(--text);
   text-align:center;
+  background: #ffffff;
 }
 
 .carousel-arrow{
   appearance:none;
   flex:0 0 48px;
-  align-self:center;
+  align-self:stretch;
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  height:96px;
-  border: 1px solid rgba(255,255,255,.14);
+  min-height:288px;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: rgba(255,255,255,.08);
+  background: #ffffff;
   color: var(--muted);
-  font-size: 28px;
+  font-size: 32px;
   line-height:1;
   cursor:pointer;
-  backdrop-filter: blur(6px);
   box-shadow: var(--shadow);
-  transition: filter .15s ease, border-color .15s ease;
+  transition: filter .15s ease, border-color .15s ease, color .15s ease;
 }
 
 .carousel-arrow:hover{
@@ -612,10 +643,11 @@ h1{
     margin-top:11.3vh;
   }
   .hero-map-controls{ width:100%; justify-content:flex-end; }
-  .project-carousel{ gap:8px; }
-  .carousel-arrow{ flex-basis:40px; height:84px; font-size:24px; }
+  .hero-cards{ grid-template-columns: 1fr; }
+  .project-carousel{ gap:8px; margin-top:12px; }
+  .carousel-arrow{ flex-basis:40px; min-height:220px; font-size:26px; }
   .carousel-viewport,
-  .carousel-slide{ min-height:84px; }
+  .carousel-slide{ min-height:220px; }
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .section-head{ flex-direction: column; align-items:flex-start; }
