@@ -49,7 +49,7 @@
           <div class="hero-controls-right">
             <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
             <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
-            <button class="pill" type="button" data-map="pm1" aria-label="Parti PM1">P</button>
+            <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
             <span class="map-mode" id="mapModeLabel">ocean-currents</span>
           </div>
         </div>
@@ -89,9 +89,6 @@
           </div>
         </div>
 
-        <p class="micro-note">
-          Deep dives live in Notion (process notes, scripts, assets). This site is the front door.
-        </p>
       </div>
     </section>
 
@@ -132,7 +129,7 @@
       <div>
         <div class="footer-brand">[i] Iterative Studio</div>
         <div class="footer-note">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.3</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.4</div>
       </div>
 
       <div class="footer-links">
@@ -147,7 +144,7 @@
 const MAPS = {
 currents: "https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=121,23,700",
 wind: "https://earth.nullschool.net/#current/wind/surface/level/orthographic=121,23,700",
-pm1: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm1/orthographic=121,23,700"
+pm1: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/orthographic=121,23,700"
 };
 
 const i18n = {
@@ -175,7 +172,7 @@ c3b: "把意圖結構化，產生/除錯程式碼，整理文件。"
 }
 };
 
-const BUILD = "v0.1.3";
+const BUILD = "v0.1.4";
 
 const mapEl = document.getElementById("heroMap");
 let currentMapKey = null;
@@ -183,12 +180,8 @@ let currentMapKey = null;
 function setMap(key) {
 if (!MAPS[key]) return;
 const nextUrl = MAPS[key];
-if (currentMapKey === key) {
 mapEl.src = "about:blank";
 setTimeout(() => { mapEl.src = nextUrl; }, 20);
-} else {
-mapEl.src = nextUrl;
-}
 currentMapKey = key;
 
 document.querySelectorAll("[data-map]").forEach(btn => {
@@ -200,7 +193,7 @@ if (labelEl) {
 const labels = {
 currents: "ocean-currents",
 wind: "air<br>wind",
-pm1: "parti - PM1"
+pm1: "parti - PM2.5"
 };
 labelEl.innerHTML = labels[key] || key;
 }
