@@ -22,9 +22,15 @@
 
 *{ box-sizing:border-box; }
 html,body{ min-height:100%; }
-html{ color-scheme: light; }
+html{
+  color-scheme: light;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
 body{
   margin:0;
+  overflow-y:auto;
+  touch-action:pan-y;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: radial-gradient(1200px 700px at 20% 0%, #ffffff 0%, var(--bg) 55%),
               radial-gradient(900px 600px at 100% 20%, #edf4f8 0%, var(--bg) 55%);
@@ -189,6 +195,14 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   pointer-events:none;
 }
 
+.hero-scroll-shield{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:auto;
+  touch-action:pan-y;
+}
+
 .hero-iframe{
   position:absolute;
   top:-18%;
@@ -302,7 +316,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   justify-content:flex-start;
   min-height: inherit;
   padding: 34px 0 0;
-  pointer-events:none;
+  pointer-events:auto;
+  touch-action:pan-y;
 }
 
 .hero-copy{
@@ -356,7 +371,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-cards,
 .mini-card{
-  pointer-events:none;
+  pointer-events:auto;
 }
 
 .project-carousel,

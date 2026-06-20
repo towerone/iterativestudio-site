@@ -40,15 +40,17 @@
           id="heroMap"
           class="hero-iframe"
           src="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=121,23,700"
-          loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           tabindex="-1"
+          inert
         ></iframe>
 
         <div class="hero-overlay"></div>
         <div class="hero-grain"></div>
         <div class="hero-fade-bottom" aria-hidden="true"></div>
       </div>
+
+      <div class="hero-scroll-shield" aria-hidden="true"></div>
 
       <div class="container hero-inner">
         <div class="hero-copy">
@@ -137,7 +139,7 @@
       <div>
         <div class="footer-brand">[i] Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.44</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.45</div>
       </div>
     </div>
   </footer>
@@ -224,7 +226,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.44";
+const BUILD = "v0.1.45";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
