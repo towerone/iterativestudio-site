@@ -236,7 +236,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .lang-divider{
   width:18px;
-  height:1px;
+  height:2px;
   background: rgba(15,18,25,.18);
 }
 
