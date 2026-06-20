@@ -426,7 +426,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   justify-content:flex-end;
   gap:20px;
   width:100%;
-  margin-top:calc(40vh + 40px);
+  margin-top:calc(30vh + 40px);
   margin-bottom:10px;
   pointer-events:none;
 }
@@ -800,7 +800,7 @@ h1{
   .header-inner{ padding:3px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 6px; gap:6px; }
   .header-hole{ width:clamp(20px, 3.4vw, 28px); }
   .hero-action-row{
-    margin-top:calc(40vh + 40px);
+    margin-top:calc(30vh + 40px);
   }
   .hero-map-controls{ width:100%; justify-content:flex-end; }
   .hero-cards{ grid-template-columns: 1fr; }
