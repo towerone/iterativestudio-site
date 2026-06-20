@@ -550,8 +550,8 @@ h1{
   left:0;
   top:100%;
   width:var(--flipper-width);
-  height:calc(29vh + 72px);
-  margin-top:calc(10px - 3vh);
+  height:calc(27vh + 72px);
+  margin-top:calc(10px - 1vh);
   z-index:5;
   pointer-events:auto;
   cursor:pointer;
@@ -867,7 +867,8 @@ h1{
   .hero-map-controls{ width:100%; justify-content:flex-end; }
   .hero-cards{ grid-template-columns: 1fr; }
   .hero-flipper{
-    height:calc(23vh + 64px);
+    height:calc(21vh + 64px);
+    margin-top:calc(10px - 1vh);
   }
   .project-carousel{ gap:8px; }
   .carousel-arrow{ flex-basis:40px; min-height:176px; font-size:26px; }
