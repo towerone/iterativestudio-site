@@ -277,10 +277,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .map-mode{
   font-size: 12px;
-  color: var(--map-control-muted);
+  color: rgba(255,255,255,.96);
   line-height: 1.2;
   align-self:center;
-  text-shadow: 0 1px 8px rgba(255,255,255,.65);
+  text-shadow: 0 2px 14px rgba(0,0,0,.32);
 }
 
 .pill{
