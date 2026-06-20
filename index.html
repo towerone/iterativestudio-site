@@ -240,7 +240,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.86</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.87</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -337,7 +337,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.86";
+const BUILD = "v0.1.87";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -398,6 +398,36 @@ el.classList.toggle("is-active", i === index);
 });
 }
 
+function setFlipperPanelInstant(index) {
+const panels = getFlipperPanels();
+if (!panels.length) return;
+const i = ((index % panels.length) + panels.length) % panels.length;
+panels.forEach((panel, idx) => {
+panel.classList.remove("is-leaving");
+panel.classList.toggle("is-active", idx === i);
+});
+flipperIndex = i;
+updateFlipperCaption(i);
+}
+
+function randomFlipperIndex(exclude) {
+const panels = getFlipperPanels();
+const len = panels.length;
+if (!len) return 0;
+if (len === 1) return 0;
+let next;
+do {
+next = Math.floor(Math.random() * len);
+} while (next === exclude);
+return next;
+}
+
+function initFlipperRandomStart() {
+const panels = getFlipperPanels();
+if (!panels.length) return;
+setFlipperPanelInstant(Math.floor(Math.random() * panels.length));
+}
+
 function showFlipperPanel(nextIndex) {
 const panels = getFlipperPanels();
 if (!panels.length || flipperAnimating) return;
@@ -420,7 +450,7 @@ flipperAnimating = false;
 }
 
 function nextFlipperPanel() {
-showFlipperPanel(flipperIndex + 1);
+showFlipperPanel(randomFlipperIndex(flipperIndex));
 }
 
 function resetFlipperTimer() {
@@ -527,6 +557,7 @@ if (carouselNext) carouselNext.addEventListener("click", () => { nextCarouselSli
 
 setMap("currents");
 setLang("en");
+initFlipperRandomStart();
 resetCarouselTimer();
 resetFlipperTimer();
   </script>
