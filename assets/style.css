@@ -398,7 +398,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   flex-direction:column;
   justify-content:flex-start;
   min-height: inherit;
-  padding: calc(40px - 4pt) 0 0;
+  padding: calc(40px - 4pt) 0 var(--stack-gap);
   pointer-events:auto;
   touch-action:pan-y;
 }
@@ -406,16 +406,28 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 .hero-main{
   --flipper-width: clamp(84px, calc((min(var(--max), 100vw - 40px) - 32px) / 9), 124px);
   position:relative;
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns:var(--flipper-width) minmax(0, 1fr);
+  grid-template-areas:
+    "flipper copy"
+    "flipper action"
+    "flipper cards"
+    "carousel carousel";
+  column-gap:16px;
+  row-gap:var(--stack-gap);
+  align-items:stretch;
+}
+
+.hero-flipper{
+  grid-area:flipper;
 }
 
 .hero-copy{
+  grid-area:copy;
   position:relative;
   z-index:2;
-  max-width:680px;
+  max-width:none;
   margin-top:-10px;
-  overflow:visible;
 }
 
 .hero-copy .kicker,
@@ -431,6 +443,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-action-row{
+  grid-area:action;
   position:relative;
   z-index:2;
   display:flex;
@@ -439,7 +452,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   gap:20px;
   width:100%;
   margin-top:calc(30vh + 40px);
-  margin-bottom:10px;
+  margin-bottom:0;
   pointer-events:none;
 }
 
@@ -503,6 +516,7 @@ h1{
 }
 
 .hero-cards{
+  grid-area:cards;
   position:relative;
   z-index:3;
   display:grid;
@@ -546,12 +560,13 @@ h1{
 }
 
 .hero-flipper{
-  position:absolute;
-  left:0;
-  top:100%;
-  width:var(--flipper-width);
-  height:calc(30vh + 72px);
-  margin-top:10px;
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  min-height:100%;
+  align-self:stretch;
+  padding-top:calc(16px + max(0px, 1.2vh - 10px));
+  box-sizing:border-box;
   z-index:5;
   pointer-events:auto;
   cursor:pointer;
@@ -559,8 +574,9 @@ h1{
 
 .flipper-stage{
   position:relative;
+  flex:1 1 auto;
   width:100%;
-  height:100%;
+  min-height:0;
   perspective:900px;
   border-radius: calc(var(--radius) - 4px);
   border:1px solid rgba(255,255,255,.24);
@@ -601,11 +617,12 @@ h1{
 }
 
 .project-carousel{
+  grid-area:carousel;
   display:flex;
   align-items:stretch;
   gap:12px;
   width:100%;
-  margin-top:var(--stack-gap);
+  margin-top:0;
   position:relative;
   z-index:3;
 }
@@ -868,9 +885,7 @@ h1{
   .hero-cards{ grid-template-columns: 1fr; }
   .hero-main{
     --flipper-width: clamp(72px, 18vw, 104px);
-  }
-  .hero-flipper{
-    height:calc(24vh + 64px);
+    column-gap:12px;
   }
   .project-carousel{ gap:8px; }
   .carousel-arrow{ flex-basis:40px; min-height:176px; font-size:26px; }
