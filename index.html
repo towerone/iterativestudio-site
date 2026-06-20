@@ -68,7 +68,7 @@
             <p class="kicker" id="kickerText">AI for the Built Environment</p>
             <h1 id="heroTitle"><span class="hero-title-lead">Practical AI</span>-assisted tools<br/>for architectural workflows</h1>
 
-            <div class="hero-flipper" id="heroFlipper" aria-label="Project previews" aria-live="polite">
+            <div class="hero-flipper is-tint-currents" id="heroFlipper" aria-label="Project previews" aria-live="polite">
               <!-- Flipper slides: odd = jeddah-hospital-2014.jpg, even = jeddah-hospital-2014-even.jpg -->
               <div class="flipper-stage" id="flipperStage">
                 <figure class="flipper-panel is-active">
@@ -131,6 +131,7 @@
                 <figure class="flipper-panel">
                   <div class="flipper-media"><img src="/assets/hero-flip/jeddah-hospital-2014-even.jpg" alt="Jeddah Hospital 2014" width="2048" height="2048" /></div>
                 </figure>
+                <div class="flipper-tint" id="flipperTint" aria-hidden="true"></div>
               </div>
 
               <!-- Flipper captions: edit text below (slide 1 = first img above, slide 2 = second, …) -->
@@ -240,7 +241,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.92</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.93</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -337,7 +338,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.92";
+const BUILD = "v0.1.93";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -477,6 +478,17 @@ btn.classList.toggle("is-active", btn.dataset.map === key);
 });
 
 updateMapLabel();
+updateFlipperTint(key);
+}
+
+const heroFlipperEl = document.getElementById("heroFlipper");
+
+function updateFlipperTint(key) {
+if (!heroFlipperEl) return;
+heroFlipperEl.classList.remove("is-tint-currents", "is-tint-wind", "is-tint-pm1");
+if (key === "wind") heroFlipperEl.classList.add("is-tint-wind");
+else if (key === "pm1") heroFlipperEl.classList.add("is-tint-pm1");
+else heroFlipperEl.classList.add("is-tint-currents");
 }
 
 function updateMapLabel() {

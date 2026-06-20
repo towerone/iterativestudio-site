@@ -611,6 +611,27 @@ h1{
   opacity:.88;
 }
 
+.flipper-tint{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  border-radius:inherit;
+  transition:background-color .45s ease;
+}
+
+.hero-flipper.is-tint-currents .flipper-tint{
+  background:rgba(118,126,138,.1);
+}
+
+.hero-flipper.is-tint-wind .flipper-tint{
+  background:rgba(74,127,212,.1);
+}
+
+.hero-flipper.is-tint-pm1 .flipper-tint{
+  background:rgba(186,198,72,.1);
+}
+
 .flipper-captions{
   position:relative;
   flex:0 0 auto;
