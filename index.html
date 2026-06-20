@@ -63,33 +63,33 @@
       <div class="hero-scroll-shield" aria-hidden="true"></div>
 
       <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="kicker" id="kickerText">AI for the Built Environment</p>
-          <h1 id="heroTitle"><span class="hero-title-lead">Practical AI</span>-assisted tools<br/>for architectural workflows</h1>
-        </div>
-
-        <div class="hero-action-row">
-          <div class="hero-action-right">
-            <div class="hero-flipper" id="heroFlipper" aria-label="Project previews" aria-live="polite">
-              <div class="flipper-stage" id="flipperStage">
-                <figure class="flipper-panel is-active">
-                  <img src="/assets/hero-flip/01.svg" alt="YoChand Museum — facade study" width="320" height="320" />
-                </figure>
-                <figure class="flipper-panel">
-                  <img src="/assets/hero-flip/02.svg" alt="Hista Powerplant — roof iteration" width="320" height="320" />
-                </figure>
-                <figure class="flipper-panel">
-                  <img src="/assets/hero-flip/03.svg" alt="Etho(p)ea School — planning system" width="320" height="320" />
-                </figure>
-                <figure class="flipper-panel">
-                  <img src="/assets/hero-flip/04.svg" alt="Parametric linework study" width="320" height="320" />
-                </figure>
-                <figure class="flipper-panel">
-                  <img src="/assets/hero-flip/05.svg" alt="Constraint-driven massing" width="320" height="320" />
-                </figure>
-              </div>
+        <div class="hero-main">
+          <div class="hero-flipper" id="heroFlipper" aria-label="Project previews" aria-live="polite">
+            <div class="flipper-stage" id="flipperStage">
+              <figure class="flipper-panel is-active">
+                <img src="/assets/hero-flip/01.svg" alt="YoChand Museum — facade study" width="320" height="320" />
+              </figure>
+              <figure class="flipper-panel">
+                <img src="/assets/hero-flip/02.svg" alt="Hista Powerplant — roof iteration" width="320" height="320" />
+              </figure>
+              <figure class="flipper-panel">
+                <img src="/assets/hero-flip/03.svg" alt="Etho(p)ea School — planning system" width="320" height="320" />
+              </figure>
+              <figure class="flipper-panel">
+                <img src="/assets/hero-flip/04.svg" alt="Parametric linework study" width="320" height="320" />
+              </figure>
+              <figure class="flipper-panel">
+                <img src="/assets/hero-flip/05.svg" alt="Constraint-driven massing" width="320" height="320" />
+              </figure>
             </div>
+          </div>
 
+          <div class="hero-copy">
+            <p class="kicker" id="kickerText">AI for the Built Environment</p>
+            <h1 id="heroTitle"><span class="hero-title-lead">Practical AI</span>-assisted tools<br/>for architectural workflows</h1>
+          </div>
+
+          <div class="hero-action-row">
             <div class="hero-map-controls" aria-hidden="false">
               <span class="map-mode" id="mapModeLabel">ocean-currents</span>
               <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
@@ -97,9 +97,8 @@
               <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
             </div>
           </div>
-        </div>
 
-        <div class="hero-cards">
+          <div class="hero-cards">
           <a class="mini-card mini-card-link" href="/computational-design/">
             <div class="mini-title" id="card1Title">Computational Design</div>
             <div class="mini-body" id="card1Body">Rules, parameters, constraints, repeatable intent.</div>
@@ -114,6 +113,7 @@
             <div class="mini-title" id="card3Title">AI Assistance</div>
             <div class="mini-body" id="card3Body">Structure intent, generate/debug code, document systems.</div>
           </div>
+        </div>
         </div>
 
       </div>
@@ -151,7 +151,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.72</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.73</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -248,7 +248,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.72";
+const BUILD = "v0.1.73";
 
 const FLIPPER_INTERVAL_MS = 8000;
 let flipperIndex = 0;
