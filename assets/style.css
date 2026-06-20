@@ -322,6 +322,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-copy{
   max-width: 680px;
+  margin-top:6px;
 }
 
 .hero-copy .kicker,
