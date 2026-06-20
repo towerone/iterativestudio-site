@@ -3,57 +3,80 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
   <title>Computational Design | Iterative Studio</title>
   <meta name="description" content="Computational design: rules, parameters, constraints — repeatable intent. Systems-first workflows for architecture and the built environment." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="/assets/white.css" />
 </head>
 
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <span class="brand-mark">[i]</span>
-        <span class="brand-name">Iterative Studio</span>
-      </a>
+<body class="page-white">
+  <span class="corner-copyright" aria-hidden="true">©</span>
 
-      <nav class="nav">
-        <a href="/projects/">Projects</a>
-        <a href="/about/">About</a>
-        <a href="/contact/" class="btn btn-small">Contact</a>
-      </nav>
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+
+      <div class="header-hole" aria-hidden="true"></div>
+
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container hero-inner">
-        <p class="kicker">Computational Design</p>
+        <p class="page-back">
+          <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
+        </p>
 
-        <h1>Rules, parameters, constraints — repeatable intent.</h1>
+        <p class="kicker" id="kickerText">Computational Design</p>
 
-        <p class="lead">
+        <h1 id="heroTitle">Rules, parameters, constraints — repeatable intent.</h1>
+
+        <p class="lead" id="heroLead">
           Not form-finding. Not style. A way to make intent legible and testable so you can iterate without losing control.
         </p>
 
         <div class="hero-cards">
           <div class="mini-card">
-            <div class="mini-title">Rules</div>
-            <div class="mini-body">What must remain true.</div>
+            <div class="mini-title" id="card1Title">Rules</div>
+            <div class="mini-body" id="card1Body">What must remain true.</div>
           </div>
           <div class="mini-card">
-            <div class="mini-title">Parameters</div>
-            <div class="mini-body">What is allowed to change.</div>
+            <div class="mini-title" id="card2Title">Parameters</div>
+            <div class="mini-body" id="card2Body">What is allowed to change.</div>
           </div>
           <div class="mini-card">
-            <div class="mini-title">Constraints</div>
-            <div class="mini-body">What keeps the system honest.</div>
+            <div class="mini-title" id="card3Title">Constraints</div>
+            <div class="mini-body" id="card3Body">What keeps the system honest.</div>
           </div>
           <div class="mini-card">
-            <div class="mini-title">Repeatability</div>
-            <div class="mini-body">Same inputs → same outputs (until rules change).</div>
+            <div class="mini-title" id="card4Title">Repeatability</div>
+            <div class="mini-body" id="card4Body">Same inputs → same outputs (until rules change).</div>
           </div>
         </div>
       </div>
@@ -62,48 +85,48 @@
     <section class="section section-grid">
       <div class="container">
         <div class="section-head">
-          <h2>Mythologies → mechanisms</h2>
-          <p>Turn fuzzy design beliefs into testable systems: constraints, scripts, and repeatable outputs.</p>
+          <h2 id="section1Title">Mythologies → mechanisms</h2>
+          <p id="section1Body">Turn fuzzy design beliefs into testable systems: constraints, scripts, and repeatable outputs.</p>
         </div>
 
         <div class="grid-2">
           <div class="panel">
-            <h3>Inputs</h3>
-            <p>Sliders, datasets, tolerances, target metrics.</p>
+            <h3 id="panel1Title">Inputs</h3>
+            <p id="panel1Body">Sliders, datasets, tolerances, target metrics.</p>
             <ul class="bullets">
-              <li>Named parameters</li>
-              <li>Units + ranges</li>
-              <li>Defaults</li>
+              <li id="panel1Li1">Named parameters</li>
+              <li id="panel1Li2">Units + ranges</li>
+              <li id="panel1Li3">Defaults</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h3>Logic</h3>
-            <p>Grasshopper graphs + Python nodes that compute deterministically.</p>
+            <h3 id="panel2Title">Logic</h3>
+            <p id="panel2Body">Grasshopper graphs + Python nodes that compute deterministically.</p>
             <ul class="bullets">
-              <li>Readable functions</li>
-              <li>Small composable parts</li>
-              <li>Versioned assumptions</li>
+              <li id="panel2Li1">Readable functions</li>
+              <li id="panel2Li2">Small composable parts</li>
+              <li id="panel2Li3">Versioned assumptions</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h3>Outputs</h3>
-            <p>Geometry, drawings, schedules — not just images.</p>
+            <h3 id="panel3Title">Outputs</h3>
+            <p id="panel3Body">Geometry, drawings, schedules — not just images.</p>
             <ul class="bullets">
-              <li>Layered linework</li>
-              <li>Quantities</li>
-              <li>Exportable formats</li>
+              <li id="panel3Li1">Layered linework</li>
+              <li id="panel3Li2">Quantities</li>
+              <li id="panel3Li3">Exportable formats</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h3>Checks</h3>
-            <p>Constraint validation so the model stays honest under iteration.</p>
+            <h3 id="panel4Title">Checks</h3>
+            <p id="panel4Body">Constraint validation so the model stays honest under iteration.</p>
             <ul class="bullets">
-              <li>Edge cases</li>
-              <li>Clashes</li>
-              <li>“Does it still satisfy intent?”</li>
+              <li id="panel4Li1">Edge cases</li>
+              <li id="panel4Li2">Clashes</li>
+              <li id="panel4Li3">“Does it still satisfy intent?”</li>
             </ul>
           </div>
         </div>
@@ -113,26 +136,26 @@
     <section class="section section-muted">
       <div class="container">
         <div class="section-head">
-          <h2>Headed workflow (non‑negotiable)</h2>
-          <p>AI can assist drafting, debugging, and documentation — but production stays verifiable inside Rhino/Revit.</p>
+          <h2 id="section2Title">Headed workflow (non‑negotiable)</h2>
+          <p id="section2Body">AI can assist drafting, debugging, and documentation — but production stays verifiable inside Rhino/Revit.</p>
         </div>
 
         <div class="grid-2">
           <div class="panel">
-            <h3>Where AI helps</h3>
+            <h3 id="panel5Title">Where AI helps</h3>
             <ul class="bullets">
-              <li>Structure intent into parameters + constraints</li>
-              <li>Generate/debug code</li>
-              <li>Write documentation and checklists</li>
+              <li id="panel5Li1">Structure intent into parameters + constraints</li>
+              <li id="panel5Li2">Generate/debug code</li>
+              <li id="panel5Li3">Write documentation and checklists</li>
             </ul>
           </div>
 
           <div class="panel">
-            <h3>Where verification happens</h3>
+            <h3 id="panel6Title">Where verification happens</h3>
             <ul class="bullets">
-              <li>Rhino/Grasshopper or Revit/Dynamo</li>
-              <li>Deterministic scripts</li>
-              <li>Human review pass + standards</li>
+              <li id="panel6Li1">Rhino/Grasshopper or Revit/Dynamo</li>
+              <li id="panel6Li2">Deterministic scripts</li>
+              <li id="panel6Li3">Human review pass + standards</li>
             </ul>
           </div>
         </div>
@@ -142,8 +165,8 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Projects that prove the method</h2>
-          <p>Use the Top 5 projects as credibility anchors: hero + logic diagram + script/graph evidence.</p>
+          <h2 id="section3Title">Projects that prove the method</h2>
+          <p id="section3Body">Selected work where rules, parameters, and constraints became repeatable systems — with evidence in geometry, drawings, and scripts.</p>
         </div>
 
         <div class="projects-grid">
@@ -176,7 +199,7 @@
         </div>
 
         <div class="section-actions">
-          <a class="btn" href="/projects/">See all projects</a>
+          <a class="btn" href="/projects/" id="projectsCta">See all projects</a>
         </div>
       </div>
     </section>
@@ -184,19 +207,170 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
+      <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
-        <div class="footer-note">Computational design — repeatable intent</div>
-        <div class="footer-version">Build: v0.1.58</div>
+        <div class="footer-note" id="footerNote">Computational design — repeatable intent</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.69</div>
       </div>
 
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/projects/">Projects</a>
-        <a href="/about/">About</a>
-        <a href="/contact/">Contact</a>
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerTagline">
+          Systems-first workflows for architecture and the built environment.
+        </p>
       </div>
     </div>
   </footer>
+
+  <script>
+const BUILD = "v0.1.69";
+
+const i18n = {
+  en: {
+    backLink: "← Practical AI for the built environment",
+    kicker: "Computational Design",
+    heroTitle: "Rules, parameters, constraints — repeatable intent.",
+    heroLead: "Not form-finding. Not style. A way to make intent legible and testable so you can iterate without losing control.",
+    c1t: "Rules", c1b: "What must remain true.",
+    c2t: "Parameters", c2b: "What is allowed to change.",
+    c3t: "Constraints", c3b: "What keeps the system honest.",
+    c4t: "Repeatability", c4b: "Same inputs → same outputs (until rules change).",
+    navProjects: "Projects", navAbout: "About", navContact: "Contact",
+    section1Title: "Mythologies → mechanisms",
+    section1Body: "Turn fuzzy design beliefs into testable systems: constraints, scripts, and repeatable outputs.",
+    panel1Title: "Inputs", panel1Body: "Sliders, datasets, tolerances, target metrics.",
+    panel1Li1: "Named parameters", panel1Li2: "Units + ranges", panel1Li3: "Defaults",
+    panel2Title: "Logic", panel2Body: "Grasshopper graphs + Python nodes that compute deterministically.",
+    panel2Li1: "Readable functions", panel2Li2: "Small composable parts", panel2Li3: "Versioned assumptions",
+    panel3Title: "Outputs", panel3Body: "Geometry, drawings, schedules — not just images.",
+    panel3Li1: "Layered linework", panel3Li2: "Quantities", panel3Li3: "Exportable formats",
+    panel4Title: "Checks", panel4Body: "Constraint validation so the model stays honest under iteration.",
+    panel4Li1: "Edge cases", panel4Li2: "Clashes", panel4Li3: "“Does it still satisfy intent?”",
+    section2Title: "Headed workflow (non‑negotiable)",
+    section2Body: "AI can assist drafting, debugging, and documentation — but production stays verifiable inside Rhino/Revit.",
+    panel5Title: "Where AI helps",
+    panel5Li1: "Structure intent into parameters + constraints",
+    panel5Li2: "Generate/debug code",
+    panel5Li3: "Write documentation and checklists",
+    panel6Title: "Where verification happens",
+    panel6Li1: "Rhino/Grasshopper or Revit/Dynamo",
+    panel6Li2: "Deterministic scripts",
+    panel6Li3: "Human review pass + standards",
+    section3Title: "Projects that prove the method",
+    section3Body: "Selected work where rules, parameters, and constraints became repeatable systems — with evidence in geometry, drawings, and scripts.",
+    projectsCta: "See all projects",
+    footerNote: "Computational design — repeatable intent",
+    footerTagline: "Systems-first workflows for architecture and the built environment."
+  },
+  zh: {
+    backLink: "← 建築與環境的實用 AI",
+    kicker: "計算式設計",
+    heroTitle: "規則、參數、約束 — 可重複的意圖。",
+    heroLead: "不是形式探索，也不是風格。而是讓意圖可讀、可測，在迭代中不失去控制。",
+    c1t: "規則", c1b: "必須保持為真的條件。",
+    c2t: "參數", c2b: "允許變動的項目。",
+    c3t: "約束", c3b: "讓系統保持誠實的邊界。",
+    c4t: "可重複性", c4b: "相同輸入 → 相同輸出（直到規則改變）。",
+    navProjects: "專案", navAbout: "關於", navContact: "聯絡",
+    section1Title: "神話 → 機制",
+    section1Body: "把模糊的設計信念轉成可測試的系統：約束、腳本與可重複的輸出。",
+    panel1Title: "輸入", panel1Body: "滑桿、資料集、公差、目標指標。",
+    panel1Li1: "具名參數", panel1Li2: "單位與範圍", panel1Li3: "預設值",
+    panel2Title: "邏輯", panel2Body: "Grasshopper 圖表與 Python 節點，確定性計算。",
+    panel2Li1: "可讀的函式", panel2Li2: "小而可組合的部件", panel2Li3: "版本化的假設",
+    panel3Title: "輸出", panel3Body: "幾何、圖面、數量表 — 不只是圖像。",
+    panel3Li1: "分層線稿", panel3Li2: "數量", panel3Li3: "可匯出格式",
+    panel4Title: "檢查", panel4Body: "約束驗證，讓模型在迭代中保持誠實。",
+    panel4Li1: "邊界情況", panel4Li2: "衝突", panel4Li3: "「是否仍符合意圖？」",
+    section2Title: "有頭工作流程（不可妥協）",
+    section2Body: "AI 可協助繪圖、除錯與文件 — 但產出須在 Rhino/Revit 內可驗證。",
+    panel5Title: "AI 的協助範圍",
+    panel5Li1: "把意圖結構化為參數與約束",
+    panel5Li2: "產生/除錯程式碼",
+    panel5Li3: "撰寫文件與檢查清單",
+    panel6Title: "驗證發生的地方",
+    panel6Li1: "Rhino/Grasshopper 或 Revit/Dynamo",
+    panel6Li2: "確定性腳本",
+    panel6Li3: "人工審查與標準",
+    section3Title: "證明方法的專案",
+    section3Body: "精選作品：規則、參數與約束成為可重複的系統 — 幾何、圖面與腳本為證。",
+    projectsCta: "查看所有專案",
+    footerNote: "計算式設計 — 可重複的意圖",
+    footerTagline: "以系統為先的建築與環境工作流程。"
+  }
+};
+
+let lang = "en";
+
+function setLang(next) {
+  lang = next;
+  const t = i18n[lang];
+  const toggle = document.getElementById("langToggle");
+  toggle.classList.toggle("is-en-active", lang === "en");
+
+  document.getElementById("backLink").textContent = t.backLink;
+  document.getElementById("kickerText").textContent = t.kicker;
+  document.getElementById("heroTitle").textContent = t.heroTitle;
+  document.getElementById("heroLead").textContent = t.heroLead;
+  document.getElementById("card1Title").textContent = t.c1t;
+  document.getElementById("card1Body").textContent = t.c1b;
+  document.getElementById("card2Title").textContent = t.c2t;
+  document.getElementById("card2Body").textContent = t.c2b;
+  document.getElementById("card3Title").textContent = t.c3t;
+  document.getElementById("card3Body").textContent = t.c3b;
+  document.getElementById("card4Title").textContent = t.c4t;
+  document.getElementById("card4Body").textContent = t.c4b;
+  document.getElementById("navProjects").textContent = t.navProjects;
+  document.getElementById("navAbout").textContent = t.navAbout;
+  document.getElementById("navContact").textContent = t.navContact;
+  document.getElementById("section1Title").textContent = t.section1Title;
+  document.getElementById("section1Body").textContent = t.section1Body;
+  document.getElementById("panel1Title").textContent = t.panel1Title;
+  document.getElementById("panel1Body").textContent = t.panel1Body;
+  document.getElementById("panel1Li1").textContent = t.panel1Li1;
+  document.getElementById("panel1Li2").textContent = t.panel1Li2;
+  document.getElementById("panel1Li3").textContent = t.panel1Li3;
+  document.getElementById("panel2Title").textContent = t.panel2Title;
+  document.getElementById("panel2Body").textContent = t.panel2Body;
+  document.getElementById("panel2Li1").textContent = t.panel2Li1;
+  document.getElementById("panel2Li2").textContent = t.panel2Li2;
+  document.getElementById("panel2Li3").textContent = t.panel2Li3;
+  document.getElementById("panel3Title").textContent = t.panel3Title;
+  document.getElementById("panel3Body").textContent = t.panel3Body;
+  document.getElementById("panel3Li1").textContent = t.panel3Li1;
+  document.getElementById("panel3Li2").textContent = t.panel3Li2;
+  document.getElementById("panel3Li3").textContent = t.panel3Li3;
+  document.getElementById("panel4Title").textContent = t.panel4Title;
+  document.getElementById("panel4Body").textContent = t.panel4Body;
+  document.getElementById("panel4Li1").textContent = t.panel4Li1;
+  document.getElementById("panel4Li2").textContent = t.panel4Li2;
+  document.getElementById("panel4Li3").textContent = t.panel4Li3;
+  document.getElementById("section2Title").textContent = t.section2Title;
+  document.getElementById("section2Body").textContent = t.section2Body;
+  document.getElementById("panel5Title").textContent = t.panel5Title;
+  document.getElementById("panel5Li1").textContent = t.panel5Li1;
+  document.getElementById("panel5Li2").textContent = t.panel5Li2;
+  document.getElementById("panel5Li3").textContent = t.panel5Li3;
+  document.getElementById("panel6Title").textContent = t.panel6Title;
+  document.getElementById("panel6Li1").textContent = t.panel6Li1;
+  document.getElementById("panel6Li2").textContent = t.panel6Li2;
+  document.getElementById("panel6Li3").textContent = t.panel6Li3;
+  document.getElementById("section3Title").textContent = t.section3Title;
+  document.getElementById("section3Body").textContent = t.section3Body;
+  document.getElementById("projectsCta").textContent = t.projectsCta;
+  document.getElementById("footerNote").textContent = t.footerNote;
+  document.getElementById("footerTagline").textContent = t.footerTagline;
+}
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLang(lang === "en" ? "zh" : "en");
+});
+
+const buildEl = document.getElementById("buildVersion");
+if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
+setLang("en");
+  </script>
 </body>
 </html>
