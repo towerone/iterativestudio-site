@@ -58,7 +58,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   background:rgba(255,255,255,.78);
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
-  box-shadow:0 1px 0 rgba(255,255,255,.95);
+  box-shadow:0 2px 0 rgba(255,255,255,.98), 0 6px 16px rgba(255,255,255,.42);
   pointer-events:none;
   -webkit-mask-image:var(--header-i-mask);
   mask-image:var(--header-i-mask);
@@ -76,7 +76,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   align-items:center;
   gap:8px;
   width:100%;
-  padding:4px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 5px;
+  padding:4px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 8px;
   border-bottom:1px solid rgba(15,18,25,.08);
 }
 
@@ -248,10 +248,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-iframe{
   position:absolute;
-  top:-18%;
-  left:-3%;
-  width:106%;
-  height:110%;
+  top:-24%;
+  left:-4%;
+  width:108%;
+  height:118%;
   border:0;
   filter: saturate(1.08) contrast(1.06);
   pointer-events:none;
@@ -319,8 +319,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
     linear-gradient(
       180deg,
       transparent 0%,
-      transparent 36%,
-      rgba(246,247,250,.14) 39%,
+      transparent 42%,
+      rgba(246,247,250,.14) 45%,
       rgba(246,247,250,.52) 46%,
       rgba(246,247,250,.74) 53%,
       rgba(246,247,250,.84) 63%,
@@ -358,7 +358,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   flex-direction:column;
   justify-content:flex-start;
   min-height: inherit;
-  padding: calc(20px - 4pt) 0 0;
+  padding: calc(40px - 4pt) 0 0;
   pointer-events:auto;
   touch-action:pan-y;
 }
@@ -756,8 +756,8 @@ h1{
 
 @media (max-width: 900px){
   .hero{ min-height: min(79vh, 792px); }
-  .hero-inner{ padding: calc(16px - 4pt) 0 0; }
-  .header-inner{ padding:3px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 4px; gap:6px; }
+  .hero-inner{ padding: calc(36px - 4pt) 0 0; }
+  .header-inner{ padding:3px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 6px; gap:6px; }
   .header-hole{ width:clamp(20px, 3.4vw, 28px); }
   .hero-action-row{
     margin-top:11.3vh;
@@ -787,7 +787,7 @@ h1{
   .footer-inner{ gap:6px; }
   .footer-mark{ font-size:clamp(16px, 4.4vw, 24px); }
   .footer-map-credit{ font-size:clamp(8px, 2.1vw, 10px); }
-  .header-inner{ padding:3px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 4px; gap:5px; }
+  .header-inner{ padding:3px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 6px; gap:5px; }
   .header-hole{ width:clamp(18px, 3vw, 24px); }
   .header-link{ font-size:clamp(12px, 3vw, 14px); }
   .nav{ gap:8px; }
