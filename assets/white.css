@@ -31,54 +31,9 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(10,12,16,.25); }
   margin:0 auto;
 }
 
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background: rgba(255,255,255,.82);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
-}
-
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 0;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none !important;
-}
-
-.brand-mark{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:38px;
-  height:38px;
-  border-radius:12px;
-  background: linear-gradient(135deg, rgba(47,107,255,.14), rgba(0,0,0,.02));
-  border: 1px solid rgba(10,12,16,.12);
-  box-shadow: 0 10px 28px rgba(0,0,0,.08);
-  font-weight:600;
-  letter-spacing:.2px;
-}
-
-.brand-name{
-  font-weight:600;
-  letter-spacing:.2px;
-}
-
-.nav{
-  display:flex;
-  align-items:center;
-  gap:16px;
-  color: var(--muted);
+body.page-white{
+  background: var(--bg);
+  color: var(--text);
 }
 
 .btn{
@@ -104,7 +59,24 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(10,12,16,.25); }
 }
 
 .hero-inner{
-  padding: 64px 0 46px;
+  padding: 48px 0 40px;
+}
+
+.page-back{
+  margin: 0 0 18px;
+}
+
+.page-back-link{
+  font-size: 13px;
+  color: var(--faint);
+  text-decoration: none !important;
+  letter-spacing: .02em;
+}
+
+.page-back-link:hover{
+  color: var(--muted);
+  text-decoration: underline !important;
+  text-decoration-color: rgba(10,12,16,.22);
 }
 
 .kicker{
@@ -157,7 +129,7 @@ h1{
 }
 
 .section{
-  padding: 54px 0;
+  padding: 48px 0;
 }
 
 .section-muted{
@@ -272,36 +244,6 @@ h1{
 .section-actions{
   margin-top: 18px;
   text-align:center;
-}
-
-.site-footer{
-  border-top: 1px solid var(--line);
-  padding: 26px 0;
-  color: var(--muted);
-}
-
-.footer-inner{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:18px;
-}
-
-.footer-brand{
-  font-weight:600;
-  color: var(--text);
-}
-
-.footer-version{
-  margin-top: 6px;
-  font-size: 10px;
-  color: var(--faint);
-}
-
-.footer-links{
-  display:flex;
-  gap:14px;
-  flex-wrap:wrap;
 }
 
 @media (max-width: 980px){
