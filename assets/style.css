@@ -341,6 +341,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 .hero-copy h1{
   margin-top: max(0px, calc(1.2vh - 10px));
   margin-left: 0;
+  font-size: clamp(29px, 3.74vw, 48px);
 }
 
 .hero-inner a,
