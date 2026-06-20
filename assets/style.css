@@ -551,7 +551,7 @@ h1{
   top:100%;
   width:var(--flipper-width);
   height:calc(30vh + 72px);
-  margin-top:10px;
+  margin-top:calc(10px - 5vh);
   z-index:5;
   pointer-events:auto;
   cursor:pointer;
