@@ -316,6 +316,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   text-align:left;
 }
 
+.hero-copy .kicker{
+  margin-top:10px;
+}
+
 .hero-action-row{
   display:flex;
   align-items:center;
