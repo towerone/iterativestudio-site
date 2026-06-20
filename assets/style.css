@@ -474,6 +474,11 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   pointer-events:auto;
 }
 
+.project-carousel,
+.project-carousel button{
+  pointer-events:auto;
+}
+
 .kicker{
   margin:0 0 12px;
   color: var(--muted);
@@ -593,6 +598,77 @@ h1{
   width:100%;
   height:100%;
   object-fit:cover;
+}
+
+.project-carousel{
+  display:flex;
+  align-items:stretch;
+  gap:12px;
+  width:100%;
+  margin-top:var(--stack-gap);
+  position:relative;
+  z-index:3;
+}
+
+.carousel-viewport{
+  flex:1;
+  overflow:hidden;
+  border-radius: var(--radius);
+  border: 2px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.78);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+  min-height: 230px;
+}
+
+.carousel-track{
+  display:flex;
+  height:100%;
+  transition: transform .45s ease;
+}
+
+.carousel-slide{
+  flex:0 0 100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:230px;
+  padding:26px 24px;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight:600;
+  letter-spacing:-0.01em;
+  color: var(--text);
+  text-align:center;
+  background: transparent;
+}
+
+.carousel-arrow{
+  appearance:none;
+  flex:0 0 48px;
+  align-self:stretch;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:230px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--muted);
+  font-size: 32px;
+  line-height:1;
+  cursor:pointer;
+  box-shadow: none;
+  transition: color .15s ease, opacity .15s ease, border-color .15s ease;
+}
+
+.carousel-arrow:hover{
+  color: var(--text);
+  opacity: .92;
+  border-color: rgba(74,127,212,.28);
+}
+
+.carousel-arrow span{
+  transform: translateY(-1px);
 }
 
 .micro-note{
@@ -796,6 +872,10 @@ h1{
   .hero-flipper{
     height:calc(24vh + 64px);
   }
+  .project-carousel{ gap:8px; }
+  .carousel-arrow{ flex-basis:40px; min-height:176px; font-size:26px; }
+  .carousel-viewport,
+  .carousel-slide{ min-height:176px; }
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .section-head{ flex-direction: column; align-items:flex-start; }

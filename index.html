@@ -114,6 +114,26 @@
               <div class="mini-body" id="card3Body">Structure intent, generate/debug code, document systems.</div>
             </div>
           </div>
+
+          <div class="project-carousel" id="projectCarousel">
+            <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" type="button" aria-label="Previous project">
+              <span aria-hidden="true">‹</span>
+            </button>
+
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">Project coming #1</div>
+                <div class="carousel-slide">Project coming #2</div>
+                <div class="carousel-slide">Project coming #3</div>
+                <div class="carousel-slide">Project coming #4</div>
+                <div class="carousel-slide">Project coming #5</div>
+              </div>
+            </div>
+
+            <button class="carousel-arrow carousel-arrow-next" id="carouselNext" type="button" aria-label="Next project">
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -150,7 +170,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.74</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.75</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -186,6 +206,13 @@ flipperAlts: [
 "Etho(p)ea School — planning system",
 "Parametric linework study",
 "Constraint-driven massing"
+],
+projects: [
+"Project coming #1",
+"Project coming #2",
+"Project coming #3",
+"Project coming #4",
+"Project coming #5"
 ],
 navProjects: "Projects",
 navAbout: "About",
@@ -224,6 +251,13 @@ flipperAlts: [
 "參數化線稿研究",
 "約束驅動的量體"
 ],
+projects: [
+"專案即將推出 #1",
+"專案即將推出 #2",
+"專案即將推出 #3",
+"專案即將推出 #4",
+"專案即將推出 #5"
+],
 navProjects: "專案",
 navAbout: "關於",
 navContact: "聯絡",
@@ -247,7 +281,47 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.74";
+const BUILD = "v0.1.75";
+
+const CAROUSEL_INTERVAL_MS = 10000;
+let carouselIndex = 0;
+let carouselTimer = null;
+const carouselTrack = document.getElementById("carouselTrack");
+
+function updateCarouselSlides() {
+if (!carouselTrack) return;
+const slides = carouselTrack.querySelectorAll(".carousel-slide");
+const labels = i18n[lang].projects || [];
+slides.forEach((slide, i) => {
+if (labels[i]) slide.textContent = labels[i];
+});
+updateCarouselPosition();
+}
+
+function updateCarouselPosition() {
+if (!carouselTrack) return;
+carouselTrack.style.transform = `translateX(-${carouselIndex * 100}%)`;
+}
+
+function goToSlide(nextIndex) {
+const slides = carouselTrack ? carouselTrack.querySelectorAll(".carousel-slide") : [];
+if (!slides.length) return;
+carouselIndex = (nextIndex + slides.length) % slides.length;
+updateCarouselPosition();
+}
+
+function nextCarouselSlide() {
+goToSlide(carouselIndex + 1);
+}
+
+function prevCarouselSlide() {
+goToSlide(carouselIndex - 1);
+}
+
+function resetCarouselTimer() {
+if (carouselTimer) clearInterval(carouselTimer);
+carouselTimer = setInterval(nextCarouselSlide, CAROUSEL_INTERVAL_MS);
+}
 
 const FLIPPER_INTERVAL_MS = 8000;
 let flipperIndex = 0;
@@ -346,6 +420,7 @@ document.getElementById("card3Title").innerHTML = t.c3t;
 document.getElementById("card3Body").innerHTML = t.c3b;
 
 updateFlipperAlts();
+updateCarouselSlides();
 
 document.getElementById("navProjects").textContent = t.navProjects;
 document.getElementById("navAbout").textContent = t.navAbout;
@@ -389,8 +464,14 @@ resetFlipperTimer();
 });
 }
 
+const carouselPrev = document.getElementById("carouselPrev");
+const carouselNext = document.getElementById("carouselNext");
+if (carouselPrev) carouselPrev.addEventListener("click", () => { prevCarouselSlide(); resetCarouselTimer(); });
+if (carouselNext) carouselNext.addEventListener("click", () => { nextCarouselSlide(); resetCarouselTimer(); });
+
 setMap("currents");
 setLang("en");
+resetCarouselTimer();
 resetFlipperTimer();
   </script>
 </body>
