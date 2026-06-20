@@ -634,7 +634,27 @@ h1{
 }
 
 .footer-inner{
-  display:block;
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items:center;
+  gap:20px;
+}
+
+.footer-left{
+  justify-self:start;
+}
+
+.footer-mark{
+  font-size:clamp(36px, 5vw, 56px);
+  font-weight:600;
+  color:var(--text);
+  line-height:1;
+  text-align:center;
+}
+
+.footer-right{
+  justify-self:end;
+  text-align:right;
 }
 
 .footer-brand{
@@ -652,6 +672,19 @@ h1{
   color: var(--faint);
 }
 
+.footer-map-credit{
+  margin:0;
+  max-width:30ch;
+  font-size:13px;
+  line-height:1.45;
+  color:var(--muted);
+}
+
+.footer-map-credit a{
+  text-decoration:underline;
+  text-decoration-color:rgba(15,18,25,.28);
+}
+
 @media (max-width: 900px){
   .hero{ min-height: min(79vh, 792px); }
   .hero-inner{ padding: 28px 0 0; }
@@ -667,4 +700,15 @@ h1{
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .section-head{ flex-direction: column; align-items:flex-start; }
+  .footer-inner{
+    grid-template-columns:1fr;
+    justify-items:center;
+    text-align:center;
+  }
+  .footer-left,
+  .footer-right{
+    justify-self:center;
+    text-align:center;
+  }
+  .footer-map-credit{ max-width:none; }
 }

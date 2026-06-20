@@ -136,10 +136,18 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
-        <div class="footer-brand">[i] Iterative Studio</div>
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.48</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.49</div>
+      </div>
+
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerMapCredit">
+          Earth viewer map provided by <a href="https://earth.nullschool.net/" target="_blank" rel="noopener noreferrer">earth.nullschool.net</a>
+        </p>
       </div>
     </div>
   </footer>
@@ -182,6 +190,7 @@ panel2Li1: "Scripted generators & checkers",
 panel2Li2: "Versioned assumptions",
 panel2Li3: "Hand-off ready outputs",
 footerNote: "AI for the Built Environment",
+footerMapCredit: "Earth viewer map provided by <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a>",
 mapLabels: {
 currents: "ocean-currents",
 wind: "air-wind",
@@ -218,6 +227,7 @@ panel2Li1: "腳本生成器與檢查器",
 panel2Li2: "版本化的假設",
 panel2Li3: "可交付的輸出",
 footerNote: "建築與環境的 AI 工具",
+footerMapCredit: "地球地圖檢視器由 <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a> 提供",
 mapLabels: {
 currents: "海洋-洋流",
 wind: "空氣-風",
@@ -226,7 +236,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.48";
+const BUILD = "v0.1.49";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -335,6 +345,7 @@ document.getElementById("panel2Li2").textContent = t.panel2Li2;
 document.getElementById("panel2Li3").textContent = t.panel2Li3;
 
 document.getElementById("footerNote").textContent = t.footerNote;
+document.getElementById("footerMapCredit").innerHTML = t.footerMapCredit;
 
 updateMapLabel();
 }
