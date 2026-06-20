@@ -361,7 +361,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-title-lead{
-  font-size: calc(1em + 3pt);
+  font-size: calc(1em + 2.8pt);
 }
 
 .hero-inner a,
