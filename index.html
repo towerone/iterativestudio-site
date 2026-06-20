@@ -49,7 +49,7 @@
         <iframe
           id="heroMap"
           class="hero-iframe"
-          src="https://earth.nullschool.net/#current/ocean/surface/currents/orthographic=-239.83,26.42,1804"
+          src="https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/orthographic=-239.83,26.42,1804"
           referrerpolicy="no-referrer-when-downgrade"
           tabindex="-1"
           inert
@@ -68,7 +68,7 @@
             <p class="kicker" id="kickerText">AI for the Built Environment</p>
             <h1 id="heroTitle"><span class="hero-title-lead">Practical AI</span>-assisted tools<br/>for architectural workflows</h1>
 
-            <div class="hero-flipper is-tint-currents" id="heroFlipper" aria-label="Project previews" aria-live="polite">
+            <div class="hero-flipper is-tint-pm1" id="heroFlipper" aria-label="Project previews" aria-live="polite">
               <!-- Flipper slides: 3,12 = biomimicry; 4,20 = manufacturing; 5,17 = LOAD; 6,14,19 = Hisnta; 7,18 = Pure Land; 8,13 = 54 Jeff; 9,16 = 70 Henry St; 11,15 = Network Tower; other odd = jeddah; other even = jeddah-even -->
               <div class="flipper-stage" id="flipperStage">
                 <figure class="flipper-panel is-active">
@@ -162,10 +162,10 @@
 
           <div class="hero-action-row">
             <div class="hero-map-controls" aria-hidden="false">
-              <span class="map-mode" id="mapModeLabel">ocean-currents</span>
-              <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
+              <span class="map-mode" id="mapModeLabel">pollution-PM2.5</span>
+              <button class="pill" type="button" data-map="currents" aria-label="Ocean currents">W</button>
               <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
-              <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
+              <button class="pill is-active" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
             </div>
           </div>
 
@@ -241,7 +241,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.107</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.108</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -338,7 +338,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.107";
+const BUILD = "v0.1.108";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -567,7 +567,7 @@ const carouselNext = document.getElementById("carouselNext");
 if (carouselPrev) carouselPrev.addEventListener("click", () => { prevCarouselSlide(); resetCarouselTimer(); });
 if (carouselNext) carouselNext.addEventListener("click", () => { nextCarouselSlide(); resetCarouselTimer(); });
 
-setMap("currents");
+setMap("pm1");
 setLang("en");
 initFlipperRandomStart();
 resetCarouselTimer();
