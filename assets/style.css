@@ -405,24 +405,17 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-main{
   --flipper-width: clamp(84px, calc((min(var(--max), 100vw - 40px) - 32px) / 9), 124px);
-  display:grid;
-  grid-template-columns:var(--flipper-width) minmax(0, 1fr);
-  grid-template-areas:
-    "flipper copy"
-    "flipper action"
-    "flipper cards";
-  column-gap:16px;
-  align-items:stretch;
-}
-
-.hero-flipper{
-  grid-area:flipper;
+  position:relative;
+  display:flex;
+  flex-direction:column;
 }
 
 .hero-copy{
-  grid-area:copy;
-  max-width:none;
+  position:relative;
+  z-index:2;
+  max-width:680px;
   margin-top:-10px;
+  overflow:visible;
 }
 
 .hero-copy .kicker,
@@ -438,7 +431,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-action-row{
-  grid-area:action;
+  position:relative;
+  z-index:2;
   display:flex;
   align-items:flex-end;
   justify-content:flex-end;
@@ -504,7 +498,8 @@ h1{
 }
 
 .hero-cards{
-  grid-area:cards;
+  position:relative;
+  z-index:3;
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:16px;
@@ -546,24 +541,21 @@ h1{
 }
 
 .hero-flipper{
-  display:flex;
-  flex-direction:column;
-  width:100%;
-  min-height:100%;
-  align-self:stretch;
-  padding-top:calc(18px + max(0px, 1.2vh - 10px));
-  box-sizing:border-box;
-  position:relative;
-  z-index:4;
+  position:absolute;
+  left:0;
+  top:100%;
+  width:var(--flipper-width);
+  height:calc(30vh + 72px);
+  margin-top:10px;
+  z-index:5;
   pointer-events:auto;
   cursor:pointer;
 }
 
 .flipper-stage{
   position:relative;
-  flex:1 1 auto;
   width:100%;
-  min-height:0;
+  height:100%;
   perspective:900px;
   border-radius: calc(var(--radius) - 4px);
   border:1px solid rgba(255,255,255,.24);
@@ -799,8 +791,10 @@ h1{
   .hero-map-controls{ width:100%; justify-content:flex-end; }
   .hero-cards{ grid-template-columns: 1fr; }
   .hero-main{
-    grid-template-columns: clamp(72px, 18vw, 104px) minmax(0, 1fr);
-    column-gap:12px;
+    --flipper-width: clamp(72px, 18vw, 104px);
+  }
+  .hero-flipper{
+    height:calc(24vh + 64px);
   }
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
