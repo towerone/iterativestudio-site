@@ -462,6 +462,20 @@ h1{
   backdrop-filter: blur(6px);
 }
 
+.mini-card-link{
+  display:block;
+  text-decoration:none !important;
+  color:inherit;
+  cursor:pointer;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.mini-card-link:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.28);
+  background: rgba(255,255,255,.12);
+}
+
 .mini-title{
   font-weight:600;
   margin-bottom:6px;
