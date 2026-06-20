@@ -46,21 +46,53 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .site-header{
-  position:sticky;
-  top:0;
+  position:relative;
   z-index:10;
   width:100%;
-  background: rgba(255,255,255,.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
 }
 
 .header-inner{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items:stretch;
+  width:100%;
+  border-bottom:1px solid var(--line);
+}
+
+.header-wing{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:14px 0;
+  padding:14px 20px;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+
+.header-wing-left{
+  justify-content:flex-start;
+  padding-left:max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2));
+}
+
+.header-wing-right{
+  justify-content:flex-end;
+  padding-right:max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2));
+}
+
+.header-center{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px clamp(8px, 1.6vw, 14px);
+  background:transparent;
+  pointer-events:none;
+}
+
+.header-mark{
+  font-size:clamp(36px, 5vw, 56px);
+  font-weight:600;
+  color:var(--text);
+  line-height:1;
+  text-align:center;
 }
 
 .brand{
@@ -315,7 +347,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   flex-direction:column;
   justify-content:flex-start;
   min-height: inherit;
-  padding: 34px 0 0;
+  padding: calc(34px - 4pt) 0 0;
   pointer-events:auto;
   touch-action:pan-y;
 }
@@ -688,7 +720,9 @@ h1{
 
 @media (max-width: 900px){
   .hero{ min-height: min(79vh, 792px); }
-  .hero-inner{ padding: 28px 0 0; }
+  .hero-inner{ padding: calc(28px - 4pt) 0 0; }
+  .header-mark{ font-size:clamp(22px, 5.5vw, 36px); }
+  .header-wing{ padding-top:12px; padding-bottom:12px; }
   .hero-action-row{
     margin-top:11.3vh;
   }
@@ -717,4 +751,8 @@ h1{
   .footer-inner{ gap:6px; }
   .footer-mark{ font-size:clamp(18px, 5vw, 28px); }
   .footer-map-credit{ font-size:clamp(8px, 2.1vw, 10px); }
+  .header-mark{ font-size:clamp(18px, 5vw, 28px); }
+  .header-center{ padding:12px 6px; }
+  .header-link{ font-size:clamp(12px, 3vw, 14px); }
+  .nav{ gap:10px; }
 }
