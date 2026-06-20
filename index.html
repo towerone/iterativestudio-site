@@ -69,11 +69,33 @@
         </div>
 
         <div class="hero-action-row">
-          <div class="hero-map-controls" aria-hidden="false">
-            <span class="map-mode" id="mapModeLabel">ocean-currents</span>
-            <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
-            <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
-            <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
+          <div class="hero-action-right">
+            <div class="hero-flipper" id="heroFlipper" aria-label="Project previews" aria-live="polite">
+              <div class="flipper-stage" id="flipperStage">
+                <figure class="flipper-panel is-active">
+                  <img src="/assets/hero-flip/01.svg" alt="YoChand Museum — facade study" width="320" height="320" />
+                </figure>
+                <figure class="flipper-panel">
+                  <img src="/assets/hero-flip/02.svg" alt="Hista Powerplant — roof iteration" width="320" height="320" />
+                </figure>
+                <figure class="flipper-panel">
+                  <img src="/assets/hero-flip/03.svg" alt="Etho(p)ea School — planning system" width="320" height="320" />
+                </figure>
+                <figure class="flipper-panel">
+                  <img src="/assets/hero-flip/04.svg" alt="Parametric linework study" width="320" height="320" />
+                </figure>
+                <figure class="flipper-panel">
+                  <img src="/assets/hero-flip/05.svg" alt="Constraint-driven massing" width="320" height="320" />
+                </figure>
+              </div>
+            </div>
+
+            <div class="hero-map-controls" aria-hidden="false">
+              <span class="map-mode" id="mapModeLabel">ocean-currents</span>
+              <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
+              <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
+              <button class="pill" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
+            </div>
           </div>
         </div>
 
@@ -92,26 +114,6 @@
             <div class="mini-title" id="card3Title">AI Assistance</div>
             <div class="mini-body" id="card3Body">Structure intent, generate/debug code, document systems.</div>
           </div>
-        </div>
-
-        <div class="project-carousel" id="projectCarousel">
-          <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" type="button" aria-label="Previous project">
-            <span aria-hidden="true">‹</span>
-          </button>
-
-          <div class="carousel-viewport">
-            <div class="carousel-track" id="carouselTrack">
-              <div class="carousel-slide">Project coming #1</div>
-              <div class="carousel-slide">Project coming #2</div>
-              <div class="carousel-slide">Project coming #3</div>
-              <div class="carousel-slide">Project coming #4</div>
-              <div class="carousel-slide">Project coming #5</div>
-            </div>
-          </div>
-
-          <button class="carousel-arrow carousel-arrow-next" id="carouselNext" type="button" aria-label="Next project">
-            <span aria-hidden="true">›</span>
-          </button>
         </div>
 
       </div>
@@ -149,7 +151,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.71</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.72</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -179,12 +181,12 @@ c2t: "Python Scripting",
 c2b: "Geometry, drawings, automation, auditability.",
 c3t: "AI Assistance",
 c3b: "Structure intent, generate/debug code, document systems.",
-projects: [
-"Project coming #1",
-"Project coming #2",
-"Project coming #3",
-"Project coming #4",
-"Project coming #5"
+flipperAlts: [
+"YoChand Museum — facade study",
+"Hista Powerplant — roof iteration",
+"Etho(p)ea School — planning system",
+"Parametric linework study",
+"Constraint-driven massing"
 ],
 navProjects: "Projects",
 navAbout: "About",
@@ -216,12 +218,12 @@ c2t: "Python 腳本",
 c2b: "幾何、圖面、自動化，可驗證。",
 c3t: "AI 助手",
 c3b: "把意圖結構化，產生/除錯程式碼，整理文件。",
-projects: [
-"專案即將推出 #1",
-"專案即將推出 #2",
-"專案即將推出 #3",
-"專案即將推出 #4",
-"專案即將推出 #5"
+flipperAlts: [
+"YoChand 博物館 — 立面研究",
+"Hista 電廠 — 屋頂迭代",
+"Etho(p)ea 學校 — 規劃系統",
+"參數化線稿研究",
+"約束驅動的量體"
 ],
 navProjects: "專案",
 navAbout: "關於",
@@ -246,46 +248,54 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.71";
+const BUILD = "v0.1.72";
 
-const CAROUSEL_INTERVAL_MS = 10000;
-let carouselIndex = 0;
-let carouselTimer = null;
-const carouselTrack = document.getElementById("carouselTrack");
+const FLIPPER_INTERVAL_MS = 8000;
+let flipperIndex = 0;
+let flipperTimer = null;
+let flipperAnimating = false;
+const flipperStage = document.getElementById("flipperStage");
 
-function updateCarouselSlides() {
-if (!carouselTrack) return;
-const slides = carouselTrack.querySelectorAll(".carousel-slide");
-const labels = i18n[lang].projects || [];
-slides.forEach((slide, i) => {
-if (labels[i]) slide.textContent = labels[i];
+function getFlipperPanels() {
+return flipperStage ? Array.from(flipperStage.querySelectorAll(".flipper-panel")) : [];
+}
+
+function updateFlipperAlts() {
+const panels = getFlipperPanels();
+const alts = i18n[lang].flipperAlts || [];
+panels.forEach((panel, i) => {
+const img = panel.querySelector("img");
+if (img && alts[i]) img.alt = alts[i];
 });
-updateCarouselPosition();
 }
 
-function updateCarouselPosition() {
-if (!carouselTrack) return;
-carouselTrack.style.transform = `translateX(-${carouselIndex * 100}%)`;
+function showFlipperPanel(nextIndex) {
+const panels = getFlipperPanels();
+if (!panels.length || flipperAnimating) return;
+
+const current = panels[flipperIndex];
+const next = panels[(nextIndex + panels.length) % panels.length];
+if (!current || !next || current === next) return;
+
+flipperAnimating = true;
+current.classList.remove("is-active");
+current.classList.add("is-leaving");
+next.classList.add("is-active");
+
+window.setTimeout(() => {
+current.classList.remove("is-leaving");
+flipperIndex = (nextIndex + panels.length) % panels.length;
+flipperAnimating = false;
+}, 520);
 }
 
-function goToSlide(nextIndex) {
-const slides = carouselTrack ? carouselTrack.querySelectorAll(".carousel-slide") : [];
-if (!slides.length) return;
-carouselIndex = (nextIndex + slides.length) % slides.length;
-updateCarouselPosition();
+function nextFlipperPanel() {
+showFlipperPanel(flipperIndex + 1);
 }
 
-function nextCarouselSlide() {
-goToSlide(carouselIndex + 1);
-}
-
-function prevCarouselSlide() {
-goToSlide(carouselIndex - 1);
-}
-
-function resetCarouselTimer() {
-if (carouselTimer) clearInterval(carouselTimer);
-carouselTimer = setInterval(nextCarouselSlide, CAROUSEL_INTERVAL_MS);
+function resetFlipperTimer() {
+if (flipperTimer) clearInterval(flipperTimer);
+flipperTimer = setInterval(nextFlipperPanel, FLIPPER_INTERVAL_MS);
 }
 
 const mapEl = document.getElementById("heroMap");
@@ -336,7 +346,7 @@ document.getElementById("card2Body").innerHTML = t.c2b;
 document.getElementById("card3Title").innerHTML = t.c3t;
 document.getElementById("card3Body").innerHTML = t.c3b;
 
-updateCarouselSlides();
+updateFlipperAlts();
 
 document.getElementById("navProjects").textContent = t.navProjects;
 document.getElementById("navAbout").textContent = t.navAbout;
@@ -372,14 +382,17 @@ setLang(lang === "en" ? "zh" : "en");
 const buildEl = document.getElementById("buildVersion");
 if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
 
-const carouselPrev = document.getElementById("carouselPrev");
-const carouselNext = document.getElementById("carouselNext");
-if (carouselPrev) carouselPrev.addEventListener("click", () => { prevCarouselSlide(); resetCarouselTimer(); });
-if (carouselNext) carouselNext.addEventListener("click", () => { nextCarouselSlide(); resetCarouselTimer(); });
+const heroFlipper = document.getElementById("heroFlipper");
+if (heroFlipper) {
+heroFlipper.addEventListener("click", () => {
+nextFlipperPanel();
+resetFlipperTimer();
+});
+}
 
 setMap("currents");
 setLang("en");
-resetCarouselTimer();
+resetFlipperTimer();
   </script>
 </body>
 </html>
