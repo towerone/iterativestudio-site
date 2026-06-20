@@ -57,11 +57,6 @@
         </div>
 
         <div class="hero-action-row">
-          <p class="lead" id="heroLead">
-            Building reproducible systems: Python scripts,<br/>
-            headed tools (Rhino/Grasshopper, Revit/Dynamo) <span class="lead-finish">+ clear constraints. Not magic prompts.</span>
-          </p>
-
           <div class="hero-map-controls" aria-hidden="false">
             <span class="map-mode" id="mapModeLabel">ocean-currents</span>
             <button class="pill is-active" type="button" data-map="currents" aria-label="Ocean currents">W</button>
@@ -142,7 +137,7 @@
       <div>
         <div class="footer-brand">[i] Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.37</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.38</div>
       </div>
     </div>
   </footer>
@@ -158,7 +153,6 @@ const i18n = {
 en: {
 kicker: "AI for the Built Environment",
 title: "Practical AI-assisted tools<br/>for architectural workflows.",
-lead: "Building reproducible systems: Python scripts,<br/>headed tools (Rhino/Grasshopper, Revit/Dynamo) <span class=\"lead-finish\">+ clear constraints. Not magic prompts.</span>",
 c1t: "Computational Design",
 c1b: "Rules, parameters, constraints, repeatable intent.",
 c2t: "Python Scripting",
@@ -195,7 +189,6 @@ pm1: "pollution-PM2.5"
 zh: {
 kicker: "建築與環境的 AI 工具",
 title: "用 AI 做出可重複的工具<br/>支援建築工作流程。",
-lead: "建構可重現的系統：Python 腳本 + 有頭工具（Rhino/Grasshopper、Revit/Dynamo）+ 清楚的約束條件。不是魔法提示詞。",
 c1t: "計算式設計",
 c1b: "規則、參數、約束，讓意圖可重複。",
 c2t: "Python 腳本",
@@ -231,7 +224,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.37";
+const BUILD = "v0.1.38";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -313,7 +306,6 @@ langToggleEl.classList.toggle("is-en-active", lang === "en");
 
 document.getElementById("kickerText").innerHTML = t.kicker;
 document.getElementById("heroTitle").innerHTML = t.title;
-document.getElementById("heroLead").innerHTML = t.lead;
 
 document.getElementById("card1Title").innerHTML = t.c1t;
 document.getElementById("card1Body").innerHTML = t.c1b;
