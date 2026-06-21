@@ -405,10 +405,11 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-main{
   --flipper-width: calc((min(var(--max), 100vw - 40px) - 32px) / 3);
-  --flipper-stage-height: calc(27vh + 72px);
-  --flipper-lead: calc(10px - 1vh);
-  --flipper-tail: calc(8px + 18px);
-  --hero-action-gap: 10px;
+  --flipper-height-ratio: 1;
+  --flipper-stage-height: calc(var(--flipper-width) * var(--flipper-height-ratio));
+  --flipper-lead: clamp(0px, calc(12px - 1.2vh), 14px);
+  --flipper-tail: clamp(2px, calc(6px + 0.4vw), 14px);
+  --hero-action-gap: clamp(2px, calc(8px - 0.5vw), 10px);
   position:relative;
   display:flex;
   flex-direction:column;
@@ -567,12 +568,14 @@ h1{
   position:relative;
   flex:0 0 auto;
   width:100%;
-  height:var(--flipper-stage-height);
+  aspect-ratio: 1;
+  height:auto;
   border-radius: calc(var(--radius) - 4px);
   border:1px solid rgba(255,255,255,.82);
   background:transparent;
   box-shadow:none;
   overflow:hidden;
+  transition: aspect-ratio .25s ease;
 }
 
 .flipper-panel{
@@ -1069,10 +1072,6 @@ h1{
   .hero-inner{ padding: calc(36px - 4pt) 0 0; }
   .header-inner{ padding:3px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 6px; gap:6px; }
   .header-hole{ width:clamp(20px, 3.4vw, 28px); }
-  .hero-main{
-    --flipper-stage-height: calc(25vh + 64px);
-    --hero-action-gap: 8px;
-  }
   .hero-map-controls{ width:100%; justify-content:flex-end; }
   .hero-cards{ grid-template-columns: 1fr; }
   .hero-flipper{
@@ -1096,6 +1095,15 @@ h1{
 }
 
 @media (max-width: 520px){
+  .hero-main{
+    --flipper-height-ratio: 1.5;
+    --flipper-lead: clamp(0px, calc(8px - 0.8vh), 10px);
+    --flipper-tail: 2px;
+    --hero-action-gap: 2px;
+  }
+  .flipper-stage{
+    aspect-ratio: 4 / 6;
+  }
   .footer-inner{ gap:6px; }
   .footer-mark{ font-size:clamp(16px, 4.4vw, 24px); }
   .footer-map-credit{ font-size:clamp(8px, 2.1vw, 10px); }
