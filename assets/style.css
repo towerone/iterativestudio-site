@@ -702,6 +702,7 @@ h1{
   min-height: 0;
   height: var(--carousel-size);
   text-align: left;
+  transition: height .2s ease;
 }
 
 .slide-detail{
@@ -714,6 +715,7 @@ h1{
   flex-direction: row;
   gap: 0;
   overflow: visible;
+  transition: width .2s ease, height .2s ease, flex-basis .2s ease;
 }
 
 .slide-text{
@@ -728,6 +730,7 @@ h1{
   justify-content: flex-start;
   gap: clamp(4px, 1cqi, 8px);
   overflow: hidden;
+  transition: height .2s ease, max-height .2s ease;
 }
 
 .slide-title{
@@ -770,6 +773,7 @@ h1{
   min-height: 0;
   margin-left: clamp(0px, 8vh, 6cqi);
   overflow: hidden;
+  transition: width .2s ease, height .2s ease, flex-basis .2s ease;
 }
 
 .detail-box,
@@ -815,31 +819,25 @@ h1{
   display: block;
 }
 
-/* One detail: halve system height; render matches and crops inside */
+/* One detail: layout only — size keeps scaling fluidly via cqi */
 @container carousel (max-width: 900px){
-  .carousel-slide{
-    --carousel-size: 15.245cqi;
-  }
   .slide-detail .detail-box:nth-child(2){ display: none; }
   .slide-detail .detail-box:first-child{ flex: 1 1 100%; }
 }
 
-/* Mobile: text + render only; system keeps shrinking with container */
+/* Mobile: text + render only */
 @container carousel (max-width: 560px){
-  .carousel-slide{
-    --carousel-size: 30.49cqi;
-  }
   .slide-detail{ display: none; }
   .slide-text{
     flex: 1 1 0;
     padding: clamp(4px, 1cqi, 10px) 1.6cqi;
   }
   .slide-title{
-    font-size: clamp(13px, 4.2cqi, 18px);
+    font-size: clamp(11.7px, 3.78cqi, 16.2px);
   }
   .slide-bullets,
   .slide-desc{
-    font-size: clamp(10px, 3cqi, 12px);
+    font-size: clamp(9px, 2.7cqi, 10.8px);
   }
   .slide-render{
     margin-left: clamp(0px, 2vh, 2cqi);
