@@ -693,6 +693,7 @@ h1{
 
 .carousel-slide{
   --carousel-size: 30.49cqi;
+  --detail-tree: calc(var(--carousel-size) / 2);
   flex: 0 0 100%;
   display: flex;
   gap: 0;
@@ -819,8 +820,13 @@ h1{
   display: block;
 }
 
-/* One detail: layout only — size keeps scaling fluidly via cqi */
+/* One detail: keep half-tree portrait ratio; text expands into freed space */
 @container carousel (max-width: 900px){
+  .slide-detail{
+    flex: 0 0 var(--detail-tree);
+    width: var(--detail-tree);
+    height: var(--carousel-size);
+  }
   .slide-detail .detail-box:nth-child(2){ display: none; }
   .slide-detail .detail-box:first-child{ flex: 1 1 100%; }
 }
