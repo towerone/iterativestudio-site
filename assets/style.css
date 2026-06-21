@@ -703,9 +703,11 @@ h1{
 }
 
 .slide-detail{
-  flex: 1 1 30%;
+  flex: 0 0 30.49%;
   min-width: 0;
-  height: 100%;
+  min-height: 0;
+  aspect-ratio: 1;
+  height: auto;
   display: flex;
   flex-direction: row;
   gap: 0;
@@ -777,8 +779,7 @@ h1{
 .detail-box{
   flex: 1 1 50%;
   min-width: 0;
-  min-height: 100%;
-  align-self: stretch;
+  height: 100%;
   border-radius: 0;
   background: #d7dadf;
   color: #3a3f47;
@@ -793,9 +794,9 @@ h1{
 }
 
 @container carousel (max-width: 900px){
-  .slide-detail{ flex: 0 1 16.666%; }
+  .slide-detail{ flex: 0 0 30.49%; }
   .slide-detail .detail-box:nth-child(2){ display: none; }
-  .slide-detail .detail-box:first-child{ flex: 1 1 auto; }
+  .slide-detail .detail-box:first-child{ flex: 1 1 100%; }
   .slide-render{ flex: 0 0 30.49%; }
 }
 
