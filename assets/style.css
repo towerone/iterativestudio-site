@@ -756,7 +756,7 @@ h1{
 }
 
 .slide-render{
-  flex: 0 0 29.333%;
+  flex: 0 0 30.8%;
   min-width: 0;
   min-height: 0;
   margin-left: 8vh;
@@ -796,13 +796,13 @@ h1{
   .slide-detail{ flex: 0 1 16.666%; }
   .slide-detail .detail-box:nth-child(2){ display: none; }
   .slide-detail .detail-box:first-child{ flex: 1 1 auto; }
-  .slide-render{ flex: 0 0 29.333%; }
+  .slide-render{ flex: 0 0 30.8%; }
 }
 
 @container carousel (max-width: 560px){
   .slide-detail{ display: none; }
   .slide-text{ flex: 1 1 55%; min-width: 0; }
-  .slide-render{ flex: 0 0 39.6%; }
+  .slide-render{ flex: 0 0 41.58%; }
 }
 
 .carousel-arrow{
