@@ -663,7 +663,7 @@ h1{
 
 .project-carousel{
   display:flex;
-  align-items:stretch;
+  align-items:center;
   gap:12px;
   width:100%;
   margin-top:var(--stack-gap);
@@ -687,30 +687,29 @@ h1{
 .carousel-track{
   display:flex;
   height:auto;
-  align-items:stretch;
+  align-items:flex-start;
   transition: transform .45s ease;
 }
 
 .carousel-slide{
-  --carousel-square: 30.49cqi;
-  --carousel-half: 15.245cqi;
+  --carousel-size: 30.49cqi;
   flex: 0 0 100%;
   display: flex;
   gap: 0;
-  align-items: stretch;
+  align-items: flex-start;
   box-sizing: border-box;
   padding: 0;
   min-height: 0;
+  height: var(--carousel-size);
   text-align: left;
 }
 
 .slide-detail{
-  flex: 0 0 var(--carousel-square);
-  width: var(--carousel-square);
+  flex: 0 0 var(--carousel-size);
+  width: var(--carousel-size);
+  height: var(--carousel-size);
   min-width: 0;
   min-height: 0;
-  aspect-ratio: 1;
-  height: auto;
   display: flex;
   flex-direction: row;
   gap: 0;
@@ -721,7 +720,9 @@ h1{
   flex: 1 1 0;
   min-width: 0;
   min-height: 0;
-  padding: 1.5vh 2cqi;
+  height: var(--carousel-size);
+  max-height: var(--carousel-size);
+  padding: clamp(6px, 1.2cqi, 14px) 2cqi;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -762,13 +763,12 @@ h1{
 }
 
 .slide-render{
-  flex: 0 0 var(--carousel-square);
-  width: var(--carousel-square);
+  flex: 0 0 var(--carousel-size);
+  width: var(--carousel-size);
+  height: var(--carousel-size);
   min-width: 0;
   min-height: 0;
   margin-left: clamp(0px, 8vh, 6cqi);
-  aspect-ratio: 1;
-  height: auto;
   overflow: hidden;
 }
 
@@ -815,26 +815,24 @@ h1{
   display: block;
 }
 
-/* One detail: half-square width (one standard tree), render keeps full square and crops */
+/* One detail: halve system height; render matches and crops inside */
 @container carousel (max-width: 900px){
-  .slide-detail{
-    flex-basis: var(--carousel-half);
-    width: var(--carousel-half);
-    align-self: center;
+  .carousel-slide{
+    --carousel-size: 15.245cqi;
   }
   .slide-detail .detail-box:nth-child(2){ display: none; }
   .slide-detail .detail-box:first-child{ flex: 1 1 100%; }
 }
 
-/* Mobile: text + render only; both scale down, render stays square */
+/* Mobile: text + render only; system keeps shrinking with container */
 @container carousel (max-width: 560px){
   .carousel-slide{
-    --carousel-square: 41.16cqi;
+    --carousel-size: 30.49cqi;
   }
   .slide-detail{ display: none; }
   .slide-text{
     flex: 1 1 0;
-    padding: 1.2vh 1.6cqi;
+    padding: clamp(4px, 1cqi, 10px) 1.6cqi;
   }
   .slide-title{
     font-size: clamp(13px, 4.2cqi, 18px);
@@ -844,8 +842,6 @@ h1{
     font-size: clamp(10px, 3cqi, 12px);
   }
   .slide-render{
-    flex: 0 0 var(--carousel-square);
-    width: var(--carousel-square);
     margin-left: clamp(0px, 2vh, 2cqi);
   }
 }
@@ -853,7 +849,7 @@ h1{
 .carousel-arrow{
   appearance:none;
   flex:0 0 48px;
-  align-self:stretch;
+  align-self:center;
   display:inline-flex;
   align-items:center;
   justify-content:center;
