@@ -193,11 +193,65 @@
 
             <div class="carousel-viewport">
               <div class="carousel-track" id="carouselTrack">
-                <div class="carousel-slide">Project coming #1</div>
-                <div class="carousel-slide">Project coming #2</div>
-                <div class="carousel-slide">Project coming #3</div>
-                <div class="carousel-slide">Project coming #4</div>
-                <div class="carousel-slide">Project coming #5</div>
+                <div class="carousel-slide">
+                  <div class="slide-detail">
+                    <div class="detail-box">Detail 1</div>
+                    <div class="detail-box">Detail 2</div>
+                  </div>
+                  <div class="slide-text">
+                    <h3 class="slide-title">Earth God Temple</h3>
+                    <p class="slide-blurb">Short project intent line.</p>
+                  </div>
+                  <div class="slide-render"><div class="render-box">Rendering</div></div>
+                </div>
+
+                <div class="carousel-slide">
+                  <div class="slide-detail">
+                    <div class="detail-box">Detail 1</div>
+                    <div class="detail-box">Detail 2</div>
+                  </div>
+                  <div class="slide-text">
+                    <h3 class="slide-title">YoChand Museum</h3>
+                    <p class="slide-blurb">Short project intent line.</p>
+                  </div>
+                  <div class="slide-render"><div class="render-box">Rendering</div></div>
+                </div>
+
+                <div class="carousel-slide">
+                  <div class="slide-detail">
+                    <div class="detail-box">Detail 1</div>
+                    <div class="detail-box">Detail 2</div>
+                  </div>
+                  <div class="slide-text">
+                    <h3 class="slide-title">Dragon Tube</h3>
+                    <p class="slide-blurb">Short project intent line.</p>
+                  </div>
+                  <div class="slide-render"><div class="render-box">Rendering</div></div>
+                </div>
+
+                <div class="carousel-slide">
+                  <div class="slide-detail">
+                    <div class="detail-box">Detail 1</div>
+                    <div class="detail-box">Detail 2</div>
+                  </div>
+                  <div class="slide-text">
+                    <h3 class="slide-title">Ethiopia School</h3>
+                    <p class="slide-blurb">Short project intent line.</p>
+                  </div>
+                  <div class="slide-render"><div class="render-box">Rendering</div></div>
+                </div>
+
+                <div class="carousel-slide">
+                  <div class="slide-detail">
+                    <div class="detail-box">Detail 1</div>
+                    <div class="detail-box">Detail 2</div>
+                  </div>
+                  <div class="slide-text">
+                    <h3 class="slide-title">Hista Powerplant</h3>
+                    <p class="slide-blurb">Short project intent line.</p>
+                  </div>
+                  <div class="slide-render"><div class="render-box">Rendering</div></div>
+                </div>
               </div>
             </div>
 
@@ -241,7 +295,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.108</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.00</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -272,11 +326,11 @@ c2b: "Geometry, drawings, automation, auditability.",
 c3t: "AI Assistance",
 c3b: "Structure intent, generate/debug code, document systems.",
 projects: [
-"Project coming #1",
-"Project coming #2",
-"Project coming #3",
-"Project coming #4",
-"Project coming #5"
+{ t: "Earth God Temple", b: "Short project intent line." },
+{ t: "YoChand Museum",   b: "Short project intent line." },
+{ t: "Dragon Tube",      b: "Short project intent line." },
+{ t: "Ethiopia School",  b: "Short project intent line." },
+{ t: "Hista Powerplant", b: "Short project intent line." }
 ],
 navProjects: "Projects",
 navAbout: "About",
@@ -309,11 +363,11 @@ c2b: "幾何、圖面、自動化，可驗證。",
 c3t: "AI 助手",
 c3b: "把意圖結構化，產生/除錯程式碼，整理文件。",
 projects: [
-"專案即將推出 #1",
-"專案即將推出 #2",
-"專案即將推出 #3",
-"專案即將推出 #4",
-"專案即將推出 #5"
+{ t: "(中文待填)", b: "(中文待填)" },
+{ t: "(中文待填)", b: "(中文待填)" },
+{ t: "(中文待填)", b: "(中文待填)" },
+{ t: "(中文待填)", b: "(中文待填)" },
+{ t: "(中文待填)", b: "(中文待填)" }
 ],
 navProjects: "專案",
 navAbout: "關於",
@@ -338,7 +392,7 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.1.108";
+const BUILD = "v0.2.00";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -347,10 +401,15 @@ const carouselTrack = document.getElementById("carouselTrack");
 
 function updateCarouselSlides() {
 if (!carouselTrack) return;
+const data = i18n[lang].projects || [];
 const slides = carouselTrack.querySelectorAll(".carousel-slide");
-const labels = i18n[lang].projects || [];
 slides.forEach((slide, i) => {
-if (labels[i]) slide.textContent = labels[i];
+const d = data[i];
+if (!d) return;
+const tEl = slide.querySelector(".slide-title");
+const bEl = slide.querySelector(".slide-blurb");
+if (tEl) tEl.textContent = d.t;
+if (bEl) bEl.textContent = d.b;
 });
 updateCarouselPosition();
 }
