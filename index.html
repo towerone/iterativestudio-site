@@ -68,6 +68,7 @@
             <p class="kicker" id="kickerText">AI for the Built Environment</p>
             <h1 id="heroTitle"><span class="hero-title-lead">Practical AI</span>-assisted tools<br/>for architectural workflows</h1>
 
+            <div class="hero-flipper-zone" id="heroFlipperZone">
             <div class="hero-flipper is-tint-pm1" id="heroFlipper" aria-label="Project previews" aria-live="polite">
               <!-- Flipper slides: 3,12 = biomimicry; 4,20 = manufacturing; 5,17 = LOAD; 6,14,19 = Hisnta; 7,18 = Daheli Fude Temple; 8,13 = 54 Jeff; 9,16 = 70 Henry St; 11,15 = Network Tower; other odd = jeddah; other even = jeddah-even -->
               <div class="flipper-stage" id="flipperStage">
@@ -158,6 +159,11 @@
                 <p class="flipper-caption">Manufacturing campus entrance - China 2017</p>
               </div>
             </div>
+
+            <div class="hero-card-detail" id="heroCardDetail" aria-live="polite" hidden>
+              <p class="hero-card-detail-text" id="heroCardDetailText"></p>
+            </div>
+            </div>
           </div>
 
           <div class="hero-action-row">
@@ -169,21 +175,18 @@
             </div>
           </div>
 
-          <div class="hero-cards">
-            <a class="mini-card mini-card-link" href="/computational-design/">
-              <div class="mini-title" id="card1Title">Computational Design</div>
-              <div class="mini-body" id="card1Body">Rules, parameters, constraints, repeatable intent.</div>
-            </a>
+          <div class="hero-cards" id="heroCards">
+            <button class="mini-card" type="button" data-hero-card="0" aria-expanded="false" aria-controls="heroCardDetail">
+              <span class="mini-title" id="card1Title">Computational Design</span>
+            </button>
 
-            <div class="mini-card">
-              <div class="mini-title" id="card2Title">Python Scripting</div>
-              <div class="mini-body" id="card2Body">Geometry, drawings, automation, auditability.</div>
-            </div>
+            <button class="mini-card" type="button" data-hero-card="1" aria-expanded="false" aria-controls="heroCardDetail">
+              <span class="mini-title" id="card2Title">Python Scripting</span>
+            </button>
 
-            <div class="mini-card">
-              <div class="mini-title" id="card3Title">AI Assistance</div>
-              <div class="mini-body" id="card3Body">Structure intent, generate/debug code, document systems.</div>
-            </div>
+            <button class="mini-card" type="button" data-hero-card="2" aria-expanded="false" aria-controls="heroCardDetail">
+              <span class="mini-title" id="card3Title">AI Assistance</span>
+            </button>
           </div>
 
           <div class="project-carousel" id="projectCarousel">
@@ -341,7 +344,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.46</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.47</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -491,7 +494,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.46";
+const BUILD = "v0.2.47";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -686,6 +689,49 @@ updateFlipperTint(key);
 }
 
 const heroFlipperEl = document.getElementById("heroFlipper");
+const heroCardDetailEl = document.getElementById("heroCardDetail");
+const heroCardDetailTextEl = document.getElementById("heroCardDetailText");
+const heroCardButtons = document.querySelectorAll("[data-hero-card]");
+let activeHeroCardIndex = null;
+
+function getHeroCardBodies() {
+return [i18n[lang].c1b, i18n[lang].c2b, i18n[lang].c3b];
+}
+
+function setHeroCardActive(index) {
+activeHeroCardIndex = index;
+heroCardButtons.forEach((btn, i) => {
+const isActive = index !== null && i === index;
+btn.classList.toggle("is-active", isActive);
+btn.setAttribute("aria-expanded", isActive ? "true" : "false");
+});
+if (!heroCardDetailEl || !heroCardDetailTextEl) return;
+if (index === null) {
+heroCardDetailEl.hidden = true;
+heroCardDetailEl.classList.remove("is-visible");
+heroCardDetailTextEl.textContent = "";
+return;
+}
+const bodies = getHeroCardBodies();
+heroCardDetailTextEl.textContent = bodies[index] || "";
+heroCardDetailEl.hidden = false;
+heroCardDetailEl.classList.add("is-visible");
+}
+
+function updateHeroCardDetail() {
+if (activeHeroCardIndex === null) return;
+setHeroCardActive(activeHeroCardIndex);
+}
+
+function toggleHeroCard(index) {
+setHeroCardActive(activeHeroCardIndex === index ? null : index);
+}
+
+heroCardButtons.forEach(btn => {
+btn.addEventListener("click", () => {
+toggleHeroCard(Number(btn.dataset.heroCard));
+});
+});
 
 function updateFlipperTint(key) {
 if (!heroFlipperEl) return;
@@ -716,11 +762,9 @@ document.getElementById("kickerText").innerHTML = t.kicker;
 document.getElementById("heroTitle").innerHTML = t.title;
 
 document.getElementById("card1Title").innerHTML = t.c1t;
-document.getElementById("card1Body").innerHTML = t.c1b;
 document.getElementById("card2Title").innerHTML = t.c2t;
-document.getElementById("card2Body").innerHTML = t.c2b;
 document.getElementById("card3Title").innerHTML = t.c3t;
-document.getElementById("card3Body").innerHTML = t.c3b;
+updateHeroCardDetail();
 
 updateCarouselSlides();
 updateFlipperCaptionText();
