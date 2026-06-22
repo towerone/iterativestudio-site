@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.61" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.62" />
 </head>
 
 <body>
@@ -180,13 +180,13 @@
               <span class="mini-title" id="card1Title">Computational Design</span>
             </button>
 
-            <a class="mini-card mini-card-link" href="/python-scripting/">
+            <button class="mini-card" type="button" data-hero-card="1" aria-expanded="false" aria-controls="heroCardDetail">
               <span class="mini-title" id="card2Title">Python Scripting</span>
-            </a>
+            </button>
 
-            <a class="mini-card mini-card-link" href="/ai-assistance/">
+            <button class="mini-card" type="button" data-hero-card="2" aria-expanded="false" aria-controls="heroCardDetail">
               <span class="mini-title" id="card3Title">AI Assistance</span>
-            </a>
+            </button>
           </div>
 
           <div class="project-carousel" id="projectCarousel">
@@ -315,7 +315,7 @@
     <section class="section" id="what-i-do">
       <div class="container">
         <div class="grid-2">
-          <div class="panel">
+          <a class="panel panel-link" href="/computational-design/">
             <h3 id="panel1Title">Computational design systems</h3>
             <p id="panel1Body">Parametric models that preserve intent: controllable geometry, readable parameters, and predictable behavior.</p>
             <ul class="bullets">
@@ -323,9 +323,9 @@
               <li id="panel1Li2">Geometry that stays editable</li>
               <li id="panel1Li3">Rationalization + documentation</li>
             </ul>
-          </div>
+          </a>
 
-          <div class="panel">
+          <a class="panel panel-link" href="/ai-assistance/">
             <h3 id="panel2Title">Automation + AI assist (headed)</h3>
             <p id="panel2Body">AI supports drafting and debugging, but production stays inside Rhino/Revit where you can verify every step.</p>
             <ul class="bullets">
@@ -333,7 +333,7 @@
               <li id="panel2Li2">Versioned assumptions</li>
               <li id="panel2Li3">Hand-off ready outputs</li>
             </ul>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -344,7 +344,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.61</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.62</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -396,6 +396,18 @@ heroDetailLabel3: "Outputs",
 panel1Li1: "Constraint-first setup",
 panel1Li2: "Geometry that stays editable",
 panel1Li3: "Rationalization + documentation",
+heroDetail2Label1: "Geometry",
+heroDetail2Label2: "Drawings",
+heroDetail2Label3: "Automation",
+heroDetail2Li1: "Rhino and Revit geometry scripted for repeatability",
+heroDetail2Li2: "Drawing sets and schedules generated from model logic",
+heroDetail2Li3: "Auditable pipelines with versioned assumptions",
+heroDetail3Label1: "Intent",
+heroDetail3Label2: "Code",
+heroDetail3Label3: "Systems",
+heroDetail3Li1: "Scripted generators & checkers",
+heroDetail3Li2: "Versioned assumptions",
+heroDetail3Li3: "Hand-off ready outputs",
 panel2Title: "Automation + AI assist (headed)",
 panel2Body: "AI supports drafting and debugging, but production stays inside Rhino/Revit where you can verify every step.",
 panel2Li1: "Scripted generators & checkers",
@@ -462,6 +474,18 @@ heroDetailLabel3: "輸出",
 panel1Li1: "約束優先的設定",
 panel1Li2: "保持可編輯的幾何",
 panel1Li3: "合理化與文件化",
+heroDetail2Label1: "幾何",
+heroDetail2Label2: "圖面",
+heroDetail2Label3: "自動化",
+heroDetail2Li1: "在 Rhino 與 Revit 中腳本化幾何，保持可重複",
+heroDetail2Li2: "由模型邏輯產生圖面集與數量表",
+heroDetail2Li3: "可驗證的流程，附版本化假設",
+heroDetail3Label1: "意圖",
+heroDetail3Label2: "程式碼",
+heroDetail3Label3: "系統",
+heroDetail3Li1: "腳本生成器與檢查器",
+heroDetail3Li2: "版本化的假設",
+heroDetail3Li3: "可交付的輸出",
 panel2Title: "自動化 + AI 輔助（有頭）",
 panel2Body: "AI 協助繪圖與除錯，但產出仍留在 Rhino/Revit 內，每一步都可驗證。",
 panel2Li1: "腳本生成器與檢查器",
@@ -500,7 +524,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.61";
+const BUILD = "v0.2.62";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -702,11 +726,24 @@ let activeHeroCardIndex = null;
 let heroCardDetailCloseTimer = null;
 
 function getHeroCardBullets() {
-return [[
-{ label: i18n[lang].heroDetailLabel1, text: i18n[lang].panel1Li1 },
-{ label: i18n[lang].heroDetailLabel2, text: i18n[lang].panel1Li2 },
-{ label: i18n[lang].heroDetailLabel3, text: i18n[lang].panel1Li3 }
-]];
+const t = i18n[lang];
+return [
+[
+{ label: t.heroDetailLabel1, text: t.panel1Li1 },
+{ label: t.heroDetailLabel2, text: t.panel1Li2 },
+{ label: t.heroDetailLabel3, text: t.panel1Li3 }
+],
+[
+{ label: t.heroDetail2Label1, text: t.heroDetail2Li1 },
+{ label: t.heroDetail2Label2, text: t.heroDetail2Li2 },
+{ label: t.heroDetail2Label3, text: t.heroDetail2Li3 }
+],
+[
+{ label: t.heroDetail3Label1, text: t.heroDetail3Li1 },
+{ label: t.heroDetail3Label2, text: t.heroDetail3Li2 },
+{ label: t.heroDetail3Label3, text: t.heroDetail3Li3 }
+]
+];
 }
 
 function setHeroCardActive(index) {

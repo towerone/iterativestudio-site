@@ -1262,6 +1262,19 @@ h1{
   box-shadow: var(--shadow);
 }
 
+.panel-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.panel-link:hover{
+  transform:translateY(-3px);
+  border-color:rgba(15,18,25,.22);
+  box-shadow:0 14px 34px rgba(15,18,25,.12);
+}
+
 .panel h3{
   margin:0 0 8px;
   font-size: 18px;
