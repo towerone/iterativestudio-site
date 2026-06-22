@@ -494,9 +494,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   margin:4px 0 clamp(16px, 2.2vh, 28px);
   padding:0;
   max-width:none;
+  width:max-content;
   font-family:"Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-size:clamp(19px, 2.45vw, 30px);
-  line-height:1.1;
+  font-size:clamp(26px, calc(var(--flipper-width) * 0.108), 42px);
+  line-height:1.08;
   letter-spacing:0.01em;
   font-weight:400;
   text-transform:none;
@@ -522,7 +523,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   margin:0;
   padding:0;
   text-align:center;
-  font-size:13.2px;
+  font-size:14.5px;
   font-weight:700;
   letter-spacing:.16em;
   color:rgba(255,255,255,.68);
@@ -531,7 +532,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-main:has(.hero-footnote) .project-carousel{
-  margin-top:calc(var(--stack-gap) - 14px);
+  margin-top:calc(var(--stack-gap) - 2px);
+  margin-bottom:18px;
 }
 
 .hero-tagline{
@@ -1546,22 +1548,23 @@ h1{
   }
   .hero-headline{
     max-width:none;
-    font-size:clamp(14px, 3.9vw, 19px);
-    line-height:1.12;
-    padding:0 4px;
+    font-size:clamp(17px, calc(var(--flipper-width) * 0.1), 24px);
+    line-height:1.1;
+    padding:0;
     margin-bottom:clamp(12px, 1.8vh, 20px);
   }
   .hero-headline-accent{
     font-size:1.18em;
   }
   .hero-footnote{
-    font-size:11px;
+    font-size:12.1px;
     letter-spacing:.14em;
     padding:0 8px;
     transform:translateY(14px);
   }
   .hero-main:has(.hero-footnote) .project-carousel{
-    margin-top:calc(var(--stack-gap) - 10px);
+    margin-top:calc(var(--stack-gap) + 2px);
+    margin-bottom:14px;
   }
   .hero-tagline{
     white-space:normal;
