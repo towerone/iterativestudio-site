@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.70" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.71" />
 </head>
 
 <body>
@@ -65,7 +65,7 @@
       <div class="container hero-inner">
         <div class="hero-main">
           <div class="hero-copy">
-            <p class="kicker" id="kickerText">AI for the Built Environment</p>
+            <p class="hero-headline" id="heroHeadline">Architecture, under the AI influence.</p>
 
             <div class="hero-flipper-zone" id="heroFlipperZone">
             <div class="hero-flipper is-tint-pm1" id="heroFlipper" aria-label="Project previews" aria-live="polite">
@@ -189,6 +189,8 @@
               <span class="mini-title" id="card3Title">AI Assistance</span>
             </button>
           </div>
+
+          <p class="hero-footnote kicker" id="kickerText">Building AI for the Built Environment</p>
 
           <div class="project-carousel" id="projectCarousel">
             <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" type="button" aria-label="Previous project">
@@ -344,7 +346,7 @@
     <div class="container footer-inner">
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
-        <div class="footer-note" id="footerNote">AI for the Built Environment</div>
+        <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
         <div class="footer-version" id="buildVersion">Build: v0.2.70</div>
       </div>
 
@@ -368,7 +370,8 @@ pm1: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/ort
 
 const i18n = {
 en: {
-kicker: "AI for the Built Environment",
+heroHeadline: "Architecture, under the AI influence.",
+kicker: "Building AI for the Built Environment",
 title: "<span class=\"hero-title-lead\">Practical AI</span>-assisted tools for architectural workflows",
 c1t: "Computational Design",
 c1b: "Rules, parameters, constraints, repeatable intent.",
@@ -414,7 +417,7 @@ panel2Body: "AI supports drafting and debugging, but production stays inside Rhi
 panel2Li1: "Scripted generators & checkers",
 panel2Li2: "Versioned assumptions",
 panel2Li3: "Hand-off ready outputs",
-footerNote: "AI for the Built Environment",
+footerNote: "Building AI for the Built Environment",
 footerMapCredit: "Earth viewer map provided by <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a>",
 footerPartnerNote: "* Completed under supervision / collaboration with a partner firm.",
 mapLabels: {
@@ -446,7 +449,8 @@ flipperCaptions: [
 ]
 },
 zh: {
-kicker: "建築與環境的 AI 工具",
+heroHeadline: "建築，在 AI 的影響之下。",
+kicker: "為建築環境打造 AI",
 title: "<span class=\"hero-title-lead\">用 AI</span> 做出可重複的工具，支援建築工作流程。",
 c1t: "計算式設計",
 c1b: "規則、參數、約束，讓意圖可重複。",
@@ -492,7 +496,7 @@ panel2Body: "AI 協助繪圖與除錯，但產出仍留在 Rhino/Revit 內，每
 panel2Li1: "腳本生成器與檢查器",
 panel2Li2: "版本化的假設",
 panel2Li3: "可交付的輸出",
-footerNote: "建築與環境的 AI 工具",
+footerNote: "為建築環境打造 AI",
 footerMapCredit: "地球地圖檢視器由 <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a> 提供",
 footerPartnerNote: "* 於合作事務所指導／協作下完成。",
 mapLabels: {
@@ -525,7 +529,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.70";
+const BUILD = "v0.2.71";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -839,7 +843,8 @@ if (langToggleEl) {
 langToggleEl.classList.toggle("is-en-active", lang === "en");
 }
 
-document.getElementById("kickerText").innerHTML = t.kicker;
+document.getElementById("heroHeadline").textContent = t.heroHeadline;
+document.getElementById("kickerText").textContent = t.kicker;
 document.getElementById("heroTagline").innerHTML = t.title;
 
 document.getElementById("card1Title").innerHTML = t.c1t;
