@@ -1447,6 +1447,14 @@ h1{
 }
 
 @media (max-width: 520px){
+  .carousel-toolbar{
+    display:none;
+  }
+
+  .carousel-viewport.is-mobile-tap{
+    cursor:pointer;
+  }
+
   .hero-main{
     --flipper-height-ratio: 1.5;
     --flipper-lead: clamp(0px, calc(8px - 0.8vh), 10px);

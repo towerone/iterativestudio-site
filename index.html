@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.66" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.67" />
 </head>
 
 <body>
@@ -195,7 +195,7 @@
             </button>
 
             <div class="carousel-column">
-            <div class="carousel-viewport">
+            <div class="carousel-viewport" id="carouselViewport">
               <div class="carousel-track" id="carouselTrack">
                 <div class="carousel-slide">
                   <div class="slide-detail">
@@ -344,7 +344,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.66</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.67</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -376,11 +376,11 @@ c2b: "Geometry, drawings, automation, auditability.",
 c3t: "AI Assistance",
 c3b: "Structure intent, generate/debug code, document systems.",
 projects: [
-{ t: "Daheli Fude Temple*", meta: "Taiwan - compl 2026", bullets: ["Curved temple walls generated and rationalized through parametric control", "Continuity, offsets, thickness, and joins kept clean across the geometry", "Full construction set drawn directly from the parametric model"], d: "A Daoist temple study built around complex curved wall geometry, where the challenge was rationalizing the curves into a coherent, buildable, fully editable system. The difficulty was holding continuity, offsets, wall thickness, and clean joins, with a well-resolved construction set drawn straight from the parametric logic.", href: "/projects/" },
-{ t: "My Museum*",          meta: "Taiwan - 2020", bullets: ["2,000+ trapezoidal glass panels, each uniquely angled, from one parametric façade system", "Panel angles visually scripted, magnitudes set by a structured Excel table", "Full BIM model and construction set built in Revit"], d: "A museum façade study controlling an envelope of 2,000+ trapezoidal glass panels (40 x 60 cm), each angled differently. The challenge was holding that variation as a legible, buildable rule set rather than manual exceptions, with panel angles scripted from an Excel value table and the full construction set produced through BIM in Revit.", href: "/projects/" },
-{ t: "Crouching Dragon*", meta: "Taiwan - compl 2022", bullets: ["Parametric tube from a single base curve in Dynamo", "Window cuts and overhead bridge kept continuous along the span", "AI-assisted form shaping pushing organic geometry to its limits"], d: "A tubular bridge driven by a single base curve, the structure, openings, and detailing set by one repeatable parametric system. The challenge was computational: holding continuity across an organic, high-curvature geometry while cutting tubular windows and threading an overhead span, all kept editable end to end in Dynamo with early AI-assisted form shaping.", href: "/projects/" },
-{ t: "Calla Lily School",  meta: "Ethiopia - 2021", bullets: ["Biomimetic geometry drawn from the native calla lily seed", "Parametric roof in Python, beam spans held under 5 m", "Passive daylight, shaft ventilation, and rainwater capture"], d: "A biomimicry-led school in Ethiopia where the form of the native calla lily sets the geometry of the classrooms, roof, and circulation, and reshapes the conventional teacher-facing room into clustered focus groups. Eight seven-meter rings pinwheel from a central point to rationalize structure and cost, while north-facing glazing, shaft ventilation, and two integrated tanks handle daylight, airflow, and water collection.", href: "/projects/" },
-{ t: "Hsinta Eco Power plant", meta: "Taiwan - 2019", bullets: ["Roughly 1,000 roof panels as a single scripted system.", "Scripted in Dynamo — scale, repetition, and a buildable roof.", "Closed-loop roof — bio-diesel and rooftop agriculture feedback loop."], d: "Hsinta is a closed-loop power plant concept where bio-diesel generates electricity and the exhaust feeds rooftop agriculture, which in turn cycles back into the fuel supply. It was my first true generative design project, scripting around 1,000 roof panels in Dynamo to turn that closed-loop idea into a single coherent, buildable roof system.", href: "/projects/" }
+{ t: "Daheli Fude Temple*", meta: "Taiwan - compl 2026", bullets: ["Curved temple walls generated and rationalized through parametric control", "Continuity, offsets, thickness, and joins kept clean across the geometry", "Full construction set drawn directly from the parametric model"], d: "A Daoist temple study built around complex curved wall geometry, where the challenge was rationalizing the curves into a coherent, buildable, fully editable system. The difficulty was holding continuity, offsets, wall thickness, and clean joins, with a well-resolved construction set drawn straight from the parametric logic.", href: "/projects/daheli-fude-temple/" },
+{ t: "My Museum*",          meta: "Taiwan - 2020", bullets: ["2,000+ trapezoidal glass panels, each uniquely angled, from one parametric façade system", "Panel angles visually scripted, magnitudes set by a structured Excel table", "Full BIM model and construction set built in Revit"], d: "A museum façade study controlling an envelope of 2,000+ trapezoidal glass panels (40 x 60 cm), each angled differently. The challenge was holding that variation as a legible, buildable rule set rather than manual exceptions, with panel angles scripted from an Excel value table and the full construction set produced through BIM in Revit.", href: "/projects/my-museum/" },
+{ t: "Crouching Dragon*", meta: "Taiwan - compl 2022", bullets: ["Parametric tube from a single base curve in Dynamo", "Window cuts and overhead bridge kept continuous along the span", "AI-assisted form shaping pushing organic geometry to its limits"], d: "A tubular bridge driven by a single base curve, the structure, openings, and detailing set by one repeatable parametric system. The challenge was computational: holding continuity across an organic, high-curvature geometry while cutting tubular windows and threading an overhead span, all kept editable end to end in Dynamo with early AI-assisted form shaping.", href: "/projects/crouching-dragon/" },
+{ t: "Calla Lily School",  meta: "Ethiopia - 2021", bullets: ["Biomimetic geometry drawn from the native calla lily seed", "Parametric roof in Python, beam spans held under 5 m", "Passive daylight, shaft ventilation, and rainwater capture"], d: "A biomimicry-led school in Ethiopia where the form of the native calla lily sets the geometry of the classrooms, roof, and circulation, and reshapes the conventional teacher-facing room into clustered focus groups. Eight seven-meter rings pinwheel from a central point to rationalize structure and cost, while north-facing glazing, shaft ventilation, and two integrated tanks handle daylight, airflow, and water collection.", href: "/projects/calla-lily-school/" },
+{ t: "Hsinta Eco Power plant", meta: "Taiwan - 2019", bullets: ["Roughly 1,000 roof panels as a single scripted system.", "Scripted in Dynamo — scale, repetition, and a buildable roof.", "Closed-loop roof — bio-diesel and rooftop agriculture feedback loop."], d: "Hsinta is a closed-loop power plant concept where bio-diesel generates electricity and the exhaust feeds rooftop agriculture, which in turn cycles back into the fuel supply. It was my first true generative design project, scripting around 1,000 roof panels in Dynamo to turn that closed-loop idea into a single coherent, buildable roof system.", href: "/projects/hsinta-eco-power-plant/" }
 ],
 carouselPause: "Pause",
 carouselPlay: "Play",
@@ -454,11 +454,11 @@ c2b: "幾何、圖面、自動化，可驗證。",
 c3t: "AI 助手",
 c3b: "把意圖結構化，產生/除錯程式碼，整理文件。",
 projects: [
-{ t: "大河里福德祠*", meta: "台灣 - compl 2026", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" },
-{ t: "我的博物館*", meta: "台灣 - 2020", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" },
-{ t: "臥龍*", meta: "台灣 - compl 2022", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" },
-{ t: "百合花學校", meta: "衣索比亞 - 2021", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" },
-{ t: "興達生態電廠", meta: "台灣 - 2019", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" }
+{ t: "大河里福德祠*", meta: "台灣 - compl 2026", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/daheli-fude-temple/" },
+{ t: "我的博物館*", meta: "台灣 - 2020", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/my-museum/" },
+{ t: "臥龍*", meta: "台灣 - compl 2022", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/crouching-dragon/" },
+{ t: "百合花學校", meta: "衣索比亞 - 2021", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/calla-lily-school/" },
+{ t: "興達生態電廠", meta: "台灣 - 2019", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/hsinta-eco-power-plant/" }
 ],
 carouselPause: "暫停",
 carouselPlay: "播放",
@@ -524,15 +524,36 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.66";
+const BUILD = "v0.2.67";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
 let carouselTimer = null;
 let carouselPaused = false;
 const carouselTrack = document.getElementById("carouselTrack");
+const carouselViewport = document.getElementById("carouselViewport");
 const carouselPauseBtn = document.getElementById("carouselPause");
 const carouselGoBtn = document.getElementById("carouselGo");
+const carouselMobileMq = window.matchMedia("(max-width: 520px)");
+
+function getCarouselProjectHref() {
+const data = i18n[lang].projects || [];
+const project = data[carouselIndex];
+return (project && project.href) ? project.href : "/projects/";
+}
+
+function syncCarouselMobileTap() {
+if (!carouselViewport) return;
+const on = carouselMobileMq.matches;
+carouselViewport.classList.toggle("is-mobile-tap", on);
+if (on) {
+carouselViewport.setAttribute("aria-label", i18n[lang].carouselGo);
+carouselViewport.tabIndex = 0;
+} else {
+carouselViewport.removeAttribute("aria-label");
+carouselViewport.tabIndex = -1;
+}
+}
 
 function updateCarouselSlides() {
 if (!carouselTrack) return;
@@ -568,10 +589,9 @@ updateCarouselGoLink();
 }
 
 function updateCarouselGoLink() {
-if (!carouselGoBtn) return;
-const data = i18n[lang].projects || [];
-const project = data[carouselIndex];
-carouselGoBtn.href = (project && project.href) ? project.href : "/projects/";
+const href = getCarouselProjectHref();
+if (carouselGoBtn) carouselGoBtn.href = href;
+if (carouselViewport) carouselViewport.dataset.projectHref = href;
 }
 
 function goToSlide(nextIndex) {
@@ -828,6 +848,7 @@ updateHeroCardDetail();
 
 updateCarouselSlides();
 updateFlipperCaptionText();
+syncCarouselMobileTap();
 
 if (carouselGoBtn) carouselGoBtn.setAttribute("aria-label", t.carouselGo);
 if (carouselPauseBtn) {
@@ -882,12 +903,31 @@ const carouselNext = document.getElementById("carouselNext");
 if (carouselPrev) carouselPrev.addEventListener("click", () => { prevCarouselSlide(); resetCarouselTimer(); });
 if (carouselNext) carouselNext.addEventListener("click", () => { nextCarouselSlide(); resetCarouselTimer(); });
 if (carouselPauseBtn) carouselPauseBtn.addEventListener("click", toggleCarouselPause);
+if (carouselViewport) {
+carouselViewport.addEventListener("click", () => {
+if (!carouselMobileMq.matches) return;
+window.location.href = getCarouselProjectHref();
+});
+carouselViewport.addEventListener("keydown", (event) => {
+if (!carouselMobileMq.matches) return;
+if (event.key === "Enter" || event.key === " ") {
+event.preventDefault();
+window.location.href = getCarouselProjectHref();
+}
+});
+}
+if (carouselMobileMq.addEventListener) {
+carouselMobileMq.addEventListener("change", syncCarouselMobileTap);
+} else if (carouselMobileMq.addListener) {
+carouselMobileMq.addListener(syncCarouselMobileTap);
+}
 
 setMap("pm1");
 setLang("en");
 initFlipperRandomStart();
 setCarouselPaused(false);
 updateCarouselGoLink();
+syncCarouselMobileTap();
 resetFlipperTimer();
   </script>
 </body>
