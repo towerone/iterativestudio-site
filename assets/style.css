@@ -504,6 +504,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   text-shadow:0 2px 18px rgba(0,0,0,.38);
 }
 
+.hero-headline-accent{
+  font-style:italic;
+}
+
 .hero-footnote{
   position:relative;
   z-index:3;
@@ -606,6 +610,10 @@ h1{
 .hero-cards .mini-card{
   min-height:68px;
   padding:18px 14px;
+}
+
+.hero-cards .mini-title{
+  font-size:clamp(14.5px, 1.45vw, 16.5px);
 }
 
 .mini-card{

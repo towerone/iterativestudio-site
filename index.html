@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
-  <title>Iterative Studio | AI for the Built Environment</title>
+  <title>Iterative Studio | Building AI for the Built Environment</title>
   <meta name="description" content="Iterative Studio builds AI-assisted tools for building design and construction workflows. Python scripting, computational design, and headed CAD/BIM pipelines." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.71" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.72" />
 </head>
 
 <body>
@@ -65,7 +65,7 @@
       <div class="container hero-inner">
         <div class="hero-main">
           <div class="hero-copy">
-            <p class="hero-headline" id="heroHeadline">Architecture, under the AI influence.</p>
+            <p class="hero-headline" id="heroHeadline">Architecture, <span class="hero-headline-accent">under the AI influence</span></p>
 
             <div class="hero-flipper-zone" id="heroFlipperZone">
             <div class="hero-flipper is-tint-pm1" id="heroFlipper" aria-label="Project previews" aria-live="polite">
@@ -370,7 +370,7 @@ pm1: "https://earth.nullschool.net/#current/chem/surface/level/overlay=pm2.5/ort
 
 const i18n = {
 en: {
-heroHeadline: "Architecture, under the AI influence.",
+heroHeadline: "Architecture, <span class=\"hero-headline-accent\">under the AI influence</span>",
 kicker: "Building AI for the Built Environment",
 title: "<span class=\"hero-title-lead\">Practical AI</span>-assisted tools for architectural workflows",
 c1t: "Computational Design",
@@ -449,7 +449,7 @@ flipperCaptions: [
 ]
 },
 zh: {
-heroHeadline: "建築，在 AI 的影響之下。",
+heroHeadline: "建築，<span class=\"hero-headline-accent\">在 AI 的影響之下</span>",
 kicker: "為建築環境打造 AI",
 title: "<span class=\"hero-title-lead\">用 AI</span> 做出可重複的工具，支援建築工作流程。",
 c1t: "計算式設計",
@@ -529,7 +529,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.71";
+const BUILD = "v0.2.72";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -843,7 +843,7 @@ if (langToggleEl) {
 langToggleEl.classList.toggle("is-en-active", lang === "en");
 }
 
-document.getElementById("heroHeadline").textContent = t.heroHeadline;
+document.getElementById("heroHeadline").innerHTML = t.heroHeadline;
 document.getElementById("kickerText").textContent = t.kicker;
 document.getElementById("heroTagline").innerHTML = t.title;
 
