@@ -471,6 +471,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-main{
   --flipper-width: calc((min(var(--max), 100vw - 40px) - 32px) / 3);
+  --hero-detail-width: calc(var(--flipper-width) * 1.22);
   --flipper-height-ratio: 1;
   --flipper-stage-height: calc(var(--flipper-width) * var(--flipper-height-ratio));
   --flipper-lead: clamp(0px, calc(12px - 1.2vh), 14px);
@@ -662,14 +663,14 @@ h1{
   display:flex;
   align-items:center;
   justify-content:center;
-  width:var(--flipper-width);
+  width:var(--hero-detail-width);
   height:var(--flipper-stage-height);
   margin-left:0;
   flex:none;
-  padding:0 6px;
+  padding:0 4px;
   opacity:0;
   visibility:hidden;
-  transform:translateX(8px);
+  transform:translateX(10px);
   transition:opacity .58s ease, visibility .58s ease, transform .58s ease;
 }
 
@@ -681,45 +682,51 @@ h1{
 
 .hero-card-detail-list{
   list-style:none;
-  margin:0;
+  margin:0 auto;
   padding:0;
   width:100%;
+  max-width:28ch;
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:stretch;
   justify-content:center;
-  gap:clamp(10px, 1.4vh, 16px);
-  text-align:center;
+  gap:clamp(14px, 2vh, 22px);
 }
 
 .hero-card-detail-item{
-  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:0.7em;
   margin:0;
-  padding-left:1.1em;
-  max-width:22ch;
-  font-size:clamp(15px, 1.35vw, 19px);
-  line-height:1.35;
-  font-weight:500;
-  color:rgba(255,255,255,.88);
-  text-shadow:0 2px 14px rgba(0,0,0,.36);
+  font-size:clamp(16px, 1.55vw, 21px);
+  line-height:1.44;
+  font-weight:400;
+  letter-spacing:-0.012em;
+  color:rgba(255,255,255,.93);
+  text-shadow:0 1px 12px rgba(0,0,0,.3);
+  text-align:left;
   opacity:0;
-  transform:translateY(10px) scale(.96);
+  transform:translateY(8px);
   max-height:0;
   overflow:hidden;
-  transition:opacity .5s ease, transform .5s ease, max-height .55s ease;
+  transition:opacity .48s ease, transform .48s ease, max-height .52s ease;
 }
 
 .hero-card-detail-item::before{
-  content:"•";
-  position:absolute;
-  left:0;
-  top:0;
+  content:"";
+  flex:0 0 5px;
+  width:5px;
+  height:5px;
+  margin-top:0.58em;
+  border-radius:50%;
+  background:rgba(255,255,255,.7);
+  box-shadow:0 0 8px rgba(255,255,255,.18);
 }
 
 .hero-card-detail.is-visible .hero-card-detail-item{
   opacity:1;
-  transform:translateY(0) scale(1);
-  max-height:4.5em;
+  transform:translateY(0);
+  max-height:5.5em;
 }
 
 .hero-card-detail.is-visible .hero-card-detail-item:nth-child(1){
