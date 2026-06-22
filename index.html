@@ -161,7 +161,7 @@
             </div>
 
             <div class="hero-card-detail" id="heroCardDetail" aria-live="polite" hidden>
-              <p class="hero-card-detail-text" id="heroCardDetailText"></p>
+              <ul class="hero-card-detail-list" id="heroCardDetailList"></ul>
             </div>
             </div>
           </div>
@@ -344,7 +344,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.48</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.49</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -494,7 +494,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.48";
+const BUILD = "v0.2.49";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -690,12 +690,13 @@ updateFlipperTint(key);
 
 const heroFlipperEl = document.getElementById("heroFlipper");
 const heroCardDetailEl = document.getElementById("heroCardDetail");
-const heroCardDetailTextEl = document.getElementById("heroCardDetailText");
+const heroCardDetailListEl = document.getElementById("heroCardDetailList");
 const heroCardButtons = document.querySelectorAll("[data-hero-card]");
 let activeHeroCardIndex = null;
+let heroCardDetailCloseTimer = null;
 
-function getHeroCardBodies() {
-return [i18n[lang].c1b];
+function getHeroCardBullets() {
+return [[i18n[lang].panel1Li1, i18n[lang].panel1Li2, i18n[lang].panel1Li3]];
 }
 
 function setHeroCardActive(index) {
@@ -705,17 +706,29 @@ const isActive = index !== null && i === index;
 btn.classList.toggle("is-active", isActive);
 btn.setAttribute("aria-expanded", isActive ? "true" : "false");
 });
-if (!heroCardDetailEl || !heroCardDetailTextEl) return;
+if (!heroCardDetailEl || !heroCardDetailListEl) return;
+if (heroCardDetailCloseTimer) {
+clearTimeout(heroCardDetailCloseTimer);
+heroCardDetailCloseTimer = null;
+}
 if (index === null) {
-heroCardDetailEl.hidden = true;
 heroCardDetailEl.classList.remove("is-visible");
-heroCardDetailTextEl.textContent = "";
+heroCardDetailCloseTimer = window.setTimeout(() => {
+heroCardDetailEl.hidden = true;
+heroCardDetailListEl.innerHTML = "";
+heroCardDetailCloseTimer = null;
+}, 480);
 return;
 }
-const bodies = getHeroCardBodies();
-heroCardDetailTextEl.textContent = bodies[index] || "";
+const bulletSets = getHeroCardBullets();
+const bullets = bulletSets[index] || [];
+heroCardDetailListEl.innerHTML = bullets.map((item) => `<li class="hero-card-detail-item">${item}</li>`).join("");
 heroCardDetailEl.hidden = false;
+requestAnimationFrame(() => {
+requestAnimationFrame(() => {
 heroCardDetailEl.classList.add("is-visible");
+});
+});
 }
 
 function updateHeroCardDetail() {
