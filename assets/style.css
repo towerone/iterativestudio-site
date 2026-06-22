@@ -471,7 +471,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 
 .hero-main{
   --flipper-width: calc((min(var(--max), 100vw - 40px) - 32px) / 3);
-  --hero-detail-width: calc(var(--flipper-width) * 1.22);
+  --hero-detail-width: calc(var(--flipper-width) * 1.35);
   --flipper-height-ratio: 1;
   --flipper-stage-height: calc(var(--flipper-width) * var(--flipper-height-ratio));
   --flipper-lead: clamp(0px, calc(12px - 1.2vh), 14px);
@@ -678,6 +678,14 @@ h1{
   opacity:1;
   visibility:visible;
   transform:translateX(0);
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0,0,0,.45) 8%, #000 18%, #000 82%, rgba(0,0,0,.5) 92%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.4) 6%, #000 14%, #000 86%, rgba(0,0,0,.4) 94%, transparent 100%);
+  mask-image:
+    linear-gradient(to right, transparent 0%, rgba(0,0,0,.45) 8%, #000 18%, #000 82%, rgba(0,0,0,.5) 92%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.4) 6%, #000 14%, #000 86%, rgba(0,0,0,.4) 94%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 .hero-card-detail-list{
@@ -685,25 +693,19 @@ h1{
   margin:0 auto;
   padding:0;
   width:100%;
-  max-width:28ch;
+  max-width:32ch;
   display:flex;
   flex-direction:column;
   align-items:stretch;
   justify-content:center;
-  gap:clamp(14px, 2vh, 22px);
+  gap:clamp(16px, 2.2vh, 24px);
 }
 
 .hero-card-detail-item{
   display:flex;
   align-items:flex-start;
-  gap:0.7em;
+  gap:0.55em;
   margin:0;
-  font-size:clamp(16px, 1.55vw, 21px);
-  line-height:1.44;
-  font-weight:400;
-  letter-spacing:-0.012em;
-  color:rgba(255,255,255,.93);
-  text-shadow:0 1px 12px rgba(0,0,0,.3);
   text-align:left;
   opacity:0;
   transform:translateY(8px);
@@ -712,21 +714,45 @@ h1{
   transition:opacity .48s ease, transform .48s ease, max-height .52s ease;
 }
 
-.hero-card-detail-item::before{
-  content:"";
-  flex:0 0 5px;
-  width:5px;
-  height:5px;
-  margin-top:0.58em;
+.hero-card-detail-marker{
+  flex:0 0 4px;
+  width:4px;
+  height:4px;
+  margin-top:0.42em;
   border-radius:50%;
-  background:rgba(255,255,255,.7);
-  box-shadow:0 0 8px rgba(255,255,255,.18);
+  background:rgba(255,255,255,.62);
+  box-shadow:0 0 6px rgba(255,255,255,.14);
+}
+
+.hero-card-detail-copy{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  min-width:0;
+}
+
+.hero-card-detail-label{
+  font-size:11px;
+  line-height:1.35;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.96);
+  text-shadow:0 1px 10px rgba(0,0,0,.38);
+}
+
+.hero-card-detail-text{
+  font-size:11px;
+  line-height:1.35;
+  font-weight:400;
+  color:rgba(255,255,255,.86);
+  text-shadow:0 1px 10px rgba(0,0,0,.34);
 }
 
 .hero-card-detail.is-visible .hero-card-detail-item{
   opacity:1;
   transform:translateY(0);
-  max-height:5.5em;
+  max-height:6.5em;
 }
 
 .hero-card-detail.is-visible .hero-card-detail-item:nth-child(1){

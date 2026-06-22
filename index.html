@@ -344,7 +344,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.58</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.59</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -390,6 +390,9 @@ navAbout: "About",
 navContact: "Contact",
 panel1Title: "Computational design systems",
 panel1Body: "Parametric models that preserve intent: controllable geometry, readable parameters, and predictable behavior.",
+heroDetailLabel1: "Rules",
+heroDetailLabel2: "Parameters",
+heroDetailLabel3: "Outputs",
 panel1Li1: "Constraint-first setup",
 panel1Li2: "Geometry that stays editable",
 panel1Li3: "Rationalization + documentation",
@@ -453,6 +456,9 @@ navAbout: "關於",
 navContact: "聯絡",
 panel1Title: "計算式設計系統",
 panel1Body: "保留設計意圖的參數化模型：可控制的幾何、可讀的參數、可預測的行為。",
+heroDetailLabel1: "規則",
+heroDetailLabel2: "參數",
+heroDetailLabel3: "輸出",
 panel1Li1: "約束優先的設定",
 panel1Li2: "保持可編輯的幾何",
 panel1Li3: "合理化與文件化",
@@ -494,7 +500,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.58";
+const BUILD = "v0.2.59";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -696,7 +702,11 @@ let activeHeroCardIndex = null;
 let heroCardDetailCloseTimer = null;
 
 function getHeroCardBullets() {
-return [[i18n[lang].panel1Li1, i18n[lang].panel1Li2, i18n[lang].panel1Li3]];
+return [[
+{ label: i18n[lang].heroDetailLabel1, text: i18n[lang].panel1Li1 },
+{ label: i18n[lang].heroDetailLabel2, text: i18n[lang].panel1Li2 },
+{ label: i18n[lang].heroDetailLabel3, text: i18n[lang].panel1Li3 }
+]];
 }
 
 function setHeroCardActive(index) {
@@ -722,7 +732,7 @@ return;
 }
 const bulletSets = getHeroCardBullets();
 const bullets = bulletSets[index] || [];
-heroCardDetailListEl.innerHTML = bullets.map((item) => `<li class="hero-card-detail-item">${item}</li>`).join("");
+heroCardDetailListEl.innerHTML = bullets.map((item) => `<li class="hero-card-detail-item"><span class="hero-card-detail-marker" aria-hidden="true"></span><span class="hero-card-detail-copy"><span class="hero-card-detail-label">${item.label}</span><span class="hero-card-detail-text">${item.text}</span></span></li>`).join("");
 heroCardDetailEl.hidden = false;
 requestAnimationFrame(() => {
 requestAnimationFrame(() => {
