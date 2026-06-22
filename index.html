@@ -341,7 +341,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.45</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.46</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -350,6 +350,7 @@
         <p class="footer-map-credit" id="footerMapCredit">
           Earth viewer map provided by <a href="https://earth.nullschool.net/" target="_blank" rel="noopener noreferrer">earth.nullschool.net</a>
         </p>
+        <p class="footer-partner-note" id="footerPartnerNote">* Completed under supervision / collaboration with a partner firm.</p>
       </div>
     </div>
   </footer>
@@ -396,6 +397,7 @@ panel2Li2: "Versioned assumptions",
 panel2Li3: "Hand-off ready outputs",
 footerNote: "AI for the Built Environment",
 footerMapCredit: "Earth viewer map provided by <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a>",
+footerPartnerNote: "* Completed under supervision / collaboration with a partner firm.",
 mapLabels: {
 currents: "ocean-currents",
 wind: "air-wind",
@@ -458,6 +460,7 @@ panel2Li2: "版本化的假設",
 panel2Li3: "可交付的輸出",
 footerNote: "建築與環境的 AI 工具",
 footerMapCredit: "地球地圖檢視器由 <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a> 提供",
+footerPartnerNote: "* 於合作事務所指導／協作下完成。",
 mapLabels: {
 currents: "海洋-洋流",
 wind: "空氣-風",
@@ -488,7 +491,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.45";
+const BUILD = "v0.2.46";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -745,6 +748,7 @@ document.getElementById("panel2Li3").textContent = t.panel2Li3;
 
 document.getElementById("footerNote").textContent = t.footerNote;
 document.getElementById("footerMapCredit").innerHTML = t.footerMapCredit;
+document.getElementById("footerPartnerNote").textContent = t.footerPartnerNote;
 
 updateMapLabel();
 }

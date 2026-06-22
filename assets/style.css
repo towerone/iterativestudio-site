@@ -943,6 +943,8 @@ h1{
   }
   .slide-detail .detail-box:nth-child(2){ display: none; }
   .slide-detail .detail-box:first-child{ flex: 1 1 100%; }
+  .slide-desc{ display: none; }
+  .slide-bullets{ flex: 1 1 auto; }
 }
 
 /* Mobile: text + render only; 4:6 portrait render matches detail-box height */
@@ -1259,6 +1261,14 @@ h1{
   text-decoration-color:rgba(15,18,25,.28);
 }
 
+.footer-partner-note{
+  margin:8px 0 0;
+  max-width:34ch;
+  font-size:12px;
+  line-height:1.4;
+  color:var(--faint);
+}
+
 @media (max-width: 900px){
   .hero{ min-height: min(79vh, 792px); }
   .hero-inner{ padding: calc(36px - 4pt) 0 0; }
@@ -1284,6 +1294,10 @@ h1{
     font-size:clamp(9px, 2.35vw, 12px);
     line-height:1.35;
   }
+  .footer-partner-note{
+    max-width:none;
+    font-size:clamp(8px, 2.1vw, 11px);
+  }
 }
 
 @media (max-width: 520px){
@@ -1299,6 +1313,7 @@ h1{
   .footer-inner{ gap:6px; }
   .footer-mark{ font-size:clamp(16px, 4.4vw, 24px); }
   .footer-map-credit{ font-size:clamp(8px, 2.1vw, 10px); }
+  .footer-partner-note{ font-size:clamp(7px, 1.9vw, 9px); }
   .header-inner{ padding:3px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 6px; gap:5px; }
   .header-hole{ width:clamp(18px, 3vw, 24px); }
   .header-link{ font-size:clamp(12px, 3vw, 14px); }
