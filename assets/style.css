@@ -491,13 +491,13 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-headline{
-  margin:4px 0 clamp(16px, 2.2vh, 28px);
+  margin:4px 0 clamp(18px, 2.6vh, 34px);
   padding:0;
   max-width:none;
   width:max-content;
   font-family:"Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-size:clamp(26px, calc(var(--flipper-width) * 0.108), 42px);
-  line-height:1.08;
+  font-size:clamp(47px, calc(var(--flipper-width) * 0.194), 76px);
+  line-height:1.06;
   letter-spacing:0.01em;
   font-weight:400;
   text-transform:none;
@@ -1548,7 +1548,7 @@ h1{
   }
   .hero-headline{
     max-width:none;
-    font-size:clamp(17px, calc(var(--flipper-width) * 0.1), 24px);
+    font-size:clamp(31px, calc(var(--flipper-width) * 0.18), 43px);
     line-height:1.1;
     padding:0;
     margin-bottom:clamp(12px, 1.8vh, 20px);
