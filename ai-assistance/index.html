@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
+  <title>AI Assistance | Iterative Studio</title>
+  <meta name="description" content="AI assistance to structure intent, generate and debug code, and document architectural systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="/assets/white.css" />
+</head>
+
+<body class="page-white">
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+      <div class="header-hole" aria-hidden="true"></div>
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="page-back">
+          <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
+        </p>
+        <p class="kicker" id="kickerText">AI Assistance</p>
+        <h1 id="heroTitle">Structure intent, generate/debug code, document systems.</h1>
+        <p class="lead" id="heroLead">AI supports drafting and debugging inside headed CAD/BIM workflows — every step stays verifiable.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
+        <div class="footer-note" id="footerNote">AI assistance</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.48</div>
+      </div>
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerTagline">Systems-first workflows for architecture and the built environment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const BUILD = "v0.2.48";
+const i18n = {
+  en: {
+    backLink: "← Practical AI for the built environment",
+    kicker: "AI Assistance",
+    heroTitle: "Structure intent, generate/debug code, document systems.",
+    heroLead: "AI supports drafting and debugging inside headed CAD/BIM workflows — every step stays verifiable.",
+    navProjects: "Projects", navAbout: "About", navContact: "Contact",
+    footerNote: "AI assistance",
+    footerTagline: "Systems-first workflows for architecture and the built environment."
+  },
+  zh: {
+    backLink: "← 建築與環境的實用 AI",
+    kicker: "AI 助手",
+    heroTitle: "把意圖結構化，產生/除錯程式碼，整理文件。",
+    heroLead: "AI 在有頭 CAD/BIM 流程中協助繪圖與除錯 — 每一步都可驗證。",
+    navProjects: "專案", navAbout: "關於", navContact: "聯絡",
+    footerNote: "AI 助手",
+    footerTagline: "以系統為先的建築與環境工作流程。"
+  }
+};
+let lang = "en";
+function setLang(next) {
+  lang = next;
+  const t = i18n[lang];
+  document.getElementById("langToggle").classList.toggle("is-en-active", lang === "en");
+  document.getElementById("backLink").textContent = t.backLink;
+  document.getElementById("kickerText").textContent = t.kicker;
+  document.getElementById("heroTitle").textContent = t.heroTitle;
+  document.getElementById("heroLead").textContent = t.heroLead;
+  document.getElementById("navProjects").textContent = t.navProjects;
+  document.getElementById("navAbout").textContent = t.navAbout;
+  document.getElementById("navContact").textContent = t.navContact;
+  document.getElementById("footerNote").textContent = t.footerNote;
+  document.getElementById("footerTagline").textContent = t.footerTagline;
+}
+document.getElementById("langToggle").addEventListener("click", () => setLang(lang === "en" ? "zh" : "en"));
+document.getElementById("buildVersion").textContent = `Build: ${BUILD}`;
+setLang("en");
+  </script>
+</body>
+</html>

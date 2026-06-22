@@ -602,8 +602,15 @@ h1{
   transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease, color .22s ease;
 }
 
+.mini-card-link{
+  display:flex;
+  text-decoration:none !important;
+  color:inherit;
+}
+
 .hero-cards .mini-card:hover,
-.hero-cards .mini-card.is-active{
+.hero-cards .mini-card.is-active,
+.hero-cards .mini-card-link:hover{
   transform: translateY(-6px);
   border-color: rgba(15,18,25,.5);
   background: rgba(12,14,18,.82);
