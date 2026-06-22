@@ -1084,7 +1084,7 @@ h1{
 @container carousel (max-width: 560px){
   .slide-detail{ display: none; }
   .carousel-slide{
-    --carousel-size: 40cqi;
+    --carousel-size: max(var(--carousel-mobile-min, 176px), 52cqi);
     align-items: stretch;
     height: var(--carousel-size);
   }
@@ -1460,24 +1460,46 @@ h1{
     --flipper-lead: clamp(0px, calc(8px - 0.8vh), 10px);
     --flipper-tail: 2px;
     --hero-action-gap: 2px;
+    --hero-mini-card-height: calc(52px + 28px);
+    --carousel-mobile-min: calc(var(--hero-mini-card-height) * 2 + 16px);
+    --hero-detail-width: calc(var(--flipper-width) * 1.28);
   }
   .flipper-stage{
     aspect-ratio: 4 / 6;
   }
   .hero-flipper-zone{
-    flex-direction:column;
+    flex-direction:row;
     align-items:flex-start;
-    width:100%;
+    justify-content:flex-start;
+    width:min(var(--max), calc(100vw - 40px));
   }
   .hero-card-detail{
-    position:static;
-    right:auto;
-    width:100%;
-    height:auto;
-    min-height:var(--flipper-stage-height);
+    position:absolute;
+    right:0;
+    top:0;
+    width:var(--hero-detail-width);
+    height:var(--flipper-stage-height);
     margin-left:0;
-    flex:1 1 auto;
-    padding:4px 0 0;
+    flex:none;
+    padding:0 2px;
+  }
+  .hero-card-detail-list{
+    max-width:26ch;
+    gap:clamp(10px, 1.6vh, 16px);
+  }
+  .hero-card-detail-label{
+    font-size:9px;
+    letter-spacing:.08em;
+  }
+  .hero-card-detail-text{
+    font-size:10px;
+    line-height:1.32;
+  }
+  .hero-card-detail.is-visible .hero-card-detail-item{
+    max-height:5.5em;
+  }
+  .carousel-viewport{
+    min-height:var(--carousel-mobile-min);
   }
   .footer-inner{ gap:6px; }
   .footer-mark{ font-size:clamp(16px, 4.4vw, 24px); }
