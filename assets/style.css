@@ -474,7 +474,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   --hero-detail-width: calc(var(--flipper-width) * 1.55);
   --flipper-height-ratio: 1;
   --flipper-stage-height: calc(var(--flipper-width) * var(--flipper-height-ratio));
-  --flipper-lead: clamp(0px, calc(12px - 1.2vh), 14px);
+  --flipper-lead: clamp(0px, calc(6px - 1vh), 8px);
   --flipper-tail: clamp(2px, calc(6px + 0.4vw), 14px);
   --hero-action-gap: clamp(2px, calc(8px - 0.5vw), 10px);
   position:relative;
@@ -490,16 +490,29 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   overflow:visible;
 }
 
-.hero-copy .kicker,
-.hero-copy h1{
+.hero-copy .kicker{
   margin-left:0;
   padding-left:0;
   text-align:left;
-}
-
-.hero-copy .kicker{
   margin-top:4px;
   margin-bottom:0;
+}
+
+.hero-tagline{
+  position:relative;
+  z-index:3;
+  margin:0 0 12px;
+  padding:0;
+  max-width:680px;
+  font-size:clamp(14.5px, 1.87vw, 24px);
+  line-height:1.08;
+  letter-spacing:-0.02em;
+  color:rgba(255,255,255,.8);
+  text-shadow:0 2px 18px rgba(0,0,0,.38);
+}
+
+.hero-tagline .hero-title-lead{
+  font-size:calc(1em + 1.4pt);
 }
 
 .hero-action-row{
@@ -519,20 +532,9 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   pointer-events:auto;
 }
 
-.hero-copy .kicker,
-.hero-copy h1{
+.hero-copy .kicker{
   color: rgba(255,255,255,.8);
   text-shadow: 0 2px 18px rgba(0,0,0,.38);
-}
-
-.hero-copy h1{
-  margin-top: max(0px, calc(1.2vh - 10px));
-  margin-left: 0;
-  font-size: clamp(29px, 3.74vw, 48px);
-}
-
-.hero-title-lead{
-  font-size: calc(1em + 2.8pt);
 }
 
 .hero-inner a,

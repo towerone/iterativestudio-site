@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.68" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.69" />
 </head>
 
 <body>
@@ -66,7 +66,6 @@
         <div class="hero-main">
           <div class="hero-copy">
             <p class="kicker" id="kickerText">AI for the Built Environment</p>
-            <h1 id="heroTitle"><span class="hero-title-lead">Practical AI</span>-assisted tools<br/>for architectural workflows</h1>
 
             <div class="hero-flipper-zone" id="heroFlipperZone">
             <div class="hero-flipper is-tint-pm1" id="heroFlipper" aria-label="Project previews" aria-live="polite">
@@ -174,6 +173,8 @@
               <button class="pill is-active" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
             </div>
           </div>
+
+          <p class="hero-tagline" id="heroTagline"><span class="hero-title-lead">Practical AI</span>-assisted tools<br/>for architectural workflows</p>
 
           <div class="hero-cards" id="heroCards">
             <button class="mini-card" type="button" data-hero-card="0" aria-expanded="false" aria-controls="heroCardDetail">
@@ -344,7 +345,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.68</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.69</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -524,7 +525,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.68";
+const BUILD = "v0.2.69";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -839,7 +840,7 @@ langToggleEl.classList.toggle("is-en-active", lang === "en");
 }
 
 document.getElementById("kickerText").innerHTML = t.kicker;
-document.getElementById("heroTitle").innerHTML = t.title;
+document.getElementById("heroTagline").innerHTML = t.title;
 
 document.getElementById("card1Title").innerHTML = t.c1t;
 document.getElementById("card2Title").innerHTML = t.c2t;
