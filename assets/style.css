@@ -740,7 +740,7 @@ h1{
 
 .project-carousel{
   display:flex;
-  align-items:center;
+  align-items:stretch;
   gap:12px;
   width:100%;
   margin-top:var(--stack-gap);
@@ -783,7 +783,7 @@ h1{
   flex: 0 0 100%;
   display: flex;
   gap: 0;
-  align-items: flex-start;
+  align-items: stretch;
   box-sizing: border-box;
   padding: 0;
   min-height: 0;
@@ -811,17 +811,18 @@ h1{
   min-height: 0;
   height: var(--carousel-size);
   max-height: var(--carousel-size);
-  padding: clamp(5px, 1cqi, 12px) clamp(4px, 0.6cqi, 8px) clamp(5px, 1cqi, 12px) clamp(8px, 1.4cqi, 14px);
+  padding: clamp(8px, 1.5cqi, 16px) clamp(8px, 1cqi, 12px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: clamp(3px, 0.65cqi, 6px);
+  justify-content: space-between;
+  gap: clamp(5px, 0.9cqi, 10px);
   overflow: hidden;
   transition: height .2s ease, max-height .2s ease;
 }
 
 .slide-title{
   margin: 0;
+  flex: 0 0 auto;
   font-size: clamp(14px, 3.2cqi, 24px);
   font-weight: 600;
   line-height: 1.2;
@@ -831,14 +832,16 @@ h1{
 
 .slide-bullets{
   margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
   padding-left: 18px;
   color: var(--muted);
-  font-size: clamp(10px, 2.2cqi, 12px);
-  line-height: 1.4;
+  font-size: clamp(10px, 2.35cqi, 13px);
+  line-height: 1.45;
 }
 
 .slide-bullets li{
-  margin: 0 0 2px;
+  margin: 0 0 clamp(3px, 0.55cqi, 6px);
 }
 
 .slide-bullets li:last-child{
@@ -847,9 +850,11 @@ h1{
 
 .slide-desc{
   margin: 0;
+  flex: 1 1 auto;
+  min-height: 0;
   color: var(--muted);
-  font-size: clamp(8.5px, 1.75cqi, 11px);
-  line-height: 1.38;
+  font-size: clamp(9px, 1.9cqi, 12px);
+  line-height: 1.42;
 }
 
 .slide-render{
@@ -939,7 +944,9 @@ h1{
     flex: 1 1 0;
     height: var(--carousel-size);
     max-height: var(--carousel-size);
-    padding: clamp(4px, 1cqi, 10px) 1.6cqi;
+    padding: clamp(6px, 1.2cqi, 12px) 1.6cqi;
+    justify-content: space-between;
+    gap: clamp(4px, 0.8cqi, 8px);
   }
   .slide-title{
     font-size: clamp(11.7px, 3.78cqi, 16.2px);
@@ -961,12 +968,13 @@ h1{
 
 .carousel-arrow{
   appearance:none;
-  flex:0 0 48px;
-  align-self:center;
+  flex:0 0 44px;
+  align-self:stretch;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   min-height:0;
+  height:auto;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: transparent;
@@ -975,7 +983,7 @@ h1{
   line-height:1;
   cursor:pointer;
   box-shadow: none;
-  transition: color .15s ease, opacity .15s ease, border-color .15s ease;
+  transition: color .15s ease, opacity .15s ease, border-color .15s ease, background .15s ease;
 }
 
 .carousel-arrow:hover{
@@ -1249,7 +1257,7 @@ h1{
     margin-top:var(--flipper-lead);
   }
   .project-carousel{ gap:8px; }
-  .carousel-arrow{ flex-basis:40px; font-size:26px; }
+  .carousel-arrow{ flex:0 0 36px; width:36px; font-size:26px; }
   .projects-grid{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
   .section-head{ flex-direction: column; align-items:flex-start; }
