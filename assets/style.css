@@ -1005,27 +1005,35 @@ h1{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap:6px;
-  min-height:34px;
-  padding:0 14px;
+  width:36px;
+  height:36px;
+  padding:0;
   border: 1px solid var(--carousel-border);
-  border-radius: 999px;
+  border-radius: 50%;
   background: var(--carousel-surface);
   backdrop-filter: blur(10px);
   box-shadow: 0 6px 20px rgba(15,18,25,.10);
   color: var(--text);
-  font: 600 12px/1 Inter, system-ui, sans-serif;
-  letter-spacing: .02em;
   cursor:pointer;
   text-decoration:none;
   pointer-events:auto;
-  transition: color .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease;
+  transition: color .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease, filter .15s ease;
 }
 
 .carousel-ctrl:hover{
   color: var(--text);
   border-color: rgba(74,127,212,.28);
   background: rgba(74,127,212,.06);
+  filter: brightness(1.03);
+}
+
+.carousel-icon{
+  display:block;
+  flex-shrink:0;
+}
+
+.carousel-pause .icon-play{
+  display:none;
 }
 
 .carousel-pause.is-paused{
@@ -1033,10 +1041,16 @@ h1{
   background: rgba(74,127,212,.12);
 }
 
-.carousel-go::after{
-  content:"→";
-  font-size:14px;
-  line-height:1;
+.carousel-pause.is-paused .icon-pause{
+  display:none;
+}
+
+.carousel-pause.is-paused .icon-play{
+  display:block;
+}
+
+.carousel-go .icon-eye{
+  transform: translateY(.5px);
 }
 
 .micro-note{
