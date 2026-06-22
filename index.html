@@ -191,6 +191,7 @@
               <span aria-hidden="true">‹</span>
             </button>
 
+            <div class="carousel-column">
             <div class="carousel-viewport">
               <div class="carousel-track" id="carouselTrack">
                 <div class="carousel-slide">
@@ -278,6 +279,12 @@
                   <div class="slide-render"><div class="render-box">Rendering</div></div>
                 </div>
               </div>
+
+              <div class="carousel-toolbar">
+                <button class="carousel-ctrl carousel-pause" id="carouselPause" type="button" aria-label="Pause autoplay">Pause</button>
+                <a class="carousel-ctrl carousel-go" id="carouselGo" href="/projects/">Go</a>
+              </div>
+            </div>
             </div>
 
             <button class="carousel-arrow carousel-arrow-next" id="carouselNext" type="button" aria-label="Next project">
@@ -320,7 +327,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.27</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.28</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -351,12 +358,15 @@ c2b: "Geometry, drawings, automation, auditability.",
 c3t: "AI Assistance",
 c3b: "Structure intent, generate/debug code, document systems.",
 projects: [
-{ t: "Earth God Temple", bullets: ["Placeholder bullet one", "Placeholder bullet two", "Placeholder bullet three"], d: "First sentence describing the project intent and context. Second sentence with additional detail about scope or outcome." },
-{ t: "YoChand Museum",   bullets: ["Placeholder bullet one", "Placeholder bullet two", "Placeholder bullet three"], d: "First sentence describing the project intent and context. Second sentence with additional detail about scope or outcome." },
-{ t: "Dragon Tube",      bullets: ["Placeholder bullet one", "Placeholder bullet two", "Placeholder bullet three"], d: "First sentence describing the project intent and context. Second sentence with additional detail about scope or outcome." },
-{ t: "Ethiopia School",  bullets: ["Biomimetic geometry drawn from the native calla lily seed", "Parametric roof in Python, beam spans held under 5 m", "Passive daylight, shaft ventilation, and rainwater capture"], d: "A biomimicry-led school in Ethiopia where the form of the native calla lily sets the geometry of the classrooms, roof, and circulation, and reshapes the conventional teacher-facing room into clustered focus groups. Eight seven-meter rings pinwheel from a central point to rationalize structure and cost, while north-facing glazing, shaft ventilation, and two integrated tanks handle daylight, airflow, and water collection." },
-{ t: "Hista Powerplant", bullets: ["Placeholder bullet one", "Placeholder bullet two", "Placeholder bullet three"], d: "First sentence describing the project intent and context. Second sentence with additional detail about scope or outcome." }
+{ t: "Earth God Temple", bullets: ["Placeholder bullet one", "Placeholder bullet two", "Placeholder bullet three"], d: "First sentence describing the project intent and context. Second sentence with additional detail about scope or outcome.", href: "/projects/" },
+{ t: "YoChand Museum",   bullets: ["Placeholder bullet one", "Placeholder bullet two", "Placeholder bullet three"], d: "First sentence describing the project intent and context. Second sentence with additional detail about scope or outcome.", href: "/projects/" },
+{ t: "Dragon Tube",      bullets: ["Placeholder bullet one", "Placeholder bullet two", "Placeholder bullet three"], d: "First sentence describing the project intent and context. Second sentence with additional detail about scope or outcome.", href: "/projects/" },
+{ t: "Ethiopia School",  bullets: ["Biomimetic geometry drawn from the native calla lily seed", "Parametric roof in Python, beam spans held under 5 m", "Passive daylight, shaft ventilation, and rainwater capture"], d: "A biomimicry-led school in Ethiopia where the form of the native calla lily sets the geometry of the classrooms, roof, and circulation, and reshapes the conventional teacher-facing room into clustered focus groups. Eight seven-meter rings pinwheel from a central point to rationalize structure and cost, while north-facing glazing, shaft ventilation, and two integrated tanks handle daylight, airflow, and water collection.", href: "/projects/" },
+{ t: "Hista Powerplant", bullets: ["Placeholder bullet one", "Placeholder bullet two", "Placeholder bullet three"], d: "First sentence describing the project intent and context. Second sentence with additional detail about scope or outcome.", href: "/projects/" }
 ],
+carouselPause: "Pause",
+carouselPlay: "Play",
+carouselGo: "Go",
 navProjects: "Projects",
 navAbout: "About",
 navContact: "Contact",
@@ -388,12 +398,15 @@ c2b: "幾何、圖面、自動化，可驗證。",
 c3t: "AI 助手",
 c3b: "把意圖結構化，產生/除錯程式碼，整理文件。",
 projects: [
-{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。" },
-{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。" },
-{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。" },
-{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。" },
-{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。" }
+{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" },
+{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" },
+{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" },
+{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" },
+{ t: "(中文待填)", bullets: ["(中文待填)", "(中文待填)", "(中文待填)"], d: "(中文待填)。 (中文待填)。", href: "/projects/" }
 ],
+carouselPause: "暫停",
+carouselPlay: "播放",
+carouselGo: "前往",
 navProjects: "專案",
 navAbout: "關於",
 navContact: "聯絡",
@@ -417,12 +430,15 @@ pm1: "污染-PM2.5"
 }
 };
 
-const BUILD = "v0.2.27";
+const BUILD = "v0.2.28";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
 let carouselTimer = null;
+let carouselPaused = false;
 const carouselTrack = document.getElementById("carouselTrack");
+const carouselPauseBtn = document.getElementById("carouselPause");
+const carouselGoBtn = document.getElementById("carouselGo");
 
 function updateCarouselSlides() {
 if (!carouselTrack) return;
@@ -444,6 +460,14 @@ updateCarouselPosition();
 function updateCarouselPosition() {
 if (!carouselTrack) return;
 carouselTrack.style.transform = `translateX(-${carouselIndex * 100}%)`;
+updateCarouselGoLink();
+}
+
+function updateCarouselGoLink() {
+if (!carouselGoBtn) return;
+const data = i18n[lang].projects || [];
+const project = data[carouselIndex];
+carouselGoBtn.href = (project && project.href) ? project.href : "/projects/";
 }
 
 function goToSlide(nextIndex) {
@@ -463,7 +487,23 @@ goToSlide(carouselIndex - 1);
 
 function resetCarouselTimer() {
 if (carouselTimer) clearInterval(carouselTimer);
+if (!carouselPaused) {
 carouselTimer = setInterval(nextCarouselSlide, CAROUSEL_INTERVAL_MS);
+}
+}
+
+function setCarouselPaused(nextPaused) {
+carouselPaused = nextPaused;
+if (carouselPauseBtn) {
+carouselPauseBtn.classList.toggle("is-paused", carouselPaused);
+carouselPauseBtn.textContent = carouselPaused ? i18n[lang].carouselPlay : i18n[lang].carouselPause;
+carouselPauseBtn.setAttribute("aria-label", carouselPaused ? i18n[lang].carouselPlay : i18n[lang].carouselPause);
+}
+resetCarouselTimer();
+}
+
+function toggleCarouselPause() {
+setCarouselPaused(!carouselPaused);
 }
 
 const FLIPPER_INTERVAL_MS = 8000;
@@ -606,6 +646,12 @@ document.getElementById("card3Body").innerHTML = t.c3b;
 
 updateCarouselSlides();
 
+if (carouselGoBtn) carouselGoBtn.textContent = t.carouselGo;
+if (carouselPauseBtn) {
+carouselPauseBtn.textContent = carouselPaused ? t.carouselPlay : t.carouselPause;
+carouselPauseBtn.setAttribute("aria-label", carouselPaused ? t.carouselPlay : t.carouselPause);
+}
+
 document.getElementById("navProjects").textContent = t.navProjects;
 document.getElementById("navAbout").textContent = t.navAbout;
 document.getElementById("navContact").textContent = t.navContact;
@@ -652,11 +698,13 @@ const carouselPrev = document.getElementById("carouselPrev");
 const carouselNext = document.getElementById("carouselNext");
 if (carouselPrev) carouselPrev.addEventListener("click", () => { prevCarouselSlide(); resetCarouselTimer(); });
 if (carouselNext) carouselNext.addEventListener("click", () => { nextCarouselSlide(); resetCarouselTimer(); });
+if (carouselPauseBtn) carouselPauseBtn.addEventListener("click", toggleCarouselPause);
 
 setMap("pm1");
 setLang("en");
 initFlipperRandomStart();
-resetCarouselTimer();
+setCarouselPaused(false);
+updateCarouselGoLink();
 resetFlipperTimer();
   </script>
 </body>
