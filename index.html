@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.75" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.76" />
 </head>
 
 <body>
@@ -177,17 +177,32 @@
           <p class="hero-tagline" id="heroTagline"><span class="hero-title-lead">Practical AI</span>-assisted tools for architectural workflows</p>
 
           <div class="hero-cards" id="heroCards">
-            <button class="mini-card" type="button" data-hero-card="0" aria-expanded="false" aria-controls="heroCardDetail">
-              <span class="mini-title" id="card1Title">Computational Design</span>
-            </button>
+            <div class="hero-card-slot" data-hero-card-slot="0">
+              <div class="hero-card-bubble" id="heroCardBubble0" aria-hidden="true">
+                <ul class="hero-card-bubble-list" id="heroCardBubbleList0"></ul>
+              </div>
+              <button class="mini-card" type="button" data-hero-card="0" aria-expanded="false" aria-controls="heroCardBubble0">
+                <span class="mini-title" id="card1Title">Computational Design</span>
+              </button>
+            </div>
 
-            <button class="mini-card" type="button" data-hero-card="1" aria-expanded="false" aria-controls="heroCardDetail">
-              <span class="mini-title" id="card2Title">Python Scripting</span>
-            </button>
+            <div class="hero-card-slot" data-hero-card-slot="1">
+              <div class="hero-card-bubble" id="heroCardBubble1" aria-hidden="true">
+                <ul class="hero-card-bubble-list" id="heroCardBubbleList1"></ul>
+              </div>
+              <button class="mini-card" type="button" data-hero-card="1" aria-expanded="false" aria-controls="heroCardBubble1">
+                <span class="mini-title" id="card2Title">Python Scripting</span>
+              </button>
+            </div>
 
-            <button class="mini-card" type="button" data-hero-card="2" aria-expanded="false" aria-controls="heroCardDetail">
-              <span class="mini-title" id="card3Title">AI Assistance</span>
-            </button>
+            <div class="hero-card-slot" data-hero-card-slot="2">
+              <div class="hero-card-bubble" id="heroCardBubble2" aria-hidden="true">
+                <ul class="hero-card-bubble-list" id="heroCardBubbleList2"></ul>
+              </div>
+              <button class="mini-card" type="button" data-hero-card="2" aria-expanded="false" aria-controls="heroCardBubble2">
+                <span class="mini-title" id="card3Title">AI Assistance</span>
+              </button>
+            </div>
           </div>
 
           <p class="hero-footnote kicker" id="kickerText">Building AI for the Built Environment</p>
@@ -529,7 +544,7 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.75";
+const BUILD = "v0.2.76";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -744,11 +759,10 @@ updateFlipperTint(key);
 }
 
 const heroFlipperEl = document.getElementById("heroFlipper");
-const heroCardDetailEl = document.getElementById("heroCardDetail");
-const heroCardDetailListEl = document.getElementById("heroCardDetailList");
 const heroCardButtons = document.querySelectorAll("[data-hero-card]");
+const heroCardSlots = document.querySelectorAll("[data-hero-card-slot]");
 let activeHeroCardIndex = null;
-let heroCardDetailCloseTimer = null;
+let hoveredHeroCardIndex = null;
 
 function getHeroCardBullets() {
 const t = i18n[lang];
@@ -771,51 +785,71 @@ return [
 ];
 }
 
-function setHeroCardActive(index) {
-activeHeroCardIndex = index;
-heroCardButtons.forEach((btn, i) => {
-const isActive = index !== null && i === index;
-btn.classList.toggle("is-active", isActive);
-btn.setAttribute("aria-expanded", isActive ? "true" : "false");
-});
-if (!heroCardDetailEl || !heroCardDetailListEl) return;
-if (heroCardDetailCloseTimer) {
-clearTimeout(heroCardDetailCloseTimer);
-heroCardDetailCloseTimer = null;
+function renderHeroCardBubbleItem(item) {
+return `<li class="hero-card-bubble-item"><span class="hero-card-bubble-label">${item.label}</span><span class="hero-card-bubble-text">${item.text}</span></li>`;
 }
-if (index === null) {
-heroCardDetailEl.classList.remove("is-visible");
-heroCardDetailCloseTimer = window.setTimeout(() => {
-heroCardDetailEl.hidden = true;
-heroCardDetailListEl.innerHTML = "";
-heroCardDetailCloseTimer = null;
-}, 480);
-return;
-}
+
+function populateHeroCardBubbles() {
 const bulletSets = getHeroCardBullets();
-const bullets = bulletSets[index] || [];
-heroCardDetailListEl.innerHTML = bullets.map((item) => `<li class="hero-card-detail-item"><span class="hero-card-detail-marker" aria-hidden="true"></span><span class="hero-card-detail-copy"><span class="hero-card-detail-label">${item.label}</span><span class="hero-card-detail-text">${item.text}</span></span></li>`).join("");
-heroCardDetailEl.hidden = false;
-requestAnimationFrame(() => {
-requestAnimationFrame(() => {
-heroCardDetailEl.classList.add("is-visible");
-});
+heroCardSlots.forEach((slot, i) => {
+const list = slot.querySelector(".hero-card-bubble-list");
+if (!list) return;
+list.innerHTML = (bulletSets[i] || []).map(renderHeroCardBubbleItem).join("");
 });
 }
 
+function updateHeroCardBubbleVisibility() {
+heroCardSlots.forEach((slot, i) => {
+const bubble = slot.querySelector(".hero-card-bubble");
+const btn = slot.querySelector("[data-hero-card]");
+const isLocked = activeHeroCardIndex === i;
+const isPreview = activeHeroCardIndex === null && hoveredHeroCardIndex === i;
+const isVisible = isLocked || isPreview;
+if (bubble) {
+bubble.classList.toggle("is-visible", isVisible);
+bubble.classList.toggle("is-locked", isLocked);
+bubble.setAttribute("aria-hidden", isVisible ? "false" : "true");
+}
+if (btn) {
+btn.classList.toggle("is-active", isLocked);
+btn.classList.toggle("is-preview", isPreview);
+btn.setAttribute("aria-expanded", isLocked ? "true" : "false");
+}
+});
+}
+
+function setHeroCardActive(index) {
+activeHeroCardIndex = index;
+updateHeroCardBubbleVisibility();
+}
+
 function updateHeroCardDetail() {
-if (activeHeroCardIndex === null) return;
-setHeroCardActive(activeHeroCardIndex);
+populateHeroCardBubbles();
+updateHeroCardBubbleVisibility();
 }
 
 function toggleHeroCard(index) {
 setHeroCardActive(activeHeroCardIndex === index ? null : index);
 }
 
-heroCardButtons.forEach(btn => {
-btn.addEventListener("click", () => {
-toggleHeroCard(Number(btn.dataset.heroCard));
+populateHeroCardBubbles();
+
+heroCardSlots.forEach(slot => {
+const index = Number(slot.dataset.heroCardSlot);
+slot.addEventListener("mouseenter", () => {
+hoveredHeroCardIndex = index;
+updateHeroCardBubbleVisibility();
 });
+slot.addEventListener("mouseleave", () => {
+hoveredHeroCardIndex = null;
+updateHeroCardBubbleVisibility();
+});
+const btn = slot.querySelector("[data-hero-card]");
+if (btn) {
+btn.addEventListener("click", () => {
+toggleHeroCard(index);
+});
+}
 });
 
 function updateFlipperTint(key) {
