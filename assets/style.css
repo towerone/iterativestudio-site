@@ -630,8 +630,8 @@ h1{
   top:100%;
   display:flex;
   align-items:flex-start;
-  justify-content:space-between;
-  width:100%;
+  justify-content:flex-start;
+  width:min(var(--max), calc(100vw - 40px));
   gap:clamp(10px, 1.8vw, 18px);
   margin-top:var(--flipper-lead);
   z-index:5;
@@ -656,13 +656,16 @@ h1{
 }
 
 .hero-card-detail{
+  position:absolute;
+  right:0;
+  top:0;
   display:flex;
   align-items:center;
   justify-content:center;
   width:var(--flipper-width);
   height:var(--flipper-stage-height);
-  margin-left:auto;
-  flex:0 0 var(--flipper-width);
+  margin-left:0;
+  flex:none;
   padding:0 6px;
   opacity:0;
   visibility:hidden;
@@ -1406,8 +1409,11 @@ h1{
   .hero-flipper-zone{
     flex-direction:column;
     align-items:flex-start;
+    width:100%;
   }
   .hero-card-detail{
+    position:static;
+    right:auto;
     width:100%;
     height:auto;
     min-height:var(--flipper-stage-height);
