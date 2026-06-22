@@ -823,11 +823,24 @@ h1{
 .slide-title{
   margin: 0;
   flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.45em;
+  row-gap: 0.1em;
   font-size: clamp(14px, 3.2cqi, 24px);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--text);
+}
+
+.slide-title-meta{
+  font-size: clamp(9px, 1.9cqi, 12px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+  color: var(--muted);
 }
 
 .slide-bullets{
