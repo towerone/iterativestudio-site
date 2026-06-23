@@ -551,9 +551,9 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   --hero-detail-width: calc(var(--flipper-width) * 1.55);
   --flipper-height-ratio: 1;
   --flipper-stage-height: calc(var(--flipper-width) * var(--flipper-height-ratio));
-  --flipper-lead: clamp(0px, calc(2px - 0.32vh), 4px);
-  --headline-flipper-gap: 0.68em;
-  --headline-flipper-gap-base: 0.85em;
+  --flipper-lead: clamp(0px, calc(1px - 0.22vh), 3px);
+  --headline-flipper-gap: 0.48em;
+  --headline-flipper-gap-base: 0.68em;
   --flipper-tail: clamp(0px, calc(2px + 0.2vw), 6px);
   --hero-action-gap: clamp(0px, calc(4px - 0.5vw), 6px);
   position:relative;
@@ -1745,8 +1745,8 @@ h1{
   }
 
   .hero-main{
-    --headline-flipper-gap: 0.58em;
-    --headline-flipper-gap-base: 0.72em;
+    --headline-flipper-gap: 0.41em;
+    --headline-flipper-gap-base: 0.58em;
     --flipper-height-ratio: 1.5;
     --flipper-lead: clamp(0px, calc(8px - 0.8vh), 10px);
     --flipper-tail: 2px;
