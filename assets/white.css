@@ -15,7 +15,7 @@ body.page-white .hero{
 }
 
 body.page-white .hero-comp-pillars{
-  min-height:min(74vh, 780px);
+  min-height:min(94lvh, 980px);
   overflow:visible;
   border-bottom:none;
   background:var(--bg);
@@ -68,13 +68,15 @@ body.page-white .hero-pillar-bg-overlay{
     linear-gradient(
       180deg,
       transparent 0%,
-      transparent 28%,
-      color-mix(in srgb, var(--hero-fade) 8%, transparent) 36%,
-      color-mix(in srgb, var(--hero-fade) 22%, transparent) 44%,
-      color-mix(in srgb, var(--hero-fade) 42%, transparent) 52%,
-      color-mix(in srgb, var(--hero-fade) 62%, transparent) 60%,
-      color-mix(in srgb, var(--hero-fade) 78%, transparent) 68%,
-      color-mix(in srgb, var(--hero-fade) 90%, transparent) 76%,
+      transparent 22%,
+      color-mix(in srgb, var(--hero-fade) 6%, transparent) 30%,
+      color-mix(in srgb, var(--hero-fade) 18%, transparent) 38%,
+      color-mix(in srgb, var(--hero-fade) 34%, transparent) 46%,
+      color-mix(in srgb, var(--hero-fade) 52%, transparent) 54%,
+      color-mix(in srgb, var(--hero-fade) 68%, transparent) 62%,
+      color-mix(in srgb, var(--hero-fade) 82%, transparent) 70%,
+      color-mix(in srgb, var(--hero-fade) 92%, transparent) 78%,
+      color-mix(in srgb, var(--hero-fade) 97%, transparent) 86%,
       var(--hero-fade) 100%
     );
 }
@@ -84,8 +86,14 @@ body.page-white .hero-pillar-bg-fade{
   left:0;
   right:0;
   bottom:0;
-  height:22%;
-  background:linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--hero-fade) 55%, transparent) 55%, var(--hero-fade) 100%);
+  height:min(42%, 420px);
+  background:linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--hero-fade) 35%, transparent) 40%,
+    color-mix(in srgb, var(--hero-fade) 72%, transparent) 68%,
+    var(--hero-fade) 100%
+  );
 }
 
 body.page-white .hero-comp-pillars .hero-inner{
@@ -93,7 +101,7 @@ body.page-white .hero-comp-pillars .hero-inner{
   z-index:2;
   display:flex;
   flex-direction:column;
-  min-height:min(74vh, 780px);
+  min-height:min(94lvh, 980px);
   padding:64px 0 48px;
 }
 
@@ -423,7 +431,7 @@ body.page-white .foundation-card p:not(.foundation-kicker){
 }
 
 body.page-white .hero-foundations{
-  margin-top:0;
+  margin-top:20lvh;
   position:relative;
   z-index:4;
 }
@@ -687,13 +695,27 @@ body.page-white .footer-map-credit{
 
   body.page-white .hero-comp-pillars,
   body.page-white .hero-comp-pillars .hero-inner{
-    min-height:min(68vh, 680px);
+    min-height:min(90lvh, 940px);
   }
 
-  body.page-white .hero-cards,
-  body.page-white .hero-pillars-accordion{
+  body.page-white .hero-cards{
     grid-template-columns:repeat(2, minmax(0, 1fr));
-    padding-bottom:clamp(200px, 24vh, 300px);
+  }
+
+  body.page-white .hero-pillars-accordion{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding-bottom:clamp(180px, 20lvh, 280px);
+  }
+
+  body.page-white .pillar-item{
+    position:relative;
+  }
+
+  body.page-white .pillar-expand{
+    left:0;
+    right:0;
+    width:100%;
   }
 
   body.page-white .hero-copy-panel{
@@ -720,11 +742,20 @@ body.page-white .footer-map-credit{
 }
 
 @media (max-width: 560px){
+  body.page-white .hero-comp-pillars,
+  body.page-white .hero-comp-pillars .hero-inner{
+    min-height:min(88lvh, 900px);
+  }
+
+  body.page-white .hero-foundations{
+    margin-top:16lvh;
+  }
+
   body.page-white .hero-pillars-accordion{
     grid-template-columns:repeat(4, minmax(0, 1fr));
     gap:8px;
     padding-top:40px;
-    padding-bottom:clamp(260px, 38vh, 360px);
+    padding-bottom:clamp(240px, 32lvh, 340px);
   }
 
   body.page-white .pillar-item{
