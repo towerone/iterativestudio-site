@@ -1,50 +1,7 @@
 body.page-white{
-  --bg: #ffffff;
-  --bg2: #f6f7fa;
-  --text: rgba(10,12,16,.92);
-  --muted: rgba(10,12,16,.62);
-  --faint: rgba(10,12,16,.44);
-  --line: rgba(10,12,16,.12);
-  --panel: rgba(10,12,16,.03);
-  --panel2: rgba(10,12,16,.05);
-  --shadow: 0 18px 50px rgba(0,0,0,.08);
-  --radius: 18px;
-  --radius2: 22px;
-  --max: 1120px;
-  --accent: #2f6bff;
-  --space-scale: 1;
-  --stack-gap: 28px;
-  background: var(--bg);
-  color: var(--text);
-}
-
-body.page-white a:hover{
-  text-decoration:underline;
-  text-decoration-color: rgba(10,12,16,.25);
-}
-
-body.page-white .btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 16px;
-  border-radius:14px;
-  border:1px solid rgba(10,12,16,.14);
-  background:linear-gradient(135deg, rgba(47,107,255,.12), rgba(0,0,0,.02));
-  box-shadow:0 10px 28px rgba(0,0,0,.08);
-  text-decoration:none !important;
-  font-weight:600;
+  background:radial-gradient(1200px 700px at 20% 0%, var(--bg-gradient-top) 0%, var(--bg) 55%),
+    radial-gradient(900px 600px at 100% 20%, var(--bg-gradient-side) 0%, var(--bg) 55%);
   color:var(--text);
-  cursor:pointer;
-}
-
-body.page-white .btn:hover{
-  filter:brightness(1.02);
-}
-
-body.page-white .btn-small{
-  padding:10px 14px;
-  border-radius:12px;
 }
 
 body.page-white .hero{
@@ -53,8 +10,8 @@ body.page-white .hero{
   min-height:0;
   border-bottom:1px solid var(--line);
   background:
-    radial-gradient(900px 520px at 12% 0%, rgba(47,107,255,.08), transparent 55%),
-    radial-gradient(900px 520px at 100% 10%, rgba(0,0,0,.03), transparent 55%);
+    radial-gradient(900px 520px at 12% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 55%),
+    radial-gradient(900px 520px at 100% 10%, color-mix(in srgb, var(--text) 3%, transparent), transparent 55%);
 }
 
 body.page-white .hero-inner{
@@ -75,7 +32,7 @@ body.page-white .page-back-link{
 body.page-white .page-back-link:hover{
   color:var(--muted);
   text-decoration:underline !important;
-  text-decoration-color:rgba(10,12,16,.22);
+  text-decoration-color:color-mix(in srgb, var(--text) 22%, transparent);
 }
 
 body.page-white .kicker{
@@ -162,7 +119,7 @@ body.page-white .section{
 }
 
 body.page-white .section-muted{
-  background:linear-gradient(180deg, rgba(10,12,16,.02), rgba(10,12,16,0));
+  background:linear-gradient(180deg, color-mix(in srgb, var(--text) 2%, transparent), transparent);
 }
 
 body.page-white .section-head{
@@ -238,7 +195,7 @@ body.page-white .project-card{
 
 body.page-white .project-card:hover{
   transform:translateY(-2px);
-  border-color:rgba(47,107,255,.28);
+  border-color:color-mix(in srgb, var(--accent) 28%, var(--line));
   background:var(--panel2);
   text-decoration:none !important;
 }
