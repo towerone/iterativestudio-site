@@ -608,8 +608,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   --flipper-lead: 0px;
   --headline-flipper-gap: 0.24em;
   --headline-flipper-gap-base: 0.34em;
-  --flipper-tail: clamp(0px, calc((2px + 0.2vw) * var(--space-scale)), calc(6px * var(--space-scale)));
-  --hero-action-gap: clamp(0px, calc((4px - 0.5vw) * var(--space-scale)), calc(6px * var(--space-scale)));
+  --flipper-tail: clamp(0px, calc((2px + 0.2vw) * var(--space-scale) * 1.3), calc(8px * var(--space-scale)));
+  --hero-action-gap: clamp(0px, calc((4px - 0.5vw) * var(--space-scale) * 1.3), calc(8px * var(--space-scale)));
+  --hero-flipper-tagline-gap: calc(18px * var(--space-scale) * 1.3);
+  --hero-pre-kicker-gap: calc(16px * var(--space-scale) * 1.3);
   position:relative;
   display:flex;
   flex-direction:column;
@@ -662,7 +664,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   letter-spacing:.16em;
   color:rgba(255,255,255,.68);
   text-shadow:0 2px 14px rgba(0,0,0,.32);
-  transform:translateY(calc(18px * var(--space-scale)));
+  margin-top:var(--hero-pre-kicker-gap);
+  transform:translateY(calc(18px * var(--space-scale) * 1.3));
 }
 
 .hero-main:has(.hero-footnote) .project-carousel{
@@ -678,8 +681,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   justify-content:center;
   width:100%;
   min-height:calc(36px * var(--space-scale));
-  margin-top:calc(var(--flipper-lead) + var(--flipper-stage-height) + var(--flipper-tail) + var(--hero-action-gap) - (var(--headline-flipper-gap-base) - var(--headline-flipper-gap)));
-  margin-bottom:calc(6px * var(--space-scale));
+  margin-top:calc(var(--flipper-lead) + var(--flipper-stage-height) + var(--flipper-tail) + var(--hero-action-gap) + var(--hero-flipper-tagline-gap) - (var(--headline-flipper-gap-base) - var(--headline-flipper-gap)));
+  margin-bottom:calc(8px * var(--space-scale));
   pointer-events:none;
 }
 
@@ -1879,8 +1882,10 @@ h1{
     --headline-flipper-gap-base: 0.29em;
     --flipper-height-ratio: 1.5;
     --flipper-lead: clamp(0px, calc(8px - 0.8vh), 10px);
-    --flipper-tail: calc(2px * var(--space-scale));
-    --hero-action-gap: calc(2px * var(--space-scale));
+    --flipper-tail: calc(3px * var(--space-scale));
+    --hero-action-gap: calc(3px * var(--space-scale));
+    --hero-flipper-tagline-gap: calc(14px * var(--space-scale) * 1.3);
+    --hero-pre-kicker-gap: calc(12px * var(--space-scale) * 1.3);
     --hero-mini-card-height: calc(68px + 28px);
     --carousel-mobile-min: calc(var(--hero-mini-card-height) * 2 + 16px);
     --hero-detail-width: calc(var(--flipper-width) * 1.28);
@@ -1934,7 +1939,7 @@ h1{
     font-size:12.1px;
     letter-spacing:.14em;
     padding:0 8px;
-    transform:translateY(calc(14px * var(--space-scale)));
+    transform:translateY(calc(14px * var(--space-scale) * 1.3));
   }
   .hero-main:has(.hero-footnote) .project-carousel{
     margin-top:calc(var(--stack-gap) + 2px);
