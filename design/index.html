@@ -13,21 +13,54 @@
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
   <link rel="stylesheet" href="/assets/white.css?v=0.2.02" />
   <style>
+    :root{
+      --pr-bio: rgb(242, 105, 33);
+      --pr-living: rgb(178, 210, 53);
+      --pr-social: rgb(91, 201, 225);
+    }
+    .pr-dots{ display:inline-flex; align-items:center; gap:6px; flex-shrink:0; }
+    .pr-dot{
+      width:8px; height:8px; border-radius:50%;
+      box-shadow:0 0 0 1px rgba(15,18,25,.08);
+    }
+    .pr-dot--bio{ background:var(--pr-bio); }
+    .pr-dot--living{ background:var(--pr-living); }
+    .pr-dot--social{ background:var(--pr-social); }
+    .flip[data-principles]:not([data-principles=""]) .pr-dot{ opacity:.22; }
+    .flip[data-principles]:not([data-principles=""]) .pr-dot.is-on{ opacity:1; }
+    .mini-head{ display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+    .mini-head .mini-title{ margin:0; }
+    .mini-head .pr-dot{ width:9px; height:9px; }
     .grid-9{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
     .flip{ perspective:1000px; aspect-ratio:1/1; cursor:pointer; }
     .flip:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:var(--radius2); }
     .flip-inner{ position:relative; width:100%; height:100%; transition:transform .6s cubic-bezier(.2,.7,.2,1); transform-style:preserve-3d; }
     .flip.is-flipped .flip-inner{ transform:rotateY(180deg); }
     .flip-face{ position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
-      display:flex; flex-direction:column; justify-content:center; gap:8px; padding:18px;
       border:1px solid var(--line); border-radius:var(--radius2); background:var(--panel); box-shadow:var(--shadow); }
-    .flip-front{ align-items:flex-start; justify-content:flex-start; }
-    .flip-thumb{ display:block; width:100%; aspect-ratio:1; object-fit:cover; border-radius:calc(var(--radius2) - 4px); margin-bottom:8px; }
-    .flip-front .f-title{ font-weight:600; font-size:16px; line-height:1.25; letter-spacing:-0.01em; }
-    .flip-front .f-tag{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); }
-    .flip-front .f-hint{ margin-top:auto; font-size:12px; color:var(--faint); }
-    .flip-back{ transform:rotateY(180deg); align-items:flex-start; background:var(--panel2); }
-    .flip-back .b-title{ font-weight:600; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+    .flip-front{ display:block; padding:0; overflow:hidden; }
+    .flip-thumb{ display:block; width:100%; height:100%; object-fit:cover; border-radius:var(--radius2); }
+    .flip-front .pr-dots{
+      position:absolute; left:12px; bottom:12px;
+      padding:6px 8px; border-radius:999px;
+      background:rgba(255,255,255,.82); backdrop-filter:blur(6px);
+      box-shadow:0 1px 8px rgba(15,18,25,.12);
+    }
+    .flip-front .f-hint{
+      position:absolute; right:12px; bottom:12px; margin:0;
+      font-size:11px; letter-spacing:.04em; color:var(--faint);
+      padding:4px 8px; border-radius:999px;
+      background:rgba(255,255,255,.82); backdrop-filter:blur(6px);
+    }
+    .flip-back{
+      transform:rotateY(180deg);
+      display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start;
+      gap:8px; padding:18px; background:var(--panel2);
+    }
+    .flip-back .pr-dots{ margin-bottom:2px; }
+    .flip-back .b-tag{ font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--faint); }
+    .flip-back .b-name{ font-weight:600; font-size:16px; line-height:1.25; letter-spacing:-0.01em; color:var(--text); }
+    .flip-back .b-title{ font-weight:600; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin-top:4px; }
     .flip-back .b-body{ color:var(--text); font-size:14px; line-height:1.5; }
     .grid-caption{ text-align:center; color:var(--faint); font-size:12px; margin-top:14px; letter-spacing:.04em; }
     @media (max-width:820px){ .grid-9{ grid-template-columns:1fr 1fr; } }
@@ -73,15 +106,15 @@
 
         <div class="hero-cards" style="grid-template-columns:repeat(3,minmax(0,1fr));">
           <div class="mini-card">
-            <div class="mini-title" id="pr1">Biomimicry + green design</div>
+            <div class="mini-head"><span class="pr-dot pr-dot--bio" aria-hidden="true"></span><div class="mini-title" id="pr1">Biomimicry + green design</div></div>
             <div class="mini-body" id="pr1b">Read structure and organization from living systems, then rationalize into buildable form — with orientation, daylight, passive comfort, and low-carbon materials as first-order constraints.</div>
           </div>
           <div class="mini-card">
-            <div class="mini-title" id="pr2">Living systems</div>
+            <div class="mini-head"><span class="pr-dot pr-dot--living" aria-hidden="true"></span><div class="mini-title" id="pr2">Living systems</div></div>
             <div class="mini-body" id="pr2b">Climate, ecology, and natural cycles set the rules. A building participates in its site as a living system rather than sitting upon it.</div>
           </div>
           <div class="mini-card">
-            <div class="mini-title" id="pr3">Social context</div>
+            <div class="mini-head"><span class="pr-dot pr-dot--social" aria-hidden="true"></span><div class="mini-title" id="pr3">Social context</div></div>
             <div class="mini-body" id="pr3b">Program, community, and culture shape the brief. Design responds to how people gather, learn, and live — not only to form and performance.</div>
           </div>
         </div>
@@ -96,58 +129,148 @@
         </div>
 
         <div class="grid-9" id="designGrid">
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="1">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="1" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/carousel/ethiopia-school-render.jpg" alt="" width="962" height="1024" loading="lazy" /><span class="f-tag" id="f1g">Biomimicry + passive</span><span class="f-title" id="f1t">Calla Lily School</span><span class="f-hint" id="hint1">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel1">Concept</span><span class="b-body" id="f1c">A biomimicry-led school in Ethiopia where the form of the native calla lily sets the geometry of the classrooms, roof, and circulation, and reshapes the conventional teacher-facing room into clustered focus groups. Eight seven-meter rings pinwheel from a central point to rationalize structure and cost, while north-facing glazing, shaft ventilation, and two integrated tanks handle daylight, airflow, and water collection.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/carousel/ethiopia-school-render.jpg" alt="" width="962" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint1">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f1g">Biomimicry + passive</span>
+                <span class="b-name" id="f1t">Calla Lily School</span>
+                <span class="b-title" id="conceptLabel1">Concept</span>
+                <span class="b-body" id="f1c">A biomimicry-led school in Ethiopia where the form of the native calla lily sets the geometry of the classrooms, roof, and circulation, and reshapes the conventional teacher-facing room into clustered focus groups. Eight seven-meter rings pinwheel from a central point to rationalize structure and cost, while north-facing glazing, shaft ventilation, and two integrated tanks handle daylight, airflow, and water collection.</span>
+              </div>
             </div>
           </div>
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="2">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="2" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/carousel/north-fork-house-render.jpg?v=3" alt="" width="1024" height="1024" loading="lazy" /><span class="f-tag" id="f2g">Site + habitat</span><span class="f-title" id="f2t">North Fork House</span><span class="f-hint" id="hint2">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel2">Concept</span><span class="b-body" id="f2c">A North Fork ranch house and pavilion study where multiple design options were developed against real site and greenbelt conditions. The work stayed grounded in architectural practice: resolving program, entry sequence, and landscape as a documented, buildable system rather than a single generated image.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/carousel/north-fork-house-render.jpg?v=3" alt="" width="1024" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint2">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f2g">Site + habitat</span>
+                <span class="b-name" id="f2t">North Fork House</span>
+                <span class="b-title" id="conceptLabel2">Concept</span>
+                <span class="b-body" id="f2c">A North Fork ranch house and pavilion study where multiple design options were developed against real site and greenbelt conditions. The work stayed grounded in architectural practice: resolving program, entry sequence, and landscape as a documented, buildable system rather than a single generated image.</span>
+              </div>
             </div>
           </div>
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="3">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="3" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/carousel/hista-powerplant-render.jpg" alt="" width="1024" height="1024" loading="lazy" /><span class="f-tag" id="f3g">Energy + ecology</span><span class="f-title" id="f3t">Hsinta Eco Power plant</span><span class="f-hint" id="hint3">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel3">Concept</span><span class="b-body" id="f3c">Hsinta is a closed-loop power plant concept where bio-diesel generates electricity and the exhaust feeds rooftop agriculture, which in turn cycles back into the fuel supply. It was my first true generative design project, scripting around 1,000 roof panels in Dynamo to turn that closed-loop idea into a single coherent, buildable roof system.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/carousel/hista-powerplant-render.jpg" alt="" width="1024" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint3">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f3g">Energy + ecology</span>
+                <span class="b-name" id="f3t">Hsinta Eco Power plant</span>
+                <span class="b-title" id="conceptLabel3">Concept</span>
+                <span class="b-body" id="f3c">Hsinta is a closed-loop power plant concept where bio-diesel generates electricity and the exhaust feeds rooftop agriculture, which in turn cycles back into the fuel supply. It was my first true generative design project, scripting around 1,000 roof panels in Dynamo to turn that closed-loop idea into a single coherent, buildable roof system.</span>
+              </div>
             </div>
           </div>
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="4">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="4" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/hero-flip/biomimicry-blue-dot-mercury-filter-2017.jpg" alt="" width="1024" height="1024" loading="lazy" /><span class="f-tag" id="f4g">Filter + ecology</span><span class="f-title" id="f4t">Biomimicry Mercury Filter</span><span class="f-hint" id="hint4">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel4">Concept</span><span class="b-body" id="f4c">An award-winning biomimicry study that reads mercury filtration from living systems — the blue-dot logic turned into a water-treatment proposition where natural remediation principles set the form, performance targets, and buildable assembly.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/hero-flip/biomimicry-blue-dot-mercury-filter-2017.jpg" alt="" width="1024" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint4">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f4g">Filter + ecology</span>
+                <span class="b-name" id="f4t">Biomimicry Mercury Filter</span>
+                <span class="b-title" id="conceptLabel4">Concept</span>
+                <span class="b-body" id="f4c">An award-winning biomimicry study that reads mercury filtration from living systems — the blue-dot logic turned into a water-treatment proposition where natural remediation principles set the form, performance targets, and buildable assembly.</span>
+              </div>
             </div>
           </div>
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="5">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="5" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/hero-flip/network-tower-2018.jpg" alt="" width="1024" height="1024" loading="lazy" /><span class="f-tag" id="f5g">Network + tower</span><span class="f-title" id="f5t">Network Tower</span><span class="f-hint" id="hint5">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel5">Concept</span><span class="b-body" id="f5c">A vertical structure driven by network logic — connectivity, load paths, and repetition rationalized into a tower where the frame reads as a single coordinated system rather than stacked independent elements.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/hero-flip/network-tower-2018.jpg" alt="" width="1024" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint5">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f5g">Network + tower</span>
+                <span class="b-name" id="f5t">Network Tower</span>
+                <span class="b-title" id="conceptLabel5">Concept</span>
+                <span class="b-body" id="f5c">A vertical structure driven by network logic — connectivity, load paths, and repetition rationalized into a tower where the frame reads as a single coordinated system rather than stacked independent elements.</span>
+              </div>
             </div>
           </div>
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="6">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="6" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/hero-flip/load-2018-2nd-place-award-winner.jpg" alt="" width="1024" height="1024" loading="lazy" /><span class="f-tag" id="f6g">Structure + load</span><span class="f-title" id="f6t">LOAD 2018</span><span class="f-hint" id="hint6">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel6">Concept</span><span class="b-body" id="f6c">A competition entry where structural logic and load paths drive the form — an award-winning study that rationalizes forces, spans, and material into a legible architectural proposition rather than decoration applied after the fact.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/hero-flip/load-2018-2nd-place-award-winner.jpg" alt="" width="1024" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint6">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f6g">Structure + load</span>
+                <span class="b-name" id="f6t">LOAD 2018</span>
+                <span class="b-title" id="conceptLabel6">Concept</span>
+                <span class="b-body" id="f6c">A competition entry where structural logic and load paths drive the form — an award-winning study that rationalizes forces, spans, and material into a legible architectural proposition rather than decoration applied after the fact.</span>
+              </div>
             </div>
           </div>
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="7">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="7" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/hero-flip/54-jeff-2013.jpg" alt="" width="1024" height="1024" loading="lazy" /><span class="f-tag" id="f7g">Urban + infill</span><span class="f-title" id="f7t">54 Jeff</span><span class="f-hint" id="hint7">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel7">Concept</span><span class="b-body" id="f7c">An urban infill study at 54 Jefferson where zoning, lot geometry, and daylight set a compact ruled form — program and structure resolved as one buildable city proposition on a tight site.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/hero-flip/54-jeff-2013.jpg" alt="" width="1024" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint7">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f7g">Urban + infill</span>
+                <span class="b-name" id="f7t">54 Jeff</span>
+                <span class="b-title" id="conceptLabel7">Concept</span>
+                <span class="b-body" id="f7c">An urban infill study at 54 Jefferson where zoning, lot geometry, and daylight set a compact ruled form — program and structure resolved as one buildable city proposition on a tight site.</span>
+              </div>
             </div>
           </div>
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="8">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="8" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/hero-flip/70-henry-st-2012.jpg" alt="" width="1024" height="1024" loading="lazy" /><span class="f-tag" id="f8g">Street + façade</span><span class="f-title" id="f8t">70 Henry St</span><span class="f-hint" id="hint8">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel8">Concept</span><span class="b-body" id="f8c">A street-front building on Henry Street where façade rhythm, structure, and vertical program stack as one coordinated urban form — the street edge and interior logic read from the same rule set.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/hero-flip/70-henry-st-2012.jpg" alt="" width="1024" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint8">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f8g">Street + façade</span>
+                <span class="b-name" id="f8t">70 Henry St</span>
+                <span class="b-title" id="conceptLabel8">Concept</span>
+                <span class="b-body" id="f8c">A street-front building on Henry Street where façade rhythm, structure, and vertical program stack as one coordinated urban form — the street edge and interior logic read from the same rule set.</span>
+              </div>
             </div>
           </div>
-          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="9">
+          <div class="flip" tabindex="0" role="button" aria-pressed="false" data-flip="9" data-principles="">
             <div class="flip-inner">
-              <div class="flip-face flip-front"><img class="flip-thumb" src="/assets/hero-flip/manufacturing-campus-entrance-china-2017.jpg" alt="" width="1024" height="1024" loading="lazy" /><span class="f-tag" id="f9g">Campus + arrival</span><span class="f-title" id="f9t">Manufacturing Campus</span><span class="f-hint" id="hint9">Flip ⟳</span></div>
-              <div class="flip-face flip-back"><span class="b-title" id="conceptLabel9">Concept</span><span class="b-body" id="f9c">A manufacturing campus entrance in China where arrival sequence, landscape, and industrial identity are held as one gateway system — the first move on site sets circulation, scale, and the public face of the campus.</span></div>
+              <div class="flip-face flip-front">
+                <img class="flip-thumb" src="/assets/hero-flip/manufacturing-campus-entrance-china-2017.jpg" alt="" width="1024" height="1024" loading="lazy" />
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="f-hint" id="hint9">Flip ⟳</span>
+              </div>
+              <div class="flip-face flip-back">
+                <span class="pr-dots" aria-hidden="true"><span class="pr-dot pr-dot--bio"></span><span class="pr-dot pr-dot--living"></span><span class="pr-dot pr-dot--social"></span></span>
+                <span class="b-tag" id="f9g">Campus + arrival</span>
+                <span class="b-name" id="f9t">Manufacturing Campus</span>
+                <span class="b-title" id="conceptLabel9">Concept</span>
+                <span class="b-body" id="f9c">A manufacturing campus entrance in China where arrival sequence, landscape, and industrial identity are held as one gateway system — the first move on site sets circulation, scale, and the public face of the campus.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -174,7 +297,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Design direction</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.06</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.07</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -184,7 +307,19 @@
   </footer>
 
   <script>
-const BUILD = "v0.2.06";
+const BUILD = "v0.2.07";
+
+function applyPrincipleMap(card){
+  const map = (card.dataset.principles || "").trim();
+  if (!map) return;
+  const active = new Set(map.split(/[\s,]+/).filter(Boolean));
+  card.querySelectorAll(".pr-dot").forEach((dot) => {
+    const key = dot.classList.contains("pr-dot--bio") ? "bio"
+      : dot.classList.contains("pr-dot--living") ? "living"
+      : dot.classList.contains("pr-dot--social") ? "social" : "";
+    dot.classList.toggle("is-on", active.has(key));
+  });
+}
 
 const i18n = {
   en: {
@@ -270,6 +405,7 @@ document.getElementById("langToggle").addEventListener("click", () => {
 });
 
 document.querySelectorAll(".flip").forEach((card) => {
+  applyPrincipleMap(card);
   const toggle = () => {
     const flipped = card.classList.toggle("is-flipped");
     card.setAttribute("aria-pressed", flipped ? "true" : "false");
