@@ -63,11 +63,11 @@
     <section class="hero">
       <div class="container hero-inner">
         <p class="page-back">
-          <a class="page-back-link" href="/computational-design/" id="backLink">← Computational Design</a>
+          <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
         </p>
         <p class="kicker" id="kicker">Rules</p>
         <h1 id="heroTitle">Rules are a design input, not an afterthought.</h1>
-        <p class="lead" id="heroLead">Zoning, code, certification, and coordination, handled with standard tools and a headed AI review. The unglamorous work that makes a design legal, permitted, and buildable.</p>
+        <p class="lead" id="heroLead">Zoning, code, certification, and coordination, handled with standard tools and methodical review. The unglamorous work that makes a design legal, permitted, and buildable.</p>
 
         <div class="hero-cards" style="grid-template-columns:repeat(3,minmax(0,1fr));">
           <div class="mini-card">
@@ -110,7 +110,7 @@
               <div class="rect-eyebrow" id="r2e">Building code · Compliance</div>
               <div class="rect-title" id="r2t">Working within the IBC</div>
               <p id="r2a">The International Building Code sets the baseline for occupancy, construction type, fire-resistance ratings, egress, and allowable area and height. Designs are developed against these limits from the outset, so use classification, separation, and exiting are resolved as the plan takes shape rather than retrofitted late.</p>
-              <p id="r2b">To keep pace, we define an AI review practice: standard large language models read the drawing notes, schedules, and design narrative against codified IBC requirements and flag likely conflicts such as occupancy load, travel distance, and rating mismatches for a human to verify. The model accelerates the first-pass code check; licensed judgement and the authority having jurisdiction remain the final word.</p>
+              <p id="r2b">We are developing a review methodology in which drawing notes, schedules, and design narrative can be read against codified IBC requirements — occupancy load, travel distance, fire-resistance ratings, and separation — as a structured first pass. Licensed judgement and the authority having jurisdiction remain the final word.</p>
             </div>
           </div>
 
@@ -162,6 +162,9 @@
           <a class="btn" href="/projects/" id="projectsCta">See the full project archive →</a>
         </div>
         <p class="stack-caption" id="ctaNote">Each capability above is applied in real permit and construction projects.</p>
+        <p class="section-return">
+          <a class="section-return-link" href="/computational-design/" id="conceptReturn">Return to Concept: Computational Design Systems</a>
+        </p>
       </div>
     </section>
   </main>
@@ -171,7 +174,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Rules</div>
-        <div class="footer-version" id="buildVersion">Build: v0.4.00</div>
+        <div class="footer-version" id="buildVersion">Build: v0.4.01</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -181,14 +184,15 @@
   </footer>
 
   <script>
-const BUILD = "v0.4.00";
+const BUILD = "v0.4.01";
 
 const i18n = {
   en: {
-    backLink: "← Computational Design",
+    backLink: "← Practical AI for the built environment",
+    conceptReturn: "Return to Concept: Computational Design Systems",
     kicker: "Rules",
     heroTitle: "Rules are a design input, not an afterthought.",
-    heroLead: "Zoning, code, certification, and coordination, handled with standard tools and a headed AI review. The unglamorous work that makes a design legal, permitted, and buildable.",
+    heroLead: "Zoning, code, certification, and coordination, handled with standard tools and methodical review. The unglamorous work that makes a design legal, permitted, and buildable.",
     navProjects: "Projects", navAbout: "About", navContact: "Contact",
     pr1: "Zoning", pr1b: "Use, density, setbacks, and the buildable envelope.",
     pr2: "Code", pr2b: "Occupancy, construction type, egress, and life safety limits.",
@@ -200,7 +204,7 @@ const i18n = {
     r1b: "Environmental analysis runs on Ladybug Tools inside Grasshopper, turning weather data into sun paths, radiation maps, and daylight metrics. Those insights feed back into the parametric model so each design move can be checked against energy targets and certification criteria, keeping the green strategy evidence-based and auditable.",
     r2e: "Building code · Compliance", r2t: "Working within the IBC",
     r2a: "The International Building Code sets the baseline for occupancy, construction type, fire-resistance ratings, egress, and allowable area and height. Designs are developed against these limits from the outset, so use classification, separation, and exiting are resolved as the plan takes shape rather than retrofitted late.",
-    r2b: "To keep pace, we define an AI review practice: standard large language models read the drawing notes, schedules, and design narrative against codified IBC requirements and flag likely conflicts such as occupancy load, travel distance, and rating mismatches for a human to verify. The model accelerates the first-pass code check; licensed judgement and the authority having jurisdiction remain the final word.",
+    r2b: "We are developing a review methodology in which drawing notes, schedules, and design narrative can be read against codified IBC requirements — occupancy load, travel distance, fire-resistance ratings, and separation — as a structured first pass. Licensed judgement and the authority having jurisdiction remain the final word.",
     r3e: "Permit set · Life safety", r3t: "DOB drawings: egress and fire protection",
     r3a: "Department of Buildings submissions demand a coordinated, defensible set: egress plans with occupant loads and travel distances, fire separation and compartmentation, rated assemblies, and the standpipe, sprinkler, and alarm coverage that life safety depends on. Every sheet must agree with the others and with the code analysis behind them.",
     r3b: "This is where coordination complexity peaks: architectural, structural, and MEP information has to reconcile across dozens of sheets without contradiction. The work is methodical and cross-referenced, exactly the kind of accumulated consistency that a generative image cannot produce and that a documented, headed workflow is built to hold.",
@@ -218,10 +222,11 @@ const i18n = {
     footerTagline: "Systems-first workflows for architecture and the built environment."
   },
   zh: {
-    backLink: "← 計算式設計",
+    backLink: "← 建築與環境的實用 AI",
+    conceptReturn: "返回概念：計算式設計系統",
     kicker: "規則",
     heroTitle: "法規是設計的輸入，而非事後補救。",
-    heroLead: "分區、法規、認證與協調，以標準工具與有頭的 AI 審查來處理。這些不光鮮的工作，讓設計合法、可獲許可、可建造。",
+    heroLead: "分區、法規、認證與協調，以標準工具與按部就班的審查來處理。這些不光鮮的工作，讓設計合法、可獲許可、可建造。",
     navProjects: "專案", navAbout: "關於", navContact: "聯絡",
     pr1: "分區", pr1b: "用途、密度、退縮與可建範圍。",
     pr2: "法規", pr2b: "使用類別、構造類型、逃生與生命安全限制。",
@@ -233,7 +238,7 @@ const i18n = {
     r1b: "環境分析以 Grasshopper 內的 Ladybug Tools 執行，將氣象資料轉為日照軌跡、輻射圖與日光指標。這些洞察回饋到參數化模型，讓每個設計動作都能對照能源目標與認證標準檢核，使綠色策略有憑有據、可供稽核。",
     r2e: "建築法規 · 合規", r2t: "在 IBC 框架內工作",
     r2a: "國際建築規範（IBC）為用途、構造類型、防火時效、逃生與容許面積及高度設定基準。設計自始即依這些限制發展，使用途分類、防火分隔與逃生在平面成形之際即解決，而非後期補救。",
-    r2b: "為跟上節奏，我們定義一套 AI 審查實務：以標準大型語言模型閱讀圖說註記、明細表與設計敘述，對照編碼化的 IBC 要求，標示可能的衝突，如使用人數、步行距離與時效不符，供人工查核。模型加速第一輪法規檢查；執照判斷與管轄主管機關仍是最終定論。",
+    r2b: "我們正在發展一套審查方法：讓圖說註記、明細表與設計敘述能對照編碼化的 IBC 要求——使用人數、步行距離、防火時效與防火分隔——作為有結構的第一輪檢查。執照判斷與管轄主管機關仍是最終定論。",
     r3e: "送審圖 · 生命安全", r3t: "DOB 圖說：逃生與防火",
     r3a: "建管局（DOB）送件要求一套協調且站得住腳的圖：含使用人數與步行距離的逃生平面、防火分隔與區劃、具時效的構造，以及生命安全所仰賴的立管、灑水與警報涵蓋。每張圖都必須與彼此、以及背後的法規分析一致。",
     r3b: "這正是協調複雜度的高峰：建築、結構與機電資訊必須在數十張圖之間調和而不矛盾。這項工作按部就班、互相參照，正是生成影像無法產出、而有文件紀錄的有頭工作流程所擅長維持的累積一致性。",

@@ -182,6 +182,24 @@ body.page-white .page-back-link:hover{
   text-decoration-color:color-mix(in srgb, var(--text) 22%, transparent);
 }
 
+body.page-white .section-return{
+  text-align:center;
+  margin-top:22px;
+}
+
+body.page-white .section-return-link{
+  font-size:13px;
+  color:var(--faint);
+  text-decoration:none !important;
+  letter-spacing:.02em;
+}
+
+body.page-white .section-return-link:hover{
+  color:var(--muted);
+  text-decoration:underline !important;
+  text-decoration-color:color-mix(in srgb, var(--text) 22%, transparent);
+}
+
 body.page-white .kicker{
   margin:0 0 14px;
   color:var(--faint);
