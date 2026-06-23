@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&family=Sixtyfour&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.97" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.98" />
 </head>
 
 <body>
@@ -365,7 +365,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.97</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.98</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -561,10 +561,12 @@ flipperCaptions: [
 
 let lang = "en";
 
-const BUILD = "v0.2.97";
+const BUILD = "v0.2.98";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
+let carouselRealCount = 0;
+let carouselLooping = false;
 let carouselTimer = null;
 let carouselPaused = false;
 const carouselTrack = document.getElementById("carouselTrack");
@@ -573,9 +575,30 @@ const carouselPauseBtn = document.getElementById("carouselPause");
 const carouselGoBtn = document.getElementById("carouselGo");
 const carouselMobileMq = window.matchMedia("(max-width: 520px)");
 
+function getCarouselSlides() {
+return carouselTrack ? Array.from(carouselTrack.querySelectorAll(".carousel-slide:not(.is-clone)")) : [];
+}
+
+function getCarouselLogicalIndex() {
+if (!carouselRealCount) return 0;
+return carouselIndex >= carouselRealCount ? 0 : ((carouselIndex % carouselRealCount) + carouselRealCount) % carouselRealCount;
+}
+
+function syncCarouselClone() {
+if (!carouselTrack) return;
+carouselTrack.querySelectorAll(".carousel-slide.is-clone").forEach(el => el.remove());
+const slides = getCarouselSlides();
+carouselRealCount = slides.length;
+if (!carouselRealCount) return;
+const clone = slides[0].cloneNode(true);
+clone.classList.add("is-clone");
+clone.setAttribute("aria-hidden", "true");
+carouselTrack.appendChild(clone);
+}
+
 function getCarouselProjectHref() {
 const data = i18n[lang].projects || [];
-const project = data[carouselIndex];
+const project = data[getCarouselLogicalIndex()];
 return (project && project.href) ? project.href : "/projects/";
 }
 
@@ -595,7 +618,7 @@ carouselViewport.tabIndex = -1;
 function updateCarouselSlides() {
 if (!carouselTrack) return;
 const data = i18n[lang].projects || [];
-const slides = carouselTrack.querySelectorAll(".carousel-slide");
+const slides = getCarouselSlides();
 slides.forEach((slide, i) => {
 const d = data[i];
 if (!d) return;
@@ -616,13 +639,29 @@ metaEl.hidden = true;
 if (d.bullets) bulletEls.forEach((el, j) => { if (d.bullets[j]) el.textContent = d.bullets[j]; });
 if (dEl) dEl.textContent = d.d;
 });
+syncCarouselClone();
+if (carouselRealCount && carouselIndex > carouselRealCount) carouselIndex = 0;
 updateCarouselPosition();
 }
 
-function updateCarouselPosition() {
+function updateCarouselPosition(instant = false) {
 if (!carouselTrack) return;
+if (instant) carouselTrack.classList.add("is-instant");
 carouselTrack.style.transform = `translateX(-${carouselIndex * 100}%)`;
+if (instant) {
+void carouselTrack.offsetWidth;
+carouselTrack.classList.remove("is-instant");
+}
 updateCarouselGoLink();
+}
+
+function onCarouselLoopEnd(event) {
+if (!carouselTrack || event.target !== carouselTrack || event.propertyName !== "transform") return;
+if (carouselIndex !== carouselRealCount) return;
+carouselTrack.removeEventListener("transitionend", onCarouselLoopEnd);
+carouselIndex = 0;
+updateCarouselPosition(true);
+carouselLooping = false;
 }
 
 function updateCarouselGoLink() {
@@ -631,19 +670,31 @@ if (carouselGoBtn) carouselGoBtn.href = href;
 if (carouselViewport) carouselViewport.dataset.projectHref = href;
 }
 
-function goToSlide(nextIndex) {
-const slides = carouselTrack ? carouselTrack.querySelectorAll(".carousel-slide") : [];
-if (!slides.length) return;
-carouselIndex = (nextIndex + slides.length) % slides.length;
-updateCarouselPosition();
-}
-
 function nextCarouselSlide() {
-goToSlide(carouselIndex + 1);
+if (!carouselTrack || !carouselRealCount || carouselLooping) return;
+carouselIndex += 1;
+updateCarouselPosition();
+if (carouselIndex === carouselRealCount) {
+carouselLooping = true;
+carouselTrack.addEventListener("transitionend", onCarouselLoopEnd);
+}
 }
 
 function prevCarouselSlide() {
-goToSlide(carouselIndex - 1);
+if (!carouselTrack || !carouselRealCount || carouselLooping) return;
+if (carouselIndex === 0) {
+carouselIndex = carouselRealCount;
+updateCarouselPosition(true);
+requestAnimationFrame(() => {
+requestAnimationFrame(() => {
+carouselIndex = carouselRealCount - 1;
+updateCarouselPosition();
+});
+});
+return;
+}
+carouselIndex -= 1;
+updateCarouselPosition();
 }
 
 function resetCarouselTimer() {

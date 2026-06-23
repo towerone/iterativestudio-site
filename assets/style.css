@@ -1269,6 +1269,10 @@ h1{
   transition: transform .45s ease;
 }
 
+.carousel-track.is-instant{
+  transition:none !important;
+}
+
 .carousel-slide{
   --carousel-size: 30.49cqi;
   --detail-tree: calc(var(--carousel-size) / 2);
@@ -1580,7 +1584,7 @@ h1{
 
 #what-i-do{
   padding-top: var(--stack-gap);
-  padding-bottom: var(--stack-gap);
+  padding-bottom: calc(var(--stack-gap) * 1.85);
 }
 
 .section-muted{
