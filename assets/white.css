@@ -451,6 +451,16 @@ body.page-white .foundation-card h3{
   color:var(--text);
 }
 
+body.page-white .foundation-card h3:last-child{
+  margin-bottom:0;
+}
+
+body.page-white .foundation-title-soft{
+  font-weight:500;
+  font-size:.88em;
+  color:var(--muted);
+}
+
 body.page-white .foundation-card p:not(.foundation-kicker){
   margin:0;
   flex:1 1 auto;
@@ -819,7 +829,7 @@ body.page-white .footer-map-credit{
   }
 
   body.page-white .hero-foundations{
-    margin-top:27lvh;
+    margin-top:30lvh;
   }
 
   body.page-white .hero-pillars-accordion{

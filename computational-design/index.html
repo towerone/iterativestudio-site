@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.97" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.2.02" />
 </head>
 
 <body class="page-white">
@@ -154,10 +154,9 @@
           </div>
 
           <div class="hero-foundations-grid">
-            <a class="foundation-card panel panel-link" href="/computational-design/design/">
-              <p class="foundation-kicker" id="foundation1Kicker">code / regulation / programming · Design</p>
-              <h3 id="foundation1Title">Iterative design Theory</h3>
-              <p id="foundation1Body">How site, program, and concept drive every system.</p>
+            <a class="foundation-card panel panel-link" href="/design/">
+              <p class="foundation-kicker" id="foundation1Kicker">biomimicry / climate / form · Design</p>
+              <h3 id="foundation1Title">Iterative design <span class="foundation-title-soft">theory</span></h3>
             </a>
 
             <a class="foundation-card panel panel-link" href="/computational-design/detailing/">
@@ -261,7 +260,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.2.01";
+const BUILD = "v0.2.02";
 
 const i18n = {
   en: {
@@ -287,9 +286,9 @@ const i18n = {
     navProjects: "Projects", navAbout: "About", navContact: "Contact",
     section1Title: "Architecture foundations",
     section1Body: "Previews that show the work is grounded in core practice, not only generation.",
-    foundation1Kicker: "code / regulation / programming · Design",
-    foundation1Title: "Iterative design Theory",
-    foundation1Body: "How site, program, and concept drive every system.",
+    foundation1Kicker: "biomimicry / climate / form · Design",
+    foundation1TitleMain: "Iterative design ",
+    foundation1TitleSoft: "theory",
     foundation2Kicker: "junction / tolerance / constructability · Detailing",
     foundation2Title: "Iterative detailing Strength",
     foundation2Body: "How design intent becomes buildable.",
@@ -338,9 +337,9 @@ const i18n = {
     navProjects: "專案", navAbout: "關於", navContact: "聯絡",
     section1Title: "建築基礎",
     section1Body: "預覽作品如何紮根於核心實務，而不只是生成。",
-    foundation1Kicker: "法規 / 規範 / 程式設計 · 設計",
-    foundation1Title: "迭代設計理論",
-    foundation1Body: "基地、計畫與概念如何驅動每個系統。",
+    foundation1Kicker: "仿生 / 氣候 / 形式 · 設計",
+    foundation1TitleMain: "迭代設計",
+    foundation1TitleSoft: "理論",
     foundation2Kicker: "接點 / 公差 / 可施工性 · 細部",
     foundation2Title: "迭代細部強度",
     foundation2Body: "設計意圖如何成為可建造的細部。",
@@ -401,8 +400,8 @@ function setLang(next) {
   document.getElementById("section1Title").textContent = t.section1Title;
   document.getElementById("section1Body").textContent = t.section1Body;
   document.getElementById("foundation1Kicker").textContent = t.foundation1Kicker;
-  document.getElementById("foundation1Title").textContent = t.foundation1Title;
-  document.getElementById("foundation1Body").textContent = t.foundation1Body;
+  document.getElementById("foundation1Title").innerHTML =
+    `${t.foundation1TitleMain}<span class="foundation-title-soft">${t.foundation1TitleSoft}</span>`;
   document.getElementById("foundation2Kicker").textContent = t.foundation2Kicker;
   document.getElementById("foundation2Title").textContent = t.foundation2Title;
   document.getElementById("foundation2Body").textContent = t.foundation2Body;
