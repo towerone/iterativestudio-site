@@ -832,7 +832,7 @@ h1{
   margin:0;
   padding-right:2px;
   font-family:"Sixtyfour", system-ui, sans-serif;
-  font-size:clamp(13px, 1.15vw, 17px);
+  font-size:clamp(10px, 0.92vw, 14px);
   font-style:normal;
   font-weight:400;
   letter-spacing:.08em;
@@ -1830,7 +1830,7 @@ h1{
     line-height:1.36;
   }
   .hero-quote-attribution{
-    font-size:clamp(11px, 2.8vw, 14px);
+    font-size:clamp(9px, 2.24vw, 11px);
     letter-spacing:.06em;
   }
   .hero-flipper{
