@@ -151,6 +151,38 @@ body.page-white .grid-2{
   gap:14px;
 }
 
+body.page-white .foundations-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:14px;
+}
+
+body.page-white .foundation-card{
+  display:block;
+  text-decoration:none !important;
+  color:inherit;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+body.page-white .foundation-card:hover{
+  transform:translateY(-2px);
+  border-color:color-mix(in srgb, var(--accent) 28%, var(--line));
+  background:var(--panel2);
+  text-decoration:none !important;
+}
+
+body.page-white .foundation-card h3{
+  margin:0 0 8px;
+  font-size:18px;
+  color:var(--text);
+}
+
+body.page-white .foundation-card p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.55;
+}
+
 body.page-white .panel{
   background:var(--panel);
   border:1px solid var(--line);
@@ -279,6 +311,10 @@ body.page-white .footer-map-credit{
   }
 
   body.page-white .grid-2{
+    grid-template-columns:1fr;
+  }
+
+  body.page-white .foundations-grid{
     grid-template-columns:1fr;
   }
 }

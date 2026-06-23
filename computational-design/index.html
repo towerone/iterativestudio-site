@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.71" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.1.72" />
 </head>
 
 <body class="page-white">
@@ -80,53 +80,28 @@
       </div>
     </section>
 
-    <section class="section section-grid">
+    <section class="section section-foundations">
       <div class="container">
         <div class="section-head">
-          <h2 id="section1Title">Mythologies → mechanisms</h2>
-          <p id="section1Body">Turn fuzzy design beliefs into testable systems: constraints, scripts, and repeatable outputs.</p>
+          <h2 id="section1Title">Architecture foundations</h2>
+          <p id="section1Body">Previews that show the work is grounded in core practice, not only generation.</p>
         </div>
 
-        <div class="grid-2">
-          <div class="panel">
-            <h3 id="panel1Title">Inputs</h3>
-            <p id="panel1Body">Sliders, datasets, tolerances, target metrics.</p>
-            <ul class="bullets">
-              <li id="panel1Li1">Named parameters</li>
-              <li id="panel1Li2">Units + ranges</li>
-              <li id="panel1Li3">Defaults</li>
-            </ul>
-          </div>
+        <div class="foundations-grid">
+          <a class="foundation-card panel panel-link" href="/computational-design/design/" id="foundation1Link">
+            <h3 id="foundation1Title">Design</h3>
+            <p id="foundation1Body">How site, program, and concept drive every system.</p>
+          </a>
 
-          <div class="panel">
-            <h3 id="panel2Title">Logic</h3>
-            <p id="panel2Body">Grasshopper graphs + Python nodes that compute deterministically.</p>
-            <ul class="bullets">
-              <li id="panel2Li1">Readable functions</li>
-              <li id="panel2Li2">Small composable parts</li>
-              <li id="panel2Li3">Versioned assumptions</li>
-            </ul>
-          </div>
+          <a class="foundation-card panel panel-link" href="/computational-design/detailing/" id="foundation2Link">
+            <h3 id="foundation2Title">Detailing</h3>
+            <p id="foundation2Body">How design intent becomes buildable.</p>
+          </a>
 
-          <div class="panel">
-            <h3 id="panel3Title">Outputs</h3>
-            <p id="panel3Body">Geometry, drawings, schedules — not just images.</p>
-            <ul class="bullets">
-              <li id="panel3Li1">Layered linework</li>
-              <li id="panel3Li2">Quantities</li>
-              <li id="panel3Li3">Exportable formats</li>
-            </ul>
-          </div>
-
-          <div class="panel">
-            <h3 id="panel4Title">Checks</h3>
-            <p id="panel4Body">Constraint validation so the model stays honest under iteration.</p>
-            <ul class="bullets">
-              <li id="panel4Li1">Edge cases</li>
-              <li id="panel4Li2">Clashes</li>
-              <li id="panel4Li3">“Does it still satisfy intent?”</li>
-            </ul>
-          </div>
+          <a class="foundation-card panel panel-link" href="/computational-design/zoning-planning-code/" id="foundation3Link">
+            <h3 id="foundation3Title">Zoning, Planning &amp; Code</h3>
+            <p id="foundation3Body">The rules, including green design, that shape feasible work.</p>
+          </a>
         </div>
       </div>
     </section>
@@ -208,7 +183,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Computational design systems</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.71</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.72</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -222,7 +197,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.71";
+const BUILD = "v0.1.72";
 
 const i18n = {
   en: {
@@ -235,16 +210,14 @@ const i18n = {
     c3t: "Rationalization", c3b: "Intent resolved into clean, buildable rules.",
     c4t: "Documentation", c4b: "Decisions stay traceable and recorded.",
     navProjects: "Projects", navAbout: "About", navContact: "Contact",
-    section1Title: "Mythologies → mechanisms",
-    section1Body: "Turn fuzzy design beliefs into testable systems: constraints, scripts, and repeatable outputs.",
-    panel1Title: "Inputs", panel1Body: "Sliders, datasets, tolerances, target metrics.",
-    panel1Li1: "Named parameters", panel1Li2: "Units + ranges", panel1Li3: "Defaults",
-    panel2Title: "Logic", panel2Body: "Grasshopper graphs + Python nodes that compute deterministically.",
-    panel2Li1: "Readable functions", panel2Li2: "Small composable parts", panel2Li3: "Versioned assumptions",
-    panel3Title: "Outputs", panel3Body: "Geometry, drawings, schedules — not just images.",
-    panel3Li1: "Layered linework", panel3Li2: "Quantities", panel3Li3: "Exportable formats",
-    panel4Title: "Checks", panel4Body: "Constraint validation so the model stays honest under iteration.",
-    panel4Li1: "Edge cases", panel4Li2: "Clashes", panel4Li3: "“Does it still satisfy intent?”",
+    section1Title: "Architecture foundations",
+    section1Body: "Previews that show the work is grounded in core practice, not only generation.",
+    foundation1Title: "Design",
+    foundation1Body: "How site, program, and concept drive every system.",
+    foundation2Title: "Detailing",
+    foundation2Body: "How design intent becomes buildable.",
+    foundation3Title: "Zoning, Planning & Code",
+    foundation3Body: "The rules, including green design, that shape feasible work.",
     section2Title: "Headed workflow (non‑negotiable)",
     section2Body: "AI can assist drafting, debugging, and documentation — but production stays verifiable inside Rhino/Revit.",
     panel5Title: "Where AI helps",
@@ -271,16 +244,14 @@ const i18n = {
     c3t: "合理化", c3b: "把意圖整理成乾淨、可建造的規則。",
     c4t: "文件化", c4b: "決策始終可追溯並被記錄。",
     navProjects: "專案", navAbout: "關於", navContact: "聯絡",
-    section1Title: "神話 → 機制",
-    section1Body: "把模糊的設計信念轉成可測試的系統：約束、腳本與可重複的輸出。",
-    panel1Title: "輸入", panel1Body: "滑桿、資料集、公差、目標指標。",
-    panel1Li1: "具名參數", panel1Li2: "單位與範圍", panel1Li3: "預設值",
-    panel2Title: "邏輯", panel2Body: "Grasshopper 圖表與 Python 節點，確定性計算。",
-    panel2Li1: "可讀的函式", panel2Li2: "小而可組合的部件", panel2Li3: "版本化的假設",
-    panel3Title: "輸出", panel3Body: "幾何、圖面、數量表 — 不只是圖像。",
-    panel3Li1: "分層線稿", panel3Li2: "數量", panel3Li3: "可匯出格式",
-    panel4Title: "檢查", panel4Body: "約束驗證，讓模型在迭代中保持誠實。",
-    panel4Li1: "邊界情況", panel4Li2: "衝突", panel4Li3: "「是否仍符合意圖？」",
+    section1Title: "建築基礎",
+    section1Body: "預覽作品如何紮根於核心實務，而不只是生成。",
+    foundation1Title: "設計",
+    foundation1Body: "基地、計畫與概念如何驅動每個系統。",
+    foundation2Title: "細部",
+    foundation2Body: "設計意圖如何成為可建造的細部。",
+    foundation3Title: "分區、規劃與法規",
+    foundation3Body: "塑造可行工作的規則，包含綠色設計。",
     section2Title: "有頭工作流程（不可妥協）",
     section2Body: "AI 可協助繪圖、除錯與文件 — 但產出須在 Rhino/Revit 內可驗證。",
     panel5Title: "AI 的協助範圍",
@@ -324,26 +295,12 @@ function setLang(next) {
   document.getElementById("navContact").textContent = t.navContact;
   document.getElementById("section1Title").textContent = t.section1Title;
   document.getElementById("section1Body").textContent = t.section1Body;
-  document.getElementById("panel1Title").textContent = t.panel1Title;
-  document.getElementById("panel1Body").textContent = t.panel1Body;
-  document.getElementById("panel1Li1").textContent = t.panel1Li1;
-  document.getElementById("panel1Li2").textContent = t.panel1Li2;
-  document.getElementById("panel1Li3").textContent = t.panel1Li3;
-  document.getElementById("panel2Title").textContent = t.panel2Title;
-  document.getElementById("panel2Body").textContent = t.panel2Body;
-  document.getElementById("panel2Li1").textContent = t.panel2Li1;
-  document.getElementById("panel2Li2").textContent = t.panel2Li2;
-  document.getElementById("panel2Li3").textContent = t.panel2Li3;
-  document.getElementById("panel3Title").textContent = t.panel3Title;
-  document.getElementById("panel3Body").textContent = t.panel3Body;
-  document.getElementById("panel3Li1").textContent = t.panel3Li1;
-  document.getElementById("panel3Li2").textContent = t.panel3Li2;
-  document.getElementById("panel3Li3").textContent = t.panel3Li3;
-  document.getElementById("panel4Title").textContent = t.panel4Title;
-  document.getElementById("panel4Body").textContent = t.panel4Body;
-  document.getElementById("panel4Li1").textContent = t.panel4Li1;
-  document.getElementById("panel4Li2").textContent = t.panel4Li2;
-  document.getElementById("panel4Li3").textContent = t.panel4Li3;
+  document.getElementById("foundation1Title").textContent = t.foundation1Title;
+  document.getElementById("foundation1Body").textContent = t.foundation1Body;
+  document.getElementById("foundation2Title").textContent = t.foundation2Title;
+  document.getElementById("foundation2Body").textContent = t.foundation2Body;
+  document.getElementById("foundation3Title").textContent = t.foundation3Title;
+  document.getElementById("foundation3Body").textContent = t.foundation3Body;
   document.getElementById("section2Title").textContent = t.section2Title;
   document.getElementById("section2Body").textContent = t.section2Body;
   document.getElementById("panel5Title").textContent = t.panel5Title;
