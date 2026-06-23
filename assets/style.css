@@ -399,10 +399,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   display:flex;
   align-items:center;
   justify-content:center;
-  min-width:52px;
-  height:26px;
-  padding:0 12px;
-  border-radius:7px;
+  min-width:78px;
+  height:39px;
+  padding:0 18px;
+  border-radius:10px;
   border:1px solid rgba(186,214,232,.34);
   background:rgba(168,198,220,.14);
   box-shadow:0 8px 22px rgba(8,24,40,.18);
@@ -411,7 +411,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-live-label{
-  font-size:10px;
+  font-size:15px;
   font-weight:700;
   letter-spacing:.22em;
   text-transform:uppercase;
@@ -551,7 +551,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   --hero-detail-width: calc(var(--flipper-width) * 1.55);
   --flipper-height-ratio: 1;
   --flipper-stage-height: calc(var(--flipper-width) * var(--flipper-height-ratio));
-  --flipper-lead: clamp(4px, calc(8px - 0.4vh), 10px);
+  --flipper-lead: clamp(0px, calc(4px - 0.5vh), 6px);
   --flipper-tail: clamp(2px, calc(6px + 0.4vw), 14px);
   --hero-action-gap: clamp(2px, calc(8px - 0.5vw), 10px);
   position:relative;
@@ -569,7 +569,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-headline{
-  margin:4px 0 clamp(6px, 0.9vh, 12px);
+  margin:4px 0 clamp(0px, 0.25vh, 4px);
   padding:0;
   max-width:none;
   width:max-content;
@@ -1771,7 +1771,7 @@ h1{
     font-size:clamp(31px, calc(var(--flipper-width) * 0.18), 43px);
     line-height:1.1;
     padding:0;
-    margin-bottom:clamp(4px, 0.8vh, 10px);
+    margin-bottom:clamp(0px, 0.2vh, 3px);
   }
   .hero-headline-accent{
     font-size:1.18em;
