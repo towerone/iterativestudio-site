@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.79" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.1.80" />
 </head>
 
 <body class="page-white">
@@ -45,7 +45,7 @@
   </header>
 
   <main>
-    <section class="hero hero-comp-pillars">
+    <section class="hero hero-comp-pillars" data-active-pillar="0">
       <div class="hero-pillar-bg" aria-hidden="true">
         <div class="hero-pillar-bg-images">
           <img class="hero-pillar-bg-img" data-pillar="0" src="https://placehold.co/1600x900/e8eaed/6b7280?text=Constraint-first" alt="" width="1600" height="900" loading="lazy" decoding="async" />
@@ -71,39 +71,39 @@
         </p>
 
         <div class="hero-pillar-stage">
-          <div class="hero-pillar-copy" data-pillar="0">
+          <div class="hero-pillar-copy is-active" data-pillar="0" id="heroPillarCopy0" role="tabpanel" aria-labelledby="heroPillarTab0">
             <p id="card1S1">Define what must hold true before form takes shape.</p>
             <p id="card1S2">Setbacks, spans, code minimums, and program limits enter the model first.</p>
             <p id="card1S3">Geometry is generated inside those boundaries, not the other way around.</p>
           </div>
-          <div class="hero-pillar-copy" data-pillar="1">
+          <div class="hero-pillar-copy" data-pillar="1" id="heroPillarCopy1" role="tabpanel" aria-labelledby="heroPillarTab1">
             <p id="card2S1">Change a parameter, not the whole model.</p>
             <p id="card2S2">Walls, roofs, and assemblies update from a single rule set.</p>
             <p id="card2S3">Edits stay local so design intent survives every revision.</p>
           </div>
-          <div class="hero-pillar-copy" data-pillar="2">
+          <div class="hero-pillar-copy" data-pillar="2" id="heroPillarCopy2" role="tabpanel" aria-labelledby="heroPillarTab2">
             <p id="card3S1">Intent is resolved into clean, buildable rules.</p>
             <p id="card3S2">Complex surfaces become panels, beams, and repeatable units.</p>
             <p id="card3S3">The result stays legible to fabricators, estimators, and reviewers.</p>
           </div>
-          <div class="hero-pillar-copy" data-pillar="3">
+          <div class="hero-pillar-copy" data-pillar="3" id="heroPillarCopy3" role="tabpanel" aria-labelledby="heroPillarTab3">
             <p id="card4S1">Decisions stay traceable and recorded.</p>
             <p id="card4S2">Parameters, assumptions, and outputs are versioned alongside the model.</p>
             <p id="card4S3">Hand-off includes what changed, why, and what still needs review.</p>
           </div>
         </div>
 
-        <div class="hero-pillars">
-          <button class="pillar-trigger panel" type="button" data-pillar="0">
+        <div class="hero-pillars" role="tablist" aria-label="Computational design pillars">
+          <button class="pillar-trigger panel is-active" type="button" role="tab" data-pillar="0" aria-selected="true" aria-controls="heroPillarCopy0" id="heroPillarTab0">
             <span class="pillar-trigger-title" id="card1Title">Constraint-first</span>
           </button>
-          <button class="pillar-trigger panel" type="button" data-pillar="1">
+          <button class="pillar-trigger panel" type="button" role="tab" data-pillar="1" aria-selected="false" aria-controls="heroPillarCopy1" id="heroPillarTab1">
             <span class="pillar-trigger-title" id="card2Title">Editable geometry</span>
           </button>
-          <button class="pillar-trigger panel" type="button" data-pillar="2">
+          <button class="pillar-trigger panel" type="button" role="tab" data-pillar="2" aria-selected="false" aria-controls="heroPillarCopy2" id="heroPillarTab2">
             <span class="pillar-trigger-title" id="card3Title">Rationalization</span>
           </button>
-          <button class="pillar-trigger panel" type="button" data-pillar="3">
+          <button class="pillar-trigger panel" type="button" role="tab" data-pillar="3" aria-selected="false" aria-controls="heroPillarCopy3" id="heroPillarTab3">
             <span class="pillar-trigger-title" id="card4Title">Documentation</span>
           </button>
         </div>
@@ -208,7 +208,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Computational design systems</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.82</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.83</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -222,7 +222,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.82";
+const BUILD = "v0.1.83";
 
 const i18n = {
   en: {
@@ -401,6 +401,36 @@ const buildEl = document.getElementById("buildVersion");
 if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
 
 setLang("en");
+
+const heroPillars = document.querySelector(".hero-comp-pillars");
+const pillarTriggers = heroPillars ? Array.from(heroPillars.querySelectorAll(".pillar-trigger")) : [];
+let pinnedPillar = "0";
+
+function setActivePillar(id) {
+  if (!heroPillars) return;
+  heroPillars.dataset.activePillar = id;
+  pillarTriggers.forEach((btn) => {
+    const on = btn.dataset.pillar === id;
+    btn.classList.toggle("is-active", on);
+    btn.setAttribute("aria-selected", on ? "true" : "false");
+  });
+  heroPillars.querySelectorAll(".hero-pillar-copy").forEach((panel) => {
+    panel.classList.toggle("is-active", panel.dataset.pillar === id);
+  });
+}
+
+pillarTriggers.forEach((btn) => {
+  btn.addEventListener("mouseenter", () => setActivePillar(btn.dataset.pillar));
+  btn.addEventListener("focus", () => setActivePillar(btn.dataset.pillar));
+  btn.addEventListener("mouseleave", () => setActivePillar(pinnedPillar));
+  btn.addEventListener("blur", () => setActivePillar(pinnedPillar));
+  btn.addEventListener("click", () => {
+    pinnedPillar = btn.dataset.pillar;
+    setActivePillar(pinnedPillar);
+  });
+});
+
+setActivePillar(pinnedPillar);
   </script>
 </body>
 </html>

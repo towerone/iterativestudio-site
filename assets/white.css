@@ -43,14 +43,10 @@ body.page-white .hero-pillar-bg-img{
   transition:opacity .45s ease;
 }
 
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="0"]:hover) .hero-pillar-bg-img[data-pillar="0"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="0"]:focus-visible) .hero-pillar-bg-img[data-pillar="0"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="1"]:hover) .hero-pillar-bg-img[data-pillar="1"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="1"]:focus-visible) .hero-pillar-bg-img[data-pillar="1"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="2"]:hover) .hero-pillar-bg-img[data-pillar="2"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="2"]:focus-visible) .hero-pillar-bg-img[data-pillar="2"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="3"]:hover) .hero-pillar-bg-img[data-pillar="3"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="3"]:focus-visible) .hero-pillar-bg-img[data-pillar="3"]{
+body.page-white .hero-comp-pillars[data-active-pillar="0"] .hero-pillar-bg-img[data-pillar="0"],
+body.page-white .hero-comp-pillars[data-active-pillar="1"] .hero-pillar-bg-img[data-pillar="1"],
+body.page-white .hero-comp-pillars[data-active-pillar="2"] .hero-pillar-bg-img[data-pillar="2"],
+body.page-white .hero-comp-pillars[data-active-pillar="3"] .hero-pillar-bg-img[data-pillar="3"]{
   opacity:1;
 }
 
@@ -201,14 +197,7 @@ body.page-white .hero-pillar-copy p + p{
   margin-top:8px;
 }
 
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="0"]:hover) .hero-pillar-copy[data-pillar="0"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="0"]:focus-visible) .hero-pillar-copy[data-pillar="0"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="1"]:hover) .hero-pillar-copy[data-pillar="1"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="1"]:focus-visible) .hero-pillar-copy[data-pillar="1"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="2"]:hover) .hero-pillar-copy[data-pillar="2"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="2"]:focus-visible) .hero-pillar-copy[data-pillar="2"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="3"]:hover) .hero-pillar-copy[data-pillar="3"],
-body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="3"]:focus-visible) .hero-pillar-copy[data-pillar="3"]{
+body.page-white .hero-pillar-copy.is-active{
   opacity:1;
   transform:translateY(0);
 }
@@ -227,7 +216,8 @@ body.page-white .pillar-trigger{
 }
 
 body.page-white .pillar-trigger:hover,
-body.page-white .pillar-trigger:focus-visible{
+body.page-white .pillar-trigger:focus-visible,
+body.page-white .pillar-trigger.is-active{
   transform:translateY(-2px);
   border-color:color-mix(in srgb, var(--accent) 28%, var(--line));
   background:var(--panel2);
