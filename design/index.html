@@ -48,9 +48,15 @@
     }
     .flip-front .f-hint{
       position:absolute; right:12px; bottom:12px; margin:0;
-      font-size:11px; letter-spacing:.04em; color:var(--faint);
+      font-size:11px; letter-spacing:.04em; color:#6e7685;
       padding:4px 8px; border-radius:999px;
-      background:rgba(255,255,255,.82); backdrop-filter:blur(6px);
+      background:rgba(255,255,255,.88); backdrop-filter:blur(6px);
+      opacity:0; transition:opacity .2s ease;
+      pointer-events:none;
+    }
+    .flip:hover .flip-front .f-hint,
+    .flip:focus-visible .flip-front .f-hint{
+      opacity:1;
     }
     .flip-back{
       transform:rotateY(180deg);
@@ -297,7 +303,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Design direction</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.07</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.08</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -307,7 +313,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.2.07";
+const BUILD = "v0.2.08";
 
 function applyPrincipleMap(card){
   const map = (card.dataset.principles || "").trim();
