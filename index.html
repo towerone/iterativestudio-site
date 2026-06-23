@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.77" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.78" />
 </head>
 
 <body>
@@ -356,7 +356,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.77</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.78</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -538,7 +538,9 @@ flipperCaptions: [
 }
 };
 
-const BUILD = "v0.2.77";
+let lang = "en";
+
+const BUILD = "v0.2.78";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -832,8 +834,7 @@ populateHeroCardBubbles();
 updateHeroCardBubbleVisibility();
 }
 
-initHeroCardInteractions();
-
+function bindHeroCardInteractions() {
 heroCardSlots.forEach(slot => {
 const index = Number(slot.dataset.heroCardSlot);
 slot.addEventListener("mouseenter", () => {
@@ -844,14 +845,13 @@ slot.addEventListener("mouseleave", () => {
 hoveredHeroCardIndex = null;
 updateHeroCardBubbleVisibility();
 });
-});
-
-if (heroCardsEl) {
-heroCardsEl.addEventListener("click", (event) => {
-const btn = event.target.closest("[data-hero-card]");
-if (!btn || !heroCardsEl.contains(btn)) return;
+const btn = slot.querySelector("[data-hero-card]");
+if (btn) {
+btn.addEventListener("click", (event) => {
 event.preventDefault();
-toggleHeroCard(Number(btn.dataset.heroCard));
+toggleHeroCard(index);
+});
+}
 });
 }
 
@@ -869,7 +869,6 @@ if (!labelEl || !currentMapKey) return;
 labelEl.textContent = i18n[lang].mapLabels[currentMapKey] || currentMapKey;
 }
 
-let lang = "en";
 function setLang(next) {
 lang = next;
 const t = i18n[lang];
@@ -965,6 +964,8 @@ carouselMobileMq.addEventListener("change", syncCarouselMobileTap);
 carouselMobileMq.addListener(syncCarouselMobileTap);
 }
 
+bindHeroCardInteractions();
+initHeroCardInteractions();
 setMap("pm1");
 setLang("en");
 initFlipperRandomStart();
