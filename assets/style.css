@@ -552,8 +552,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   --flipper-height-ratio: 1;
   --flipper-stage-height: calc(var(--flipper-width) * var(--flipper-height-ratio));
   --flipper-lead: 0px;
-  --headline-flipper-gap: 0.34em;
-  --headline-flipper-gap-base: 0.48em;
+  --headline-flipper-gap: 0.24em;
+  --headline-flipper-gap-base: 0.34em;
   --flipper-tail: clamp(0px, calc(2px + 0.2vw), 6px);
   --hero-action-gap: clamp(0px, calc(4px - 0.5vw), 6px);
   position:relative;
@@ -1745,8 +1745,8 @@ h1{
   }
 
   .hero-main{
-    --headline-flipper-gap: 0.29em;
-    --headline-flipper-gap-base: 0.41em;
+    --headline-flipper-gap: 0.2em;
+    --headline-flipper-gap-base: 0.29em;
     --flipper-height-ratio: 1.5;
     --flipper-lead: clamp(0px, calc(8px - 0.8vh), 10px);
     --flipper-tail: 2px;
