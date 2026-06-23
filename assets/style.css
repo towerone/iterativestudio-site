@@ -399,10 +399,10 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   display:flex;
   align-items:center;
   justify-content:center;
-  min-width:78px;
-  height:39px;
-  padding:0 18px;
-  border-radius:10px;
+  min-width:88px;
+  height:44px;
+  padding:0 20px;
+  border-radius:11px;
   border:1px solid rgba(186,214,232,.34);
   background:rgba(168,198,220,.14);
   box-shadow:0 8px 22px rgba(8,24,40,.18);
@@ -411,7 +411,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-live-label{
-  font-size:15px;
+  font-size:16px;
   font-weight:700;
   letter-spacing:.22em;
   text-transform:uppercase;
@@ -569,7 +569,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 }
 
 .hero-headline{
-  margin:4px 0 clamp(0px, 0.25vh, 4px);
+  margin:1.06em 0 clamp(0px, 0.25vh, 4px);
   padding:0;
   max-width:none;
   width:max-content;
