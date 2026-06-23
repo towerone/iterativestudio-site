@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.91" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.92" />
 </head>
 
 <body>
@@ -70,8 +70,8 @@
             <div class="hero-live-feed" id="heroLiveFeed" aria-live="polite">
               <div class="hero-live-box">
                 <span class="hero-live-label" id="heroLiveLabel">LIVE</span>
+                <p class="hero-live-caption" id="mapFeedCaption">feed of wind speeds</p>
               </div>
-              <p class="hero-live-caption" id="mapFeedCaption">feed of wind speeds</p>
               <p class="hero-live-mode" id="mapModeLabel">pollution-PM2.5</p>
             </div>
 
@@ -361,7 +361,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.91</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.92</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -557,7 +557,7 @@ flipperCaptions: [
 
 let lang = "en";
 
-const BUILD = "v0.2.91";
+const BUILD = "v0.2.92";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -885,9 +885,17 @@ const t = i18n[lang];
 const labelEl = document.getElementById("mapModeLabel");
 const captionEl = document.getElementById("mapFeedCaption");
 const liveLabelEl = document.getElementById("heroLiveLabel");
-if (labelEl) labelEl.textContent = t.mapLabels[currentMapKey] || currentMapKey;
 if (captionEl) captionEl.textContent = t.mapFeedCaptions[currentMapKey] || "";
 if (liveLabelEl) liveLabelEl.textContent = t.liveLabel || "LIVE";
+if (labelEl) {
+if (currentMapKey === "pm1") {
+labelEl.textContent = t.mapLabels.pm1;
+labelEl.hidden = false;
+} else {
+labelEl.textContent = "";
+labelEl.hidden = true;
+}
+}
 }
 
 function setLang(next) {
