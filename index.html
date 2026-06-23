@@ -9,8 +9,8 @@
   <meta name="description" content="Iterative Studio builds AI-assisted tools for building design and construction workflows. Python scripting, computational design, and headed CAD/BIM pipelines." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.92" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.93" />
 </head>
 
 <body>
@@ -168,6 +168,10 @@
             </div>
 
             <div class="hero-card-bubble-stage" id="heroCardBubbleStage" aria-live="polite">
+              <blockquote class="hero-quote is-visible" id="heroQuote">
+                <p class="hero-quote-text">A building should not sit upon the environment. It should live within it: taking from the world around it, and giving back in kind.</p>
+                <cite class="hero-quote-attribution">CARNELL</cite>
+              </blockquote>
               <div class="hero-card-bubble-stack" id="heroCardBubble0" data-hero-bubble="0" aria-hidden="true"></div>
               <div class="hero-card-bubble-stack" id="heroCardBubble1" data-hero-bubble="1" aria-hidden="true"></div>
               <div class="hero-card-bubble-stack" id="heroCardBubble2" data-hero-bubble="2" aria-hidden="true"></div>
@@ -361,7 +365,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.92</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.93</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -557,7 +561,7 @@ flipperCaptions: [
 
 let lang = "en";
 
-const BUILD = "v0.2.92";
+const BUILD = "v0.2.93";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -772,10 +776,19 @@ updateFlipperTint(key);
 }
 
 const heroFlipperEl = document.getElementById("heroFlipper");
+const heroQuoteEl = document.getElementById("heroQuote");
 const heroCardSlots = document.querySelectorAll("[data-hero-card-slot]");
 const heroCardBubbleStacks = document.querySelectorAll("[data-hero-bubble]");
 let activeHeroCardIndex = null;
 let hoveredHeroCardIndex = null;
+let heroQuoteDismissed = false;
+
+function dismissHeroQuote() {
+if (heroQuoteDismissed) return;
+heroQuoteDismissed = true;
+if (heroQuoteEl) heroQuoteEl.classList.remove("is-visible");
+updateHeroCardBubbleVisibility();
+}
 
 function getHeroCardBullets() {
 const t = i18n[lang];
@@ -810,10 +823,14 @@ stack.innerHTML = (bulletSets[i] || []).map(renderHeroCardBubbleSlice).join("");
 }
 
 function updateHeroCardBubbleVisibility() {
+if (heroQuoteEl) {
+heroQuoteEl.classList.toggle("is-visible", !heroQuoteDismissed);
+heroQuoteEl.setAttribute("aria-hidden", heroQuoteDismissed ? "true" : "false");
+}
 heroCardBubbleStacks.forEach((stack, i) => {
 const isLocked = activeHeroCardIndex === i;
 const isPreview = activeHeroCardIndex === null && hoveredHeroCardIndex === i;
-const isVisible = isLocked || isPreview;
+const isVisible = heroQuoteDismissed && (isLocked || isPreview);
 stack.classList.toggle("is-visible", isVisible);
 stack.classList.toggle("is-locked", isLocked);
 stack.setAttribute("aria-hidden", isVisible ? "false" : "true");
@@ -854,6 +871,7 @@ function bindHeroCardInteractions() {
 heroCardSlots.forEach(slot => {
 const index = Number(slot.dataset.heroCardSlot);
 slot.addEventListener("mouseenter", () => {
+dismissHeroQuote();
 hoveredHeroCardIndex = index;
 updateHeroCardBubbleVisibility();
 });
