@@ -200,7 +200,7 @@ body.page-white .hero-pillars-accordion{
   gap:12px;
   margin-top:auto;
   padding-top:56px;
-  padding-bottom:clamp(220px, 26vh, 340px);
+  padding-bottom:clamp(280px, 30lvh, 400px);
   align-items:start;
   position:relative;
   z-index:3;
@@ -431,7 +431,7 @@ body.page-white .foundation-card p:not(.foundation-kicker){
 }
 
 body.page-white .hero-foundations{
-  margin-top:20lvh;
+  margin-top:30lvh;
   position:relative;
   z-index:4;
 }
@@ -703,59 +703,9 @@ body.page-white .footer-map-credit{
   }
 
   body.page-white .hero-pillars-accordion{
-    grid-template-columns:1fr;
-    gap:10px;
-    padding-bottom:clamp(180px, 20lvh, 280px);
-  }
-
-  body.page-white .pillar-item{
-    position:relative;
-  }
-
-  body.page-white .pillar-expand{
-    left:0;
-    right:0;
-    width:100%;
-  }
-
-  body.page-white .hero-copy-panel{
-    width:min(100%, 420px);
-  }
-
-  body.page-white .projects-grid{
-    grid-template-columns:1fr;
-  }
-
-  body.page-white .projects-showcase-grid{
-    grid-template-columns:1fr;
-  }
-
-  body.page-white .grid-2,
-  body.page-white .workflow-info{
-    grid-template-columns:1fr;
-  }
-
-  body.page-white .foundations-grid,
-  body.page-white .hero-foundations-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-@media (max-width: 560px){
-  body.page-white .hero-comp-pillars,
-  body.page-white .hero-comp-pillars .hero-inner{
-    min-height:min(88lvh, 900px);
-  }
-
-  body.page-white .hero-foundations{
-    margin-top:16lvh;
-  }
-
-  body.page-white .hero-pillars-accordion{
     grid-template-columns:repeat(4, minmax(0, 1fr));
     gap:8px;
-    padding-top:40px;
-    padding-bottom:clamp(240px, 32lvh, 340px);
+    padding-bottom:clamp(260px, 28lvh, 360px);
   }
 
   body.page-white .pillar-item{
@@ -789,6 +739,44 @@ body.page-white .footer-map-credit{
     left:0;
     right:0;
     width:100%;
+  }
+
+  body.page-white .hero-copy-panel{
+    width:min(100%, 420px);
+  }
+
+  body.page-white .projects-grid{
+    grid-template-columns:1fr;
+  }
+
+  body.page-white .projects-showcase-grid{
+    grid-template-columns:1fr;
+  }
+
+  body.page-white .grid-2,
+  body.page-white .workflow-info{
+    grid-template-columns:1fr;
+  }
+
+  body.page-white .foundations-grid,
+  body.page-white .hero-foundations-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width: 560px){
+  body.page-white .hero-comp-pillars,
+  body.page-white .hero-comp-pillars .hero-inner{
+    min-height:min(92lvh, 920px);
+  }
+
+  body.page-white .hero-foundations{
+    margin-top:24lvh;
+  }
+
+  body.page-white .hero-pillars-accordion{
+    padding-top:40px;
+    padding-bottom:clamp(280px, 34lvh, 380px);
   }
 
   body.page-white .hero-copy-panel{
