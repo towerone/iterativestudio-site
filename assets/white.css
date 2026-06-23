@@ -64,6 +64,17 @@ body.page-white .hero-pillar-bg-scrim{
   );
 }
 
+body.page-white .hero-comp-pillars .hero-pillar-bg-scrim{
+  background:linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--hero-fade) 94%, transparent) 0%,
+    color-mix(in srgb, var(--hero-fade) 82%, transparent) 14%,
+    color-mix(in srgb, var(--hero-fade) 58%, transparent) 28%,
+    color-mix(in srgb, var(--hero-fade) 26%, transparent) 42%,
+    transparent 60%
+  );
+}
+
 body.page-white .hero-pillar-bg-overlay{
   position:absolute;
   inset:0;
@@ -113,43 +124,41 @@ body.page-white .hero-top{
   flex:0 0 auto;
 }
 
-body.page-white .hero-copy-panel{
+body.page-white .hero-copy{
   width:33.333%;
-  max-width:400px;
-  min-width:min(100%, 280px);
-  padding:26px 30px 24px;
-  border-radius:var(--radius2);
-  border:none;
-  border-left:2px solid color-mix(in srgb, var(--accent) 42%, var(--line));
-  background:color-mix(in srgb, var(--hero-fade) 84%, transparent);
-  backdrop-filter:blur(18px) saturate(1.04);
-  -webkit-backdrop-filter:blur(18px) saturate(1.04);
-  box-shadow:none;
+  max-width:36ch;
+  min-width:min(100%, 260px);
 }
 
-body.page-white .hero-copy-panel .kicker{
-  margin:0 0 16px;
+body.page-white .hero-copy .kicker,
+body.page-white .hero-copy h1,
+body.page-white .hero-copy .hero-tagline{
+  text-shadow:0 1px 14px color-mix(in srgb, var(--hero-fade) 70%, transparent);
+}
+
+body.page-white .hero-copy .kicker{
+  margin:0 0 12px;
   font-size:11px;
-  letter-spacing:.24em;
+  letter-spacing:.28em;
 }
 
-body.page-white .hero-copy-panel h1{
-  margin:0 0 14px;
-  font-size:clamp(26px, 3.2vw, 42px);
-  line-height:1.1;
+body.page-white .hero-copy h1{
+  margin:0 0 12px;
+  font-size:clamp(26px, 3.2vw, 44px);
+  line-height:1.12;
+  max-width:22ch;
 }
 
-body.page-white .hero-copy-panel .lead{
-  margin-bottom:0;
+body.page-white .hero-copy .lead{
+  margin:0;
   max-width:none;
 }
 
-body.page-white .hero-copy-panel .hero-tagline{
-  font-size:clamp(14px, 1.5vw, 16px);
+body.page-white .hero-copy .hero-tagline{
+  font-size:clamp(14px, 1.4vw, 17px);
   line-height:1.5;
   color:var(--muted);
-  padding-top:14px;
-  border-top:1px solid color-mix(in srgb, var(--line) 55%, transparent);
+  max-width:30ch;
 }
 
 body.page-white .hero-inner{
@@ -764,8 +773,8 @@ body.page-white .footer-map-credit{
     width:100%;
   }
 
-  body.page-white .hero-copy-panel{
-    width:min(100%, 420px);
+  body.page-white .hero-copy{
+    width:min(100%, 36ch);
   }
 
   body.page-white .projects-grid{
@@ -802,9 +811,16 @@ body.page-white .footer-map-credit{
     padding-bottom:clamp(280px, 34lvh, 380px);
   }
 
-  body.page-white .hero-copy-panel{
+  body.page-white .hero-copy{
     width:100%;
-    max-width:none;
-    padding:20px 22px;
+    max-width:22ch;
+  }
+
+  body.page-white .hero-copy h1{
+    max-width:22ch;
+  }
+
+  body.page-white .hero-copy .hero-tagline{
+    max-width:26ch;
   }
 }
