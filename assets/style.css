@@ -783,14 +783,17 @@ h1{
 
 .hero-quote{
   position:absolute;
-  inset:0;
+  top:0;
+  right:0;
+  bottom:0;
+  width:var(--hero-detail-width);
   display:flex;
   flex-direction:column;
   align-items:flex-end;
   justify-content:center;
-  gap:clamp(12px, 1.6vh, 18px);
+  gap:clamp(10px, 1.4vh, 14px);
   margin:0;
-  padding:clamp(10px, 1.2vh, 14px) clamp(10px, 1vw, 14px) clamp(10px, 1.2vh, 14px) clamp(24%, 4.2vw, 34%);
+  padding:clamp(10px, 1.2vh, 14px) clamp(8px, 0.8vw, 12px) clamp(10px, 1.2vh, 14px) clamp(12%, 2.2vw, 18%);
   border:0;
   text-align:right;
   opacity:0;
@@ -830,13 +833,13 @@ h1{
   margin:0;
   padding-right:2px;
   font-family:"Sixtyfour", system-ui, sans-serif;
-  font-size:clamp(21px, 1.95vw, 30px);
+  font-size:clamp(13px, 1.15vw, 17px);
   font-style:normal;
   font-weight:400;
-  letter-spacing:.1em;
+  letter-spacing:.08em;
   text-transform:uppercase;
-  color:rgba(220,235,248,.82);
-  text-shadow:0 0 10px rgba(180,210,235,.38);
+  color:rgba(220,235,248,.78);
+  text-shadow:0 0 8px rgba(180,210,235,.32);
 }
 
 .hero-card-bubble-stack{
@@ -1820,15 +1823,16 @@ h1{
     line-height:1.32;
   }
   .hero-quote{
-    padding-left:clamp(18%, 6vw, 26%);
+    width:calc(var(--flipper-width) * 1.35);
+    padding-left:clamp(10%, 4vw, 16%);
   }
   .hero-quote-text{
     font-size:clamp(24px, 5.6vw, 34px);
     line-height:1.22;
   }
   .hero-quote-attribution{
-    font-size:clamp(17px, 4.2vw, 24px);
-    letter-spacing:.08em;
+    font-size:clamp(11px, 2.8vw, 14px);
+    letter-spacing:.06em;
   }
   .hero-flipper{
     margin-top:var(--flipper-lead);
