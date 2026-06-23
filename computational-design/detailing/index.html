@@ -5,13 +5,39 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
-  <title>Iterative detailing Strength | Computational Design | Iterative Studio</title>
-  <meta name="description" content="How design intent becomes buildable through junction logic, tolerances, and iterative detailing in computational workflows." />
+  <title>Detailing | Iterative Studio</title>
+  <meta name="description" content="Detailing: where design intent survives contact with construction. A mosaic of resolved junctions, and why gradual variance across a full set is hard for headless AI." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.76" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.2.02" />
+  <style>
+    .mosaic{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
+    .detail{ margin:0; cursor:pointer; border:1px solid var(--line); border-radius:var(--radius2); background:var(--panel); box-shadow:var(--shadow); overflow:hidden; transition:transform .15s ease, border-color .15s ease; }
+    .detail:hover{ transform:translateY(-2px); border-color:rgba(47,107,255,.28); }
+    .detail:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+    .detail-img{ aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(47,107,255,.10), rgba(0,0,0,.03)); border-bottom:1px solid var(--line); }
+    .detail-num{ font-size:26px; font-weight:600; color:var(--faint); letter-spacing:.1em; }
+    .detail-cap{ padding:12px 14px; display:flex; flex-direction:column; gap:6px; }
+    .detail-title{ font-weight:600; font-size:14px; letter-spacing:-0.01em; }
+    .detail-note{ color:var(--muted); font-size:12.5px; line-height:1.5; }
+    .hole{ display:flex; flex-direction:column; justify-content:center; gap:10px; padding:18px; border:1px dashed var(--line); border-radius:var(--radius2); background:var(--panel2); }
+    .hole-title{ font-weight:600; font-size:15px; letter-spacing:-0.01em; color:var(--accent); }
+    .hole-body{ margin:0; color:var(--text); font-size:13.5px; line-height:1.55; }
+    .mosaic-caption{ text-align:center; color:var(--faint); font-size:12px; margin-top:14px; letter-spacing:.04em; }
+    .lightbox{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:24px; background:rgba(0,0,0,.55); z-index:50; }
+    .lightbox.is-open{ display:flex; }
+    .lightbox-card{ position:relative; width:min(560px,100%); background:var(--bg); border:1px solid var(--line); border-radius:var(--radius2); box-shadow:var(--shadow); overflow:hidden; }
+    .lightbox-img{ aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(47,107,255,.12), rgba(0,0,0,.04)); }
+    .lightbox-num{ font-size:54px; font-weight:600; color:var(--faint); letter-spacing:.1em; }
+    .lightbox-body{ padding:18px 20px 22px; }
+    .lightbox-title{ font-weight:600; font-size:19px; margin-bottom:8px; letter-spacing:-0.01em; }
+    .lightbox-note{ margin:0; color:var(--muted); line-height:1.55; }
+    .lightbox-close{ position:absolute; top:12px; right:12px; width:34px; height:34px; border-radius:10px; border:1px solid var(--line); background:var(--panel); font-size:18px; line-height:1; cursor:pointer; }
+    @media (max-width:820px){ .mosaic{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:520px){ .mosaic{ grid-template-columns:1fr; } }
+  </style>
 </head>
 
 <body class="page-white">
@@ -46,40 +72,64 @@
         <p class="page-back">
           <a class="page-back-link" href="/computational-design/" id="backLink">← Computational Design</a>
         </p>
-        <p class="kicker" id="kickerText">junction / tolerance / constructability · Detailing</p>
-        <h1 id="heroTitle">Iterative detailing Strength</h1>
-        <p class="lead" id="heroLead">How design intent becomes buildable — at the joint, the tolerance, and the assembly sequence.</p>
+        <p class="kicker" id="kicker">Detailing</p>
+        <h1 id="heroTitle">A building is only as good as its worst junction.</h1>
+        <p class="lead" id="heroLead">Detailing is where design intent survives contact with construction. Fifteen details, three arguments, and the reason gradual variance across a full set is still hard for headless AI.</p>
+
+        <div class="hero-cards" style="grid-template-columns:repeat(3,minmax(0,1fr));">
+          <div class="mini-card">
+            <div class="mini-title" id="pr1">Junction</div>
+            <div class="mini-body" id="pr1b">Where materials meet, fix, and transfer load.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-title" id="pr2">Tolerance</div>
+            <div class="mini-body" id="pr2b">Real trades, real gaps: details that absorb the slack of the site.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-title" id="pr3">Variance</div>
+            <div class="mini-body" id="pr3b">Gradual shifts across a full set — every junction slightly different, still coherent.</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section article-body">
+    <section class="section">
       <div class="container">
-        <div class="article-block">
-          <h2 id="block1Title">Detailing is where intent meets reality</h2>
-          <p id="block1P1">A compelling form means little if the junction fails on site. Iterative detailing strength means every connection, offset, and material transition is modeled with enough precision to survive fabrication, shipping, and installation.</p>
-          <p id="block1P2">Computational workflows extend detailing beyond static drawings: families, types, and scripted assemblies update when the governing geometry changes, so the detail set stays aligned with the design model.</p>
+        <div class="section-head">
+          <h2 id="gridTitle">Fifteen details, three arguments</h2>
+          <p id="gridBody">A mosaic of resolved junctions. Click any detail to see it larger; read the breaks between for why details carry the design.</p>
         </div>
 
-        <div class="article-block">
-          <h2 id="block2Title">Junction logic as repeatable rules</h2>
-          <ul class="bullets">
-            <li id="block2Li1"><strong>Junctions</strong> — wall-to-roof, cladding-to-frame, and glazing-to-mullion conditions are defined once and propagated.</li>
-            <li id="block2Li2"><strong>Tolerances</strong> — expansion gaps, shim zones, and field-adjustment ranges are built into the model, not left to the contractor.</li>
-            <li id="block2Li3"><strong>Constructability</strong> — assembly order, crane reach, and panel sizes are checked before details are issued.</li>
-          </ul>
+        <div class="mosaic">
+          <figure class="detail" tabindex="0" role="button" data-key="d1" data-num="01"><div class="detail-img" aria-hidden="true"><span class="detail-num">01</span></div><figcaption class="detail-cap"><span class="detail-title" id="d1t">Parapet & roof edge</span><span class="detail-note" id="d1n">Where the roof stops, water wants in. Cap flashing, drip, and continuous membrane turn an edge into a defense.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d2" data-num="02"><div class="detail-img" aria-hidden="true"><span class="detail-num">02</span></div><figcaption class="detail-cap"><span class="detail-title" id="d2t">Window head</span><span class="detail-note" id="d2n">The lintel carries load while the head flashing sheds water clear of the frame below.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d3" data-num="03"><div class="detail-img" aria-hidden="true"><span class="detail-num">03</span></div><figcaption class="detail-cap"><span class="detail-title" id="d3t">Window jamb</span><span class="detail-note" id="d3n">Side seal and shim space: airtightness inside, drainage outside, tolerance in between.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d4" data-num="04"><div class="detail-img" aria-hidden="true"><span class="detail-num">04</span></div><figcaption class="detail-cap"><span class="detail-title" id="d4t">Window sill</span><span class="detail-note" id="d4n">A sloped, flashed sill drains outward and protects the wall beneath the opening.</span></figcaption></figure>
+          <div class="hole"><span class="hole-title" id="h1t">Why details decide the design</span><p class="hole-body" id="h1b">A building is only as good as its worst junction. The concept lives or dies where materials actually meet: at the parapet, the sill, the threshold. Details are where intent meets gravity, water, and tolerance, and where good design either survives or quietly fails.</p></div>
+          <figure class="detail" tabindex="0" role="button" data-key="d5" data-num="05"><div class="detail-img" aria-hidden="true"><span class="detail-num">05</span></div><figcaption class="detail-cap"><span class="detail-title" id="d5t">Wall base & grade</span><span class="detail-note" id="d5n">The most punished junction: capillary break, flashing, and a clean line where wall meets ground.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d6" data-num="06"><div class="detail-img" aria-hidden="true"><span class="detail-num">06</span></div><figcaption class="detail-cap"><span class="detail-title" id="d6t">Slab edge & floor line</span><span class="detail-note" id="d6n">Thermal break and fire stop at the floor line, with the facade reading continuous outside.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d7" data-num="07"><div class="detail-img" aria-hidden="true"><span class="detail-num">07</span></div><figcaption class="detail-cap"><span class="detail-title" id="d7t">Curtain wall transom</span><span class="detail-note" id="d7n">Pressure-equalized glazing pocket; gaskets and weeps manage the water that always gets in.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d8" data-num="08"><div class="detail-img" aria-hidden="true"><span class="detail-num">08</span></div><figcaption class="detail-cap"><span class="detail-title" id="d8t">Expansion joint</span><span class="detail-note" id="d8n">Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d9" data-num="09"><div class="detail-img" aria-hidden="true"><span class="detail-num">09</span></div><figcaption class="detail-cap"><span class="detail-title" id="d9t">Eave & soffit</span><span class="detail-note" id="d9n">Ventilation path, insect screen, and a clean shadow line under the overhang.</span></figcaption></figure>
+          <div class="hole"><span class="hole-title" id="h2t">Where headless AI struggles</span><p class="hole-body" id="h2b">A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated details, where every junction shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole set. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.</p></div>
+          <figure class="detail" tabindex="0" role="button" data-key="d10" data-num="10"><div class="detail-img" aria-hidden="true"><span class="detail-num">10</span></div><figcaption class="detail-cap"><span class="detail-title" id="d10t">Threshold & balcony</span><span class="detail-note" id="d10n">The flat, trafficked, waterproofed junction where most leaks are actually born.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d11" data-num="11"><div class="detail-img" aria-hidden="true"><span class="detail-num">11</span></div><figcaption class="detail-cap"><span class="detail-title" id="d11t">Cladding corner</span><span class="detail-note" id="d11n">Where two planes meet, alignment and tolerance decide whether the building looks sharp or sloppy.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d12" data-num="12"><div class="detail-img" aria-hidden="true"><span class="detail-num">12</span></div><figcaption class="detail-cap"><span class="detail-title" id="d12t">Roof drainage & scupper</span><span class="detail-note" id="d12n">Primary and overflow paths sized so a blocked drain never becomes a flooded roof.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d13" data-num="13"><div class="detail-img" aria-hidden="true"><span class="detail-num">13</span></div><figcaption class="detail-cap"><span class="detail-title" id="d13t">Door threshold</span><span class="detail-note" id="d13n">Level access in, water out: a low-profile sill that still keeps weather at bay.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d14" data-num="14"><div class="detail-img" aria-hidden="true"><span class="detail-num">14</span></div><figcaption class="detail-cap"><span class="detail-title" id="d14t">Handrail fixing</span><span class="detail-note" id="d14n">A small bracket carrying real load; substrate, anchor, and tolerance all have to agree.</span></figcaption></figure>
+          <div class="hole"><span class="hole-title" id="h3t">Rows of details are the proof</span><p class="hole-body" id="h3b">Renders persuade; details legitimize. A wall of resolved junctions is evidence that the idea was carried all the way to buildable, not stopped at the picture. This is the part of practice that earns trust on site, and the part a headed workflow protects.</p></div>
+          <figure class="detail" tabindex="0" role="button" data-key="d15" data-num="15"><div class="detail-img" aria-hidden="true"><span class="detail-num">15</span></div><figcaption class="detail-cap"><span class="detail-title" id="d15t">Material transition</span><span class="detail-note" id="d15n">Stone to render, metal to timber: the reveal that lets unlike materials meet honestly.</span></figcaption></figure>
         </div>
+        <p class="mosaic-caption" id="mosaicCaption">Click a detail to enlarge · the holes carry the argument.</p>
+      </div>
+    </section>
 
-        <div class="article-block">
-          <h2 id="block3Title">From concept detail to construction set</h2>
-          <p id="block3P1">Early design studies often stop at a representative section. Iterative detailing carries those decisions through to annotated wall sections, schedules, and keyed details — with the same parameters driving both the 3D model and the sheet output.</p>
-          <p id="block3P2">In Revit, detail components and repeating conditions are organized as families tied to type parameters. In Rhino, section logic can be scripted to stay synchronized with the parent geometry. Either way, the detail is not an orphan drawing — it is a downstream output of the system.</p>
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-actions" style="text-align:center;">
+          <a class="btn" href="/projects/" id="projectsCta">See the full project archive →</a>
         </div>
-
-        <div class="article-block">
-          <h2 id="block4Title">Strength through iteration, not perfection on pass one</h2>
-          <p id="block4P1">Detailing improves in loops: model the joint, check against manufacturer data, revise the tolerance, re-export the sheet. Each pass narrows the gap between design intent and what can be built on site.</p>
-          <p id="block4P2">That loop is the strength — not a single heroic detail, but a documented chain of decisions that a fabricator, estimator, or site superintendent can follow without guessing what the architect meant.</p>
-        </div>
+        <p class="mosaic-caption" id="ctaNote">These are detail archetypes. The project archive shows them resolved in real construction documents.</p>
       </div>
     </section>
   </main>
@@ -88,8 +138,8 @@
     <div class="container footer-inner">
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
-        <div class="footer-note" id="footerNote">Iterative detailing Strength</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.78</div>
+        <div class="footer-note" id="footerNote">Detailing</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.00</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -98,84 +148,152 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Detail">
+    <div class="lightbox-card">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">×</button>
+      <div class="lightbox-img" aria-hidden="true"><span class="lightbox-num" id="lbNum">01</span></div>
+      <div class="lightbox-body">
+        <div class="lightbox-title" id="lbTitle"></div>
+        <p class="lightbox-note" id="lbNote"></p>
+      </div>
+    </div>
+  </div>
+
   <script>
-const BUILD = "v0.1.78";
+const BUILD = "v0.3.00";
+
 const i18n = {
   en: {
     backLink: "← Computational Design",
-    kicker: "junction / tolerance / constructability · Detailing",
-    heroTitle: "Iterative detailing Strength",
-    heroLead: "How design intent becomes buildable — at the joint, the tolerance, and the assembly sequence.",
-    block1Title: "Detailing is where intent meets reality",
-    block1P1: "A compelling form means little if the junction fails on site. Iterative detailing strength means every connection, offset, and material transition is modeled with enough precision to survive fabrication, shipping, and installation.",
-    block1P2: "Computational workflows extend detailing beyond static drawings: families, types, and scripted assemblies update when the governing geometry changes, so the detail set stays aligned with the design model.",
-    block2Title: "Junction logic as repeatable rules",
-    block2Li1: "Junctions — wall-to-roof, cladding-to-frame, and glazing-to-mullion conditions are defined once and propagated.",
-    block2Li2: "Tolerances — expansion gaps, shim zones, and field-adjustment ranges are built into the model, not left to the contractor.",
-    block2Li3: "Constructability — assembly order, crane reach, and panel sizes are checked before details are issued.",
-    block3Title: "From concept detail to construction set",
-    block3P1: "Early design studies often stop at a representative section. Iterative detailing carries those decisions through to annotated wall sections, schedules, and keyed details — with the same parameters driving both the 3D model and the sheet output.",
-    block3P2: "In Revit, detail components and repeating conditions are organized as families tied to type parameters. In Rhino, section logic can be scripted to stay synchronized with the parent geometry. Either way, the detail is not an orphan drawing — it is a downstream output of the system.",
-    block4Title: "Strength through iteration, not perfection on pass one",
-    block4P1: "Detailing improves in loops: model the joint, check against manufacturer data, revise the tolerance, re-export the sheet. Each pass narrows the gap between design intent and what can be built on site.",
-    block4P2: "That loop is the strength — not a single heroic detail, but a documented chain of decisions that a fabricator, estimator, or site superintendent can follow without guessing what the architect meant.",
+    kicker: "Detailing",
+    heroTitle: "A building is only as good as its worst junction.",
+    heroLead: "Detailing is where design intent survives contact with construction. Fifteen details, three arguments, and the reason gradual variance across a full set is still hard for headless AI.",
     navProjects: "Projects", navAbout: "About", navContact: "Contact",
-    footerNote: "Iterative detailing Strength",
+    pr1: "Junction", pr1b: "Where materials meet, fix, and transfer load.",
+    pr2: "Tolerance", pr2b: "Real trades, real gaps: details that absorb the slack of the site.",
+    pr3: "Variance", pr3b: "Gradual shifts across a full set — every junction slightly different, still coherent.",
+    gridTitle: "Fifteen details, three arguments",
+    gridBody: "A mosaic of resolved junctions. Click any detail to see it larger; read the breaks between for why details carry the design.",
+    d1t: "Parapet & roof edge", d1n: "Where the roof stops, water wants in. Cap flashing, drip, and continuous membrane turn an edge into a defense.",
+    d2t: "Window head", d2n: "The lintel carries load while the head flashing sheds water clear of the frame below.",
+    d3t: "Window jamb", d3n: "Side seal and shim space: airtightness inside, drainage outside, tolerance in between.",
+    d4t: "Window sill", d4n: "A sloped, flashed sill drains outward and protects the wall beneath the opening.",
+    d5t: "Wall base & grade", d5n: "The most punished junction: capillary break, flashing, and a clean line where wall meets ground.",
+    d6t: "Slab edge & floor line", d6n: "Thermal break and fire stop at the floor line, with the facade reading continuous outside.",
+    d7t: "Curtain wall transom", d7n: "Pressure-equalized glazing pocket; gaskets and weeps manage the water that always gets in.",
+    d8t: "Expansion joint", d8n: "Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.",
+    d9t: "Eave & soffit", d9n: "Ventilation path, insect screen, and a clean shadow line under the overhang.",
+    d10t: "Threshold & balcony", d10n: "The flat, trafficked, waterproofed junction where most leaks are actually born.",
+    d11t: "Cladding corner", d11n: "Where two planes meet, alignment and tolerance decide whether the building looks sharp or sloppy.",
+    d12t: "Roof drainage & scupper", d12n: "Primary and overflow paths sized so a blocked drain never becomes a flooded roof.",
+    d13t: "Door threshold", d13n: "Level access in, water out: a low-profile sill that still keeps weather at bay.",
+    d14t: "Handrail fixing", d14n: "A small bracket carrying real load; substrate, anchor, and tolerance all have to agree.",
+    d15t: "Material transition", d15n: "Stone to render, metal to timber: the reveal that lets unlike materials meet honestly.",
+    h1t: "Why details decide the design", h1b: "A building is only as good as its worst junction. The concept lives or dies where materials actually meet: at the parapet, the sill, the threshold. Details are where intent meets gravity, water, and tolerance, and where good design either survives or quietly fails.",
+    h2t: "Where headless AI struggles", h2b: "A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated details, where every junction shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole set. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.",
+    h3t: "Rows of details are the proof", h3b: "Renders persuade; details legitimize. A wall of resolved junctions is evidence that the idea was carried all the way to buildable, not stopped at the picture. This is the part of practice that earns trust on site, and the part a headed workflow protects.",
+    mosaicCaption: "Click a detail to enlarge · the holes carry the argument.",
+    projectsCta: "See the full project archive →",
+    ctaNote: "These are detail archetypes. The project archive shows them resolved in real construction documents.",
+    footerNote: "Detailing",
     footerTagline: "Systems-first workflows for architecture and the built environment."
   },
   zh: {
     backLink: "← 計算式設計",
-    kicker: "接點 / 公差 / 可施工性 · 細部",
-    heroTitle: "迭代細部強度",
-    heroLead: "設計意圖如何成為可建造的細部 — 在接點、公差與組裝順序上。",
-    block1Title: "細部是意圖與現實交會之處",
-    block1P1: "若接點在現場失敗，再動人的形式也無意義。迭代細部強度意味著每個連接、偏移與材料轉換都以足夠精度建模，能承受製造、運輸與安裝。",
-    block1P2: "計算工作流程將細部延伸超越靜態圖面：族群、類型與腳本化組件在主導幾何變更時同步更新，使細部圖集與設計模型保持一致。",
-    block2Title: "接點邏輯作為可重複規則",
-    block2Li1: "接點 — 牆到屋頂、外牆到結構、玻璃到豎框的條件定義一次並傳播。",
-    block2Li2: "公差 — 伸縮縫、墊片區與現場調整範圍內建於模型，而非留給承包商。",
-    block2Li3: "可施工性 — 在細部出圖前檢查組裝順序、吊車範圍與面板尺寸。",
-    block3Title: "從概念細部到施工圖集",
-    block3P1: "早期設計研究常止於代表性剖面。迭代細部將這些決策延續到註解牆剖面、表單與大樣 — 同一組參數驅動 3D 模型與圖面輸出。",
-    block3P2: "在 Revit 中，細部元件與重複條件以族群組織並綁定類型參數。在 Rhino 中，剖面邏輯可腳本化以與母體幾何同步。無論哪種方式，細部都不是孤立圖面 — 而是系統的下游產出。",
-    block4Title: "透過迭代累積強度，而非一次到位",
-    block4P1: "細部在迴圈中改進：建模接點、對照製造商資料、修訂公差、重新輸出圖面。每一輪都縮小設計意圖與現場可建造性之間的落差。",
-    block4P2: "這個迴圈就是強度 — 不是單一英雄式細部，而是一條製造商、估價師或工地主任都能遵循、無需猜測建築師意圖的文件化決策鏈。",
+    kicker: "細部",
+    heroTitle: "建築的好壞，取決於它最差的接點。",
+    heroLead: "細部是設計意圖與施工接觸後仍能存活的地方。十五個細部、三段論述，以及為何整套圖面的漸進變異對無頭 AI 仍然困難。",
     navProjects: "專案", navAbout: "關於", navContact: "聯絡",
-    footerNote: "迭代細部強度",
+    pr1: "接點", pr1b: "材料相接、固定並傳遞載重之處。",
+    pr2: "公差", pr2b: "真實的工種、真實的縫隙：能吸收工地餘裕的細部。",
+    pr3: "變異", pr3b: "整套圖面中的漸進差異——每個接點略有不同，仍須一致。",
+    gridTitle: "十五個細部，三段論述",
+    gridBody: "一片解決過接點的馬賽克。點任一細部即可放大；閱讀其間的空格，理解細部如何承載設計。",
+    d1t: "女兒牆與屋頂收邊", d1n: "屋頂止於何處，水就想滲入。壓頂泛水、滴水線與連續防水層把邊緣變成防線。",
+    d2t: "窗楣（上）", d2n: "過樑承載，同時上緣泛水把水導離下方窗框。",
+    d3t: "窗側框", d3n: "側邊密封與墊片空間：內側氣密、外側排水，之間留公差。",
+    d4t: "窗台（下）", d4n: "洩水有坡、做泛水的窗台向外排水，保護開口下方的牆體。",
+    d5t: "牆腳與地坪交接", d5n: "最受折磨的接點：毛細阻斷、泛水，以及牆與地乾淨相接的一線。",
+    d6t: "樓板邊緣與樓層線", d6n: "樓層線處的隔熱斷橋與防火填塞，外側立面仍讀為連續。",
+    d7t: "帷幕橫料", d7n: "等壓玻璃槽；墊條與洩水孔處理總會進來的水。",
+    d8t: "伸縮縫", d8n: "建築會動。細部化的接縫讓兩個構造各自呼吸而不撕裂飾面。",
+    d9t: "簷口與天花", d9n: "通風路徑、防蟲網，以及出簷下乾淨的陰影線。",
+    d10t: "門檻與陽台", d10n: "平整、會被踩踏、需防水的接點，多數漏水其實由此而生。",
+    d11t: "外牆轉角", d11n: "兩個面相接之處，對齊與公差決定建築看起來銳利或潦草。",
+    d12t: "屋頂排水與落水口", d12n: "主排與溢流路徑經過計算，讓堵塞的排水口不致變成淹水的屋頂。",
+    d13t: "門口門檻", d13n: "進得來、水出得去：低斷面的門檻仍能擋住風雨。",
+    d14t: "扶手固定", d14n: "承載實際載重的小托架；基材、錨栓與公差都必須一致。",
+    d15t: "材料交接", d15n: "石材接粉刷、金屬接木：讓不同材料誠實相接的退縮收口。",
+    h1t: "細部決定設計", h1b: "建築的好壞取決於它最差的接點。概念在材料真正相接之處存活或死去：女兒牆、窗台、門檻。細部是意圖與重力、水與公差交會的地方，好設計在此存續，或悄悄失敗。",
+    h2t: "無頭 AI 的難處", h2b: "模型能生成一張驚艷的影像，卻無法掌握上百個協調細部間的漸進變異：每個接點都隨基材、角度與公差略有不同，卻又必須與整套圖面一致。那種累積且互相參照的判斷，正是施工圖所要求、而單靠生成無法保持誠實的部分。",
+    h3t: "一排排細部就是證明", h3b: "渲染圖能說服，細部才能正名。一整面解決過的接點，證明這個想法被一路帶到可建造，而非止於圖像。這是實務中在工地贏得信任的部分，也是有頭工作流程所守護的部分。",
+    mosaicCaption: "點一格即可放大 · 空格承載論述。",
+    projectsCta: "查看完整專案庫 →",
+    ctaNote: "這些是細部原型。專案庫展示它們在真實施工圖中的落實。",
+    footerNote: "細部",
     footerTagline: "以系統為先的建築與環境工作流程。"
   }
 };
+
 let lang = "en";
-function setLang(next) {
+let openKey = null;
+let openNum = null;
+
+function setLang(next){
   lang = next;
   const t = i18n[lang];
-  document.getElementById("langToggle").classList.toggle("is-en-active", lang === "en");
-  document.getElementById("backLink").textContent = t.backLink;
-  document.getElementById("kickerText").textContent = t.kicker;
-  document.getElementById("heroTitle").textContent = t.heroTitle;
-  document.getElementById("heroLead").textContent = t.heroLead;
-  document.getElementById("block1Title").textContent = t.block1Title;
-  document.getElementById("block1P1").textContent = t.block1P1;
-  document.getElementById("block1P2").textContent = t.block1P2;
-  document.getElementById("block2Title").textContent = t.block2Title;
-  document.getElementById("block2Li1").textContent = t.block2Li1;
-  document.getElementById("block2Li2").textContent = t.block2Li2;
-  document.getElementById("block2Li3").textContent = t.block2Li3;
-  document.getElementById("block3Title").textContent = t.block3Title;
-  document.getElementById("block3P1").textContent = t.block3P1;
-  document.getElementById("block3P2").textContent = t.block3P2;
-  document.getElementById("block4Title").textContent = t.block4Title;
-  document.getElementById("block4P1").textContent = t.block4P1;
-  document.getElementById("block4P2").textContent = t.block4P2;
-  document.getElementById("navProjects").textContent = t.navProjects;
-  document.getElementById("navAbout").textContent = t.navAbout;
-  document.getElementById("navContact").textContent = t.navContact;
-  document.getElementById("footerNote").textContent = t.footerNote;
-  document.getElementById("footerTagline").textContent = t.footerTagline;
+  const toggle = document.getElementById("langToggle");
+  if (toggle) toggle.classList.toggle("is-en-active", lang === "en");
+  for (const key in t){
+    const el = document.getElementById(key);
+    if (el) el.textContent = t[key];
+  }
+  if (openKey) refreshLightbox();
 }
-document.getElementById("langToggle").addEventListener("click", () => setLang(lang === "en" ? "zh" : "en"));
-document.getElementById("buildVersion").textContent = `Build: ${BUILD}`;
+
+const lightbox = document.getElementById("lightbox");
+
+function refreshLightbox(){
+  const t = i18n[lang];
+  document.getElementById("lbNum").textContent = openNum;
+  document.getElementById("lbTitle").textContent = t[openKey + "t"] || "";
+  document.getElementById("lbNote").textContent = t[openKey + "n"] || "";
+}
+
+function openLightbox(key, num){
+  openKey = key;
+  openNum = num;
+  refreshLightbox();
+  lightbox.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox(){
+  openKey = null;
+  openNum = null;
+  lightbox.classList.remove("is-open");
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".detail").forEach((card) => {
+  const open = () => openLightbox(card.dataset.key, card.dataset.num);
+  card.addEventListener("click", open);
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " "){ e.preventDefault(); open(); }
+  });
+});
+
+document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLang(lang === "en" ? "zh" : "en");
+});
+
+const buildEl = document.getElementById("buildVersion");
+if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
 setLang("en");
   </script>
 </body>
