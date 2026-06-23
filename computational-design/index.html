@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.78" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.1.79" />
 </head>
 
 <body class="page-white">
@@ -45,7 +45,18 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero hero-comp-pillars">
+      <div class="hero-pillar-bg" aria-hidden="true">
+        <div class="hero-pillar-bg-images">
+          <img class="hero-pillar-bg-img" data-pillar="0" src="https://placehold.co/1600x900/e8eaed/6b7280?text=Constraint-first" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+          <img class="hero-pillar-bg-img" data-pillar="1" src="https://placehold.co/1600x900/e8eaed/6b7280?text=Editable+geometry" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+          <img class="hero-pillar-bg-img" data-pillar="2" src="https://placehold.co/1600x900/e8eaed/6b7280?text=Rationalization" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+          <img class="hero-pillar-bg-img" data-pillar="3" src="https://placehold.co/1600x900/e8eaed/6b7280?text=Documentation" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+        </div>
+        <div class="hero-pillar-bg-overlay"></div>
+        <div class="hero-pillar-bg-fade"></div>
+      </div>
+
       <div class="container hero-inner">
         <p class="page-back">
           <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
@@ -59,78 +70,42 @@
           Controllable geometry, readable parameters, and predictable behavior. Grounded in traditional architectural practice, then made repeatable and documented.
         </p>
 
+        <div class="hero-pillar-stage">
+          <div class="hero-pillar-copy" data-pillar="0">
+            <p id="card1S1">Define what must hold true before form takes shape.</p>
+            <p id="card1S2">Setbacks, spans, code minimums, and program limits enter the model first.</p>
+            <p id="card1S3">Geometry is generated inside those boundaries, not the other way around.</p>
+          </div>
+          <div class="hero-pillar-copy" data-pillar="1">
+            <p id="card2S1">Change a parameter, not the whole model.</p>
+            <p id="card2S2">Walls, roofs, and assemblies update from a single rule set.</p>
+            <p id="card2S3">Edits stay local so design intent survives every revision.</p>
+          </div>
+          <div class="hero-pillar-copy" data-pillar="2">
+            <p id="card3S1">Intent is resolved into clean, buildable rules.</p>
+            <p id="card3S2">Complex surfaces become panels, beams, and repeatable units.</p>
+            <p id="card3S3">The result stays legible to fabricators, estimators, and reviewers.</p>
+          </div>
+          <div class="hero-pillar-copy" data-pillar="3">
+            <p id="card4S1">Decisions stay traceable and recorded.</p>
+            <p id="card4S2">Parameters, assumptions, and outputs are versioned alongside the model.</p>
+            <p id="card4S3">Hand-off includes what changed, why, and what still needs review.</p>
+          </div>
+        </div>
+
         <div class="hero-pillars">
-          <div class="foundation-hover-card panel" tabindex="0">
-            <div class="foundation-hover-head">
-              <h3 id="card1Title">Constraint-first</h3>
-            </div>
-            <div class="foundation-hover-drop">
-              <div class="foundation-hover-drop-inner">
-                <div class="foundation-hover-media">
-                  <img src="https://placehold.co/640x360/e8eaed/6b7280?text=Constraint-first" alt="" width="640" height="360" loading="lazy" />
-                </div>
-                <div class="foundation-hover-copy">
-                  <p id="card1S1">Define what must hold true before form takes shape.</p>
-                  <p id="card1S2">Setbacks, spans, code minimums, and program limits enter the model first.</p>
-                  <p id="card1S3">Geometry is generated inside those boundaries, not the other way around.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="foundation-hover-card panel" tabindex="0">
-            <div class="foundation-hover-head">
-              <h3 id="card2Title">Editable geometry</h3>
-            </div>
-            <div class="foundation-hover-drop">
-              <div class="foundation-hover-drop-inner">
-                <div class="foundation-hover-media">
-                  <img src="https://placehold.co/640x360/e8eaed/6b7280?text=Editable+geometry" alt="" width="640" height="360" loading="lazy" />
-                </div>
-                <div class="foundation-hover-copy">
-                  <p id="card2S1">Change a parameter, not the whole model.</p>
-                  <p id="card2S2">Walls, roofs, and assemblies update from a single rule set.</p>
-                  <p id="card2S3">Edits stay local so design intent survives every revision.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="foundation-hover-card panel" tabindex="0">
-            <div class="foundation-hover-head">
-              <h3 id="card3Title">Rationalization</h3>
-            </div>
-            <div class="foundation-hover-drop">
-              <div class="foundation-hover-drop-inner">
-                <div class="foundation-hover-media">
-                  <img src="https://placehold.co/640x360/e8eaed/6b7280?text=Rationalization" alt="" width="640" height="360" loading="lazy" />
-                </div>
-                <div class="foundation-hover-copy">
-                  <p id="card3S1">Intent is resolved into clean, buildable rules.</p>
-                  <p id="card3S2">Complex surfaces become panels, beams, and repeatable units.</p>
-                  <p id="card3S3">The result stays legible to fabricators, estimators, and reviewers.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="foundation-hover-card panel" tabindex="0">
-            <div class="foundation-hover-head">
-              <h3 id="card4Title">Documentation</h3>
-            </div>
-            <div class="foundation-hover-drop">
-              <div class="foundation-hover-drop-inner">
-                <div class="foundation-hover-media">
-                  <img src="https://placehold.co/640x360/e8eaed/6b7280?text=Documentation" alt="" width="640" height="360" loading="lazy" />
-                </div>
-                <div class="foundation-hover-copy">
-                  <p id="card4S1">Decisions stay traceable and recorded.</p>
-                  <p id="card4S2">Parameters, assumptions, and outputs are versioned alongside the model.</p>
-                  <p id="card4S3">Hand-off includes what changed, why, and what still needs review.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <button class="pillar-trigger panel" type="button" data-pillar="0">
+            <span class="pillar-trigger-title" id="card1Title">Constraint-first</span>
+          </button>
+          <button class="pillar-trigger panel" type="button" data-pillar="1">
+            <span class="pillar-trigger-title" id="card2Title">Editable geometry</span>
+          </button>
+          <button class="pillar-trigger panel" type="button" data-pillar="2">
+            <span class="pillar-trigger-title" id="card3Title">Rationalization</span>
+          </button>
+          <button class="pillar-trigger panel" type="button" data-pillar="3">
+            <span class="pillar-trigger-title" id="card4Title">Documentation</span>
+          </button>
         </div>
 
         <div class="hero-foundations">
@@ -233,7 +208,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Computational design systems</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.81</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.82</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -247,7 +222,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.81";
+const BUILD = "v0.1.82";
 
 const i18n = {
   en: {

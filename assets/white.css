@@ -14,6 +14,91 @@ body.page-white .hero{
     radial-gradient(900px 520px at 100% 10%, color-mix(in srgb, var(--text) 3%, transparent), transparent 55%);
 }
 
+body.page-white .hero-comp-pillars{
+  min-height:min(74vh, 780px);
+  overflow:hidden;
+  border-bottom:none;
+  background:var(--bg);
+}
+
+body.page-white .hero-pillar-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+body.page-white .hero-pillar-bg-images{
+  position:absolute;
+  inset:0;
+}
+
+body.page-white .hero-pillar-bg-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .45s ease;
+}
+
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="0"]:hover) .hero-pillar-bg-img[data-pillar="0"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="0"]:focus-visible) .hero-pillar-bg-img[data-pillar="0"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="1"]:hover) .hero-pillar-bg-img[data-pillar="1"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="1"]:focus-visible) .hero-pillar-bg-img[data-pillar="1"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="2"]:hover) .hero-pillar-bg-img[data-pillar="2"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="2"]:focus-visible) .hero-pillar-bg-img[data-pillar="2"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="3"]:hover) .hero-pillar-bg-img[data-pillar="3"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="3"]:focus-visible) .hero-pillar-bg-img[data-pillar="3"]{
+  opacity:1;
+}
+
+body.page-white .hero-pillar-bg-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(560px 320px at 14% 24%, color-mix(in srgb, var(--hero-fade) 16%, transparent), transparent 70%),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 28%,
+      color-mix(in srgb, var(--hero-fade) 8%, transparent) 36%,
+      color-mix(in srgb, var(--hero-fade) 22%, transparent) 44%,
+      color-mix(in srgb, var(--hero-fade) 42%, transparent) 52%,
+      color-mix(in srgb, var(--hero-fade) 62%, transparent) 60%,
+      color-mix(in srgb, var(--hero-fade) 78%, transparent) 68%,
+      color-mix(in srgb, var(--hero-fade) 90%, transparent) 76%,
+      var(--hero-fade) 100%
+    );
+}
+
+body.page-white .hero-pillar-bg-fade{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:22%;
+  background:linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--hero-fade) 55%, transparent) 55%, var(--hero-fade) 100%);
+}
+
+body.page-white .hero-comp-pillars .hero-inner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  min-height:min(74vh, 780px);
+  padding:64px 0 48px;
+}
+
+body.page-white .hero-comp-pillars .page-back-link,
+body.page-white .hero-comp-pillars .kicker,
+body.page-white .hero-comp-pillars h1,
+body.page-white .hero-comp-pillars .lead{
+  position:relative;
+  z-index:1;
+}
+
 body.page-white .hero-inner{
   padding:64px 0 56px;
 }
@@ -74,8 +159,87 @@ body.page-white .hero-pillars{
 
 body.page-white .hero-pillars{
   gap:14px;
-  margin-top:22px;
-  align-items:start;
+  margin-top:auto;
+  align-items:stretch;
+  position:relative;
+  z-index:3;
+}
+
+body.page-white .hero-pillar-stage{
+  position:relative;
+  flex:1 1 auto;
+  min-height:clamp(160px, 24vh, 280px);
+  margin-top:18px;
+  pointer-events:none;
+}
+
+body.page-white .hero-pillar-copy{
+  position:absolute;
+  left:0;
+  bottom:0;
+  max-width:min(44ch, 92%);
+  padding:14px 16px;
+  border-radius:var(--radius);
+  border:1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  background:color-mix(in srgb, var(--panel) 82%, transparent);
+  backdrop-filter:blur(10px) saturate(1.05);
+  box-shadow:var(--shadow);
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .28s ease, transform .28s ease;
+  pointer-events:none;
+}
+
+body.page-white .hero-pillar-copy p{
+  margin:0;
+  font-size:13px;
+  line-height:1.55;
+  color:var(--muted);
+}
+
+body.page-white .hero-pillar-copy p + p{
+  margin-top:8px;
+}
+
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="0"]:hover) .hero-pillar-copy[data-pillar="0"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="0"]:focus-visible) .hero-pillar-copy[data-pillar="0"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="1"]:hover) .hero-pillar-copy[data-pillar="1"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="1"]:focus-visible) .hero-pillar-copy[data-pillar="1"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="2"]:hover) .hero-pillar-copy[data-pillar="2"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="2"]:focus-visible) .hero-pillar-copy[data-pillar="2"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="3"]:hover) .hero-pillar-copy[data-pillar="3"],
+body.page-white .hero-comp-pillars:has(.pillar-trigger[data-pillar="3"]:focus-visible) .hero-pillar-copy[data-pillar="3"]{
+  opacity:1;
+  transform:translateY(0);
+}
+
+body.page-white .pillar-trigger{
+  appearance:none;
+  display:block;
+  width:100%;
+  margin:0;
+  padding:14px 16px;
+  text-align:left;
+  font:inherit;
+  color:inherit;
+  cursor:pointer;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+body.page-white .pillar-trigger:hover,
+body.page-white .pillar-trigger:focus-visible{
+  transform:translateY(-2px);
+  border-color:color-mix(in srgb, var(--accent) 28%, var(--line));
+  background:var(--panel2);
+  box-shadow:0 10px 28px color-mix(in srgb, var(--text) 10%, transparent);
+  outline:none;
+}
+
+body.page-white .pillar-trigger-title{
+  display:block;
+  font-weight:600;
+  font-size:16px;
+  color:var(--text);
 }
 
 body.page-white .hero-cards .mini-card,
@@ -228,82 +392,7 @@ body.page-white .hero-foundations-grid{
   align-items:start;
 }
 
-body.page-white .foundation-hover-card{
-  display:block;
-  text-decoration:none !important;
-  color:inherit;
-  position:relative;
-  z-index:1;
-  outline:none;
-  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease, background .2s ease, z-index 0s;
-}
 
-body.page-white .foundation-hover-card:focus-visible{
-  border-color:color-mix(in srgb, var(--accent) 40%, var(--line));
-}
-
-body.page-white .foundation-hover-card:hover,
-body.page-white .foundation-hover-card:focus-within{
-  z-index:6;
-  transform:translateY(-2px);
-  border-color:color-mix(in srgb, var(--accent) 28%, var(--line));
-  background:var(--panel2);
-  box-shadow:0 14px 34px color-mix(in srgb, var(--text) 10%, transparent);
-  text-decoration:none !important;
-}
-
-body.page-white .foundation-hover-head h3{
-  margin:0;
-  font-size:18px;
-  color:var(--text);
-}
-
-body.page-white .foundation-hover-drop{
-  display:grid;
-  grid-template-rows:0fr;
-  transition:grid-template-rows .32s ease;
-}
-
-body.page-white .foundation-hover-card:hover .foundation-hover-drop,
-body.page-white .foundation-hover-card:focus-within .foundation-hover-drop{
-  grid-template-rows:1fr;
-}
-
-body.page-white .foundation-hover-drop-inner{
-  overflow:hidden;
-  min-height:0;
-}
-
-body.page-white .foundation-hover-media{
-  margin-top:14px;
-  aspect-ratio:16 / 9;
-  overflow:hidden;
-  border-radius:calc(var(--radius) - 2px);
-  border:1px solid var(--line);
-  background:color-mix(in srgb, var(--text) 4%, var(--panel));
-}
-
-body.page-white .foundation-hover-media img{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-body.page-white .foundation-hover-copy{
-  margin-top:12px;
-}
-
-body.page-white .foundation-hover-copy p{
-  margin:0;
-  font-size:13px;
-  line-height:1.55;
-  color:var(--muted);
-}
-
-body.page-white .foundation-hover-copy p + p{
-  margin-top:8px;
-}
 
 body.page-white .article-body{
   padding:0 0 54px;
@@ -534,9 +623,18 @@ body.page-white .footer-map-credit{
     padding:48px 0 36px;
   }
 
+  body.page-white .hero-comp-pillars,
+  body.page-white .hero-comp-pillars .hero-inner{
+    min-height:min(68vh, 680px);
+  }
+
   body.page-white .hero-cards,
   body.page-white .hero-pillars{
     grid-template-columns:1fr 1fr;
+  }
+
+  body.page-white .hero-pillar-stage{
+    min-height:140px;
   }
 
   body.page-white .projects-grid{
