@@ -39,14 +39,12 @@ body.page-white .hero-pillar-bg-img{
   width:100%;
   height:100%;
   object-fit:cover;
+  object-position:center 42%;
   opacity:0;
   transition:opacity .45s ease;
 }
 
-body.page-white .hero-comp-pillars[data-active-pillar="0"] .hero-pillar-bg-img[data-pillar="0"],
-body.page-white .hero-comp-pillars[data-active-pillar="1"] .hero-pillar-bg-img[data-pillar="1"],
-body.page-white .hero-comp-pillars[data-active-pillar="2"] .hero-pillar-bg-img[data-pillar="2"],
-body.page-white .hero-comp-pillars[data-active-pillar="3"] .hero-pillar-bg-img[data-pillar="3"]{
+body.page-white .hero-pillar-bg-img.is-hero-base{
   opacity:1;
 }
 
