@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.92" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.1.93" />
 </head>
 
 <body class="page-white">
@@ -61,10 +61,6 @@
       <div class="container hero-inner">
         <div class="hero-top">
           <div class="hero-copy-panel">
-            <p class="page-back">
-              <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
-            </p>
-
             <p class="kicker" id="kickerText">Computational Design</p>
 
             <h1 id="heroTitle">Reading the jungle, rationalizing the irrational.</h1>
@@ -265,11 +261,10 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.92";
+const BUILD = "v0.1.93";
 
 const i18n = {
   en: {
-    backLink: "← Practical AI for the built environment",
     kicker: "Computational Design",
     heroTitle: "Reading the jungle, rationalizing the irrational.",
     heroLead: "Parametric models that preserve intent.",
@@ -321,7 +316,6 @@ const i18n = {
     footerTagline: "Systems-first workflows for architecture and the built environment."
   },
   zh: {
-    backLink: "← 建築與環境的實用 AI",
     kicker: "計算式設計",
     heroTitle: "讀懂叢林，將非理性合理化。",
     heroLead: "保留設計意圖的參數化模型。",
@@ -382,7 +376,6 @@ function setLang(next) {
   const toggle = document.getElementById("langToggle");
   toggle.classList.toggle("is-en-active", lang === "en");
 
-  document.getElementById("backLink").textContent = t.backLink;
   document.getElementById("kickerText").textContent = t.kicker;
   document.getElementById("heroTitle").textContent = t.heroTitle;
   document.getElementById("heroLead").textContent = t.heroLead;
