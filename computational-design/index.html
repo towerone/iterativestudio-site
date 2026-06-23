@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.89" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.1.90" />
 </head>
 
 <body class="page-white">
@@ -48,7 +48,10 @@
     <section class="hero hero-comp-pillars">
       <div class="hero-pillar-bg" aria-hidden="true">
         <div class="hero-pillar-bg-images">
-          <img class="hero-pillar-bg-img is-hero-base" src="/assets/comp-design/hero-parametric.jpg?v=1" alt="Parametric towers and floating rings over a green lattice landscape" width="310" height="429" decoding="async" fetchpriority="high" />
+          <picture>
+            <source srcset="/assets/comp-design/hero-parametric.gif?v=1" type="image/gif" />
+            <img class="hero-pillar-bg-img is-hero-base" src="/assets/comp-design/hero-parametric.jpg?v=2" alt="Parametric towers and floating rings over a green lattice landscape" width="701" height="970" decoding="async" fetchpriority="high" />
+          </picture>
         </div>
         <div class="hero-pillar-bg-scrim"></div>
         <div class="hero-pillar-bg-overlay"></div>
@@ -262,7 +265,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.89";
+const BUILD = "v0.1.90";
 
 const i18n = {
   en: {
