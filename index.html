@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.2.81" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.2.82" />
 </head>
 
 <body>
@@ -66,6 +66,14 @@
         <div class="hero-main">
           <div class="hero-copy">
             <p class="hero-headline" id="heroHeadline">Architecture, <span class="hero-headline-accent">under the AI influence</span></p>
+
+            <div class="hero-live-feed" id="heroLiveFeed" aria-live="polite">
+              <div class="hero-live-box">
+                <span class="hero-live-label" id="heroLiveLabel">LIVE</span>
+              </div>
+              <p class="hero-live-caption" id="mapFeedCaption">feed of particulate PM2.5</p>
+              <p class="hero-live-mode" id="mapModeLabel">pollution-PM2.5</p>
+            </div>
 
             <div class="hero-flipper-zone" id="heroFlipperZone">
             <div class="hero-flipper is-tint-pm1" id="heroFlipper" aria-label="Project previews" aria-live="polite">
@@ -169,7 +177,6 @@
 
           <div class="hero-action-row">
             <div class="hero-map-controls" aria-hidden="false">
-              <span class="map-mode" id="mapModeLabel">pollution-PM2.5</span>
               <button class="pill" type="button" data-map="currents" aria-label="Ocean currents">W</button>
               <button class="pill" type="button" data-map="wind" aria-label="Air wind">A</button>
               <button class="pill is-active" type="button" data-map="pm1" aria-label="Particulate PM2.5">P</button>
@@ -355,7 +362,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.81</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.82</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -428,10 +435,16 @@ panel2Li3: "Hand-off ready outputs",
 footerNote: "Building AI for the Built Environment",
 footerMapCredit: "Earth viewer map provided by <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a>",
 footerPartnerNote: "* Completed under supervision / collaboration with a partner firm.",
+liveLabel: "LIVE",
 mapLabels: {
 currents: "ocean-currents",
 wind: "air-wind",
 pm1: "pollution-PM2.5"
+},
+mapFeedCaptions: {
+currents: "feed of ocean currents",
+wind: "feed of wind speeds",
+pm1: "feed of particulate PM2.5"
 },
 flipperCaptions: [
 "Jeddah Hospital 2014",
@@ -507,10 +520,16 @@ panel2Li3: "可交付的輸出",
 footerNote: "為建築環境打造 AI",
 footerMapCredit: "地球地圖檢視器由 <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a> 提供",
 footerPartnerNote: "* 於合作事務所指導／協作下完成。",
+liveLabel: "直播",
 mapLabels: {
 currents: "海洋-洋流",
 wind: "空氣-風",
 pm1: "污染-PM2.5"
+},
+mapFeedCaptions: {
+currents: "即時洋流資料",
+wind: "即時風速資料",
+pm1: "即時懸浮微粒資料"
 },
 flipperCaptions: [
 "Jeddah Hospital 2014",
@@ -539,7 +558,7 @@ flipperCaptions: [
 
 let lang = "en";
 
-const BUILD = "v0.2.81";
+const BUILD = "v0.2.82";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -862,9 +881,14 @@ else heroFlipperEl.classList.add("is-tint-currents");
 }
 
 function updateMapLabel() {
+if (!currentMapKey) return;
+const t = i18n[lang];
 const labelEl = document.getElementById("mapModeLabel");
-if (!labelEl || !currentMapKey) return;
-labelEl.textContent = i18n[lang].mapLabels[currentMapKey] || currentMapKey;
+const captionEl = document.getElementById("mapFeedCaption");
+const liveLabelEl = document.getElementById("heroLiveLabel");
+if (labelEl) labelEl.textContent = t.mapLabels[currentMapKey] || currentMapKey;
+if (captionEl) captionEl.textContent = t.mapFeedCaptions[currentMapKey] || "";
+if (liveLabelEl) liveLabelEl.textContent = t.liveLabel || "LIVE";
 }
 
 function setLang(next) {
