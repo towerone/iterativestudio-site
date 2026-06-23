@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
   <title>Detailing | Iterative Studio</title>
-  <meta name="description" content="Detailing: where design intent survives contact with construction. A mosaic of resolved junctions, and why gradual variance across a full set is hard for headless AI." />
+  <meta name="description" content="Detailing: where design intent survives contact with construction. A mosaic of resolved nodes in the building graph, and why gradual variance across the full network is hard for headless AI." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -17,7 +17,8 @@
     .detail{ margin:0; cursor:pointer; border:1px solid var(--line); border-radius:var(--radius2); background:var(--panel); box-shadow:var(--shadow); overflow:hidden; transition:transform .15s ease, border-color .15s ease; }
     .detail:hover{ transform:translateY(-2px); border-color:rgba(47,107,255,.28); }
     .detail:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
-    .detail-img{ aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(47,107,255,.10), rgba(0,0,0,.03)); border-bottom:1px solid var(--line); }
+    .detail-img{ position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(47,107,255,.10), rgba(0,0,0,.03)); border-bottom:1px solid var(--line); }
+    .detail-img::after{ content:""; position:absolute; top:10px; right:10px; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 2px var(--panel); opacity:.85; }
     .detail-num{ font-size:26px; font-weight:600; color:var(--faint); letter-spacing:.1em; }
     .detail-cap{ padding:12px 14px; display:flex; flex-direction:column; gap:6px; }
     .detail-title{ font-weight:600; font-size:14px; letter-spacing:-0.01em; }
@@ -73,21 +74,21 @@
           <a class="page-back-link" href="/computational-design/" id="backLink">← Computational Design</a>
         </p>
         <p class="kicker" id="kicker">Detailing</p>
-        <h1 id="heroTitle">A building is only as good as its worst junction.</h1>
-        <p class="lead" id="heroLead">Detailing is where design intent survives contact with construction. Fifteen details, three arguments, and the reason gradual variance across a full set is still hard for headless AI.</p>
+        <h1 id="heroTitle">A building fails at its weakest node.</h1>
+        <p class="lead" id="heroLead">Every detail is a node in the building graph — a point where assemblies meet and local rules propagate to the next condition. Fifteen nodes, three arguments, and why variance across the full network is still hard for headless AI.</p>
 
         <div class="hero-cards" style="grid-template-columns:repeat(3,minmax(0,1fr));">
           <div class="mini-card">
-            <div class="mini-title" id="pr1">Junction</div>
-            <div class="mini-body" id="pr1b">Where materials meet, fix, and transfer load.</div>
+            <div class="mini-title" id="pr1">Node</div>
+            <div class="mini-body" id="pr1b">A resolved point where assemblies meet — load, water, and air routed through one coordinated condition.</div>
           </div>
           <div class="mini-card">
             <div class="mini-title" id="pr2">Tolerance</div>
-            <div class="mini-body" id="pr2b">Real trades, real gaps: details that absorb the slack of the site.</div>
+            <div class="mini-body" id="pr2b">Real trades, real gaps: each node absorbs the slack the site actually has.</div>
           </div>
           <div class="mini-card">
             <div class="mini-title" id="pr3">Variance</div>
-            <div class="mini-body" id="pr3b">Gradual shifts across a full set — every junction slightly different, still coherent.</div>
+            <div class="mini-body" id="pr3b">Gradual shifts across the network — every node slightly different, still coherent with the whole graph.</div>
           </div>
         </div>
       </div>
@@ -96,8 +97,8 @@
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2 id="gridTitle">Junction by junction, the case gets made</h2>
-          <p id="gridBody">Fifteen resolved details in a wall — not decoration, evidence. Enlarge any square; the dashed gaps carry what a single image cannot.</p>
+          <h2 id="gridTitle">Node by node, the network earns trust</h2>
+          <p id="gridBody">Fifteen resolved nodes in a wall — each a point in the building graph, not decoration but evidence. Enlarge any square; the dashed gaps carry what a single image cannot.</p>
         </div>
 
         <div class="mosaic">
@@ -105,22 +106,22 @@
           <figure class="detail" tabindex="0" role="button" data-key="d2" data-num="02"><div class="detail-img" aria-hidden="true"><span class="detail-num">02</span></div><figcaption class="detail-cap"><span class="detail-title" id="d2t">Window head</span><span class="detail-note" id="d2n">The lintel carries load while the head flashing sheds water clear of the frame below.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d3" data-num="03"><div class="detail-img" aria-hidden="true"><span class="detail-num">03</span></div><figcaption class="detail-cap"><span class="detail-title" id="d3t">Window jamb</span><span class="detail-note" id="d3n">Side seal and shim space: airtightness inside, drainage outside, tolerance in between.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d4" data-num="04"><div class="detail-img" aria-hidden="true"><span class="detail-num">04</span></div><figcaption class="detail-cap"><span class="detail-title" id="d4t">Window sill</span><span class="detail-note" id="d4n">A sloped, flashed sill drains outward and protects the wall beneath the opening.</span></figcaption></figure>
-          <div class="hole"><span class="hole-title" id="h1t">Why details decide the design</span><p class="hole-body" id="h1b">A building is only as good as its worst junction. The concept lives or dies where materials actually meet: at the parapet, the sill, the threshold. Details are where intent meets gravity, water, and tolerance, and where good design either survives or quietly fails.</p></div>
-          <figure class="detail" tabindex="0" role="button" data-key="d5" data-num="05"><div class="detail-img" aria-hidden="true"><span class="detail-num">05</span></div><figcaption class="detail-cap"><span class="detail-title" id="d5t">Wall base & grade</span><span class="detail-note" id="d5n">The most punished junction: capillary break, flashing, and a clean line where wall meets ground.</span></figcaption></figure>
+          <div class="hole"><span class="hole-title" id="h1t">Why nodes carry the design</span><p class="hole-body" id="h1b">A building fails at its weakest node. The concept lives or dies at the points where assemblies actually connect — parapet, sill, threshold. Each node is where intent meets gravity, water, and tolerance; resolve one poorly and the whole graph reads the failure.</p></div>
+          <figure class="detail" tabindex="0" role="button" data-key="d5" data-num="05"><div class="detail-img" aria-hidden="true"><span class="detail-num">05</span></div><figcaption class="detail-cap"><span class="detail-title" id="d5t">Wall base & grade</span><span class="detail-note" id="d5n">The most punished node: capillary break, flashing, and a clean line where wall meets ground.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d6" data-num="06"><div class="detail-img" aria-hidden="true"><span class="detail-num">06</span></div><figcaption class="detail-cap"><span class="detail-title" id="d6t">Slab edge & floor line</span><span class="detail-note" id="d6n">Thermal break and fire stop at the floor line, with the facade reading continuous outside.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d7" data-num="07"><div class="detail-img" aria-hidden="true"><span class="detail-num">07</span></div><figcaption class="detail-cap"><span class="detail-title" id="d7t">Curtain wall transom</span><span class="detail-note" id="d7n">Pressure-equalized glazing pocket; gaskets and weeps manage the water that always gets in.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d8" data-num="08"><div class="detail-img" aria-hidden="true"><span class="detail-num">08</span></div><figcaption class="detail-cap"><span class="detail-title" id="d8t">Expansion joint</span><span class="detail-note" id="d8n">Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d9" data-num="09"><div class="detail-img" aria-hidden="true"><span class="detail-num">09</span></div><figcaption class="detail-cap"><span class="detail-title" id="d9t">Eave & soffit</span><span class="detail-note" id="d9n">Ventilation path, insect screen, and a clean shadow line under the overhang.</span></figcaption></figure>
-          <div class="hole"><span class="hole-title" id="h2t">Where headless AI struggles</span><p class="hole-body" id="h2b">A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated details, where every junction shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole set. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.</p></div>
-          <figure class="detail" tabindex="0" role="button" data-key="d10" data-num="10"><div class="detail-img" aria-hidden="true"><span class="detail-num">10</span></div><figcaption class="detail-cap"><span class="detail-title" id="d10t">Threshold & balcony</span><span class="detail-note" id="d10n">The flat, trafficked, waterproofed junction where most leaks are actually born.</span></figcaption></figure>
+          <div class="hole"><span class="hole-title" id="h2t">Where headless AI struggles</span><p class="hole-body" id="h2b">A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated nodes, where each point shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole graph. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.</p></div>
+          <figure class="detail" tabindex="0" role="button" data-key="d10" data-num="10"><div class="detail-img" aria-hidden="true"><span class="detail-num">10</span></div><figcaption class="detail-cap"><span class="detail-title" id="d10t">Threshold & balcony</span><span class="detail-note" id="d10n">The flat, trafficked, waterproofed node where most leaks are actually born.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d11" data-num="11"><div class="detail-img" aria-hidden="true"><span class="detail-num">11</span></div><figcaption class="detail-cap"><span class="detail-title" id="d11t">Cladding corner</span><span class="detail-note" id="d11n">Where two planes meet, alignment and tolerance decide whether the building looks sharp or sloppy.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d12" data-num="12"><div class="detail-img" aria-hidden="true"><span class="detail-num">12</span></div><figcaption class="detail-cap"><span class="detail-title" id="d12t">Roof drainage & scupper</span><span class="detail-note" id="d12n">Primary and overflow paths sized so a blocked drain never becomes a flooded roof.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d13" data-num="13"><div class="detail-img" aria-hidden="true"><span class="detail-num">13</span></div><figcaption class="detail-cap"><span class="detail-title" id="d13t">Door threshold</span><span class="detail-note" id="d13n">Level access in, water out: a low-profile sill that still keeps weather at bay.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d14" data-num="14"><div class="detail-img" aria-hidden="true"><span class="detail-num">14</span></div><figcaption class="detail-cap"><span class="detail-title" id="d14t">Handrail fixing</span><span class="detail-note" id="d14n">A small bracket carrying real load; substrate, anchor, and tolerance all have to agree.</span></figcaption></figure>
-          <div class="hole"><span class="hole-title" id="h3t">Rows of details are the proof</span><p class="hole-body" id="h3b">Renders persuade; details legitimize. A wall of resolved junctions is evidence that the idea was carried all the way to buildable, not stopped at the picture. This is the part of practice that earns trust on site, and the part a headed workflow protects.</p></div>
+          <div class="hole"><span class="hole-title" id="h3t">Rows of nodes are the proof</span><p class="hole-body" id="h3b">Renders persuade; nodes legitimize. A wall of resolved points in the graph is evidence that the idea was carried all the way to buildable, not stopped at the picture. This is the part of practice that earns trust on site, and the part a headed workflow protects.</p></div>
           <figure class="detail" tabindex="0" role="button" data-key="d15" data-num="15"><div class="detail-img" aria-hidden="true"><span class="detail-num">15</span></div><figcaption class="detail-cap"><span class="detail-title" id="d15t">Material transition</span><span class="detail-note" id="d15n">Stone to render, metal to timber: the reveal that lets unlike materials meet honestly.</span></figcaption></figure>
         </div>
-        <p class="mosaic-caption" id="mosaicCaption">Enlarge a junction · read the gaps for the thesis.</p>
+        <p class="mosaic-caption" id="mosaicCaption">Enlarge a node · read the gaps for the thesis.</p>
       </div>
     </section>
 
@@ -139,7 +140,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Detailing</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.01</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.02</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -148,7 +149,7 @@
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Detail">
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Node detail">
     <div class="lightbox-card">
       <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">×</button>
       <div class="lightbox-img" aria-hidden="true"><span class="lightbox-num" id="lbNum">01</span></div>
@@ -160,39 +161,39 @@
   </div>
 
   <script>
-const BUILD = "v0.3.01";
+const BUILD = "v0.3.02";
 
 const i18n = {
   en: {
     backLink: "← Computational Design",
     kicker: "Detailing",
-    heroTitle: "A building is only as good as its worst junction.",
-    heroLead: "Detailing is where design intent survives contact with construction. Fifteen details, three arguments, and the reason gradual variance across a full set is still hard for headless AI.",
+    heroTitle: "A building fails at its weakest node.",
+    heroLead: "Every detail is a node in the building graph — a point where assemblies meet and local rules propagate to the next condition. Fifteen nodes, three arguments, and why variance across the full network is still hard for headless AI.",
     navProjects: "Projects", navAbout: "About", navContact: "Contact",
-    pr1: "Junction", pr1b: "Where materials meet, fix, and transfer load.",
-    pr2: "Tolerance", pr2b: "Real trades, real gaps: details that absorb the slack of the site.",
-    pr3: "Variance", pr3b: "Gradual shifts across a full set — every junction slightly different, still coherent.",
-    gridTitle: "Junction by junction, the case gets made",
-    gridBody: "Fifteen resolved details in a wall — not decoration, evidence. Enlarge any square; the dashed gaps carry what a single image cannot.",
+    pr1: "Node", pr1b: "A resolved point where assemblies meet — load, water, and air routed through one coordinated condition.",
+    pr2: "Tolerance", pr2b: "Real trades, real gaps: each node absorbs the slack the site actually has.",
+    pr3: "Variance", pr3b: "Gradual shifts across the network — every node slightly different, still coherent with the whole graph.",
+    gridTitle: "Node by node, the network earns trust",
+    gridBody: "Fifteen resolved nodes in a wall — each a point in the building graph, not decoration but evidence. Enlarge any square; the dashed gaps carry what a single image cannot.",
     d1t: "Parapet & roof edge", d1n: "Where the roof stops, water wants in. Cap flashing, drip, and continuous membrane turn an edge into a defense.",
     d2t: "Window head", d2n: "The lintel carries load while the head flashing sheds water clear of the frame below.",
     d3t: "Window jamb", d3n: "Side seal and shim space: airtightness inside, drainage outside, tolerance in between.",
     d4t: "Window sill", d4n: "A sloped, flashed sill drains outward and protects the wall beneath the opening.",
-    d5t: "Wall base & grade", d5n: "The most punished junction: capillary break, flashing, and a clean line where wall meets ground.",
+    d5t: "Wall base & grade", d5n: "The most punished node: capillary break, flashing, and a clean line where wall meets ground.",
     d6t: "Slab edge & floor line", d6n: "Thermal break and fire stop at the floor line, with the facade reading continuous outside.",
     d7t: "Curtain wall transom", d7n: "Pressure-equalized glazing pocket; gaskets and weeps manage the water that always gets in.",
     d8t: "Expansion joint", d8n: "Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.",
     d9t: "Eave & soffit", d9n: "Ventilation path, insect screen, and a clean shadow line under the overhang.",
-    d10t: "Threshold & balcony", d10n: "The flat, trafficked, waterproofed junction where most leaks are actually born.",
+    d10t: "Threshold & balcony", d10n: "The flat, trafficked, waterproofed node where most leaks are actually born.",
     d11t: "Cladding corner", d11n: "Where two planes meet, alignment and tolerance decide whether the building looks sharp or sloppy.",
     d12t: "Roof drainage & scupper", d12n: "Primary and overflow paths sized so a blocked drain never becomes a flooded roof.",
     d13t: "Door threshold", d13n: "Level access in, water out: a low-profile sill that still keeps weather at bay.",
     d14t: "Handrail fixing", d14n: "A small bracket carrying real load; substrate, anchor, and tolerance all have to agree.",
     d15t: "Material transition", d15n: "Stone to render, metal to timber: the reveal that lets unlike materials meet honestly.",
-    h1t: "Why details decide the design", h1b: "A building is only as good as its worst junction. The concept lives or dies where materials actually meet: at the parapet, the sill, the threshold. Details are where intent meets gravity, water, and tolerance, and where good design either survives or quietly fails.",
-    h2t: "Where headless AI struggles", h2b: "A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated details, where every junction shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole set. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.",
-    h3t: "Rows of details are the proof", h3b: "Renders persuade; details legitimize. A wall of resolved junctions is evidence that the idea was carried all the way to buildable, not stopped at the picture. This is the part of practice that earns trust on site, and the part a headed workflow protects.",
-    mosaicCaption: "Enlarge a junction · read the gaps for the thesis.",
+    h1t: "Why nodes carry the design", h1b: "A building fails at its weakest node. The concept lives or dies at the points where assemblies actually connect — parapet, sill, threshold. Each node is where intent meets gravity, water, and tolerance; resolve one poorly and the whole graph reads the failure.",
+    h2t: "Where headless AI struggles", h2b: "A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated nodes, where each point shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole graph. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.",
+    h3t: "Rows of nodes are the proof", h3b: "Renders persuade; nodes legitimize. A wall of resolved points in the graph is evidence that the idea was carried all the way to buildable, not stopped at the picture. This is the part of practice that earns trust on site, and the part a headed workflow protects.",
+    mosaicCaption: "Enlarge a node · read the gaps for the thesis.",
     projectsCta: "See the full project archive →",
     ctaNote: "These are detail archetypes. The project archive shows them resolved in real construction documents.",
     footerNote: "Detailing",
@@ -201,33 +202,33 @@ const i18n = {
   zh: {
     backLink: "← 計算式設計",
     kicker: "細部",
-    heroTitle: "建築的好壞，取決於它最差的接點。",
-    heroLead: "細部是設計意圖與施工接觸後仍能存活的地方。十五個細部、三段論述，以及為何整套圖面的漸進變異對無頭 AI 仍然困難。",
+    heroTitle: "建築敗在它最弱的節點。",
+    heroLead: "每個細部都是建築圖譜中的一個節點——構件相接之處，局部規則向下一條件傳遞。十五個節點、三段論述，以及為何整張網絡上的變異對無頭 AI 仍然困難。",
     navProjects: "專案", navAbout: "關於", navContact: "聯絡",
-    pr1: "接點", pr1b: "材料相接、固定並傳遞載重之處。",
-    pr2: "公差", pr2b: "真實的工種、真實的縫隙：能吸收工地餘裕的細部。",
-    pr3: "變異", pr3b: "整套圖面中的漸進差異——每個接點略有不同，仍須一致。",
-    gridTitle: "一個接點接一個接點，論據就此成立",
-    gridBody: "十五個解決過的細部砌成一面牆——不是裝飾，是證據。點一格放大細讀；虛線空格承載單張圖像說不清的論點。",
+    pr1: "節點", pr1b: "構件相接的解決點——荷載、水與空氣經同一套協調條件通過。",
+    pr2: "公差", pr2b: "真實的工種、真實的縫隙：每個節點吸收工地實際的餘裕。",
+    pr3: "變異", pr3b: "整張網絡中的漸進差異——每個節點略有不同，仍與全圖一致。",
+    gridTitle: "一個節點接一個節點，網絡贏得信任",
+    gridBody: "十五個解決過的節點砌成一面牆——建築圖譜上的點，不是裝飾，是證據。點一格放大細讀；虛線空格承載單張圖像說不清的論點。",
     d1t: "女兒牆與屋頂收邊", d1n: "屋頂止於何處，水就想滲入。壓頂泛水、滴水線與連續防水層把邊緣變成防線。",
     d2t: "窗楣（上）", d2n: "過樑承載，同時上緣泛水把水導離下方窗框。",
     d3t: "窗側框", d3n: "側邊密封與墊片空間：內側氣密、外側排水，之間留公差。",
     d4t: "窗台（下）", d4n: "洩水有坡、做泛水的窗台向外排水，保護開口下方的牆體。",
-    d5t: "牆腳與地坪交接", d5n: "最受折磨的接點：毛細阻斷、泛水，以及牆與地乾淨相接的一線。",
+    d5t: "牆腳與地坪交接", d5n: "最受折磨的節點：毛細阻斷、泛水，以及牆與地乾淨相接的一線。",
     d6t: "樓板邊緣與樓層線", d6n: "樓層線處的隔熱斷橋與防火填塞，外側立面仍讀為連續。",
     d7t: "帷幕橫料", d7n: "等壓玻璃槽；墊條與洩水孔處理總會進來的水。",
     d8t: "伸縮縫", d8n: "建築會動。細部化的接縫讓兩個構造各自呼吸而不撕裂飾面。",
     d9t: "簷口與天花", d9n: "通風路徑、防蟲網，以及出簷下乾淨的陰影線。",
-    d10t: "門檻與陽台", d10n: "平整、會被踩踏、需防水的接點，多數漏水其實由此而生。",
+    d10t: "門檻與陽台", d10n: "平整、會被踩踏、需防水的節點，多數漏水其實由此而生。",
     d11t: "外牆轉角", d11n: "兩個面相接之處，對齊與公差決定建築看起來銳利或潦草。",
     d12t: "屋頂排水與落水口", d12n: "主排與溢流路徑經過計算，讓堵塞的排水口不致變成淹水的屋頂。",
     d13t: "門口門檻", d13n: "進得來、水出得去：低斷面的門檻仍能擋住風雨。",
     d14t: "扶手固定", d14n: "承載實際載重的小托架；基材、錨栓與公差都必須一致。",
     d15t: "材料交接", d15n: "石材接粉刷、金屬接木：讓不同材料誠實相接的退縮收口。",
-    h1t: "細部決定設計", h1b: "建築的好壞取決於它最差的接點。概念在材料真正相接之處存活或死去：女兒牆、窗台、門檻。細部是意圖與重力、水與公差交會的地方，好設計在此存續，或悄悄失敗。",
-    h2t: "無頭 AI 的難處", h2b: "模型能生成一張驚艷的影像，卻無法掌握上百個協調細部間的漸進變異：每個接點都隨基材、角度與公差略有不同，卻又必須與整套圖面一致。那種累積且互相參照的判斷，正是施工圖所要求、而單靠生成無法保持誠實的部分。",
-    h3t: "一排排細部就是證明", h3b: "渲染圖能說服，細部才能正名。一整面解決過的接點，證明這個想法被一路帶到可建造，而非止於圖像。這是實務中在工地贏得信任的部分，也是有頭工作流程所守護的部分。",
-    mosaicCaption: "放大一個接點 · 在空隙裡讀論點。",
+    h1t: "節點承載設計", h1b: "建築敗在它最弱的節點。概念在構件真正連接之處存活或死去——女兒牆、窗台、門檻。每個節點是意圖與重力、水與公差交會之處；一處解決不好，整張圖譜都讀得出失敗。",
+    h2t: "無頭 AI 的難處", h2b: "模型能生成一張驚艷的影像，卻無法掌握上百個協調節點間的漸進變異：每個點都隨基材、角度與公差略有不同，卻又必須與整張圖譜一致。那種累積且互相參照的判斷，正是施工圖所要求、而單靠生成無法保持誠實的部分。",
+    h3t: "一排排節點就是證明", h3b: "渲染圖能說服，節點才能正名。一整面圖譜上解決過的點，證明這個想法被一路帶到可建造，而非止於圖像。這是實務中在工地贏得信任的部分，也是有頭工作流程所守護的部分。",
+    mosaicCaption: "放大一個節點 · 在空隙裡讀論點。",
     projectsCta: "查看完整專案庫 →",
     ctaNote: "這些是細部原型。專案庫展示它們在真實施工圖中的落實。",
     footerNote: "細部",
