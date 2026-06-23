@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.75" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.1.76" />
 </head>
 
 <body class="page-white">
@@ -112,17 +112,20 @@
 
         <div class="foundations-grid">
           <a class="foundation-card panel panel-link" href="/computational-design/design/" id="foundation1Link">
-            <h3 id="foundation1Title">Design</h3>
+            <p class="foundation-kicker" id="foundation1Kicker">code / regulation / programming · Design</p>
+            <h3 id="foundation1Title">Iterative design Theory</h3>
             <p id="foundation1Body">How site, program, and concept drive every system.</p>
           </a>
 
           <a class="foundation-card panel panel-link" href="/computational-design/detailing/" id="foundation2Link">
-            <h3 id="foundation2Title">Detailing</h3>
+            <p class="foundation-kicker" id="foundation2Kicker">junction / tolerance / constructability · Detailing</p>
+            <h3 id="foundation2Title">Iterative detailing Strength</h3>
             <p id="foundation2Body">How design intent becomes buildable.</p>
           </a>
 
           <a class="foundation-card panel panel-link" href="/computational-design/zoning-planning-code/" id="foundation3Link">
-            <h3 id="foundation3Title">Zoning, Planning &amp; Code</h3>
+            <p class="foundation-kicker" id="foundation3Kicker">zoning / planning / green design · Rules</p>
+            <h3 id="foundation3Title">Practical practice Rules</h3>
             <p id="foundation3Body">The rules, including green design, that shape feasible work.</p>
           </a>
         </div>
@@ -200,7 +203,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Computational design systems</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.77</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.78</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -214,7 +217,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.77";
+const BUILD = "v0.1.78";
 
 const i18n = {
   en: {
@@ -229,11 +232,14 @@ const i18n = {
     navProjects: "Projects", navAbout: "About", navContact: "Contact",
     section1Title: "Architecture foundations",
     section1Body: "Previews that show the work is grounded in core practice, not only generation.",
-    foundation1Title: "Design",
+    foundation1Kicker: "code / regulation / programming · Design",
+    foundation1Title: "Iterative design Theory",
     foundation1Body: "How site, program, and concept drive every system.",
-    foundation2Title: "Detailing",
+    foundation2Kicker: "junction / tolerance / constructability · Detailing",
+    foundation2Title: "Iterative detailing Strength",
     foundation2Body: "How design intent becomes buildable.",
-    foundation3Title: "Zoning, Planning & Code",
+    foundation3Kicker: "zoning / planning / green design · Rules",
+    foundation3Title: "Practical practice Rules",
     foundation3Body: "The rules, including green design, that shape feasible work.",
     section2Title: "Headed workflow (non‑negotiable)",
     section2Body: "AI can assist drafting, debugging, and documentation — but production stays verifiable inside Rhino/Revit.",
@@ -266,11 +272,14 @@ const i18n = {
     navProjects: "專案", navAbout: "關於", navContact: "聯絡",
     section1Title: "建築基礎",
     section1Body: "預覽作品如何紮根於核心實務，而不只是生成。",
-    foundation1Title: "設計",
+    foundation1Kicker: "法規 / 規範 / 程式設計 · 設計",
+    foundation1Title: "迭代設計理論",
     foundation1Body: "基地、計畫與概念如何驅動每個系統。",
-    foundation2Title: "細部",
+    foundation2Kicker: "接點 / 公差 / 可施工性 · 細部",
+    foundation2Title: "迭代細部強度",
     foundation2Body: "設計意圖如何成為可建造的細部。",
-    foundation3Title: "分區、規劃與法規",
+    foundation3Kicker: "分區 / 規劃 / 綠建築 · 規則",
+    foundation3Title: "實務規則",
     foundation3Body: "塑造可行工作的規則，包含綠色設計。",
     section2Title: "有頭工作流程（不可妥協）",
     section2Body: "AI 可協助繪圖、除錯與文件 — 但產出須在 Rhino/Revit 內可驗證。",
@@ -318,10 +327,13 @@ function setLang(next) {
   document.getElementById("navContact").textContent = t.navContact;
   document.getElementById("section1Title").textContent = t.section1Title;
   document.getElementById("section1Body").textContent = t.section1Body;
+  document.getElementById("foundation1Kicker").textContent = t.foundation1Kicker;
   document.getElementById("foundation1Title").textContent = t.foundation1Title;
   document.getElementById("foundation1Body").textContent = t.foundation1Body;
+  document.getElementById("foundation2Kicker").textContent = t.foundation2Kicker;
   document.getElementById("foundation2Title").textContent = t.foundation2Title;
   document.getElementById("foundation2Body").textContent = t.foundation2Body;
+  document.getElementById("foundation3Kicker").textContent = t.foundation3Kicker;
   document.getElementById("foundation3Title").textContent = t.foundation3Title;
   document.getElementById("foundation3Body").textContent = t.foundation3Body;
   document.getElementById("section2Title").textContent = t.section2Title;

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
+  <title>Practical practice Rules | Computational Design | Iterative Studio</title>
+  <meta name="description" content="Zoning, planning, building code, and green design as practical rules that shape feasible computational design work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.1.76" />
+</head>
+
+<body class="page-white">
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+      <div class="header-hole" aria-hidden="true"></div>
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="page-back">
+          <a class="page-back-link" href="/computational-design/" id="backLink">← Computational Design</a>
+        </p>
+        <p class="kicker" id="kickerText">zoning / planning / green design · Rules</p>
+        <h1 id="heroTitle">Practical practice Rules</h1>
+        <p class="lead" id="heroLead">The rules, including green design, that shape feasible work — encoded before form is finalized.</p>
+      </div>
+    </section>
+
+    <section class="section article-body">
+      <div class="container">
+        <div class="article-block">
+          <h2 id="block1Title">Rules are the first design layer</h2>
+          <p id="block1P1">Zoning districts, planning overlays, and building codes define what can be built before a single line is drawn. Practical practice means those rules enter the computational model as measurable constraints — setbacks, FAR, height planes, egress paths, and energy targets — not as after-the-fact corrections.</p>
+          <p id="block1P2">When rules are modeled early, design options are compared inside the feasible envelope. Options that violate code or green-design thresholds are caught in iteration, not at permit submission.</p>
+        </div>
+
+        <div class="article-block">
+          <h2 id="block2Title">Zoning, planning, and code as parameters</h2>
+          <ul class="bullets">
+            <li id="block2Li1"><strong>Zoning</strong> — lot coverage, use types, parking ratios, and open-space requirements set the buildable volume.</li>
+            <li id="block2Li2"><strong>Planning</strong> — design review criteria, historic overlays, and greenbelt buffers shape massing and landscape sequence.</li>
+            <li id="block2Li3"><strong>Code</strong> — structural, fire, accessibility, and MEP provisions define minimum dimensions and system capacities.</li>
+          </ul>
+        </div>
+
+        <div class="article-block">
+          <h2 id="block3Title">Green design inside the rule set</h2>
+          <p id="block3P1">Green-building standards — daylight access, ventilation, rainwater capture, envelope performance — are treated as design drivers, not checklist items at the end. North Fork–style ranch studies, Calla Lily–style passive systems, and closed-loop concepts all start from environmental rules that the geometry must satisfy.</p>
+          <p id="block3P2">Parametric models make those requirements visible: when a shading angle, tank volume, or roof slope changes, the compliance assumption updates with it. The team sees the trade-off between form and performance in real time.</p>
+        </div>
+
+        <div class="article-block">
+          <h2 id="block4Title">Feasible work, documented and defensible</h2>
+          <p id="block4P1">Practical practice rules produce projects that can move through planning review, permitting, and construction without rework. Assumptions are versioned: which code edition, which zoning map, which green standard — all recorded alongside the model.</p>
+          <p id="block4P2">That documentation is what separates computational novelty from professional practice. The rules are not hidden inside a script; they are stated, checked, and handed off with the drawings.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
+        <div class="footer-note" id="footerNote">Practical practice Rules</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.78</div>
+      </div>
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerTagline">Systems-first workflows for architecture and the built environment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const BUILD = "v0.1.78";
+const i18n = {
+  en: {
+    backLink: "← Computational Design",
+    kicker: "zoning / planning / green design · Rules",
+    heroTitle: "Practical practice Rules",
+    heroLead: "The rules, including green design, that shape feasible work — encoded before form is finalized.",
+    block1Title: "Rules are the first design layer",
+    block1P1: "Zoning districts, planning overlays, and building codes define what can be built before a single line is drawn. Practical practice means those rules enter the computational model as measurable constraints — setbacks, FAR, height planes, egress paths, and energy targets — not as after-the-fact corrections.",
+    block1P2: "When rules are modeled early, design options are compared inside the feasible envelope. Options that violate code or green-design thresholds are caught in iteration, not at permit submission.",
+    block2Title: "Zoning, planning, and code as parameters",
+    block2Li1: "Zoning — lot coverage, use types, parking ratios, and open-space requirements set the buildable volume.",
+    block2Li2: "Planning — design review criteria, historic overlays, and greenbelt buffers shape massing and landscape sequence.",
+    block2Li3: "Code — structural, fire, accessibility, and MEP provisions define minimum dimensions and system capacities.",
+    block3Title: "Green design inside the rule set",
+    block3P1: "Green-building standards — daylight access, ventilation, rainwater capture, envelope performance — are treated as design drivers, not checklist items at the end. North Fork–style ranch studies, Calla Lily–style passive systems, and closed-loop concepts all start from environmental rules that the geometry must satisfy.",
+    block3P2: "Parametric models make those requirements visible: when a shading angle, tank volume, or roof slope changes, the compliance assumption updates with it. The team sees the trade-off between form and performance in real time.",
+    block4Title: "Feasible work, documented and defensible",
+    block4P1: "Practical practice rules produce projects that can move through planning review, permitting, and construction without rework. Assumptions are versioned: which code edition, which zoning map, which green standard — all recorded alongside the model.",
+    block4P2: "That documentation is what separates computational novelty from professional practice. The rules are not hidden inside a script; they are stated, checked, and handed off with the drawings.",
+    navProjects: "Projects", navAbout: "About", navContact: "Contact",
+    footerNote: "Practical practice Rules",
+    footerTagline: "Systems-first workflows for architecture and the built environment."
+  },
+  zh: {
+    backLink: "← 計算式設計",
+    kicker: "分區 / 規劃 / 綠建築 · 規則",
+    heroTitle: "實務規則",
+    heroLead: "塑造可行工作的規則，包含綠色設計 — 在形式定案前即被編碼。",
+    block1Title: "規則是第一層設計",
+    block1P1: "分區、規劃疊加與建築法規在動筆之前即定義何者可建。實務做法意味著這些規則以可量測約束進入計算模型 — 退縮、容積率、高度面、疏散動線與能源目標 — 而非事後修正。",
+    block1P2: "當規則在早期建模，設計選項在可行包絡內比較。違反法規或綠建築門檻的方案在迭代中被發現，而非在送審時。",
+    block2Title: "分區、規劃與法規作為參數",
+    block2Li1: "分區 — 基地覆蓋率、用途、停車比與開放空間需求設定可建體量。",
+    block2Li2: "規劃 — 設計審查標準、歷史保護疊加與綠帶緩衝塑造量體與景觀序列。",
+    block2Li3: "法規 — 結構、消防、無障礙與機電規定定義最小尺寸與系統容量。",
+    block3Title: "綠色設計內嵌於規則集",
+    block3P1: "綠建築標準 — 採光、通風、雨水收集、外殼性能 — 被視為設計驅動力，而非末端清單。北岔口牧場研究、百合花學校的被動式系統與閉環概念，都從幾何必須滿足的環境規則出發。",
+    block3P2: "參數化模型使這些需求可見：當遮陽角度、水箱容積或屋頂坡度改變，合規假設隨之更新。團隊即時看見形式與性能之間的權衡。",
+    block4Title: "可行、有文件且可辯護的工作",
+    block4P1: "實務規則產出能通過規劃審查、取照與施工、無需重工的專案。假設被版本化：哪一版法規、哪張分區圖、哪項綠建標準 — 皆與模型一併記錄。",
+    block4P2: "這份文件化是計算新奇與專業實務的分水嶺。規則不藏在腳本裡；它們被陳述、檢查並與圖面一併交付。",
+    navProjects: "專案", navAbout: "關於", navContact: "聯絡",
+    footerNote: "實務規則",
+    footerTagline: "以系統為先的建築與環境工作流程。"
+  }
+};
+let lang = "en";
+function setLang(next) {
+  lang = next;
+  const t = i18n[lang];
+  document.getElementById("langToggle").classList.toggle("is-en-active", lang === "en");
+  document.getElementById("backLink").textContent = t.backLink;
+  document.getElementById("kickerText").textContent = t.kicker;
+  document.getElementById("heroTitle").textContent = t.heroTitle;
+  document.getElementById("heroLead").textContent = t.heroLead;
+  document.getElementById("block1Title").textContent = t.block1Title;
+  document.getElementById("block1P1").textContent = t.block1P1;
+  document.getElementById("block1P2").textContent = t.block1P2;
+  document.getElementById("block2Title").textContent = t.block2Title;
+  document.getElementById("block2Li1").textContent = t.block2Li1;
+  document.getElementById("block2Li2").textContent = t.block2Li2;
+  document.getElementById("block2Li3").textContent = t.block2Li3;
+  document.getElementById("block3Title").textContent = t.block3Title;
+  document.getElementById("block3P1").textContent = t.block3P1;
+  document.getElementById("block3P2").textContent = t.block3P2;
+  document.getElementById("block4Title").textContent = t.block4Title;
+  document.getElementById("block4P1").textContent = t.block4P1;
+  document.getElementById("block4P2").textContent = t.block4P2;
+  document.getElementById("navProjects").textContent = t.navProjects;
+  document.getElementById("navAbout").textContent = t.navAbout;
+  document.getElementById("navContact").textContent = t.navContact;
+  document.getElementById("footerNote").textContent = t.footerNote;
+  document.getElementById("footerTagline").textContent = t.footerTagline;
+}
+document.getElementById("langToggle").addEventListener("click", () => setLang(lang === "en" ? "zh" : "en"));
+document.getElementById("buildVersion").textContent = `Build: ${BUILD}`;
+setLang("en");
+  </script>
+</body>
+</html>

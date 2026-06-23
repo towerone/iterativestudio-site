@@ -246,16 +246,58 @@ body.page-white .foundation-card:hover{
   text-decoration:none !important;
 }
 
+body.page-white .foundation-kicker{
+  margin:0 0 8px;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:lowercase;
+  color:var(--faint);
+}
+
 body.page-white .foundation-card h3{
   margin:0 0 8px;
   font-size:18px;
   color:var(--text);
 }
 
-body.page-white .foundation-card p{
+body.page-white .foundation-card p:not(.foundation-kicker){
   margin:0;
   color:var(--muted);
   line-height:1.55;
+}
+
+body.page-white .article-body{
+  padding:0 0 54px;
+}
+
+body.page-white .article-block + .article-block{
+  margin-top:32px;
+}
+
+body.page-white .article-block h2{
+  margin:0 0 10px;
+  font-size:20px;
+  letter-spacing:-0.01em;
+  color:var(--text);
+}
+
+body.page-white .article-block p{
+  margin:0 0 12px;
+  color:var(--muted);
+  line-height:1.6;
+  max-width:68ch;
+}
+
+body.page-white .article-block p:last-child{
+  margin-bottom:0;
+}
+
+body.page-white .article-block .bullets{
+  line-height:1.6;
+}
+
+body.page-white .article-block .bullets li + li{
+  margin-top:6px;
 }
 
 body.page-white .panel{

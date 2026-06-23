@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
+  <title>Iterative detailing Strength | Computational Design | Iterative Studio</title>
+  <meta name="description" content="How design intent becomes buildable through junction logic, tolerances, and iterative detailing in computational workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.1.76" />
+</head>
+
+<body class="page-white">
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+      <div class="header-hole" aria-hidden="true"></div>
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="page-back">
+          <a class="page-back-link" href="/computational-design/" id="backLink">← Computational Design</a>
+        </p>
+        <p class="kicker" id="kickerText">junction / tolerance / constructability · Detailing</p>
+        <h1 id="heroTitle">Iterative detailing Strength</h1>
+        <p class="lead" id="heroLead">How design intent becomes buildable — at the joint, the tolerance, and the assembly sequence.</p>
+      </div>
+    </section>
+
+    <section class="section article-body">
+      <div class="container">
+        <div class="article-block">
+          <h2 id="block1Title">Detailing is where intent meets reality</h2>
+          <p id="block1P1">A compelling form means little if the junction fails on site. Iterative detailing strength means every connection, offset, and material transition is modeled with enough precision to survive fabrication, shipping, and installation.</p>
+          <p id="block1P2">Computational workflows extend detailing beyond static drawings: families, types, and scripted assemblies update when the governing geometry changes, so the detail set stays aligned with the design model.</p>
+        </div>
+
+        <div class="article-block">
+          <h2 id="block2Title">Junction logic as repeatable rules</h2>
+          <ul class="bullets">
+            <li id="block2Li1"><strong>Junctions</strong> — wall-to-roof, cladding-to-frame, and glazing-to-mullion conditions are defined once and propagated.</li>
+            <li id="block2Li2"><strong>Tolerances</strong> — expansion gaps, shim zones, and field-adjustment ranges are built into the model, not left to the contractor.</li>
+            <li id="block2Li3"><strong>Constructability</strong> — assembly order, crane reach, and panel sizes are checked before details are issued.</li>
+          </ul>
+        </div>
+
+        <div class="article-block">
+          <h2 id="block3Title">From concept detail to construction set</h2>
+          <p id="block3P1">Early design studies often stop at a representative section. Iterative detailing carries those decisions through to annotated wall sections, schedules, and keyed details — with the same parameters driving both the 3D model and the sheet output.</p>
+          <p id="block3P2">In Revit, detail components and repeating conditions are organized as families tied to type parameters. In Rhino, section logic can be scripted to stay synchronized with the parent geometry. Either way, the detail is not an orphan drawing — it is a downstream output of the system.</p>
+        </div>
+
+        <div class="article-block">
+          <h2 id="block4Title">Strength through iteration, not perfection on pass one</h2>
+          <p id="block4P1">Detailing improves in loops: model the joint, check against manufacturer data, revise the tolerance, re-export the sheet. Each pass narrows the gap between design intent and what can be built on site.</p>
+          <p id="block4P2">That loop is the strength — not a single heroic detail, but a documented chain of decisions that a fabricator, estimator, or site superintendent can follow without guessing what the architect meant.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
+        <div class="footer-note" id="footerNote">Iterative detailing Strength</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.78</div>
+      </div>
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerTagline">Systems-first workflows for architecture and the built environment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const BUILD = "v0.1.78";
+const i18n = {
+  en: {
+    backLink: "← Computational Design",
+    kicker: "junction / tolerance / constructability · Detailing",
+    heroTitle: "Iterative detailing Strength",
+    heroLead: "How design intent becomes buildable — at the joint, the tolerance, and the assembly sequence.",
+    block1Title: "Detailing is where intent meets reality",
+    block1P1: "A compelling form means little if the junction fails on site. Iterative detailing strength means every connection, offset, and material transition is modeled with enough precision to survive fabrication, shipping, and installation.",
+    block1P2: "Computational workflows extend detailing beyond static drawings: families, types, and scripted assemblies update when the governing geometry changes, so the detail set stays aligned with the design model.",
+    block2Title: "Junction logic as repeatable rules",
+    block2Li1: "Junctions — wall-to-roof, cladding-to-frame, and glazing-to-mullion conditions are defined once and propagated.",
+    block2Li2: "Tolerances — expansion gaps, shim zones, and field-adjustment ranges are built into the model, not left to the contractor.",
+    block2Li3: "Constructability — assembly order, crane reach, and panel sizes are checked before details are issued.",
+    block3Title: "From concept detail to construction set",
+    block3P1: "Early design studies often stop at a representative section. Iterative detailing carries those decisions through to annotated wall sections, schedules, and keyed details — with the same parameters driving both the 3D model and the sheet output.",
+    block3P2: "In Revit, detail components and repeating conditions are organized as families tied to type parameters. In Rhino, section logic can be scripted to stay synchronized with the parent geometry. Either way, the detail is not an orphan drawing — it is a downstream output of the system.",
+    block4Title: "Strength through iteration, not perfection on pass one",
+    block4P1: "Detailing improves in loops: model the joint, check against manufacturer data, revise the tolerance, re-export the sheet. Each pass narrows the gap between design intent and what can be built on site.",
+    block4P2: "That loop is the strength — not a single heroic detail, but a documented chain of decisions that a fabricator, estimator, or site superintendent can follow without guessing what the architect meant.",
+    navProjects: "Projects", navAbout: "About", navContact: "Contact",
+    footerNote: "Iterative detailing Strength",
+    footerTagline: "Systems-first workflows for architecture and the built environment."
+  },
+  zh: {
+    backLink: "← 計算式設計",
+    kicker: "接點 / 公差 / 可施工性 · 細部",
+    heroTitle: "迭代細部強度",
+    heroLead: "設計意圖如何成為可建造的細部 — 在接點、公差與組裝順序上。",
+    block1Title: "細部是意圖與現實交會之處",
+    block1P1: "若接點在現場失敗，再動人的形式也無意義。迭代細部強度意味著每個連接、偏移與材料轉換都以足夠精度建模，能承受製造、運輸與安裝。",
+    block1P2: "計算工作流程將細部延伸超越靜態圖面：族群、類型與腳本化組件在主導幾何變更時同步更新，使細部圖集與設計模型保持一致。",
+    block2Title: "接點邏輯作為可重複規則",
+    block2Li1: "接點 — 牆到屋頂、外牆到結構、玻璃到豎框的條件定義一次並傳播。",
+    block2Li2: "公差 — 伸縮縫、墊片區與現場調整範圍內建於模型，而非留給承包商。",
+    block2Li3: "可施工性 — 在細部出圖前檢查組裝順序、吊車範圍與面板尺寸。",
+    block3Title: "從概念細部到施工圖集",
+    block3P1: "早期設計研究常止於代表性剖面。迭代細部將這些決策延續到註解牆剖面、表單與大樣 — 同一組參數驅動 3D 模型與圖面輸出。",
+    block3P2: "在 Revit 中，細部元件與重複條件以族群組織並綁定類型參數。在 Rhino 中，剖面邏輯可腳本化以與母體幾何同步。無論哪種方式，細部都不是孤立圖面 — 而是系統的下游產出。",
+    block4Title: "透過迭代累積強度，而非一次到位",
+    block4P1: "細部在迴圈中改進：建模接點、對照製造商資料、修訂公差、重新輸出圖面。每一輪都縮小設計意圖與現場可建造性之間的落差。",
+    block4P2: "這個迴圈就是強度 — 不是單一英雄式細部，而是一條製造商、估價師或工地主任都能遵循、無需猜測建築師意圖的文件化決策鏈。",
+    navProjects: "專案", navAbout: "關於", navContact: "聯絡",
+    footerNote: "迭代細部強度",
+    footerTagline: "以系統為先的建築與環境工作流程。"
+  }
+};
+let lang = "en";
+function setLang(next) {
+  lang = next;
+  const t = i18n[lang];
+  document.getElementById("langToggle").classList.toggle("is-en-active", lang === "en");
+  document.getElementById("backLink").textContent = t.backLink;
+  document.getElementById("kickerText").textContent = t.kicker;
+  document.getElementById("heroTitle").textContent = t.heroTitle;
+  document.getElementById("heroLead").textContent = t.heroLead;
+  document.getElementById("block1Title").textContent = t.block1Title;
+  document.getElementById("block1P1").textContent = t.block1P1;
+  document.getElementById("block1P2").textContent = t.block1P2;
+  document.getElementById("block2Title").textContent = t.block2Title;
+  document.getElementById("block2Li1").textContent = t.block2Li1;
+  document.getElementById("block2Li2").textContent = t.block2Li2;
+  document.getElementById("block2Li3").textContent = t.block2Li3;
+  document.getElementById("block3Title").textContent = t.block3Title;
+  document.getElementById("block3P1").textContent = t.block3P1;
+  document.getElementById("block3P2").textContent = t.block3P2;
+  document.getElementById("block4Title").textContent = t.block4Title;
+  document.getElementById("block4P1").textContent = t.block4P1;
+  document.getElementById("block4P2").textContent = t.block4P2;
+  document.getElementById("navProjects").textContent = t.navProjects;
+  document.getElementById("navAbout").textContent = t.navAbout;
+  document.getElementById("navContact").textContent = t.navContact;
+  document.getElementById("footerNote").textContent = t.footerNote;
+  document.getElementById("footerTagline").textContent = t.footerTagline;
+}
+document.getElementById("langToggle").addEventListener("click", () => setLang(lang === "en" ? "zh" : "en"));
+document.getElementById("buildVersion").textContent = `Build: ${BUILD}`;
+setLang("en");
+  </script>
+</body>
+</html>
