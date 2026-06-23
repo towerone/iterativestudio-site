@@ -209,6 +209,30 @@ body.page-white .bullets{
   color:var(--muted);
 }
 
+body.page-white .workflow-info{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:28px 40px;
+  max-width:56rem;
+  margin:0 auto;
+}
+
+body.page-white .workflow-info-col h3{
+  margin:0 0 10px;
+  font-size:17px;
+  font-weight:600;
+  letter-spacing:-0.01em;
+  color:var(--text);
+}
+
+body.page-white .workflow-info-col .bullets{
+  line-height:1.6;
+}
+
+body.page-white .workflow-info-col .bullets li + li{
+  margin-top:6px;
+}
+
 body.page-white .projects-grid{
   display:grid;
   grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -366,7 +390,8 @@ body.page-white .footer-map-credit{
     grid-template-columns:1fr;
   }
 
-  body.page-white .grid-2{
+  body.page-white .grid-2,
+  body.page-white .workflow-info{
     grid-template-columns:1fr;
   }
 
