@@ -5,13 +5,32 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
-  <title>Practical practice Rules | Computational Design | Iterative Studio</title>
-  <meta name="description" content="Zoning, planning, building code, and green design as practical rules that shape feasible computational design work." />
+  <title>Rules | Iterative Studio</title>
+  <meta name="description" content="The rules a design must satisfy: zoning, IBC, DOB life safety, LEED performance, and the computational tools that test compliance." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.1.76" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.2.02" />
+  <style>
+    .stack{ display:flex; flex-direction:column; gap:16px; }
+    .rect{ display:grid; grid-template-columns:240px 1fr; border:1px solid var(--line); border-radius:var(--radius2); background:var(--panel); box-shadow:var(--shadow); overflow:hidden; }
+    .rect-img{ display:flex; align-items:center; justify-content:center; min-height:200px; background:linear-gradient(135deg, rgba(47,107,255,.10), rgba(0,0,0,.03)); border-right:1px solid var(--line); }
+    .rect-tag{ font-weight:600; font-size:22px; letter-spacing:.12em; color:var(--faint); }
+    .rect-body{ padding:22px 24px; }
+    .rect-eyebrow{ font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--faint); margin-bottom:8px; }
+    .rect-title{ font-weight:600; font-size:20px; letter-spacing:-0.01em; margin-bottom:12px; }
+    .rect-body p{ margin:0 0 10px; color:var(--muted); line-height:1.62; font-size:14.5px; }
+    .rect-body p:last-child{ margin-bottom:0; }
+    .rect.half{ max-width:68%; }
+    .rect.half .rect-img{ min-height:150px; }
+    .stack-caption{ text-align:center; color:var(--faint); font-size:12px; margin-top:14px; letter-spacing:.04em; }
+    @media (max-width:760px){
+      .rect{ grid-template-columns:1fr; }
+      .rect-img{ min-height:140px; border-right:none; border-bottom:1px solid var(--line); }
+      .rect.half{ max-width:100%; }
+    }
+  </style>
 </head>
 
 <body class="page-white">
@@ -46,40 +65,103 @@
         <p class="page-back">
           <a class="page-back-link" href="/computational-design/" id="backLink">← Computational Design</a>
         </p>
-        <p class="kicker" id="kickerText">zoning / planning / green design · Rules</p>
-        <h1 id="heroTitle">Practical practice Rules</h1>
-        <p class="lead" id="heroLead">The rules, including green design, that shape feasible work — encoded before form is finalized.</p>
+        <p class="kicker" id="kicker">Rules</p>
+        <h1 id="heroTitle">Rules are a design input, not an afterthought.</h1>
+        <p class="lead" id="heroLead">Zoning, code, certification, and coordination, handled with standard tools and a headed AI review. The unglamorous work that makes a design legal, permitted, and buildable.</p>
+
+        <div class="hero-cards" style="grid-template-columns:repeat(3,minmax(0,1fr));">
+          <div class="mini-card">
+            <div class="mini-title" id="pr1">Zoning</div>
+            <div class="mini-body" id="pr1b">Use, density, setbacks, and the buildable envelope.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-title" id="pr2">Code</div>
+            <div class="mini-body" id="pr2b">Occupancy, construction type, egress, and life safety limits.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-title" id="pr3">Compliance</div>
+            <div class="mini-body" id="pr3b">Certification, permitting, and cross-discipline coordination.</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section article-body">
+    <section class="section">
       <div class="container">
-        <div class="article-block">
-          <h2 id="block1Title">Rules are the first design layer</h2>
-          <p id="block1P1">Zoning districts, planning overlays, and building codes define what can be built before a single line is drawn. Practical practice means those rules enter the computational model as measurable constraints — setbacks, FAR, height planes, egress paths, and energy targets — not as after-the-fact corrections.</p>
-          <p id="block1P2">When rules are modeled early, design options are compared inside the feasible envelope. Options that violate code or green-design thresholds are caught in iteration, not at permit submission.</p>
+        <div class="section-head">
+          <h2 id="gridTitle">The rules, tool by tool</h2>
+          <p id="gridBody">Formal, methodical, and coordinated. The practical practice that keeps work legal and buildable.</p>
         </div>
 
-        <div class="article-block">
-          <h2 id="block2Title">Zoning, planning, and code as parameters</h2>
-          <ul class="bullets">
-            <li id="block2Li1"><strong>Zoning</strong> — lot coverage, use types, parking ratios, and open-space requirements set the buildable volume.</li>
-            <li id="block2Li2"><strong>Planning</strong> — design review criteria, historic overlays, and greenbelt buffers shape massing and landscape sequence.</li>
-            <li id="block2Li3"><strong>Code</strong> — structural, fire, accessibility, and MEP provisions define minimum dimensions and system capacities.</li>
-          </ul>
-        </div>
+        <div class="stack">
+          <div class="rect">
+            <div class="rect-img" aria-hidden="true"><span class="rect-tag">LEED</span></div>
+            <div class="rect-body">
+              <div class="rect-eyebrow" id="r1e">Certification · Green design</div>
+              <div class="rect-title" id="r1t">LEED and environmental performance</div>
+              <p id="r1a">Work on LEED-oriented projects starts with measurable environmental performance, not labels. Daylight availability, glare, and useful daylight illuminance are studied alongside solar heat gain and cooling load, so the envelope is tuned to its climate before aesthetic decisions are locked. Orientation, glazing ratio, shading, and material choices are weighed against credit thresholds and real occupant comfort.</p>
+              <p id="r1b">Environmental analysis runs on Ladybug Tools inside Grasshopper, turning weather data into sun paths, radiation maps, and daylight metrics. Those insights feed back into the parametric model so each design move can be checked against energy targets and certification criteria, keeping the green strategy evidence-based and auditable.</p>
+            </div>
+          </div>
 
-        <div class="article-block">
-          <h2 id="block3Title">Green design inside the rule set</h2>
-          <p id="block3P1">Green-building standards — daylight access, ventilation, rainwater capture, envelope performance — are treated as design drivers, not checklist items at the end. North Fork–style ranch studies, Calla Lily–style passive systems, and closed-loop concepts all start from environmental rules that the geometry must satisfy.</p>
-          <p id="block3P2">Parametric models make those requirements visible: when a shading angle, tank volume, or roof slope changes, the compliance assumption updates with it. The team sees the trade-off between form and performance in real time.</p>
-        </div>
+          <div class="rect">
+            <div class="rect-img" aria-hidden="true"><span class="rect-tag">IBC</span></div>
+            <div class="rect-body">
+              <div class="rect-eyebrow" id="r2e">Building code · Compliance</div>
+              <div class="rect-title" id="r2t">Working within the IBC</div>
+              <p id="r2a">The International Building Code sets the baseline for occupancy, construction type, fire-resistance ratings, egress, and allowable area and height. Designs are developed against these limits from the outset, so use classification, separation, and exiting are resolved as the plan takes shape rather than retrofitted late.</p>
+              <p id="r2b">To keep pace, we define an AI review practice: standard large language models read the drawing notes, schedules, and design narrative against codified IBC requirements and flag likely conflicts such as occupancy load, travel distance, and rating mismatches for a human to verify. The model accelerates the first-pass code check; licensed judgement and the authority having jurisdiction remain the final word.</p>
+            </div>
+          </div>
 
-        <div class="article-block">
-          <h2 id="block4Title">Feasible work, documented and defensible</h2>
-          <p id="block4P1">Practical practice rules produce projects that can move through planning review, permitting, and construction without rework. Assumptions are versioned: which code edition, which zoning map, which green standard — all recorded alongside the model.</p>
-          <p id="block4P2">That documentation is what separates computational novelty from professional practice. The rules are not hidden inside a script; they are stated, checked, and handed off with the drawings.</p>
+          <div class="rect">
+            <div class="rect-img" aria-hidden="true"><span class="rect-tag">DOB</span></div>
+            <div class="rect-body">
+              <div class="rect-eyebrow" id="r3e">Permit set · Life safety</div>
+              <div class="rect-title" id="r3t">DOB drawings: egress and fire protection</div>
+              <p id="r3a">Department of Buildings submissions demand a coordinated, defensible set: egress plans with occupant loads and travel distances, fire separation and compartmentation, rated assemblies, and the standpipe, sprinkler, and alarm coverage that life safety depends on. Every sheet must agree with the others and with the code analysis behind them.</p>
+              <p id="r3b">This is where coordination complexity peaks: architectural, structural, and MEP information has to reconcile across dozens of sheets without contradiction. The work is methodical and cross-referenced, exactly the kind of accumulated consistency that a generative image cannot produce and that a documented, headed workflow is built to hold.</p>
+            </div>
+          </div>
+
+          <div class="rect">
+            <div class="rect-img" aria-hidden="true"><span class="rect-tag">Dynamo</span></div>
+            <div class="rect-body">
+              <div class="rect-eyebrow" id="r4e">Generative · Programming</div>
+              <div class="rect-title" id="r4t">Dynamo for standard-shape generative design</div>
+              <p id="r4a">For regular, code-driven massing, Dynamo automates the relationships that programming depends on: floor area to facade area, exposure and glazing ratios, unit mix, and core-to-leasable efficiency. Standard shapes are parameterized so target areas and ratios drive the geometry directly.</p>
+              <p id="r4b">This makes early programming fast and testable. As floor plates, setbacks, or envelope assumptions change, the model recomputes areas and exposure in real time, so feasibility and compliance can be read at a glance instead of remodeled by hand.</p>
+            </div>
+          </div>
+
+          <div class="rect">
+            <div class="rect-img" aria-hidden="true"><span class="rect-tag">CAE</span></div>
+            <div class="rect-body">
+              <div class="rect-eyebrow" id="r5e">Industrial · Structural</div>
+              <div class="rect-title" id="r5t">Inventor and Rhino for structural generative elements</div>
+              <p id="r5a">For components that must perform mechanically, the work moves into industrial tools. Inventor and Rhino are used to develop generative structural elements such as brackets, nodes, and frames, shaped to carry defined torque and compression rather than only to look resolved.</p>
+              <p id="r5b">Generative iterations are evaluated against load cases so geometry follows the forces it must resist. The result is parts that are both manufacturable and structurally honest, bridging architectural intent and engineered, fabrication-ready detail.</p>
+            </div>
+          </div>
+
+          <div class="rect half">
+            <div class="rect-img" aria-hidden="true"><span class="rect-tag">NWS</span></div>
+            <div class="rect-body">
+              <div class="rect-eyebrow" id="r6e">Coordination</div>
+              <div class="rect-title" id="r6t">Navisworks clash detection</div>
+              <p id="r6a">A federated model in Navisworks runs clash detection across disciplines, catching hard and soft conflicts before they reach the site. It is the quiet, unglamorous coordination step that keeps the documented set honest.</p>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-actions" style="text-align:center;">
+          <a class="btn" href="/projects/" id="projectsCta">See the full project archive →</a>
+        </div>
+        <p class="stack-caption" id="ctaNote">Each capability above is applied in real permit and construction projects.</p>
       </div>
     </section>
   </main>
@@ -88,8 +170,8 @@
     <div class="container footer-inner">
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
-        <div class="footer-note" id="footerNote">Practical practice Rules</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.78</div>
+        <div class="footer-note" id="footerNote">Rules</div>
+        <div class="footer-version" id="buildVersion">Build: v0.4.00</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -99,83 +181,97 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.78";
+const BUILD = "v0.4.00";
+
 const i18n = {
   en: {
     backLink: "← Computational Design",
-    kicker: "zoning / planning / green design · Rules",
-    heroTitle: "Practical practice Rules",
-    heroLead: "The rules, including green design, that shape feasible work — encoded before form is finalized.",
-    block1Title: "Rules are the first design layer",
-    block1P1: "Zoning districts, planning overlays, and building codes define what can be built before a single line is drawn. Practical practice means those rules enter the computational model as measurable constraints — setbacks, FAR, height planes, egress paths, and energy targets — not as after-the-fact corrections.",
-    block1P2: "When rules are modeled early, design options are compared inside the feasible envelope. Options that violate code or green-design thresholds are caught in iteration, not at permit submission.",
-    block2Title: "Zoning, planning, and code as parameters",
-    block2Li1: "Zoning — lot coverage, use types, parking ratios, and open-space requirements set the buildable volume.",
-    block2Li2: "Planning — design review criteria, historic overlays, and greenbelt buffers shape massing and landscape sequence.",
-    block2Li3: "Code — structural, fire, accessibility, and MEP provisions define minimum dimensions and system capacities.",
-    block3Title: "Green design inside the rule set",
-    block3P1: "Green-building standards — daylight access, ventilation, rainwater capture, envelope performance — are treated as design drivers, not checklist items at the end. North Fork–style ranch studies, Calla Lily–style passive systems, and closed-loop concepts all start from environmental rules that the geometry must satisfy.",
-    block3P2: "Parametric models make those requirements visible: when a shading angle, tank volume, or roof slope changes, the compliance assumption updates with it. The team sees the trade-off between form and performance in real time.",
-    block4Title: "Feasible work, documented and defensible",
-    block4P1: "Practical practice rules produce projects that can move through planning review, permitting, and construction without rework. Assumptions are versioned: which code edition, which zoning map, which green standard — all recorded alongside the model.",
-    block4P2: "That documentation is what separates computational novelty from professional practice. The rules are not hidden inside a script; they are stated, checked, and handed off with the drawings.",
+    kicker: "Rules",
+    heroTitle: "Rules are a design input, not an afterthought.",
+    heroLead: "Zoning, code, certification, and coordination, handled with standard tools and a headed AI review. The unglamorous work that makes a design legal, permitted, and buildable.",
     navProjects: "Projects", navAbout: "About", navContact: "Contact",
-    footerNote: "Practical practice Rules",
+    pr1: "Zoning", pr1b: "Use, density, setbacks, and the buildable envelope.",
+    pr2: "Code", pr2b: "Occupancy, construction type, egress, and life safety limits.",
+    pr3: "Compliance", pr3b: "Certification, permitting, and cross-discipline coordination.",
+    gridTitle: "The rules, tool by tool",
+    gridBody: "Formal, methodical, and coordinated. The practical practice that keeps work legal and buildable.",
+    r1e: "Certification · Green design", r1t: "LEED and environmental performance",
+    r1a: "Work on LEED-oriented projects starts with measurable environmental performance, not labels. Daylight availability, glare, and useful daylight illuminance are studied alongside solar heat gain and cooling load, so the envelope is tuned to its climate before aesthetic decisions are locked. Orientation, glazing ratio, shading, and material choices are weighed against credit thresholds and real occupant comfort.",
+    r1b: "Environmental analysis runs on Ladybug Tools inside Grasshopper, turning weather data into sun paths, radiation maps, and daylight metrics. Those insights feed back into the parametric model so each design move can be checked against energy targets and certification criteria, keeping the green strategy evidence-based and auditable.",
+    r2e: "Building code · Compliance", r2t: "Working within the IBC",
+    r2a: "The International Building Code sets the baseline for occupancy, construction type, fire-resistance ratings, egress, and allowable area and height. Designs are developed against these limits from the outset, so use classification, separation, and exiting are resolved as the plan takes shape rather than retrofitted late.",
+    r2b: "To keep pace, we define an AI review practice: standard large language models read the drawing notes, schedules, and design narrative against codified IBC requirements and flag likely conflicts such as occupancy load, travel distance, and rating mismatches for a human to verify. The model accelerates the first-pass code check; licensed judgement and the authority having jurisdiction remain the final word.",
+    r3e: "Permit set · Life safety", r3t: "DOB drawings: egress and fire protection",
+    r3a: "Department of Buildings submissions demand a coordinated, defensible set: egress plans with occupant loads and travel distances, fire separation and compartmentation, rated assemblies, and the standpipe, sprinkler, and alarm coverage that life safety depends on. Every sheet must agree with the others and with the code analysis behind them.",
+    r3b: "This is where coordination complexity peaks: architectural, structural, and MEP information has to reconcile across dozens of sheets without contradiction. The work is methodical and cross-referenced, exactly the kind of accumulated consistency that a generative image cannot produce and that a documented, headed workflow is built to hold.",
+    r4e: "Generative · Programming", r4t: "Dynamo for standard-shape generative design",
+    r4a: "For regular, code-driven massing, Dynamo automates the relationships that programming depends on: floor area to facade area, exposure and glazing ratios, unit mix, and core-to-leasable efficiency. Standard shapes are parameterized so target areas and ratios drive the geometry directly.",
+    r4b: "This makes early programming fast and testable. As floor plates, setbacks, or envelope assumptions change, the model recomputes areas and exposure in real time, so feasibility and compliance can be read at a glance instead of remodeled by hand.",
+    r5e: "Industrial · Structural", r5t: "Inventor and Rhino for structural generative elements",
+    r5a: "For components that must perform mechanically, the work moves into industrial tools. Inventor and Rhino are used to develop generative structural elements such as brackets, nodes, and frames, shaped to carry defined torque and compression rather than only to look resolved.",
+    r5b: "Generative iterations are evaluated against load cases so geometry follows the forces it must resist. The result is parts that are both manufacturable and structurally honest, bridging architectural intent and engineered, fabrication-ready detail.",
+    r6e: "Coordination", r6t: "Navisworks clash detection",
+    r6a: "A federated model in Navisworks runs clash detection across disciplines, catching hard and soft conflicts before they reach the site. It is the quiet, unglamorous coordination step that keeps the documented set honest.",
+    projectsCta: "See the full project archive →",
+    ctaNote: "Each capability above is applied in real permit and construction projects.",
+    footerNote: "Rules",
     footerTagline: "Systems-first workflows for architecture and the built environment."
   },
   zh: {
     backLink: "← 計算式設計",
-    kicker: "分區 / 規劃 / 綠建築 · 規則",
-    heroTitle: "實務規則",
-    heroLead: "塑造可行工作的規則，包含綠色設計 — 在形式定案前即被編碼。",
-    block1Title: "規則是第一層設計",
-    block1P1: "分區、規劃疊加與建築法規在動筆之前即定義何者可建。實務做法意味著這些規則以可量測約束進入計算模型 — 退縮、容積率、高度面、疏散動線與能源目標 — 而非事後修正。",
-    block1P2: "當規則在早期建模，設計選項在可行包絡內比較。違反法規或綠建築門檻的方案在迭代中被發現，而非在送審時。",
-    block2Title: "分區、規劃與法規作為參數",
-    block2Li1: "分區 — 基地覆蓋率、用途、停車比與開放空間需求設定可建體量。",
-    block2Li2: "規劃 — 設計審查標準、歷史保護疊加與綠帶緩衝塑造量體與景觀序列。",
-    block2Li3: "法規 — 結構、消防、無障礙與機電規定定義最小尺寸與系統容量。",
-    block3Title: "綠色設計內嵌於規則集",
-    block3P1: "綠建築標準 — 採光、通風、雨水收集、外殼性能 — 被視為設計驅動力，而非末端清單。北岔口牧場研究、百合花學校的被動式系統與閉環概念，都從幾何必須滿足的環境規則出發。",
-    block3P2: "參數化模型使這些需求可見：當遮陽角度、水箱容積或屋頂坡度改變，合規假設隨之更新。團隊即時看見形式與性能之間的權衡。",
-    block4Title: "可行、有文件且可辯護的工作",
-    block4P1: "實務規則產出能通過規劃審查、取照與施工、無需重工的專案。假設被版本化：哪一版法規、哪張分區圖、哪項綠建標準 — 皆與模型一併記錄。",
-    block4P2: "這份文件化是計算新奇與專業實務的分水嶺。規則不藏在腳本裡；它們被陳述、檢查並與圖面一併交付。",
+    kicker: "規則",
+    heroTitle: "法規是設計的輸入，而非事後補救。",
+    heroLead: "分區、法規、認證與協調，以標準工具與有頭的 AI 審查來處理。這些不光鮮的工作，讓設計合法、可獲許可、可建造。",
     navProjects: "專案", navAbout: "關於", navContact: "聯絡",
-    footerNote: "實務規則",
+    pr1: "分區", pr1b: "用途、密度、退縮與可建範圍。",
+    pr2: "法規", pr2b: "使用類別、構造類型、逃生與生命安全限制。",
+    pr3: "合規", pr3b: "認證、許可與跨專業協調。",
+    gridTitle: "法規，逐一工具拆解",
+    gridBody: "正式、按部就班且互相協調。讓工作合法且可建造的務實實踐。",
+    r1e: "認證 · 綠色設計", r1t: "LEED 與環境性能",
+    r1a: "在 LEED 導向的專案中，從可量測的環境性能出發，而非標籤。日光可用度、眩光與有效日光照度，與太陽得熱及冷負荷一併研究，讓外殼在美學決策定案前先依氣候調校。座向、開窗比、遮陽與材料選擇都對照認證門檻與真實使用者舒適度權衡。",
+    r1b: "環境分析以 Grasshopper 內的 Ladybug Tools 執行，將氣象資料轉為日照軌跡、輻射圖與日光指標。這些洞察回饋到參數化模型，讓每個設計動作都能對照能源目標與認證標準檢核，使綠色策略有憑有據、可供稽核。",
+    r2e: "建築法規 · 合規", r2t: "在 IBC 框架內工作",
+    r2a: "國際建築規範（IBC）為用途、構造類型、防火時效、逃生與容許面積及高度設定基準。設計自始即依這些限制發展，使用途分類、防火分隔與逃生在平面成形之際即解決，而非後期補救。",
+    r2b: "為跟上節奏，我們定義一套 AI 審查實務：以標準大型語言模型閱讀圖說註記、明細表與設計敘述，對照編碼化的 IBC 要求，標示可能的衝突，如使用人數、步行距離與時效不符，供人工查核。模型加速第一輪法規檢查；執照判斷與管轄主管機關仍是最終定論。",
+    r3e: "送審圖 · 生命安全", r3t: "DOB 圖說：逃生與防火",
+    r3a: "建管局（DOB）送件要求一套協調且站得住腳的圖：含使用人數與步行距離的逃生平面、防火分隔與區劃、具時效的構造，以及生命安全所仰賴的立管、灑水與警報涵蓋。每張圖都必須與彼此、以及背後的法規分析一致。",
+    r3b: "這正是協調複雜度的高峰：建築、結構與機電資訊必須在數十張圖之間調和而不矛盾。這項工作按部就班、互相參照，正是生成影像無法產出、而有文件紀錄的有頭工作流程所擅長維持的累積一致性。",
+    r4e: "生成式 · 計畫", r4t: "Dynamo 與標準量體生成設計",
+    r4a: "針對規則、受法規驅動的量體，Dynamo 自動化計畫所仰賴的關係：樓地板面積對立面面積、曝曬與開窗比、單元配比，以及核心對可租比效率。標準形狀被參數化，讓目標面積與比例直接驅動幾何。",
+    r4b: "這讓早期計畫快速且可測試。當樓板、退縮或外殼假設改變，模型即時重算面積與曝曬，讓可行性與合規一目了然，而非以手工重建。",
+    r5e: "工業應用 · 結構", r5t: "Inventor 與 Rhino 的結構生成元件",
+    r5a: "對於必須承受機械性能的構件，工作移入工業工具。以 Inventor 與 Rhino 發展生成式結構元件，如托架、節點與框架，依承受特定扭矩與壓縮塑形，而非僅追求視覺完整。",
+    r5b: "生成的迭代依載重情境評估，使幾何順應其必須抵抗的力。成果是兼具可製造與結構誠實的零件，銘接建築意圖與可供製造的工程細部。",
+    r6e: "協調", r6t: "Navisworks 碰撞檢測",
+    r6a: "在 Navisworks 中以整合模型跨專業執行碰撞檢測，在進場前捕捉硬碰撞與軟衝突。這是安靜、不光鮮的協調步驟，讓有文件紀錄的圖面保持誠實。",
+    projectsCta: "查看完整專案庫 →",
+    ctaNote: "以上每項能力都落實於真實的送審與施工專案。",
+    footerNote: "規則",
     footerTagline: "以系統為先的建築與環境工作流程。"
   }
 };
+
 let lang = "en";
-function setLang(next) {
+
+function setLang(next){
   lang = next;
   const t = i18n[lang];
-  document.getElementById("langToggle").classList.toggle("is-en-active", lang === "en");
-  document.getElementById("backLink").textContent = t.backLink;
-  document.getElementById("kickerText").textContent = t.kicker;
-  document.getElementById("heroTitle").textContent = t.heroTitle;
-  document.getElementById("heroLead").textContent = t.heroLead;
-  document.getElementById("block1Title").textContent = t.block1Title;
-  document.getElementById("block1P1").textContent = t.block1P1;
-  document.getElementById("block1P2").textContent = t.block1P2;
-  document.getElementById("block2Title").textContent = t.block2Title;
-  document.getElementById("block2Li1").textContent = t.block2Li1;
-  document.getElementById("block2Li2").textContent = t.block2Li2;
-  document.getElementById("block2Li3").textContent = t.block2Li3;
-  document.getElementById("block3Title").textContent = t.block3Title;
-  document.getElementById("block3P1").textContent = t.block3P1;
-  document.getElementById("block3P2").textContent = t.block3P2;
-  document.getElementById("block4Title").textContent = t.block4Title;
-  document.getElementById("block4P1").textContent = t.block4P1;
-  document.getElementById("block4P2").textContent = t.block4P2;
-  document.getElementById("navProjects").textContent = t.navProjects;
-  document.getElementById("navAbout").textContent = t.navAbout;
-  document.getElementById("navContact").textContent = t.navContact;
-  document.getElementById("footerNote").textContent = t.footerNote;
-  document.getElementById("footerTagline").textContent = t.footerTagline;
+  const toggle = document.getElementById("langToggle");
+  if (toggle) toggle.classList.toggle("is-en-active", lang === "en");
+  for (const key in t){
+    const el = document.getElementById(key);
+    if (el) el.textContent = t[key];
+  }
 }
-document.getElementById("langToggle").addEventListener("click", () => setLang(lang === "en" ? "zh" : "en"));
-document.getElementById("buildVersion").textContent = `Build: ${BUILD}`;
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLang(lang === "en" ? "zh" : "en");
+});
+
+const buildEl = document.getElementById("buildVersion");
+if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
 setLang("en");
   </script>
 </body>
