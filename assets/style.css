@@ -1243,6 +1243,16 @@ h1{
   z-index:3;
 }
 
+.carousel-partner-note{
+  margin:10px 0 0;
+  max-width:52ch;
+  font-size:11px;
+  line-height:1.4;
+  color:rgba(255,255,255,.55);
+  text-shadow:0 1px 8px rgba(0,0,0,.32);
+  letter-spacing:.02em;
+}
+
 .carousel-column{
   flex:1;
   min-width:0;
