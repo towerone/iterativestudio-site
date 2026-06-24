@@ -111,6 +111,37 @@
       color:var(--text);
       border:1px solid color-mix(in srgb, #d9534f 24%, var(--line));
     }
+    .contact-thanks{
+      max-width:520px;
+      margin:0 auto;
+      padding:32px 28px;
+      text-align:center;
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      background:var(--panel);
+      box-shadow:var(--shadow);
+    }
+    .contact-thanks-mark{
+      font-size:42px;
+      line-height:1;
+      margin-bottom:14px;
+      color:color-mix(in srgb, #2ea87a 78%, var(--text));
+    }
+    .contact-thanks h2{
+      margin:0 0 10px;
+      font-size:26px;
+      letter-spacing:-0.01em;
+    }
+    .contact-thanks p{
+      margin:0 0 22px;
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+    .contact-thanks .btn{
+      min-width:200px;
+    }
+    [hidden]{ display:none !important; }
   </style>
 </head>
 
@@ -159,7 +190,7 @@
           <p id="formBody">Include your name, email, and a brief note about your inquiry. Company is optional.</p>
         </div>
 
-        <div class="contact-form-wrap">
+        <div class="contact-form-wrap" id="contactFormWrap">
           <form class="contact-form" id="contactForm" novalidate>
             <div class="form-field">
               <label class="form-label" for="name" id="labelName">Your name</label>
@@ -178,20 +209,20 @@
               <textarea class="form-textarea" id="message" name="message" required></textarea>
             </div>
             <div class="form-turnstile">
-              <div
-                class="cf-turnstile"
-                id="turnstileWidget"
-                data-sitekey="0x4AAAAAADqK7jRvGP5VEMmp"
-                data-callback="onTurnstileSuccess"
-                data-expired-callback="onTurnstileExpired"
-                data-error-callback="onTurnstileExpired"
-              ></div>
+              <div id="turnstileWidget"></div>
             </div>
             <div class="form-actions">
               <button class="btn form-submit" type="submit" id="submitBtn" disabled>Send request</button>
             </div>
           </form>
           <div class="form-result" id="formResult" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="contact-thanks" id="contactThanks" hidden>
+          <div class="contact-thanks-mark" aria-hidden="true">✓</div>
+          <h2 id="thanksTitle">Thank you</h2>
+          <p id="thanksBody">Your request has been sent. You will receive a reply with a secure access link once it is reviewed.</p>
+          <a class="btn" href="/" id="thanksHome">Back to home</a>
         </div>
       </div>
     </section>
@@ -202,7 +233,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.02</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.03</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -212,61 +243,86 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.02";
+const BUILD = "v0.5.03";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
-const BLOCK_KEY = "contactAccessBlockedUntil";
-const BLOCK_MS = 60 * 60 * 1000;
+const TURNSTILE_SITE_KEY = "0x4AAAAAADqK7jRvGP5VEMmp";
+
+const form = document.getElementById("contactForm");
+const formWrap = document.getElementById("contactFormWrap");
+const thanksView = document.getElementById("contactThanks");
+const resultEl = document.getElementById("formResult");
+const submitBtn = document.getElementById("submitBtn");
+const sectionHead = document.querySelector(".section .section-head");
+const heroTitle = document.getElementById("heroTitle");
+const heroLead = document.getElementById("heroLead");
 
 let turnstileReady = false;
+let turnstileWidgetId = null;
 
-function isContactBlocked(){
-  return Number(sessionStorage.getItem(BLOCK_KEY) || 0) > Date.now();
-}
-
-function blockContactAccess(){
-  sessionStorage.setItem(BLOCK_KEY, String(Date.now() + BLOCK_MS));
-}
-
-function kickOutOfContact(message){
-  blockContactAccess();
-  if (message) {
-    showResult("error", message);
-    window.setTimeout(() => window.location.replace("/"), 1400);
-    return;
-  }
-  window.location.replace("/");
-}
-
-function isVerificationFailure(data, response){
-  if (data.blocked) return true;
-  const err = String(data.error || "").toLowerCase();
-  return response.status === 403
-    || err.includes("bot")
-    || err.includes("turnstile")
-    || err.includes("captcha")
-    || err.includes("verification");
-}
-
-if (isContactBlocked()) {
-  window.location.replace("/");
+function setSubmitEnabled(on){
+  submitBtn.disabled = !on;
 }
 
 window.onTurnstileSuccess = () => {
   turnstileReady = true;
-  submitBtn.disabled = false;
+  setSubmitEnabled(true);
 };
 
 window.onTurnstileExpired = () => {
   turnstileReady = false;
-  submitBtn.disabled = true;
+  setSubmitEnabled(false);
 };
 
 function resetTurnstile(){
-  if (window.turnstile) {
-    turnstile.reset("#turnstileWidget");
+  if (window.turnstile && turnstileWidgetId !== null) {
+    turnstile.reset(turnstileWidgetId);
   }
   turnstileReady = false;
-  submitBtn.disabled = true;
+  setSubmitEnabled(false);
+}
+
+function initTurnstile(){
+  if (!window.turnstile) return;
+  const el = document.getElementById("turnstileWidget");
+  if (!el || el.dataset.rendered === "1") return;
+  el.dataset.rendered = "1";
+  turnstileWidgetId = turnstile.render(el, {
+    sitekey: TURNSTILE_SITE_KEY,
+    callback: "onTurnstileSuccess",
+    "expired-callback": "onTurnstileExpired",
+    "error-callback": "onTurnstileExpired",
+  });
+}
+
+if (window.turnstile) {
+  initTurnstile();
+} else {
+  window.addEventListener("load", initTurnstile);
+}
+
+function isVerificationFailure(data){
+  if (data.blocked) return true;
+  const err = String(data.error || "").toLowerCase();
+  return err.includes("bot check failed");
+}
+
+function showThankYou(){
+  const t = i18n[lang];
+  if (sectionHead) sectionHead.hidden = true;
+  formWrap.hidden = true;
+  thanksView.hidden = false;
+  heroTitle.textContent = t.thanksHeroTitle;
+  heroLead.textContent = t.thanksHeroLead;
+  document.getElementById("thanksTitle").textContent = t.thanksTitle;
+  document.getElementById("thanksBody").textContent = t.thanksBody;
+  document.getElementById("thanksHome").textContent = t.thanksHome;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function kickOutOfContact(message){
+  const t = i18n[lang];
+  showResult("error", message || t.blockedMsg);
+  window.setTimeout(() => window.location.replace("/"), 1600);
 }
 
 const i18n = {
@@ -287,7 +343,11 @@ const i18n = {
     navProjects: "Projects",
     navAbout: "About",
     navContact: "Contact",
-    successMsg: "Thank you. Your request has been sent. You will receive a reply once it is reviewed.",
+    thanksHeroTitle: "Thank you — request received.",
+    thanksHeroLead: "Your portfolio access request is in review. A reply with a secure link will follow by email.",
+    thanksTitle: "Thank you",
+    thanksBody: "Your request has been sent. You will receive a reply with a secure access link once it is reviewed.",
+    thanksHome: "Back to home",
     errorMsg: "Something went wrong. Please try again.",
     captchaMsg: "Please complete the verification check before sending.",
     blockedMsg: "Verification failed. Redirecting you away from contact.",
@@ -312,7 +372,11 @@ const i18n = {
     navProjects: "專案",
     navAbout: "關於",
     navContact: "聯絡",
-    successMsg: "感謝您。申請已送出，審核後將回覆您。",
+    thanksHeroTitle: "感謝您 — 已收到申請。",
+    thanksHeroLead: "您的作品集存取申請正在審核中，將以電子郵件回覆安全連結。",
+    thanksTitle: "感謝您",
+    thanksBody: "申請已送出。審核後您將收到含安全存取連結的回覆。",
+    thanksHome: "返回首頁",
     errorMsg: "發生錯誤，請再試一次。",
     captchaMsg: "送出前請先完成驗證。",
     blockedMsg: "驗證失敗。正在離開聯絡頁面。",
@@ -333,15 +397,15 @@ function setLang(next){
     const el = document.getElementById(key);
     if (el) el.textContent = t[key];
   }
+  if (!thanksView.hidden) {
+    heroTitle.textContent = t.thanksHeroTitle;
+    heroLead.textContent = t.thanksHeroLead;
+  }
 }
 
 document.getElementById("langToggle").addEventListener("click", () => {
   setLang(lang === "en" ? "zh" : "en");
 });
-
-const form = document.getElementById("contactForm");
-const resultEl = document.getElementById("formResult");
-const submitBtn = document.getElementById("submitBtn");
 
 function showResult(type, message){
   resultEl.className = "form-result";
@@ -382,22 +446,24 @@ form.addEventListener("submit", async (e) => {
       data = { success: false };
     }
 
-    if (response.ok && data.success) {
-      showResult("success", t.successMsg);
-      form.reset();
-      resetTurnstile();
-    } else if (isVerificationFailure(data, response)) {
-      kickOutOfContact(t.blockedMsg);
-    } else {
-      showResult("error", t.errorMsg);
-      resetTurnstile();
+    if (data.success) {
+      showThankYou();
+      return;
     }
+    if (isVerificationFailure(data)) {
+      kickOutOfContact(t.blockedMsg);
+      return;
+    }
+    showResult("error", t.errorMsg);
+    resetTurnstile();
   } catch (error) {
     console.error(error);
     showResult("error", t.networkMsg);
     resetTurnstile();
   } finally {
+    if (!thanksView.hidden) return;
     submitBtn.textContent = i18n[lang].submitBtn;
+    if (turnstileReady) setSubmitEnabled(true);
   }
 });
 
