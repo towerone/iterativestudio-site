@@ -76,8 +76,18 @@
     }
     .form-turnstile{
       display:flex;
-      justify-content:flex-start;
-      min-height:65px;
+      justify-content:center;
+      align-items:center;
+      min-height:76px;
+      margin-top:4px;
+      padding:14px 12px;
+      border-radius:12px;
+      background:var(--panel2);
+      border:1px solid var(--line);
+    }
+    .form-turnstile .cf-turnstile{
+      display:flex;
+      justify-content:center;
     }
     .form-actions{
       margin-top:4px;
@@ -201,10 +211,6 @@
               <input class="form-input" type="email" id="email" name="email" autocomplete="email" required />
             </div>
             <div class="form-field">
-              <label class="form-label" for="company" id="labelCompany">Company <span id="labelCompanyOpt">(optional)</span></label>
-              <input class="form-input" type="text" id="company" name="company" autocomplete="organization" />
-            </div>
-            <div class="form-field">
               <label class="form-label" for="message" id="labelMessage">Your message</label>
               <textarea class="form-textarea" id="message" name="message" required></textarea>
             </div>
@@ -213,6 +219,8 @@
                 class="cf-turnstile"
                 id="turnstileWidget"
                 data-sitekey="0x4AAAAAADqK7jRvGP5VEMmp"
+                data-theme="auto"
+                data-size="normal"
                 data-callback="onTurnstileSuccess"
                 data-expired-callback="onTurnstileExpired"
                 data-error-callback="onTurnstileExpired"
@@ -240,7 +248,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.04</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.05</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -250,7 +258,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.04";
+const BUILD = "v0.5.05";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
@@ -335,11 +343,9 @@ const i18n = {
     heroTitle: "Request secure portfolio access.",
     heroLead: "Recruiters and employers can request access to a private portfolio and resume. Submit the form below — you will receive a reply with a secure access link once your request is reviewed.",
     formTitle: "Request Secure Portfolio Access",
-    formBody: "Include your name, email, and a brief note about your inquiry. Company is optional.",
+    formBody: "Include your name, email, and a brief note about your inquiry.",
     labelName: "Your name",
     labelEmail: "Your email",
-    labelCompany: "Company",
-    labelCompanyOpt: "(optional)",
     labelMessage: "Your message",
     submitBtn: "Send request",
     submitBtnPending: "Sending…",
@@ -364,11 +370,9 @@ const i18n = {
     heroTitle: "申請安全作品集存取。",
     heroLead: "招募方與雇主可申請私人作品集與履歷的存取權。請填寫下方表單 — 審核後您將收到含安全連結的回覆。",
     formTitle: "申請安全作品集存取",
-    formBody: "請提供姓名、電子郵件與簡短說明。公司名稱為選填。",
+    formBody: "請提供姓名、電子郵件與簡短說明。",
     labelName: "您的姓名",
     labelEmail: "您的電子郵件",
-    labelCompany: "公司",
-    labelCompanyOpt: "（選填）",
     labelMessage: "您的訊息",
     submitBtn: "送出申請",
     submitBtnPending: "傳送中…",
