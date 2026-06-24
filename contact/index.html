@@ -29,7 +29,6 @@
     }
     body.page-contact-bg .hero .page-back-link,
     body.page-contact-bg .hero .kicker,
-    body.page-contact-bg .hero h1,
     body.page-contact-bg .hero .lead,
     body.page-contact-bg .contact-panel .section-head p,
     body.page-contact-bg .form-label{
@@ -41,15 +40,19 @@
       color:rgba(255,255,255,.82);
     }
     body.page-contact-bg .hero-inner{
-      padding-bottom:28px;
+      padding:48px 0 10px;
+    }
+    body.page-contact-bg .hero .kicker{
+      margin-bottom:8px;
     }
     body.page-contact-bg .hero .lead{
       max-width:calc((min(var(--max), 100vw - 40px) - 32px) / 3);
+      margin-bottom:0;
       line-height:1.5;
     }
     body.page-contact-bg .section{
-      padding-top:calc(var(--stack-gap) * 0.45);
-      margin-top:-10px;
+      padding-top:calc(var(--stack-gap) * 0.2);
+      margin-top:-18px;
     }
     body.page-contact-bg .page-back-link:hover{
       color:#fff;
@@ -303,7 +306,6 @@
           <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
         </p>
         <p class="kicker" id="kicker">Contact</p>
-        <h1 id="heroTitle">Contact.</h1>
         <p class="lead" id="heroLead">For work inquiries, collaboration, or key for detailed portfolio access.</p>
       </div>
     </section>
@@ -366,7 +368,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.16</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.17</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -376,7 +378,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.16";
+const BUILD = "v0.5.17";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
@@ -386,7 +388,7 @@ const resultEl = document.getElementById("formResult");
 const submitBtn = document.getElementById("submitBtn");
 const sectionHead = document.querySelector(".contact-panel .section-head");
 const contactPanel = document.getElementById("contactPanel");
-const heroTitle = document.getElementById("heroTitle");
+const heroKicker = document.getElementById("kicker");
 const heroLead = document.getElementById("heroLead");
 
 let turnstileReady = false;
@@ -442,7 +444,7 @@ function showThankYou(){
   if (sectionHead) sectionHead.hidden = true;
   formWrap.hidden = true;
   thanksView.hidden = false;
-  heroTitle.textContent = t.thanksHeroTitle;
+  if (heroKicker) heroKicker.textContent = t.thanksHeroTitle;
   heroLead.textContent = t.thanksHeroLead;
   document.getElementById("thanksTitle").textContent = t.thanksTitle;
   document.getElementById("thanksBody").textContent = t.thanksBody;
@@ -460,7 +462,6 @@ const i18n = {
   en: {
     backLink: "← Practical AI for the built environment",
     kicker: "Contact",
-    heroTitle: "Contact.",
     heroLead: "For work inquiries, collaboration, or key for detailed portfolio access.",
     formTitle: "",
     formBody: "Name, email, and a short message.",
@@ -487,7 +488,6 @@ const i18n = {
   zh: {
     backLink: "← 建築與環境的實用 AI",
     kicker: "聯絡",
-    heroTitle: "聯絡。",
     heroLead: "工作洽詢、合作，或申請詳細作品集存取權限。",
     formTitle: "",
     formBody: "姓名、電子郵件與簡短訊息。",
@@ -525,7 +525,7 @@ function setLang(next){
     if (el) el.textContent = t[key];
   }
   if (!thanksView.hidden) {
-    heroTitle.textContent = t.thanksHeroTitle;
+    if (heroKicker) heroKicker.textContent = t.thanksHeroTitle;
     heroLead.textContent = t.thanksHeroLead;
   }
 }
