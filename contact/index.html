@@ -41,6 +41,17 @@
     body.page-contact-bg .contact-panel .section-head p{
       color:rgba(255,255,255,.82);
     }
+    body.page-contact-bg .hero-inner{
+      padding-bottom:28px;
+    }
+    body.page-contact-bg .hero .lead{
+      max-width:calc((min(var(--max), 100vw - 40px) - 32px) / 3);
+      line-height:1.5;
+    }
+    body.page-contact-bg .section{
+      padding-top:calc(var(--stack-gap) * 0.45);
+      margin-top:-10px;
+    }
     body.page-contact-bg .page-back-link:hover{
       color:#fff;
     }
@@ -294,7 +305,7 @@
         </p>
         <p class="kicker" id="kicker">Contact</p>
         <h1 id="heroTitle">Contact.</h1>
-        <p class="lead" id="heroLead">For work inquiries, collaboration, or portfolio access.</p>
+        <p class="lead" id="heroLead">For work inquiries, collaboration, or key for detailed portfolio access.</p>
       </div>
     </section>
 
@@ -357,7 +368,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.14</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.15</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -367,7 +378,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.14";
+const BUILD = "v0.5.15";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
@@ -452,7 +463,7 @@ const i18n = {
     backLink: "← Practical AI for the built environment",
     kicker: "Contact",
     heroTitle: "Contact.",
-    heroLead: "For work inquiries, collaboration, or portfolio access.",
+    heroLead: "For work inquiries, collaboration, or key for detailed portfolio access.",
     formTitle: "Send a note",
     formBody: "Name, email, and a short message.",
     labelName: "Your name",
@@ -479,7 +490,7 @@ const i18n = {
     backLink: "← 建築與環境的實用 AI",
     kicker: "聯絡",
     heroTitle: "聯絡。",
-    heroLead: "工作洽詢、合作或作品集存取。",
+    heroLead: "工作洽詢、合作，或申請詳細作品集存取權限。",
     formTitle: "傳送訊息",
     formBody: "姓名、電子郵件與簡短訊息。",
     labelName: "您的姓名",
