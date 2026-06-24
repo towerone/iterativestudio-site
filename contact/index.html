@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://challenges.cloudflare.com">
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
   <link rel="stylesheet" href="/assets/white.css?v=0.2.03" />
@@ -209,7 +209,14 @@
               <textarea class="form-textarea" id="message" name="message" required></textarea>
             </div>
             <div class="form-turnstile">
-              <div id="turnstileWidget"></div>
+              <div
+                class="cf-turnstile"
+                id="turnstileWidget"
+                data-sitekey="0x4AAAAAADqK7jRvGP5VEMmp"
+                data-callback="onTurnstileSuccess"
+                data-expired-callback="onTurnstileExpired"
+                data-error-callback="onTurnstileExpired"
+              ></div>
             </div>
             <div class="form-actions">
               <button class="btn form-submit" type="submit" id="submitBtn" disabled>Send request</button>
@@ -233,7 +240,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.03</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.04</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -243,9 +250,8 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.03";
+const BUILD = "v0.5.04";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
-const TURNSTILE_SITE_KEY = "0x4AAAAAADqK7jRvGP5VEMmp";
 
 const form = document.getElementById("contactForm");
 const formWrap = document.getElementById("contactFormWrap");
@@ -257,10 +263,17 @@ const heroTitle = document.getElementById("heroTitle");
 const heroLead = document.getElementById("heroLead");
 
 let turnstileReady = false;
-let turnstileWidgetId = null;
 
 function setSubmitEnabled(on){
   submitBtn.disabled = !on;
+}
+
+function syncTurnstileToken(){
+  const token = form.querySelector('input[name="cf-turnstile-response"]')?.value;
+  if (token) {
+    turnstileReady = true;
+    setSubmitEnabled(true);
+  }
 }
 
 window.onTurnstileSuccess = () => {
@@ -274,31 +287,21 @@ window.onTurnstileExpired = () => {
 };
 
 function resetTurnstile(){
-  if (window.turnstile && turnstileWidgetId !== null) {
-    turnstile.reset(turnstileWidgetId);
+  const widget = document.getElementById("turnstileWidget");
+  if (window.turnstile && widget) {
+    turnstile.reset(widget);
   }
   turnstileReady = false;
   setSubmitEnabled(false);
 }
 
-function initTurnstile(){
-  if (!window.turnstile) return;
-  const el = document.getElementById("turnstileWidget");
-  if (!el || el.dataset.rendered === "1") return;
-  el.dataset.rendered = "1";
-  turnstileWidgetId = turnstile.render(el, {
-    sitekey: TURNSTILE_SITE_KEY,
-    callback: "onTurnstileSuccess",
-    "expired-callback": "onTurnstileExpired",
-    "error-callback": "onTurnstileExpired",
-  });
+function watchTurnstileInput(){
+  const observer = new MutationObserver(syncTurnstileToken);
+  observer.observe(form, { childList: true, subtree: true, attributes: true, attributeFilter: ["value"] });
+  syncTurnstileToken();
 }
 
-if (window.turnstile) {
-  initTurnstile();
-} else {
-  window.addEventListener("load", initTurnstile);
-}
+watchTurnstileInput();
 
 function isVerificationFailure(data){
   if (data.blocked) return true;
