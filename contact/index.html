@@ -20,6 +20,7 @@
       margin:0 auto;
     }
     .contact-form{
+      --field-surface:#fafafa;
       display:flex;
       flex-direction:column;
       gap:14px;
@@ -28,6 +29,9 @@
       border-radius:var(--radius2);
       background:var(--panel);
       box-shadow:var(--shadow);
+    }
+    @media (prefers-color-scheme: dark){
+      .contact-form{ --field-surface:#232323; }
     }
     .form-field{
       display:flex;
@@ -54,7 +58,7 @@
       font:inherit;
       font-size:15px;
       color:var(--text);
-      background:var(--panel2);
+      background:var(--field-surface);
       border:1px solid var(--line);
       border-radius:12px;
       transition:border-color .15s ease, box-shadow .15s ease;
@@ -75,40 +79,48 @@
       line-height:1.55;
     }
     .form-turnstile{
-      --turnstile-surface:#fafafa;
       display:flex;
       justify-content:center;
       align-items:center;
       min-height:76px;
       margin-top:4px;
-      padding:14px 12px;
+      padding:14px 12px 12px;
       border-radius:12px;
-      background:var(--turnstile-surface);
+      background:var(--field-surface);
       border:1px solid var(--line);
     }
-    @media (prefers-color-scheme: dark){
-      .form-turnstile{ --turnstile-surface:#232323; }
-    }
     .form-turnstile-slot{
+      position:relative;
       display:flex;
       justify-content:center;
-      align-items:center;
-      height:63px;
+      align-items:flex-start;
+      width:100%;
+      max-width:300px;
+      height:62px;
       overflow:hidden;
       border-radius:8px;
+    }
+    .form-turnstile-slot::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:4px;
+      background:var(--field-surface);
+      pointer-events:none;
+      z-index:2;
     }
     .form-turnstile-slot .cf-turnstile{
       display:flex;
       justify-content:center;
       flex-shrink:0;
-      margin:-1px;
+      margin:-1px -1px 0;
     }
     .form-turnstile-slot iframe{
       display:block;
       margin:-1px -1px 0;
       border:0;
-      clip-path:inset(1px 1px 2px 1px);
-      transform:translateY(-1px);
     }
     .form-actions{
       margin-top:4px;
@@ -271,7 +283,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.09</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.10</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -281,7 +293,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.09";
+const BUILD = "v0.5.10";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
