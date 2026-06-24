@@ -20,11 +20,7 @@
         linear-gradient(180deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.02) 42%, rgba(0,0,0,.06) 100%),
         url("/assets/contact/background.jpg?v=2") 52% 46% / 118% auto no-repeat fixed;
     }
-    body.page-contact-bg .hero{
-      background:transparent;
-      border-bottom:none;
-    }
-    body.page-contact-bg .section{
+    body.page-contact-bg .contact-main{
       background:transparent;
     }
     body.page-contact-bg,
@@ -43,7 +39,6 @@
     body.page-contact-bg .page-back-link,
     body.page-contact-bg .kicker,
     body.page-contact-bg .lead,
-    body.page-contact-bg .contact-panel .section-head p,
     body.page-contact-bg .form-label,
     body.page-contact-bg .form-label span,
     body.page-contact-bg .form-result,
@@ -57,7 +52,6 @@
       text-shadow:0 1px 12px rgba(0,0,0,.4);
     }
     body.page-contact-bg .lead,
-    body.page-contact-bg .contact-panel .section-head p,
     body.page-contact-bg .footer-map-credit,
     body.page-contact-bg .footer-version{
       color:rgba(255,255,255,.78);
@@ -75,20 +69,60 @@
     body.page-contact-bg .lang-divider{
       background:rgba(255,255,255,.28);
     }
-    body.page-contact-bg .hero-inner{
-      padding:48px 0 10px;
+    .contact-main{
+      min-height:calc(100dvh - 168px);
+      display:flex;
+      align-items:center;
+      padding:32px 0 56px;
     }
-    body.page-contact-bg .hero .kicker{
-      margin-bottom:8px;
+    .contact-layout{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
+      gap:clamp(40px, 6vw, 72px);
+      align-items:center;
+      width:100%;
     }
-    body.page-contact-bg .hero .lead{
-      max-width:calc((min(var(--max), 100vw - 40px) - 32px) / 3);
-      margin-bottom:0;
-      line-height:1.5;
+    .contact-intro{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height:min(52vh, 520px);
+      padding:12px 0;
     }
-    body.page-contact-bg .section{
-      padding-top:calc(var(--stack-gap) * 0.2);
-      margin-top:-18px;
+    body.page-contact-bg .contact-intro .page-back{
+      margin:0 0 24px;
+    }
+    body.page-contact-bg .contact-intro .kicker{
+      margin-bottom:14px;
+    }
+    body.page-contact-bg .contact-intro .lead{
+      max-width:36ch;
+      margin:0;
+      line-height:1.55;
+      font-size:clamp(17px, 1.6vw, 20px);
+    }
+    .contact-form-col{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height:min(52vh, 520px);
+    }
+    @media (max-width: 860px){
+      .contact-main{
+        min-height:0;
+        padding:28px 0 48px;
+      }
+      .contact-layout{
+        grid-template-columns:1fr;
+        gap:36px;
+      }
+      .contact-intro,
+      .contact-form-col{
+        min-height:0;
+      }
+      body.page-contact-bg .contact-intro .lead{
+        max-width:none;
+      }
     }
     .contact-panel{
       --field-surface:#fafafa;
@@ -113,10 +147,6 @@
           url("/assets/contact/background.jpg?v=2") 52% 46% / 118% auto no-repeat fixed;
       }
     }
-    .contact-panel .section-head{
-      margin-bottom:12px;
-      text-align:center;
-    }
     .contact-form-wrap{
       max-width:none;
       margin:0;
@@ -124,7 +154,7 @@
     .contact-form{
       display:flex;
       flex-direction:column;
-      gap:14px;
+      gap:18px;
       padding:0;
       border:0;
       border-radius:0;
@@ -340,58 +370,52 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
+  <main class="contact-main">
+    <div class="container contact-layout">
+      <div class="contact-intro" id="contactIntro">
         <p class="page-back">
           <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
         </p>
         <p class="kicker" id="kicker">Contact</p>
         <p class="lead" id="heroLead">For work inquiries, collaboration, or key for detailed portfolio access.</p>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
+      <div class="contact-form-col">
         <div class="contact-panel" id="contactPanel">
-        <div class="section-head">
-          <p id="formBody">Name, email, and a short message.</p>
-        </div>
-
-        <div class="contact-form-wrap" id="contactFormWrap">
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-field">
-              <label class="form-label" for="name" id="labelName">Your name</label>
-              <input class="form-input" type="text" id="name" name="name" autocomplete="name" required />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="email" id="labelEmail">Your email</label>
-              <input class="form-input" type="email" id="email" name="email" autocomplete="email" required />
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="message" id="labelMessage">Your message</label>
-              <textarea class="form-textarea" id="message" name="message" required></textarea>
-            </div>
-            <div class="form-turnstile">
-              <div class="form-turnstile-slot">
-                <div
-                  class="cf-turnstile"
-                  id="turnstileWidget"
-                  data-sitekey="0x4AAAAAADqK7jRvGP5VEMmp"
-                  data-theme="auto"
-                  data-size="normal"
-                  data-callback="onTurnstileSuccess"
-                  data-expired-callback="onTurnstileExpired"
-                  data-error-callback="onTurnstileExpired"
-                ></div>
+          <div class="contact-form-wrap" id="contactFormWrap">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-field">
+                <label class="form-label" for="name" id="labelName">Your name</label>
+                <input class="form-input" type="text" id="name" name="name" autocomplete="name" required />
               </div>
-            </div>
-            <div class="form-actions">
-              <button class="btn form-submit" type="submit" id="submitBtn" disabled>Send request</button>
-            </div>
-          </form>
-          <div class="form-result" id="formResult" role="status" aria-live="polite"></div>
-        </div>
+              <div class="form-field">
+                <label class="form-label" for="email" id="labelEmail">Your email</label>
+                <input class="form-input" type="email" id="email" name="email" autocomplete="email" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="message" id="labelMessage">Ask us</label>
+                <textarea class="form-textarea" id="message" name="message" required></textarea>
+              </div>
+              <div class="form-turnstile">
+                <div class="form-turnstile-slot">
+                  <div
+                    class="cf-turnstile"
+                    id="turnstileWidget"
+                    data-sitekey="0x4AAAAAADqK7jRvGP5VEMmp"
+                    data-theme="auto"
+                    data-size="normal"
+                    data-callback="onTurnstileSuccess"
+                    data-expired-callback="onTurnstileExpired"
+                    data-error-callback="onTurnstileExpired"
+                  ></div>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn form-submit" type="submit" id="submitBtn" disabled>Send request</button>
+              </div>
+            </form>
+            <div class="form-result" id="formResult" role="status" aria-live="polite"></div>
+          </div>
         </div>
 
         <div class="contact-thanks" id="contactThanks" hidden>
@@ -401,7 +425,7 @@
           <a class="btn" href="/" id="thanksHome">Back to home</a>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -409,7 +433,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.19</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.20</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -419,7 +443,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.19";
+const BUILD = "v0.5.20";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
@@ -427,7 +451,6 @@ const formWrap = document.getElementById("contactFormWrap");
 const thanksView = document.getElementById("contactThanks");
 const resultEl = document.getElementById("formResult");
 const submitBtn = document.getElementById("submitBtn");
-const sectionHead = document.querySelector(".contact-panel .section-head");
 const contactPanel = document.getElementById("contactPanel");
 const heroKicker = document.getElementById("kicker");
 const heroLead = document.getElementById("heroLead");
@@ -482,7 +505,6 @@ function isVerificationFailure(data){
 function showThankYou(){
   const t = i18n[lang];
   if (contactPanel) contactPanel.hidden = true;
-  if (sectionHead) sectionHead.hidden = true;
   formWrap.hidden = true;
   thanksView.hidden = false;
   if (heroKicker) heroKicker.textContent = t.thanksHeroTitle;
@@ -504,11 +526,9 @@ const i18n = {
     backLink: "← Practical AI for the built environment",
     kicker: "Contact",
     heroLead: "For work inquiries, collaboration, or key for detailed portfolio access.",
-    formTitle: "",
-    formBody: "Name, email, and a short message.",
     labelName: "Your name",
     labelEmail: "Your email",
-    labelMessage: "Your message",
+    labelMessage: "Ask us",
     submitBtn: "Send request",
     submitBtnPending: "Sending…",
     navProjects: "Projects",
@@ -530,11 +550,9 @@ const i18n = {
     backLink: "← 建築與環境的實用 AI",
     kicker: "聯絡",
     heroLead: "工作洽詢、合作，或申請詳細作品集存取權限。",
-    formTitle: "",
-    formBody: "姓名、電子郵件與簡短訊息。",
     labelName: "您的姓名",
     labelEmail: "您的電子郵件",
-    labelMessage: "您的訊息",
+    labelMessage: "詢問我們",
     submitBtn: "送出申請",
     submitBtnPending: "傳送中…",
     navProjects: "專案",
