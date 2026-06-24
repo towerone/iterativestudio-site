@@ -792,9 +792,9 @@ h1{
   flex-direction:column;
   align-items:flex-end;
   justify-content:center;
-  gap:clamp(10px, 1.4vh, 14px);
+  gap:clamp(5px, 0.7vh, 7px);
   margin:0;
-  padding:clamp(10px, 1.2vh, 14px) clamp(8px, 0.8vw, 12px) clamp(10px, 1.2vh, 14px) clamp(14%, 2.6vw, 20%);
+  padding:clamp(5px, 0.6vh, 7px) clamp(4px, 0.4vw, 6px) clamp(5px, 0.6vh, 7px) clamp(14%, 2.6vw, 20%);
   border:0;
   text-align:right;
   opacity:0;
@@ -814,7 +814,7 @@ h1{
   margin:0;
   max-width:100%;
   font-family:"Sixtyfour", system-ui, sans-serif;
-  font-size:clamp(13px, 1.26vw, 18px);
+  font-size:clamp(7px, 0.63vw, 9px);
   line-height:1.38;
   font-weight:400;
   letter-spacing:.04em;
@@ -835,7 +835,7 @@ h1{
   margin:0;
   padding-right:2px;
   font-family:"Sixtyfour", system-ui, sans-serif;
-  font-size:clamp(10px, 0.92vw, 14px);
+  font-size:clamp(5px, 0.46vw, 7px);
   font-style:normal;
   font-weight:400;
   letter-spacing:.08em;
@@ -1833,11 +1833,11 @@ h1{
     padding-left:clamp(12%, 4vw, 18%);
   }
   .hero-quote-text{
-    font-size:clamp(11px, 2.88vw, 14px);
+    font-size:clamp(6px, 1.44vw, 7px);
     line-height:1.36;
   }
   .hero-quote-attribution{
-    font-size:clamp(9px, 2.24vw, 11px);
+    font-size:clamp(5px, 1.12vw, 6px);
     letter-spacing:.06em;
   }
   .hero-flipper{
