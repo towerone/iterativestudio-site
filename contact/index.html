@@ -202,7 +202,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.01</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.02</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -212,10 +212,44 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.01";
+const BUILD = "v0.5.02";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
+const BLOCK_KEY = "contactAccessBlockedUntil";
+const BLOCK_MS = 60 * 60 * 1000;
 
 let turnstileReady = false;
+
+function isContactBlocked(){
+  return Number(sessionStorage.getItem(BLOCK_KEY) || 0) > Date.now();
+}
+
+function blockContactAccess(){
+  sessionStorage.setItem(BLOCK_KEY, String(Date.now() + BLOCK_MS));
+}
+
+function kickOutOfContact(message){
+  blockContactAccess();
+  if (message) {
+    showResult("error", message);
+    window.setTimeout(() => window.location.replace("/"), 1400);
+    return;
+  }
+  window.location.replace("/");
+}
+
+function isVerificationFailure(data, response){
+  if (data.blocked) return true;
+  const err = String(data.error || "").toLowerCase();
+  return response.status === 403
+    || err.includes("bot")
+    || err.includes("turnstile")
+    || err.includes("captcha")
+    || err.includes("verification");
+}
+
+if (isContactBlocked()) {
+  window.location.replace("/");
+}
 
 window.onTurnstileSuccess = () => {
   turnstileReady = true;
@@ -256,6 +290,7 @@ const i18n = {
     successMsg: "Thank you. Your request has been sent. You will receive a reply once it is reviewed.",
     errorMsg: "Something went wrong. Please try again.",
     captchaMsg: "Please complete the verification check before sending.",
+    blockedMsg: "Verification failed. Redirecting you away from contact.",
     networkMsg: "Could not send your request. Please check your connection and try again.",
     footerNote: "Contact",
     footerTagline: "Systems-first workflows for architecture and the built environment."
@@ -280,6 +315,7 @@ const i18n = {
     successMsg: "感謝您。申請已送出，審核後將回覆您。",
     errorMsg: "發生錯誤，請再試一次。",
     captchaMsg: "送出前請先完成驗證。",
+    blockedMsg: "驗證失敗。正在離開聯絡頁面。",
     networkMsg: "無法送出申請，請檢查網路連線後再試。",
     footerNote: "聯絡",
     footerTagline: "以系統為先的建築與環境工作流程。"
@@ -350,6 +386,8 @@ form.addEventListener("submit", async (e) => {
       showResult("success", t.successMsg);
       form.reset();
       resetTurnstile();
+    } else if (isVerificationFailure(data, response)) {
+      kickOutOfContact(t.blockedMsg);
     } else {
       showResult("error", t.errorMsg);
       resetTurnstile();
