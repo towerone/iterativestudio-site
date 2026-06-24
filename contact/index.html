@@ -27,17 +27,53 @@
     body.page-contact-bg .section{
       background:transparent;
     }
-    body.page-contact-bg .hero .page-back-link,
-    body.page-contact-bg .hero .kicker,
-    body.page-contact-bg .hero .lead,
-    body.page-contact-bg .contact-panel .section-head p,
-    body.page-contact-bg .form-label{
-      color:rgba(255,255,255,.94);
-      text-shadow:0 1px 14px rgba(0,0,0,.42), 0 0 24px rgba(0,0,0,.18);
+    body.page-contact-bg,
+    body.page-contact-bg .site-header,
+    body.page-contact-bg .site-footer{
+      color:rgba(255,255,255,.92);
     }
-    body.page-contact-bg .hero .lead,
-    body.page-contact-bg .contact-panel .section-head p{
-      color:rgba(255,255,255,.82);
+    body.page-contact-bg .site-header,
+    body.page-contact-bg .site-footer{
+      background:transparent;
+    }
+    body.page-contact-bg .header-link,
+    body.page-contact-bg .brand,
+    body.page-contact-bg .brand-name,
+    body.page-contact-bg .lang-toggle,
+    body.page-contact-bg .page-back-link,
+    body.page-contact-bg .kicker,
+    body.page-contact-bg .lead,
+    body.page-contact-bg .contact-panel .section-head p,
+    body.page-contact-bg .form-label,
+    body.page-contact-bg .form-label span,
+    body.page-contact-bg .form-result,
+    body.page-contact-bg .contact-thanks h2,
+    body.page-contact-bg .contact-thanks p,
+    body.page-contact-bg .contact-thanks-mark,
+    body.page-contact-bg .footer-brand,
+    body.page-contact-bg .footer-note,
+    body.page-contact-bg .footer-mark{
+      color:rgba(255,255,255,.94);
+      text-shadow:0 1px 12px rgba(0,0,0,.4);
+    }
+    body.page-contact-bg .lead,
+    body.page-contact-bg .contact-panel .section-head p,
+    body.page-contact-bg .footer-map-credit,
+    body.page-contact-bg .footer-version{
+      color:rgba(255,255,255,.78);
+      text-shadow:0 1px 10px rgba(0,0,0,.36);
+    }
+    body.page-contact-bg .header-link:hover,
+    body.page-contact-bg .page-back-link:hover{
+      color:#fff;
+    }
+    body.page-contact-bg .brand-mark,
+    body.page-contact-bg .lang-toggle{
+      border-color:rgba(255,255,255,.32);
+      background:rgba(255,255,255,.08);
+    }
+    body.page-contact-bg .lang-divider{
+      background:rgba(255,255,255,.28);
     }
     body.page-contact-bg .hero-inner{
       padding:48px 0 10px;
@@ -53,9 +89,6 @@
     body.page-contact-bg .section{
       padding-top:calc(var(--stack-gap) * 0.2);
       margin-top:-18px;
-    }
-    body.page-contact-bg .page-back-link:hover{
-      color:#fff;
     }
     .contact-panel{
       --field-surface:#fafafa;
@@ -76,17 +109,8 @@
     @media (prefers-color-scheme: dark){
       body.page-contact-bg.page-white{
         background:
-          linear-gradient(180deg, rgba(0,0,0,.22) 0%, rgba(0,0,0,.12) 50%, rgba(0,0,0,.28) 100%),
+          linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.08) 50%, rgba(0,0,0,.22) 100%),
           url("/assets/contact/background.jpg?v=2") 52% 46% / 118% auto no-repeat fixed;
-      }
-      .contact-panel{
-        background:rgba(12,14,18,.34);
-        border-color:rgba(255,255,255,.16);
-        box-shadow:
-          0 0 0 1px rgba(255,255,255,.06),
-          0 8px 32px rgba(0,0,0,.32),
-          0 0 40px rgba(255,255,255,.08),
-          inset 0 1px 0 rgba(255,255,255,.1);
       }
     }
     .contact-panel .section-head{
@@ -117,13 +141,11 @@
       font-weight:600;
       letter-spacing:.08em;
       text-transform:uppercase;
-      color:var(--faint);
     }
     .form-label span{
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
-      color:var(--muted);
     }
     .form-input,
     .form-textarea{
@@ -236,15 +258,13 @@
     }
     .form-result.is-success{
       display:block;
-      background:color-mix(in srgb, #2ea87a 14%, var(--panel));
-      color:var(--text);
-      border:1px solid color-mix(in srgb, #2ea87a 28%, var(--line));
+      background:rgba(46,168,122,.22);
+      border:1px solid rgba(120,220,180,.35);
     }
     .form-result.is-error{
       display:block;
-      background:color-mix(in srgb, #d9534f 10%, var(--panel));
-      color:var(--text);
-      border:1px solid color-mix(in srgb, #d9534f 24%, var(--line));
+      background:rgba(217,83,79,.2);
+      border:1px solid rgba(240,140,135,.32);
     }
     .contact-thanks{
       max-width:520px;
@@ -262,16 +282,10 @@
         0 0 48px rgba(255,255,255,.22),
         inset 0 1px 0 rgba(255,255,255,.32);
     }
-    body.page-contact-bg .contact-thanks h2,
-    body.page-contact-bg .contact-thanks p{
-      color:rgba(255,255,255,.92);
-      text-shadow:0 1px 12px rgba(0,0,0,.38);
-    }
     .contact-thanks-mark{
       font-size:42px;
       line-height:1;
       margin-bottom:14px;
-      color:color-mix(in srgb, #2ea87a 78%, var(--text));
     }
     .contact-thanks h2{
       margin:0 0 10px;
@@ -280,12 +294,21 @@
     }
     .contact-thanks p{
       margin:0 0 22px;
-      color:var(--muted);
       line-height:1.6;
       font-size:15px;
     }
     .contact-thanks .btn{
       min-width:200px;
+      color:rgba(255,255,255,.94);
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.35);
+      box-shadow:0 6px 20px rgba(8,20,32,.18);
+      text-shadow:0 1px 10px rgba(0,0,0,.32);
+    }
+    .contact-thanks .btn:hover{
+      background:rgba(255,255,255,.22);
+      border-color:rgba(255,255,255,.48);
+      filter:none;
     }
     [hidden]{ display:none !important; }
   </style>
@@ -386,7 +409,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.18</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.19</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -396,7 +419,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.18";
+const BUILD = "v0.5.19";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
