@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&family=Sixtyfour&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.3.04" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.3.10" />
 </head>
 
 <body>
@@ -346,7 +346,6 @@
               <span aria-hidden="true">›</span>
             </button>
           </div>
-          <p class="carousel-partner-note" id="carouselPartnerNote">* Collaboration work — shown here and in flash previews only, not under Design Direction.</p>
         </div>
       </div>
     </section>
@@ -383,7 +382,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.09</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.10</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -457,7 +456,6 @@ panel2Li3: "Hand-off ready outputs",
 footerNote: "Building AI for the Built Environment",
 footerMapCredit: "Earth viewer map provided by <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a>",
 footerPartnerNote: "* Collaboration with a partner firm — computational / AI-assisted work only, not own design direction.",
-carouselPartnerNote: "* Collaboration work — shown here and in flash previews only, not under Design Direction.",
 liveLabel: "LIVE",
 mapLabels: {
 currents: "ocean-currents",
@@ -544,7 +542,7 @@ panel2Li3: "可交付的輸出",
 footerNote: "為建築環境打造 AI",
 footerMapCredit: "地球地圖檢視器由 <a href=\"https://earth.nullschool.net/\" target=\"_blank\" rel=\"noopener noreferrer\">earth.nullschool.net</a> 提供",
 footerPartnerNote: "* 與合作事務所協作 — 僅計算式／AI 輔助工作，非個人設計方向。",
-carouselPartnerNote: "* 協作專案 — 僅在此與快閃預覽中出現，不在設計方向頁面。",
+
 liveLabel: "直播",
 mapLabels: {
 currents: "海洋-洋流",
@@ -583,7 +581,7 @@ flipperCaptions: [
 
 let lang = "en";
 
-const BUILD = "v0.3.09";
+const BUILD = "v0.3.10";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -1036,8 +1034,6 @@ document.getElementById("panel2Li3").textContent = t.panel2Li3;
 document.getElementById("footerNote").textContent = t.footerNote;
 document.getElementById("footerMapCredit").innerHTML = t.footerMapCredit;
 document.getElementById("footerPartnerNote").textContent = t.footerPartnerNote;
-const carouselPartnerNote = document.getElementById("carouselPartnerNote");
-if (carouselPartnerNote) carouselPartnerNote.textContent = t.carouselPartnerNote;
 
 updateMapLabel();
 }

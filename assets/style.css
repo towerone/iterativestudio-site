@@ -331,7 +331,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
 .hero{
   position:relative;
   overflow:visible;
-  min-height: min(85vh, 902px);
+  min-height: min(94vh, 1020px);
   border-bottom: none;
 }
 
@@ -610,8 +610,8 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   --headline-flipper-gap-base: 0.34em;
   --flipper-tail: clamp(0px, calc((2px + 0.2vw) * var(--space-scale) * 1.3), calc(8px * var(--space-scale)));
   --hero-action-gap: clamp(0px, calc((4px - 0.5vw) * var(--space-scale) * 1.3), calc(8px * var(--space-scale)));
-  --hero-flipper-tagline-gap: calc(18px * var(--space-scale) * 1.3);
-  --hero-pre-kicker-gap: calc(16px * var(--space-scale) * 1.3);
+  --hero-flipper-tagline-gap: calc(56px * var(--space-scale) * 1.3);
+  --hero-pre-kicker-gap: calc(44px * var(--space-scale) * 1.3);
   position:relative;
   display:flex;
   flex-direction:column;
@@ -665,12 +665,12 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   color:rgba(255,255,255,.68);
   text-shadow:0 2px 14px rgba(0,0,0,.32);
   margin-top:var(--hero-pre-kicker-gap);
-  transform:translateY(calc(18px * var(--space-scale) * 1.3));
+  transform:translateY(calc(36px * var(--space-scale) * 1.3));
 }
 
 .hero-main:has(.hero-footnote) .project-carousel{
-  margin-top:calc(var(--stack-gap) - 2px);
-  margin-bottom:calc(18px * var(--space-scale));
+  margin-top:calc(var(--stack-gap) + 28px);
+  margin-bottom:calc(28px * var(--space-scale));
 }
 
 .hero-tagline-row{
@@ -682,7 +682,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   width:100%;
   min-height:calc(36px * var(--space-scale));
   margin-top:calc(var(--flipper-lead) + var(--flipper-stage-height) + var(--flipper-tail) + var(--hero-action-gap) + var(--hero-flipper-tagline-gap) - (var(--headline-flipper-gap-base) - var(--headline-flipper-gap)));
-  margin-bottom:calc(8px * var(--space-scale));
+  margin-bottom:calc(24px * var(--space-scale));
   pointer-events:none;
 }
 
@@ -761,7 +761,7 @@ h1{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:calc(16px * var(--space-scale));
-  margin-top:0;
+  margin-top:calc(20px * var(--space-scale));
   overflow:visible;
 }
 
@@ -1241,16 +1241,6 @@ h1{
   margin-top:var(--stack-gap);
   position:relative;
   z-index:3;
-}
-
-.carousel-partner-note{
-  margin:10px 0 0;
-  max-width:52ch;
-  font-size:11px;
-  line-height:1.4;
-  color:rgba(255,255,255,.55);
-  text-shadow:0 1px 8px rgba(0,0,0,.32);
-  letter-spacing:.02em;
 }
 
 .carousel-column{
@@ -1792,7 +1782,7 @@ h1{
 }
 
 @media (max-width: 900px){
-  .hero{ min-height: min(79vh, 792px); }
+  .hero{ min-height: min(88vh, 900px); }
   .hero-inner{ padding: calc(43px - 4pt) 0 0; }
   .header-inner{ padding:3px max(20px, calc((100vw - min(var(--max), calc(100vw - 40px))) / 2)) 6px; gap:6px; }
   .header-hole{ width:clamp(20px, 3.4vw, 28px); }
@@ -1894,8 +1884,8 @@ h1{
     --flipper-lead: clamp(0px, calc(8px - 0.8vh), 10px);
     --flipper-tail: calc(3px * var(--space-scale));
     --hero-action-gap: calc(3px * var(--space-scale));
-    --hero-flipper-tagline-gap: calc(14px * var(--space-scale) * 1.3);
-    --hero-pre-kicker-gap: calc(12px * var(--space-scale) * 1.3);
+    --hero-flipper-tagline-gap: calc(40px * var(--space-scale) * 1.3);
+    --hero-pre-kicker-gap: calc(32px * var(--space-scale) * 1.3);
     --hero-mini-card-height: calc(68px + 28px);
     --carousel-mobile-min: calc(var(--hero-mini-card-height) * 2 + 16px);
     --hero-detail-width: calc(var(--flipper-width) * 1.28);
@@ -1949,11 +1939,11 @@ h1{
     font-size:12.1px;
     letter-spacing:.14em;
     padding:0 8px;
-    transform:translateY(calc(14px * var(--space-scale) * 1.3));
+    transform:translateY(calc(28px * var(--space-scale) * 1.3));
   }
   .hero-main:has(.hero-footnote) .project-carousel{
-    margin-top:calc(var(--stack-gap) + 2px);
-    margin-bottom:calc(14px * var(--space-scale));
+    margin-top:calc(var(--stack-gap) + 20px);
+    margin-bottom:calc(22px * var(--space-scale));
   }
   .hero-tagline{
     white-space:normal;
