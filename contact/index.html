@@ -47,7 +47,6 @@
     body.page-contact-bg .form-label span,
     body.page-contact-bg .form-result,
     body.page-contact-bg .contact-thanks h2,
-    body.page-contact-bg .contact-thanks-mark,
     body.page-contact-bg .footer-brand,
     body.page-contact-bg .footer-note,
     body.page-contact-bg .footer-mark{
@@ -89,6 +88,10 @@
     }
     .contact-panel{
       --field-surface:#fafafa;
+      --field-text:rgba(15,18,25,.92);
+      --field-border:rgba(15,18,25,.14);
+      --field-faint:rgba(15,18,25,.48);
+      color-scheme:light;
       max-width:520px;
       margin:0 auto;
       padding:28px 24px 24px;
@@ -108,6 +111,13 @@
         background:
           linear-gradient(180deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.08) 50%, rgba(0,0,0,.22) 100%),
           url("/assets/contact/background.jpg?v=2") 52% 46% / 118% auto no-repeat fixed;
+      }
+      .contact-panel{
+        --field-surface:#141820;
+        --field-text:rgba(255,255,255,.92);
+        --field-border:rgba(255,255,255,.16);
+        --field-faint:rgba(255,255,255,.48);
+        color-scheme:dark;
       }
     }
     .contact-form-wrap{
@@ -156,15 +166,15 @@
       padding:12px 14px;
       font:inherit;
       font-size:15px;
-      color:var(--text);
+      color:var(--field-text);
       background:var(--field-surface);
-      border:1px solid rgba(15,18,25,.14);
+      border:1px solid var(--field-border);
       border-radius:12px;
       transition:border-color .15s ease, box-shadow .15s ease;
     }
     .form-input::placeholder,
     .form-textarea::placeholder{
-      color:var(--faint);
+      color:var(--field-faint);
     }
     .form-input:focus,
     .form-textarea:focus{
@@ -186,7 +196,7 @@
       padding:14px 12px 12px;
       border-radius:12px;
       background:var(--field-surface);
-      border:1px solid var(--line);
+      border:1px solid var(--field-border);
     }
     .form-turnstile-slot{
       position:relative;
@@ -240,14 +250,14 @@
       opacity:1;
     }
     .form-submit:not(:disabled){
-      background:#fafafa;
-      border:1px solid rgba(15,18,25,.16);
-      color:var(--text);
+      background:var(--field-surface);
+      border:1px solid var(--field-border);
+      color:var(--field-text);
       box-shadow:0 8px 22px rgba(8,20,32,.22);
     }
     .form-submit:not(:disabled):hover{
-      background:#fff;
-      border-color:rgba(15,18,25,.22);
+      background:color-mix(in srgb, var(--field-surface) 88%, #fff);
+      border-color:color-mix(in srgb, var(--field-border) 70%, var(--field-text));
       box-shadow:0 10px 28px rgba(8,20,32,.28);
       filter:none;
     }
@@ -286,15 +296,10 @@
         inset 0 1px 0 rgba(255,255,255,.32);
     }
     .contact-thanks h2{
-      margin:0 0 18px;
+      margin:0 0 24px;
       font-size:26px;
       letter-spacing:-0.01em;
       line-height:1.35;
-    }
-    .contact-thanks-mark{
-      font-size:48px;
-      line-height:1;
-      margin:0 0 24px;
     }
     .contact-thanks .btn{
       min-width:200px;
@@ -393,7 +398,6 @@
 
         <div class="contact-thanks" id="contactThanks" hidden>
           <h2 id="thanksTitle">Thank you, the future looks bright.</h2>
-          <div class="contact-thanks-mark" aria-hidden="true">☀️</div>
           <a class="btn" href="/" id="thanksHome">Back to home</a>
         </div>
       </div>
@@ -405,7 +409,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.26</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.27</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -415,7 +419,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.26";
+const BUILD = "v0.5.27";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
