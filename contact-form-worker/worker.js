@@ -1,28 +1,25 @@
 /**
- * Contact form worker — deploy to contact-form-worker.taproot-lychee7i.workers.dev
+ * Paste this into your Cloudflare Worker (contact-form-worker).
  *
- * Required secrets / vars (Cloudflare dashboard → Worker → Settings → Variables):
- *   TURNSTILE_SECRET_KEY  — Turnstile secret key
- *   CONTACT_TO_EMAIL      — where portfolio requests are delivered
- *   RESEND_API_KEY        — if using Resend (optional if you swap sendEmail)
- *   FROM_EMAIL            — verified sender, e.g. contact@iterativestudio.com
+ * Dashboard → Worker → Settings → Variables / Secrets:
+ *   TURNSTILE_SECRET_KEY  (secret)
+ *   RESEND_API_KEY        (secret)
+ *   CONTACT_TO_EMAIL      (text)  — your inbox
+ *   FROM_EMAIL            (text)  — verified Resend sender
  */
 
 const ALLOWED_ORIGINS = new Set([
   "https://www.iterativestudio.com",
   "https://iterativestudio.com",
-  "http://127.0.0.1:8788",
-  "http://localhost:8788",
 ]);
 
-function corsHeaders(origin, extra = {}) {
+function corsHeaders(origin) {
   const allowed = ALLOWED_ORIGINS.has(origin) ? origin : "https://www.iterativestudio.com";
   return {
     "Access-Control-Allow-Origin": allowed,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400",
-    ...extra,
   };
 }
 
@@ -36,36 +33,16 @@ function json(data, status, origin) {
   });
 }
 
-async function verifyTurnstile(token, secret, remoteip) {
-  const body = new URLSearchParams({ secret, response: token });
-  if (remoteip) body.set("remoteip", remoteip);
-
-  const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body,
-  });
-  return res.json();
-}
-
-async function sendEmail(env, { name, email, company, message }) {
-  // If you already send mail another way in your Worker, replace this function
-  // and keep the Turnstile + CORS logic below.
-  if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.CONTACT_TO_EMAIL) {
-    console.log("Portfolio request", { name, email, company, message });
-    return;
-  }
-
-  const companyLine = company ? `Company: ${company}\n` : "";
-  const text = [
-    "Portfolio access request",
-    "",
-    `Name: ${name}`,
-    `Email: ${email}`,
-    companyLine,
-    "Message:",
-    message,
-  ].join("\n");
+async function sendResendEmail(env, { name, email, company, message }) {
+  const companyLine = company && company !== "N/A" ? `<p><strong>Company:</strong> ${company}</p>` : "";
+  const html = `
+    <h2>Portfolio access request</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    ${companyLine}
+    <p><strong>Message:</strong></p>
+    <p>${message.replace(/\n/g, "<br>")}</p>
+  `;
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -78,13 +55,13 @@ async function sendEmail(env, { name, email, company, message }) {
       to: env.CONTACT_TO_EMAIL,
       reply_to: email,
       subject: `Portfolio access request — ${name}`,
-      text,
+      html,
     }),
   });
 
   if (!res.ok) {
     const detail = await res.text();
-    throw new Error(`Email send failed: ${detail}`);
+    throw new Error(`Resend error: ${detail}`);
   }
 }
 
@@ -101,29 +78,42 @@ export default {
     }
 
     try {
-      const form = await request.formData();
-      const token = String(form.get("cf-turnstile-response") || "");
-      const remoteip = request.headers.get("CF-Connecting-IP") || "";
+      const formData = await request.formData();
+      const token = formData.get("cf-turnstile-response");
 
       if (!token) {
         return json({ success: false, blocked: true, error: "Bot check failed" }, 400, origin);
       }
 
-      const check = await verifyTurnstile(token, env.TURNSTILE_SECRET_KEY, remoteip);
-      if (!check.success) {
-        return json({ success: false, blocked: true, error: "Bot check failed" }, 403, origin);
+      const turnstileResponse = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            secret: env.TURNSTILE_SECRET_KEY,
+            response: token,
+          }),
+        }
+      );
+
+      const outcome = await turnstileResponse.json();
+
+      if (!outcome.success) {
+        return json({ success: false, blocked: true, error: "Bot check failed" }, 400, origin);
       }
 
-      const name = String(form.get("name") || "").trim();
-      const email = String(form.get("email") || "").trim();
-      const company = String(form.get("company") || "").trim();
-      const message = String(form.get("message") || "").trim();
+      const name = String(formData.get("name") || "Unknown").trim();
+      const email = String(formData.get("email") || "").trim();
+      const company = String(formData.get("company") || "N/A").trim();
+      const message = String(formData.get("message") || "No message provided").trim();
 
-      if (!name || !email || !message) {
-        return json({ success: false, error: "Missing required fields" }, 400, origin);
+      if (!email || email === "Unknown") {
+        return json({ success: false, error: "Missing email" }, 400, origin);
       }
 
-      await sendEmail(env, { name, email, company, message });
+      await sendResendEmail(env, { name, email, company, message });
+
       return json({ success: true }, 200, origin);
     } catch (err) {
       console.error(err);
