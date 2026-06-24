@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
+  <title>Contact | Iterative Studio</title>
+  <meta name="description" content="Request secure access to the full portfolio and resume. Recruiters and employers can submit a request and receive a private access link." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.2.03" />
+  <style>
+    .contact-form-wrap{
+      max-width:520px;
+      margin:0 auto;
+    }
+    .contact-form{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      background:var(--panel);
+      box-shadow:var(--shadow);
+    }
+    .form-field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .form-label{
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--faint);
+    }
+    .form-label span{
+      font-weight:400;
+      text-transform:none;
+      letter-spacing:0;
+      color:var(--muted);
+    }
+    .form-input,
+    .form-textarea{
+      width:100%;
+      padding:12px 14px;
+      font:inherit;
+      font-size:15px;
+      color:var(--text);
+      background:var(--panel2);
+      border:1px solid var(--line);
+      border-radius:12px;
+      transition:border-color .15s ease, box-shadow .15s ease;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder{
+      color:var(--faint);
+    }
+    .form-input:focus,
+    .form-textarea:focus{
+      outline:none;
+      border-color:color-mix(in srgb, var(--accent) 40%, var(--line));
+      box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+    .form-textarea{
+      min-height:140px;
+      resize:vertical;
+      line-height:1.55;
+    }
+    .form-actions{
+      margin-top:4px;
+    }
+    .form-submit{
+      width:100%;
+      cursor:pointer;
+      font:inherit;
+    }
+    .form-submit:disabled{
+      opacity:.65;
+      cursor:not-allowed;
+    }
+    .form-result{
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:12px;
+      font-size:14.5px;
+      line-height:1.5;
+      display:none;
+    }
+    .form-result.is-success{
+      display:block;
+      background:color-mix(in srgb, #2ea87a 14%, var(--panel));
+      color:var(--text);
+      border:1px solid color-mix(in srgb, #2ea87a 28%, var(--line));
+    }
+    .form-result.is-error{
+      display:block;
+      background:color-mix(in srgb, #d9534f 10%, var(--panel));
+      color:var(--text);
+      border:1px solid color-mix(in srgb, #d9534f 24%, var(--line));
+    }
+  </style>
+</head>
+
+<body class="page-white">
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+      <div class="header-hole" aria-hidden="true"></div>
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="page-back">
+          <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
+        </p>
+        <p class="kicker" id="kicker">Contact</p>
+        <h1 id="heroTitle">Request secure portfolio access.</h1>
+        <p class="lead" id="heroLead">Recruiters and employers can request access to a private portfolio and resume. Submit the form below — you will receive a reply with a secure access link once your request is reviewed.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="formTitle">Request Secure Portfolio Access</h2>
+          <p id="formBody">Include your name, email, and a brief note about your inquiry. Company is optional.</p>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-field">
+              <label class="form-label" for="name" id="labelName">Your name</label>
+              <input class="form-input" type="text" id="name" name="name" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="email" id="labelEmail">Your email</label>
+              <input class="form-input" type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="company" id="labelCompany">Company <span id="labelCompanyOpt">(optional)</span></label>
+              <input class="form-input" type="text" id="company" name="company" autocomplete="organization" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="message" id="labelMessage">Your message</label>
+              <textarea class="form-textarea" id="message" name="message" required></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="btn form-submit" type="submit" id="submitBtn">Send request</button>
+            </div>
+          </form>
+          <div class="form-result" id="formResult" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
+        <div class="footer-note" id="footerNote">Contact</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.00</div>
+      </div>
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerTagline">Systems-first workflows for architecture and the built environment.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const BUILD = "v0.5.00";
+const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
+
+const i18n = {
+  en: {
+    backLink: "← Practical AI for the built environment",
+    kicker: "Contact",
+    heroTitle: "Request secure portfolio access.",
+    heroLead: "Recruiters and employers can request access to a private portfolio and resume. Submit the form below — you will receive a reply with a secure access link once your request is reviewed.",
+    formTitle: "Request Secure Portfolio Access",
+    formBody: "Include your name, email, and a brief note about your inquiry. Company is optional.",
+    labelName: "Your name",
+    labelEmail: "Your email",
+    labelCompany: "Company",
+    labelCompanyOpt: "(optional)",
+    labelMessage: "Your message",
+    submitBtn: "Send request",
+    submitBtnPending: "Sending…",
+    navProjects: "Projects",
+    navAbout: "About",
+    navContact: "Contact",
+    successMsg: "Thank you. Your request has been sent. You will receive a reply once it is reviewed.",
+    errorMsg: "Something went wrong. Please try again.",
+    networkMsg: "Could not send your request. Please check your connection and try again.",
+    footerNote: "Contact",
+    footerTagline: "Systems-first workflows for architecture and the built environment."
+  },
+  zh: {
+    backLink: "← 建築與環境的實用 AI",
+    kicker: "聯絡",
+    heroTitle: "申請安全作品集存取。",
+    heroLead: "招募方與雇主可申請私人作品集與履歷的存取權。請填寫下方表單 — 審核後您將收到含安全連結的回覆。",
+    formTitle: "申請安全作品集存取",
+    formBody: "請提供姓名、電子郵件與簡短說明。公司名稱為選填。",
+    labelName: "您的姓名",
+    labelEmail: "您的電子郵件",
+    labelCompany: "公司",
+    labelCompanyOpt: "（選填）",
+    labelMessage: "您的訊息",
+    submitBtn: "送出申請",
+    submitBtnPending: "傳送中…",
+    navProjects: "專案",
+    navAbout: "關於",
+    navContact: "聯絡",
+    successMsg: "感謝您。申請已送出，審核後將回覆您。",
+    errorMsg: "發生錯誤，請再試一次。",
+    networkMsg: "無法送出申請，請檢查網路連線後再試。",
+    footerNote: "聯絡",
+    footerTagline: "以系統為先的建築與環境工作流程。"
+  }
+};
+
+let lang = "en";
+
+function setLang(next){
+  lang = next;
+  const t = i18n[lang];
+  const toggle = document.getElementById("langToggle");
+  if (toggle) toggle.classList.toggle("is-en-active", lang === "en");
+  for (const key in t){
+    const el = document.getElementById(key);
+    if (el) el.textContent = t[key];
+  }
+}
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLang(lang === "en" ? "zh" : "en");
+});
+
+const form = document.getElementById("contactForm");
+const resultEl = document.getElementById("formResult");
+const submitBtn = document.getElementById("submitBtn");
+
+function showResult(type, message){
+  resultEl.className = "form-result";
+  resultEl.classList.add(type === "success" ? "is-success" : "is-error");
+  resultEl.textContent = message;
+}
+
+function clearResult(){
+  resultEl.className = "form-result";
+  resultEl.textContent = "";
+}
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  clearResult();
+
+  if (!form.reportValidity()) return;
+
+  const t = i18n[lang];
+  submitBtn.disabled = true;
+  submitBtn.textContent = t.submitBtnPending;
+
+  try {
+    const response = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      body: new FormData(form)
+    });
+
+    let data = {};
+    try {
+      data = await response.json();
+    } catch (_) {
+      data = { success: false };
+    }
+
+    if (response.ok && data.success) {
+      showResult("success", t.successMsg);
+      form.reset();
+    } else {
+      showResult("error", t.errorMsg);
+    }
+  } catch (error) {
+    console.error(error);
+    showResult("error", t.networkMsg);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = i18n[lang].submitBtn;
+  }
+});
+
+document.getElementById("buildVersion").textContent = `Build: ${BUILD}`;
+setLang("en");
+  </script>
+</body>
+</html>
