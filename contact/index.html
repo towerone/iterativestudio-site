@@ -47,7 +47,6 @@
     body.page-contact-bg .form-label span,
     body.page-contact-bg .form-result,
     body.page-contact-bg .contact-thanks h2,
-    body.page-contact-bg .contact-thanks p,
     body.page-contact-bg .contact-thanks-mark,
     body.page-contact-bg .footer-brand,
     body.page-contact-bg .footer-note,
@@ -286,20 +285,16 @@
         0 0 48px rgba(255,255,255,.22),
         inset 0 1px 0 rgba(255,255,255,.32);
     }
-    .contact-thanks-mark{
-      font-size:42px;
-      line-height:1;
-      margin-bottom:14px;
-    }
     .contact-thanks h2{
-      margin:0 0 10px;
+      margin:0 0 18px;
       font-size:26px;
       letter-spacing:-0.01em;
+      line-height:1.35;
     }
-    .contact-thanks p{
-      margin:0 0 22px;
-      line-height:1.6;
-      font-size:15px;
+    .contact-thanks-mark{
+      font-size:48px;
+      line-height:1;
+      margin:0 0 24px;
     }
     .contact-thanks .btn{
       min-width:200px;
@@ -397,9 +392,8 @@
         </div>
 
         <div class="contact-thanks" id="contactThanks" hidden>
-          <div class="contact-thanks-mark" aria-hidden="true">✓</div>
-          <h2 id="thanksTitle">Thank you</h2>
-          <p id="thanksBody">Your request has been sent. You will receive a reply with a secure access link once it is reviewed.</p>
+          <h2 id="thanksTitle">Thank you, the future looks bright.</h2>
+          <div class="contact-thanks-mark" aria-hidden="true">☀️</div>
           <a class="btn" href="/" id="thanksHome">Back to home</a>
         </div>
       </div>
@@ -411,7 +405,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.25</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.26</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -421,7 +415,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.25";
+const BUILD = "v0.5.26";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
@@ -488,7 +482,6 @@ function showThankYou(){
   if (heroKicker) heroKicker.textContent = t.thanksHeroTitle;
   heroLead.textContent = t.thanksHeroLead;
   document.getElementById("thanksTitle").textContent = t.thanksTitle;
-  document.getElementById("thanksBody").textContent = t.thanksBody;
   document.getElementById("thanksHome").textContent = t.thanksHome;
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -514,8 +507,7 @@ const i18n = {
     navContact: "Contact",
     thanksHeroTitle: "Thank you — request received.",
     thanksHeroLead: "Your portfolio access request is in review. A reply with a secure link will follow by email.",
-    thanksTitle: "Thank you",
-    thanksBody: "Your request has been sent. You will receive a reply with a secure access link once it is reviewed.",
+    thanksTitle: "Thank you, the future looks bright.",
     thanksHome: "Back to home",
     errorMsg: "Something went wrong. Please try again.",
     captchaMsg: "Please complete the verification check before sending.",
@@ -538,8 +530,7 @@ const i18n = {
     navContact: "聯絡",
     thanksHeroTitle: "感謝您 — 已收到申請。",
     thanksHeroLead: "您的作品集存取申請正在審核中，將以電子郵件回覆安全連結。",
-    thanksTitle: "感謝您",
-    thanksBody: "申請已送出。審核後您將收到含安全存取連結的回覆。",
+    thanksTitle: "感謝您，前景光明。",
     thanksHome: "返回首頁",
     errorMsg: "發生錯誤，請再試一次。",
     captchaMsg: "送出前請先完成驗證。",
