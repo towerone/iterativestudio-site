@@ -669,11 +669,11 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   color:rgba(255,255,255,.68);
   text-shadow:0 2px 14px rgba(0,0,0,.32);
   margin-top:var(--hero-pre-kicker-gap);
-  transform:translateY(calc(36px * var(--space-scale) * 1.3));
+  transform:translateY(calc(14px * var(--space-scale) * 1.3));
 }
 
 .hero-main:has(.hero-footnote) .project-carousel{
-  margin-top:calc(var(--stack-gap) + 28px);
+  margin-top:calc(var(--stack-gap) + 8px);
   margin-bottom:calc(28px * var(--space-scale));
 }
 
@@ -1252,7 +1252,7 @@ h1{
   min-width:0;
   display:flex;
   flex-direction:column;
-  gap:calc(8px * var(--space-scale));
+  gap:calc(3px * var(--space-scale));
 }
 
 .carousel-viewport{
@@ -1515,14 +1515,12 @@ h1{
 }
 
 .carousel-toolbar{
-  position:absolute;
-  right:10px;
-  bottom:10px;
-  z-index:4;
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:8px;
+  gap:6px;
+  margin-top:calc(-1px * var(--space-scale));
+  padding:0 4px;
   pointer-events:none;
 }
 
@@ -1943,10 +1941,10 @@ h1{
     font-size:12.1px;
     letter-spacing:.14em;
     padding:0 8px;
-    transform:translateY(calc(28px * var(--space-scale) * 1.3));
+    transform:translateY(calc(10px * var(--space-scale) * 1.3));
   }
   .hero-main:has(.hero-footnote) .project-carousel{
-    margin-top:calc(var(--stack-gap) + 20px);
+    margin-top:calc(var(--stack-gap) + 4px);
     margin-bottom:calc(22px * var(--space-scale));
   }
   .hero-tagline{

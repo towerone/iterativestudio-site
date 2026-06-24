@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&family=Sixtyfour&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.3.14" />
+  <link rel="stylesheet" href="/assets/style.css?v=0.3.15" />
 </head>
 
 <body>
@@ -320,25 +320,25 @@
                   <div class="slide-render"><div class="render-box"><img src="/assets/carousel/crouching-dragon-render.jpg" alt="Crouching Dragon — exterior rendering" width="1024" height="1024" loading="lazy" /></div></div>
                 </div>
               </div>
+            </div>
 
-              <div class="carousel-toolbar">
-                <button class="carousel-ctrl carousel-pause" id="carouselPause" type="button" aria-label="Pause autoplay">
-                  <svg class="carousel-icon icon-pause" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                    <rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/>
-                    <rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>
-                  </svg>
-                  <svg class="carousel-icon icon-play" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
-                    <path d="M8 5.8v12.4c0 .5.55.8 1 .5l10.2-6.2c.4-.25.4-.85 0-1.1L9 5.3c-.45-.3-1 .05-1 .5z" fill="currentColor"/>
-                  </svg>
-                </button>
-                <a class="carousel-ctrl carousel-go" id="carouselGo" href="/projects/" aria-label="View project">
-                  <svg class="carousel-icon icon-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-                    <circle cx="12" cy="12" r="2.8" fill="currentColor"/>
-                    <circle cx="12" cy="12" r="1.15" fill="var(--carousel-surface)"/>
-                  </svg>
-                </a>
-              </div>
+            <div class="carousel-toolbar">
+              <button class="carousel-ctrl carousel-pause" id="carouselPause" type="button" aria-label="Pause autoplay">
+                <svg class="carousel-icon icon-pause" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                  <rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/>
+                  <rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/>
+                </svg>
+                <svg class="carousel-icon icon-play" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                  <path d="M8 5.8v12.4c0 .5.55.8 1 .5l10.2-6.2c.4-.25.4-.85 0-1.1L9 5.3c-.45-.3-1 .05-1 .5z" fill="currentColor"/>
+                </svg>
+              </button>
+              <a class="carousel-ctrl carousel-go" id="carouselGo" href="/projects/" aria-label="View project">
+                <svg class="carousel-icon icon-eye" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                  <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="2.8" fill="currentColor"/>
+                  <circle cx="12" cy="12" r="1.15" fill="var(--carousel-surface)"/>
+                </svg>
+              </a>
             </div>
             </div>
 
@@ -382,7 +382,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.14</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.15</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -581,7 +581,7 @@ flipperCaptions: [
 
 let lang = "en";
 
-const BUILD = "v0.3.14";
+const BUILD = "v0.3.15";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
