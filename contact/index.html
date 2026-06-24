@@ -20,7 +20,11 @@
         linear-gradient(180deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.02) 42%, rgba(0,0,0,.06) 100%),
         url("/assets/contact/background.jpg?v=2") 52% 46% / 118% auto no-repeat fixed;
     }
-    body.page-contact-bg .contact-main{
+    body.page-contact-bg .hero{
+      background:transparent;
+      border-bottom:none;
+    }
+    body.page-contact-bg .section{
       background:transparent;
     }
     body.page-contact-bg,
@@ -69,60 +73,20 @@
     body.page-contact-bg .lang-divider{
       background:rgba(255,255,255,.28);
     }
-    .contact-main{
-      min-height:calc(100dvh - 168px);
-      display:flex;
-      align-items:center;
-      padding:32px 0 56px;
+    body.page-contact-bg .hero-inner{
+      padding:48px 0 24px;
     }
-    .contact-layout{
-      display:grid;
-      grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);
-      gap:clamp(40px, 6vw, 72px);
-      align-items:center;
-      width:100%;
+    body.page-contact-bg .hero .kicker{
+      margin-bottom:10px;
     }
-    .contact-intro{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      min-height:min(52vh, 520px);
-      padding:12px 0;
-    }
-    body.page-contact-bg .contact-intro .page-back{
-      margin:0 0 24px;
-    }
-    body.page-contact-bg .contact-intro .kicker{
-      margin-bottom:14px;
-    }
-    body.page-contact-bg .contact-intro .lead{
-      max-width:36ch;
-      margin:0;
+    body.page-contact-bg .hero .lead{
+      max-width:70ch;
+      margin-bottom:0;
       line-height:1.55;
-      font-size:clamp(17px, 1.6vw, 20px);
     }
-    .contact-form-col{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      min-height:min(52vh, 520px);
-    }
-    @media (max-width: 860px){
-      .contact-main{
-        min-height:0;
-        padding:28px 0 48px;
-      }
-      .contact-layout{
-        grid-template-columns:1fr;
-        gap:36px;
-      }
-      .contact-intro,
-      .contact-form-col{
-        min-height:0;
-      }
-      body.page-contact-bg .contact-intro .lead{
-        max-width:none;
-      }
+    body.page-contact-bg .section{
+      padding-top:clamp(40px, 8vh, 72px);
+      padding-bottom:clamp(48px, 10vh, 88px);
     }
     .contact-panel{
       --field-surface:#fafafa;
@@ -370,17 +334,19 @@
     </div>
   </header>
 
-  <main class="contact-main">
-    <div class="container contact-layout">
-      <div class="contact-intro" id="contactIntro">
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
         <p class="page-back">
           <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
         </p>
         <p class="kicker" id="kicker">Contact</p>
         <p class="lead" id="heroLead">For work inquiries, collaboration, or key for detailed portfolio access.</p>
       </div>
+    </section>
 
-      <div class="contact-form-col">
+    <section class="section">
+      <div class="container">
         <div class="contact-panel" id="contactPanel">
           <div class="contact-form-wrap" id="contactFormWrap">
             <form class="contact-form" id="contactForm" novalidate>
@@ -425,7 +391,7 @@
           <a class="btn" href="/" id="thanksHome">Back to home</a>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -433,7 +399,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.20</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.21</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -443,7 +409,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.20";
+const BUILD = "v0.5.21";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
