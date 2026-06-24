@@ -1,12 +1,13 @@
 /**
- * Paste this into your Cloudflare Worker (contact-form-worker).
+ * Paste this into Cloudflare → Workers → contact-form-worker → Edit code
  *
- * Dashboard → Worker → Settings → Variables / Secrets:
- *   TURNSTILE_SECRET_KEY  (secret)
- *   RESEND_API_KEY        (secret)
- *   CONTACT_TO_EMAIL      (text)  — your inbox
- *   FROM_EMAIL            (text)  — verified Resend sender
+ * Secrets (Settings → Variables, type: Secret):
+ *   TURNSTILE_SECRET_KEY
+ *   RESEND_API_KEY
  */
+
+const FROM_EMAIL = "carnell@iterativestudio.com";
+const TO_EMAIL = "carnell@iterativestudio.com";
 
 const ALLOWED_ORIGINS = new Set([
   "https://www.iterativestudio.com",
@@ -51,8 +52,8 @@ async function sendResendEmail(env, { name, email, company, message }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: env.FROM_EMAIL,
-      to: env.CONTACT_TO_EMAIL,
+      from: FROM_EMAIL,
+      to: TO_EMAIL,
       reply_to: email,
       subject: `Portfolio access request — ${name}`,
       html,
