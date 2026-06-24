@@ -647,7 +647,7 @@ a:hover{ text-decoration:underline; text-decoration-color: rgba(15,18,25,.22); }
   font-family:Corinthia, "Cormorant Garamond", cursive;
   font-style:normal;
   font-weight:400;
-  font-size:1.22em;
+  font-size:0.55em;
   letter-spacing:0.02em;
   vertical-align:baseline;
 }
@@ -1933,7 +1933,7 @@ h1{
     margin-bottom:var(--headline-flipper-gap);
   }
   .hero-headline-accent{
-    font-size:1.18em;
+    font-size:0.52em;
   }
   .hero-footnote{
     font-size:12.1px;
