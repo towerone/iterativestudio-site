@@ -203,10 +203,28 @@
       width:100%;
       cursor:pointer;
       font:inherit;
+      font-weight:600;
+      transition:background .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
     }
     .form-submit:disabled{
-      opacity:.65;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.22);
+      color:rgba(255,255,255,.42);
+      box-shadow:none;
       cursor:not-allowed;
+      opacity:1;
+    }
+    .form-submit:not(:disabled){
+      background:#fafafa;
+      border:1px solid rgba(15,18,25,.16);
+      color:var(--text);
+      box-shadow:0 8px 22px rgba(8,20,32,.22);
+    }
+    .form-submit:not(:disabled):hover{
+      background:#fff;
+      border-color:rgba(15,18,25,.22);
+      box-shadow:0 10px 28px rgba(8,20,32,.28);
+      filter:none;
     }
     .form-result{
       margin-top:16px;
@@ -368,7 +386,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.17</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.18</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -378,7 +396,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.17";
+const BUILD = "v0.5.18";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
 
 const form = document.getElementById("contactForm");
