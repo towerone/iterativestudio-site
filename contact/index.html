@@ -9,6 +9,8 @@
   <meta name="description" content="Request secure access to the full portfolio and resume. Recruiters and employers can submit a request and receive a private access link." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://challenges.cloudflare.com">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
   <link rel="stylesheet" href="/assets/white.css?v=0.2.03" />
@@ -71,6 +73,11 @@
       min-height:140px;
       resize:vertical;
       line-height:1.55;
+    }
+    .form-turnstile{
+      display:flex;
+      justify-content:flex-start;
+      min-height:65px;
     }
     .form-actions{
       margin-top:4px;
@@ -170,8 +177,18 @@
               <label class="form-label" for="message" id="labelMessage">Your message</label>
               <textarea class="form-textarea" id="message" name="message" required></textarea>
             </div>
+            <div class="form-turnstile">
+              <div
+                class="cf-turnstile"
+                id="turnstileWidget"
+                data-sitekey="0x4AAAAAADqK7jRvGP5VEMmp"
+                data-callback="onTurnstileSuccess"
+                data-expired-callback="onTurnstileExpired"
+                data-error-callback="onTurnstileExpired"
+              ></div>
+            </div>
             <div class="form-actions">
-              <button class="btn form-submit" type="submit" id="submitBtn">Send request</button>
+              <button class="btn form-submit" type="submit" id="submitBtn" disabled>Send request</button>
             </div>
           </form>
           <div class="form-result" id="formResult" role="status" aria-live="polite"></div>
@@ -185,7 +202,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Contact</div>
-        <div class="footer-version" id="buildVersion">Build: v0.5.00</div>
+        <div class="footer-version" id="buildVersion">Build: v0.5.01</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -195,8 +212,28 @@
   </footer>
 
   <script>
-const BUILD = "v0.5.00";
+const BUILD = "v0.5.01";
 const FORM_ENDPOINT = "https://contact-form-worker.taproot-lychee7i.workers.dev";
+
+let turnstileReady = false;
+
+window.onTurnstileSuccess = () => {
+  turnstileReady = true;
+  submitBtn.disabled = false;
+};
+
+window.onTurnstileExpired = () => {
+  turnstileReady = false;
+  submitBtn.disabled = true;
+};
+
+function resetTurnstile(){
+  if (window.turnstile) {
+    turnstile.reset("#turnstileWidget");
+  }
+  turnstileReady = false;
+  submitBtn.disabled = true;
+}
 
 const i18n = {
   en: {
@@ -218,6 +255,7 @@ const i18n = {
     navContact: "Contact",
     successMsg: "Thank you. Your request has been sent. You will receive a reply once it is reviewed.",
     errorMsg: "Something went wrong. Please try again.",
+    captchaMsg: "Please complete the verification check before sending.",
     networkMsg: "Could not send your request. Please check your connection and try again.",
     footerNote: "Contact",
     footerTagline: "Systems-first workflows for architecture and the built environment."
@@ -241,6 +279,7 @@ const i18n = {
     navContact: "聯絡",
     successMsg: "感謝您。申請已送出，審核後將回覆您。",
     errorMsg: "發生錯誤，請再試一次。",
+    captchaMsg: "送出前請先完成驗證。",
     networkMsg: "無法送出申請，請檢查網路連線後再試。",
     footerNote: "聯絡",
     footerTagline: "以系統為先的建築與環境工作流程。"
@@ -286,6 +325,11 @@ form.addEventListener("submit", async (e) => {
   if (!form.reportValidity()) return;
 
   const t = i18n[lang];
+  const turnstileToken = form.querySelector('input[name="cf-turnstile-response"]')?.value;
+  if (!turnstileReady || !turnstileToken) {
+    showResult("error", t.captchaMsg);
+    return;
+  }
   submitBtn.disabled = true;
   submitBtn.textContent = t.submitBtnPending;
 
@@ -305,14 +349,16 @@ form.addEventListener("submit", async (e) => {
     if (response.ok && data.success) {
       showResult("success", t.successMsg);
       form.reset();
+      resetTurnstile();
     } else {
       showResult("error", t.errorMsg);
+      resetTurnstile();
     }
   } catch (error) {
     console.error(error);
     showResult("error", t.networkMsg);
+    resetTurnstile();
   } finally {
-    submitBtn.disabled = false;
     submitBtn.textContent = i18n[lang].submitBtn;
   }
 });
