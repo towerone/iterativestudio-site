@@ -109,7 +109,7 @@
         <div class="mosaic">
           <figure class="detail" tabindex="0" role="button" data-key="d1" data-num="01"><div class="detail-img" aria-hidden="true"><span class="detail-num">01</span></div><figcaption class="detail-cap"><span class="detail-title" id="d1t">Parapet & roof edge</span><span class="detail-note" id="d1n">Where the roof stops, water wants in. Cap flashing, drip, and continuous membrane turn an edge into a defense.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d2" data-num="02"><div class="detail-img" aria-hidden="true"><span class="detail-num">02</span></div><figcaption class="detail-cap"><span class="detail-title" id="d2t">Window head</span><span class="detail-note" id="d2n">The lintel carries load while the head flashing sheds water clear of the frame below.</span></figcaption></figure>
-          <figure class="detail" tabindex="0" role="button" data-key="d3" data-num="03"><div class="detail-img" aria-hidden="true"><span class="detail-num">03</span></div><figcaption class="detail-cap"><span class="detail-title" id="d3t">Window jamb</span><span class="detail-note" id="d3n">Side seal and shim space: airtightness inside, drainage outside, tolerance in between.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d3" data-num="03" data-img="/assets/comp-design/detailing-d03-parametric-elevation.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d03-parametric-elevation.jpg" alt="Parametric elevation with linked window detail drawings" width="2560" height="2560" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d3t">Parametric elevation &amp; openings</span><span class="detail-note" id="d3n">This elevation and its detail windows are built as a single parametric drawing in which one driving parameter governs the entire window geometry. Changing that single value regenerates the opening's shape and recomputes how it is cut out, propagating the change across the elevation and its linked details. The logic ties back to early AI-driven work, so dependencies resolve automatically instead of requiring manual redrawing. One edit therefore flows fluidly through the construction documents and the set updates itself.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d4" data-num="04"><div class="detail-img" aria-hidden="true"><span class="detail-num">04</span></div><figcaption class="detail-cap"><span class="detail-title" id="d4t">Window sill</span><span class="detail-note" id="d4n">A sloped, flashed sill drains outward and protects the wall beneath the opening.</span></figcaption></figure>
           <div class="hole"><span class="hole-title" id="h1t">Why nodes carry the design</span><p class="hole-body" id="h1b">A building fails at its weakest node. The concept lives or dies at the points where assemblies actually connect — parapet, sill, threshold. Each node is where intent meets gravity, water, and tolerance; resolve one poorly and the whole graph reads the failure.</p></div>
           <figure class="detail" tabindex="0" role="button" data-key="d5" data-num="05"><div class="detail-img" aria-hidden="true"><span class="detail-num">05</span></div><figcaption class="detail-cap"><span class="detail-title" id="d5t">Wall base & grade</span><span class="detail-note" id="d5n">The most punished node: capillary break, flashing, and a clean line where wall meets ground.</span></figcaption></figure>
@@ -151,7 +151,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Detailing</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.05</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.06</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -172,7 +172,7 @@
   </div>
 
   <script>
-const BUILD = "v0.3.05";
+const BUILD = "v0.3.06";
 
 const i18n = {
   en: {
@@ -189,7 +189,7 @@ const i18n = {
     gridBody: "Eighteen resolved nodes in a wall — each a point in the building graph, not decoration but evidence. Enlarge any square; the dashed gaps carry what a single image cannot.",
     d1t: "Parapet & roof edge", d1n: "Where the roof stops, water wants in. Cap flashing, drip, and continuous membrane turn an edge into a defense.",
     d2t: "Window head", d2n: "The lintel carries load while the head flashing sheds water clear of the frame below.",
-    d3t: "Window jamb", d3n: "Side seal and shim space: airtightness inside, drainage outside, tolerance in between.",
+    d3t: "Parametric elevation & openings", d3n: "This elevation and its detail windows are built as a single parametric drawing in which one driving parameter governs the entire window geometry. Changing that single value regenerates the opening's shape and recomputes how it is cut out, propagating the change across the elevation and its linked details. The logic ties back to early AI-driven work, so dependencies resolve automatically instead of requiring manual redrawing. One edit therefore flows fluidly through the construction documents and the set updates itself.",
     d4t: "Window sill", d4n: "A sloped, flashed sill drains outward and protects the wall beneath the opening.",
     d5t: "Wall base & grade", d5n: "The most punished node: capillary break, flashing, and a clean line where wall meets ground.",
     d6t: "Slab edge & floor line", d6n: "Thermal break and fire stop at the floor line, with the facade reading continuous outside.",
@@ -228,7 +228,7 @@ const i18n = {
     gridBody: "十八個解決過的節點砌成一面牆——建築圖譜上的點，不是裝飾，是證據。點一格放大細讀；虛線空格承載單張圖像說不清的論點。",
     d1t: "女兒牆與屋頂收邊", d1n: "屋頂止於何處，水就想滲入。壓頂泛水、滴水線與連續防水層把邊緣變成防線。",
     d2t: "窗楣（上）", d2n: "過樑承載，同時上緣泛水把水導離下方窗框。",
-    d3t: "窗側框", d3n: "側邊密封與墊片空間：內側氣密、外側排水，之間留公差。",
+    d3t: "參數化立面與開口", d3n: "此立面及其細部窗戶以單一參數化圖面建置，由一個驅動參數統御整體開窗幾何。變更該數值即可重新生成開口形狀並重算挖空方式，變更沿立面與連結細部同步傳遞。邏輯可追溯至早期 AI 驅動工作，相依關係自動解析，無需人工重繪。因此一次編輯即可流暢貫穿施工文件，圖集自行更新。",
     d4t: "窗台（下）", d4n: "洩水有坡、做泛水的窗台向外排水，保護開口下方的牆體。",
     d5t: "牆腳與地坪交接", d5n: "最受折磨的節點：毛細阻斷、泛水，以及牆與地乾淨相接的一線。",
     d6t: "樓板邊緣與樓層線", d6n: "樓層線處的隔熱斷橋與防火填塞，外側立面仍讀為連續。",
