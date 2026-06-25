@@ -1810,14 +1810,8 @@ h1{
     height:var(--flipper-stage-height);
     right:0;
     top:0;
-    -webkit-mask-image:
-      linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 8%, #000 18%, #000 100%),
-      linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 5%, #000 12%, #000 88%, rgba(0,0,0,.35) 95%, transparent 100%);
-    mask-image:
-      linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 8%, #000 18%, #000 100%),
-      linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.35) 5%, #000 12%, #000 88%, rgba(0,0,0,.35) 95%, transparent 100%);
-    -webkit-mask-composite:source-in;
-    mask-composite:intersect;
+    -webkit-mask-image:none;
+    mask-image:none;
   }
   .hero-card-bubble-slice{
     padding:8px 9px;
@@ -1834,17 +1828,41 @@ h1{
     font-size:13px;
     line-height:1.32;
   }
+  .hero-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        transparent 33%,
+        color-mix(in srgb, var(--hero-fade) 5%, transparent) 39%,
+        color-mix(in srgb, var(--hero-fade) 14%, transparent) 45%,
+        color-mix(in srgb, var(--hero-fade) 28%, transparent) 51%,
+        color-mix(in srgb, var(--hero-fade) 46%, transparent) 57%,
+        color-mix(in srgb, var(--hero-fade) 64%, transparent) 63%,
+        color-mix(in srgb, var(--hero-fade) 78%, transparent) 69%,
+        color-mix(in srgb, var(--hero-fade) 88%, transparent) 75%,
+        color-mix(in srgb, var(--hero-fade) 94%, transparent) 81%,
+        color-mix(in srgb, var(--hero-fade) 97%, transparent) 86%,
+        var(--hero-fade) 100%
+      );
+  }
   .hero-quote{
     width:100%;
-    padding-left:clamp(12%, 4vw, 18%);
+    padding:clamp(10px, 1.2vh, 14px) clamp(8px, 0.8vw, 12px);
   }
   .hero-quote-text{
-    font-size:clamp(11px, 2.88vw, 14px);
-    line-height:1.36;
+    font-size:clamp(13px, 3.4vw, 16px);
+    line-height:1.4;
+    text-shadow:0 1px 4px rgba(0,0,0,.72), 0 2px 14px rgba(0,0,0,.48);
   }
   .hero-quote-attribution{
-    font-size:clamp(9px, 2.24vw, 11px);
+    font-size:clamp(10px, 2.6vw, 12px);
     letter-spacing:.06em;
+    text-shadow:0 1px 6px rgba(0,0,0,.55);
+  }
+  .hero-card-bubble-label,
+  .hero-card-bubble-text{
+    text-shadow:0 1px 4px rgba(0,0,0,.65), 0 2px 10px rgba(0,0,0,.4);
   }
   .hero-flipper{
     margin-top:var(--flipper-lead);
