@@ -233,10 +233,6 @@
             <span class="project-showcase-title" id="showcase3Title">North Fork House</span>
           </a>
         </div>
-
-        <div class="section-actions">
-          <a class="btn" href="/projects/" id="projectsCta">See all projects</a>
-        </div>
       </div>
     </section>
   </main>
@@ -246,7 +242,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Computational design systems</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.03</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.04</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -260,7 +256,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.2.03";
+const BUILD = "v0.2.04";
 
 const i18n = {
   en: {
@@ -310,7 +306,6 @@ const i18n = {
     showcase1Title: "Calla Lily School",
     showcase2Title: "Hsinta Eco Power plant",
     showcase3Title: "North Fork House",
-    projectsCta: "See all projects",
     footerNote: "Computational design systems",
     footerTagline: "Systems-first workflows for architecture and the built environment."
   },
@@ -361,7 +356,6 @@ const i18n = {
     showcase1Title: "百合花學校",
     showcase2Title: "興達生態電廠",
     showcase3Title: "北岔口之家",
-    projectsCta: "查看所有專案",
     footerNote: "計算式設計系統",
     footerTagline: "以系統為先的建築與環境工作流程。"
   }
@@ -423,7 +417,6 @@ function setLang(next) {
   document.getElementById("showcase1Title").textContent = t.showcase1Title;
   document.getElementById("showcase2Title").textContent = t.showcase2Title;
   document.getElementById("showcase3Title").textContent = t.showcase3Title;
-  document.getElementById("projectsCta").textContent = t.projectsCta;
   document.getElementById("footerNote").textContent = t.footerNote;
   document.getElementById("footerTagline").textContent = t.footerTagline;
 }

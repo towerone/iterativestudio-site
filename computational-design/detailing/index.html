@@ -119,7 +119,7 @@
           <figure class="detail" tabindex="0" role="button" data-key="d9" data-num="09"><div class="detail-img" aria-hidden="true"><span class="detail-num">09</span></div><figcaption class="detail-cap"><span class="detail-title" id="d9t">Eave & soffit</span><span class="detail-note" id="d9n">Ventilation path, insect screen, and a clean shadow line under the overhang.</span></figcaption></figure>
           <div class="hole"><span class="hole-title" id="h2t">Where headless AI struggles</span><p class="hole-body" id="h2b">A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated nodes, where each point shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole graph. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.</p></div>
           <figure class="detail" tabindex="0" role="button" data-key="d10" data-num="10"><div class="detail-img" aria-hidden="true"><span class="detail-num">10</span></div><figcaption class="detail-cap"><span class="detail-title" id="d10t">Threshold & balcony</span><span class="detail-note" id="d10n">The flat, trafficked, waterproofed node where most leaks are actually born.</span></figcaption></figure>
-          <figure class="detail" tabindex="0" role="button" data-key="d11" data-num="11"><div class="detail-img" aria-hidden="true"><span class="detail-num">11</span></div><figcaption class="detail-cap"><span class="detail-title" id="d11t">Cladding corner</span><span class="detail-note" id="d11n">Where two planes meet, alignment and tolerance decide whether the building looks sharp or sloppy.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d11" data-num="11" data-img="/assets/comp-design/detailing-d11-facade-structure.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d11-facade-structure.jpg" alt="Parametric facade elevation, openings, and linked structural system" width="2560" height="2560" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d11t">Facade, structure &amp; openings</span><span class="detail-note" id="d11n">Three stacked views of the same facade zone — elevation, opening geometry, and the structural system below. Windows sit inside resolved detail parameters: change an opening's shape and the rest of the facade redraws with it. Structural beams within the zone follow the same drivers, so one parameter click updates both the envelope drawing and the framing it supports. Control points move up or down to soften curves or tune any element to the design; geometry, structure, and sheet stay one coordinated graph.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d12" data-num="12"><div class="detail-img" aria-hidden="true"><span class="detail-num">12</span></div><figcaption class="detail-cap"><span class="detail-title" id="d12t">Roof drainage & scupper</span><span class="detail-note" id="d12n">Primary and overflow paths sized so a blocked drain never becomes a flooded roof.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d13" data-num="13"><div class="detail-img" aria-hidden="true"><span class="detail-num">13</span></div><figcaption class="detail-cap"><span class="detail-title" id="d13t">Door threshold</span><span class="detail-note" id="d13n">Level access in, water out: a low-profile sill that still keeps weather at bay.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d14" data-num="14"><div class="detail-img" aria-hidden="true"><span class="detail-num">14</span></div><figcaption class="detail-cap"><span class="detail-title" id="d14t">Handrail fixing</span><span class="detail-note" id="d14n">A small bracket carrying real load; substrate, anchor, and tolerance all have to agree.</span></figcaption></figure>
@@ -135,10 +135,6 @@
 
     <section class="section section-muted">
       <div class="container">
-        <div class="section-actions" style="text-align:center;">
-          <a class="btn" href="/projects/" id="projectsCta">See the full project archive →</a>
-        </div>
-        <p class="mosaic-caption" id="ctaNote">These are detail archetypes. The project archive shows them resolved in real construction documents.</p>
         <p class="section-return">
           <a class="section-return-link" href="/computational-design/" id="conceptReturn">Return to Concept: Computational Design Systems</a>
         </p>
@@ -151,7 +147,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Detailing</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.07</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.09</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -172,7 +168,7 @@
   </div>
 
   <script>
-const BUILD = "v0.3.07";
+const BUILD = "v0.3.09";
 
 const i18n = {
   en: {
@@ -197,7 +193,7 @@ const i18n = {
     d8t: "Expansion joint", d8n: "Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.",
     d9t: "Eave & soffit", d9n: "Ventilation path, insect screen, and a clean shadow line under the overhang.",
     d10t: "Threshold & balcony", d10n: "The flat, trafficked, waterproofed node where most leaks are actually born.",
-    d11t: "Cladding corner", d11n: "Where two planes meet, alignment and tolerance decide whether the building looks sharp or sloppy.",
+    d11t: "Facade, structure & openings", d11n: "Three stacked views of the same facade zone — elevation, opening geometry, and the structural system below. Windows sit inside resolved detail parameters: change an opening's shape and the rest of the facade redraws with it. Structural beams within the zone follow the same drivers, so one parameter click updates both the envelope drawing and the framing it supports. Control points move up or down to soften curves or tune any element to the design; geometry, structure, and sheet stay one coordinated graph.",
     d12t: "Roof drainage & scupper", d12n: "Primary and overflow paths sized so a blocked drain never becomes a flooded roof.",
     d13t: "Door threshold", d13n: "Level access in, water out: a low-profile sill that still keeps weather at bay.",
     d14t: "Handrail fixing", d14n: "A small bracket carrying real load; substrate, anchor, and tolerance all have to agree.",
@@ -209,8 +205,6 @@ const i18n = {
     h2t: "Where headless AI struggles", h2b: "A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated nodes, where each point shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole graph. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.",
     h3t: "Rows of nodes are the proof", h3b: "Renders persuade; nodes legitimize. A wall of resolved points in the graph is evidence that the idea was carried all the way to buildable, not stopped at the picture. This is the part of practice that earns trust on site, and the part a headed workflow protects.",
     mosaicCaption: "Enlarge a node · read the gaps for the thesis.",
-    projectsCta: "See the full project archive →",
-    ctaNote: "These are detail archetypes. The project archive shows them resolved in real construction documents.",
     footerNote: "Detailing",
     footerTagline: "Systems-first workflows for architecture and the built environment."
   },
@@ -236,7 +230,7 @@ const i18n = {
     d8t: "伸縮縫", d8n: "建築會動。細部化的接縫讓兩個構造各自呼吸而不撕裂飾面。",
     d9t: "簷口與天花", d9n: "通風路徑、防蟲網，以及出簷下乾淨的陰影線。",
     d10t: "門檻與陽台", d10n: "平整、會被踩踏、需防水的節點，多數漏水其實由此而生。",
-    d11t: "外牆轉角", d11n: "兩個面相接之處，對齊與公差決定建築看起來銳利或潦草。",
+    d11t: "立面、結構與開口", d11n: "同一立面區段的三層疊圖——立面、開口幾何，以及下方的結構系統。窗戶落在已解決的細部參數之內：變更開口形狀，其餘立面隨之重繪。區段內的結構梁共用同一組驅動條件，因此一次參數點擊即可同時更新外皮圖面與其承載的構架。控制點上下移動可柔化曲線或微調任何元素以貼合設計；幾何、結構與圖面維持同一協調圖譜。",
     d12t: "屋頂排水與落水口", d12n: "主排與溢流路徑經過計算，讓堵塞的排水口不致變成淹水的屋頂。",
     d13t: "門口門檻", d13n: "進得來、水出得去：低斷面的門檻仍能擋住風雨。",
     d14t: "扶手固定", d14n: "承載實際載重的小托架；基材、錨栓與公差都必須一致。",
@@ -248,8 +242,6 @@ const i18n = {
     h2t: "無頭 AI 的難處", h2b: "模型能生成一張驚艷的影像，卻無法掌握上百個協調節點間的漸進變異：每個點都隨基材、角度與公差略有不同，卻又必須與整張圖譜一致。那種累積且互相參照的判斷，正是施工圖所要求、而單靠生成無法保持誠實的部分。",
     h3t: "一排排節點就是證明", h3b: "渲染圖能說服，節點才能正名。一整面圖譜上解決過的點，證明這個想法被一路帶到可建造，而非止於圖像。這是實務中在工地贏得信任的部分，也是有頭工作流程所守護的部分。",
     mosaicCaption: "放大一個節點 · 在空隙裡讀論點。",
-    projectsCta: "查看完整專案庫 →",
-    ctaNote: "這些是細部原型。專案庫展示它們在真實施工圖中的落實。",
     footerNote: "細部",
     footerTagline: "以系統為先的建築與環境工作流程。"
   }
