@@ -1802,7 +1802,7 @@ h1{
   }
   .hero-cards{ grid-template-columns: 1fr; }
   .hero-card-bubble-stage{
-    width:calc(var(--flipper-width) * 0.76);
+    width:calc(var(--flipper-width) * 2);
     height:var(--flipper-stage-height);
     right:0;
     top:0;
@@ -1832,15 +1832,14 @@ h1{
   }
   .hero-quote{
     width:100%;
-    padding-left:clamp(8%, 3vw, 14%);
-    gap:clamp(8px, 1.2vh, 12px);
+    padding-left:clamp(12%, 4vw, 18%);
   }
   .hero-quote-text{
-    font-size:clamp(14px, 3.8vw, 17px);
-    line-height:1.4;
+    font-size:clamp(11px, 2.88vw, 14px);
+    line-height:1.36;
   }
   .hero-quote-attribution{
-    font-size:clamp(11px, 2.9vw, 14px);
+    font-size:clamp(9px, 2.24vw, 11px);
     letter-spacing:.06em;
   }
   .hero-flipper{
@@ -1891,7 +1890,7 @@ h1{
     --hero-pre-kicker-gap: calc(32px * var(--space-scale) * 1.3);
     --hero-mini-card-height: calc(68px + 28px);
     --carousel-mobile-min: calc(var(--hero-mini-card-height) * 2 + 16px);
-    --hero-detail-width: calc(var(--flipper-width) * 1.28);
+    --hero-detail-width: calc(var(--flipper-width) * 2);
   }
   .flipper-stage{
     aspect-ratio: 4 / 6;
@@ -1953,16 +1952,6 @@ h1{
     font-size:clamp(12px, 3.4vw, 16px);
     line-height:1.35;
     padding:0 8px;
-  }
-  .hero-quote{
-    padding-left:clamp(6%, 2.5vw, 12%);
-  }
-  .hero-quote-text{
-    font-size:clamp(15px, 4.4vw, 18px);
-    line-height:1.42;
-  }
-  .hero-quote-attribution{
-    font-size:clamp(12px, 3.4vw, 15px);
   }
   .carousel-viewport{
     min-height:var(--carousel-mobile-min);
