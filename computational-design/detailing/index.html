@@ -17,8 +17,9 @@
     .detail{ margin:0; cursor:pointer; border:1px solid var(--line); border-radius:var(--radius2); background:var(--panel); box-shadow:var(--shadow); overflow:hidden; transition:transform .15s ease, border-color .15s ease; }
     .detail:hover{ transform:translateY(-2px); border-color:rgba(47,107,255,.28); }
     .detail:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
-    .detail-img{ position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(47,107,255,.10), rgba(0,0,0,.03)); border-bottom:1px solid var(--line); }
-    .detail-img::after{ content:""; position:absolute; top:10px; right:10px; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 2px var(--panel); opacity:.85; }
+    .detail-img{ position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(47,107,255,.10), rgba(0,0,0,.03)); border-bottom:1px solid var(--line); overflow:hidden; }
+    .detail-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .detail-img::after{ content:""; position:absolute; top:10px; right:10px; width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 2px var(--panel); opacity:.85; z-index:1; }
     .detail-num{ font-size:26px; font-weight:600; color:var(--faint); letter-spacing:.1em; }
     .detail-cap{ padding:12px 14px; display:flex; flex-direction:column; gap:6px; }
     .detail-title{ font-weight:600; font-size:14px; letter-spacing:-0.01em; }
@@ -31,6 +32,10 @@
     .lightbox.is-open{ display:flex; }
     .lightbox-card{ position:relative; width:min(560px,100%); background:var(--bg); border:1px solid var(--line); border-radius:var(--radius2); box-shadow:var(--shadow); overflow:hidden; }
     .lightbox-img{ aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(47,107,255,.12), rgba(0,0,0,.04)); }
+    .lightbox-img.has-photo{ aspect-ratio:auto; max-height:min(72vh, 720px); background:#fff; }
+    .lightbox-photo{ display:none; width:100%; height:auto; max-height:min(72vh, 720px); object-fit:contain; }
+    .lightbox-img.has-photo .lightbox-photo{ display:block; }
+    .lightbox-img.has-photo .lightbox-num{ display:none; }
     .lightbox-num{ font-size:54px; font-weight:600; color:var(--faint); letter-spacing:.1em; }
     .lightbox-body{ padding:18px 20px 22px; }
     .lightbox-title{ font-weight:600; font-size:19px; margin-bottom:8px; letter-spacing:-0.01em; }
@@ -109,7 +114,7 @@
           <div class="hole"><span class="hole-title" id="h1t">Why nodes carry the design</span><p class="hole-body" id="h1b">A building fails at its weakest node. The concept lives or dies at the points where assemblies actually connect — parapet, sill, threshold. Each node is where intent meets gravity, water, and tolerance; resolve one poorly and the whole graph reads the failure.</p></div>
           <figure class="detail" tabindex="0" role="button" data-key="d5" data-num="05"><div class="detail-img" aria-hidden="true"><span class="detail-num">05</span></div><figcaption class="detail-cap"><span class="detail-title" id="d5t">Wall base & grade</span><span class="detail-note" id="d5n">The most punished node: capillary break, flashing, and a clean line where wall meets ground.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d6" data-num="06"><div class="detail-img" aria-hidden="true"><span class="detail-num">06</span></div><figcaption class="detail-cap"><span class="detail-title" id="d6t">Slab edge & floor line</span><span class="detail-note" id="d6n">Thermal break and fire stop at the floor line, with the facade reading continuous outside.</span></figcaption></figure>
-          <figure class="detail" tabindex="0" role="button" data-key="d7" data-num="07"><div class="detail-img" aria-hidden="true"><span class="detail-num">07</span></div><figcaption class="detail-cap"><span class="detail-title" id="d7t">Curtain wall transom</span><span class="detail-note" id="d7n">Pressure-equalized glazing pocket; gaskets and weeps manage the water that always gets in.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d7" data-num="07" data-img="/assets/comp-design/detailing-d07-facade-setting-out.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d07-facade-setting-out.jpg" alt="Facade setting-out point grid from Dynamo parametric model" width="1024" height="1024" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d7t">Facade setting-out grid</span><span class="detail-note" id="d7n">This detail is generated from a core Dynamo parametric model that rationalizes the facade's complex geometry. The script populates a structured point grid and computes the elevation (Z) of each node at ~100 mm spacing across the surface. These coordinates export directly as setting-out data, giving fabricators precise per-point reference values. Installation therefore tracks the model with no manual interpolation, preserving design intent.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d8" data-num="08"><div class="detail-img" aria-hidden="true"><span class="detail-num">08</span></div><figcaption class="detail-cap"><span class="detail-title" id="d8t">Expansion joint</span><span class="detail-note" id="d8n">Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d9" data-num="09"><div class="detail-img" aria-hidden="true"><span class="detail-num">09</span></div><figcaption class="detail-cap"><span class="detail-title" id="d9t">Eave & soffit</span><span class="detail-note" id="d9n">Ventilation path, insect screen, and a clean shadow line under the overhang.</span></figcaption></figure>
           <div class="hole"><span class="hole-title" id="h2t">Where headless AI struggles</span><p class="hole-body" id="h2b">A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated nodes, where each point shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole graph. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.</p></div>
@@ -146,7 +151,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Detailing</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.04</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.05</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -158,7 +163,7 @@
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Node detail">
     <div class="lightbox-card">
       <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">×</button>
-      <div class="lightbox-img" aria-hidden="true"><span class="lightbox-num" id="lbNum">01</span></div>
+      <div class="lightbox-img" id="lightboxImgWrap"><span class="lightbox-num" id="lbNum">01</span><img class="lightbox-photo" id="lbPhoto" alt="" width="1024" height="1024" /></div>
       <div class="lightbox-body">
         <div class="lightbox-title" id="lbTitle"></div>
         <p class="lightbox-note" id="lbNote"></p>
@@ -167,7 +172,7 @@
   </div>
 
   <script>
-const BUILD = "v0.3.04";
+const BUILD = "v0.3.05";
 
 const i18n = {
   en: {
@@ -188,7 +193,7 @@ const i18n = {
     d4t: "Window sill", d4n: "A sloped, flashed sill drains outward and protects the wall beneath the opening.",
     d5t: "Wall base & grade", d5n: "The most punished node: capillary break, flashing, and a clean line where wall meets ground.",
     d6t: "Slab edge & floor line", d6n: "Thermal break and fire stop at the floor line, with the facade reading continuous outside.",
-    d7t: "Curtain wall transom", d7n: "Pressure-equalized glazing pocket; gaskets and weeps manage the water that always gets in.",
+    d7t: "Facade setting-out grid", d7n: "This detail is generated from a core Dynamo parametric model that rationalizes the facade's complex geometry. The script populates a structured point grid and computes the elevation (Z) of each node at ~100 mm spacing across the surface. These coordinates export directly as setting-out data, giving fabricators precise per-point reference values. Installation therefore tracks the model with no manual interpolation, preserving design intent.",
     d8t: "Expansion joint", d8n: "Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.",
     d9t: "Eave & soffit", d9n: "Ventilation path, insect screen, and a clean shadow line under the overhang.",
     d10t: "Threshold & balcony", d10n: "The flat, trafficked, waterproofed node where most leaks are actually born.",
@@ -227,7 +232,7 @@ const i18n = {
     d4t: "窗台（下）", d4n: "洩水有坡、做泛水的窗台向外排水，保護開口下方的牆體。",
     d5t: "牆腳與地坪交接", d5n: "最受折磨的節點：毛細阻斷、泛水，以及牆與地乾淨相接的一線。",
     d6t: "樓板邊緣與樓層線", d6n: "樓層線處的隔熱斷橋與防火填塞，外側立面仍讀為連續。",
-    d7t: "帷幕橫料", d7n: "等壓玻璃槽；墊條與洩水孔處理總會進來的水。",
+    d7t: "立面定位網格", d7n: "此細部由核心 Dynamo 參數化模型生成，用以合理化立面複雜幾何。腳本填入結構化點網格，並在表面以約 100 公釐間距計算各節點標高（Z）。這些座標可直接匯出為定位放樣資料，為製造商提供精確的逐點參考值。因此安裝可依模型追蹤，無需人工內插，得以保留設計意圖。",
     d8t: "伸縮縫", d8n: "建築會動。細部化的接縫讓兩個構造各自呼吸而不撕裂飾面。",
     d9t: "簷口與天花", d9n: "通風路徑、防蟲網，以及出簷下乾淨的陰影線。",
     d10t: "門檻與陽台", d10n: "平整、會被踩踏、需防水的節點，多數漏水其實由此而生。",
@@ -270,9 +275,23 @@ const lightbox = document.getElementById("lightbox");
 
 function refreshLightbox(){
   const t = i18n[lang];
+  const wrap = document.getElementById("lightboxImgWrap");
+  const photo = document.getElementById("lbPhoto");
+  const card = openKey ? document.querySelector(`.detail[data-key="${openKey}"]`) : null;
+  const imgSrc = card?.dataset.img || "";
   document.getElementById("lbNum").textContent = openNum;
   document.getElementById("lbTitle").textContent = t[openKey + "t"] || "";
   document.getElementById("lbNote").textContent = t[openKey + "n"] || "";
+  if (wrap && photo) {
+    wrap.classList.toggle("has-photo", Boolean(imgSrc));
+    if (imgSrc) {
+      photo.src = imgSrc;
+      photo.alt = t[openKey + "t"] || "Detail drawing";
+    } else {
+      photo.removeAttribute("src");
+      photo.alt = "";
+    }
+  }
 }
 
 function openLightbox(key, num){
