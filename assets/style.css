@@ -1799,10 +1799,17 @@ h1{
     min-height:0;
   }
   .hero-tagline-row .hero-map-controls{
+    order:1;
     position:static;
     transform:none;
     width:100%;
     justify-content:flex-end;
+  }
+  .hero-tagline{
+    order:2;
+    white-space:normal;
+    text-align:right;
+    padding:0;
   }
   .hero-cards{ grid-template-columns: 1fr; }
   .hero-card-bubble-stage{
@@ -1821,12 +1828,12 @@ h1{
     gap:7px;
   }
   .hero-card-bubble-label{
-    font-size:11px;
-    letter-spacing:.07em;
+    font-size:clamp(13px, 3.1vw, 16px);
+    letter-spacing:.08em;
   }
   .hero-card-bubble-text{
-    font-size:13px;
-    line-height:1.32;
+    font-size:clamp(15px, 3.6vw, 18px);
+    line-height:1.38;
   }
   .hero-overlay{
     background:
@@ -1970,10 +1977,8 @@ h1{
     margin-bottom:calc(6px * var(--space-scale));
   }
   .hero-tagline{
-    white-space:normal;
     font-size:clamp(12px, 3.4vw, 16px);
     line-height:1.35;
-    padding:0 8px;
   }
   .carousel-viewport{
     min-height:var(--carousel-mobile-min);
