@@ -13,13 +13,33 @@
   <link rel="stylesheet" href="/assets/style.css?v=0.3.23" />
   <link rel="stylesheet" href="/assets/white.css?v=0.2.03" />
   <style>
-    .project-hero-img{
-      width:100%;
+    .project-hero-frame{
+      display:flex;
+      align-items:center;
+      justify-content:center;
       margin-top:24px;
+      padding:12px;
       border:1px solid var(--line);
       border-radius:var(--radius2);
-      display:block;
+      background:var(--panel2);
       box-shadow:var(--shadow);
+    }
+    .project-hero-img{
+      width:auto;
+      height:auto;
+      max-width:100%;
+      max-height:min(72vh, 720px);
+      object-fit:contain;
+      object-position:center;
+      display:block;
+    }
+    .project-img{
+      width:auto;
+      height:auto;
+      max-width:100%;
+      object-fit:contain;
+      object-position:center;
+      display:block;
     }
     .project-meta-line{
       margin:0 0 10px;
@@ -81,11 +101,16 @@
       box-shadow:var(--shadow);
       overflow:hidden;
     }
-    .concept-card img{
-      width:100%;
-      display:block;
-      border-bottom:1px solid var(--line);
+    .concept-media{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 12px;
       background:var(--panel2);
+      border-bottom:1px solid var(--line);
+    }
+    .concept-media .project-img{
+      max-height:min(52vh, 440px);
     }
     .concept-body{ padding:16px 18px 18px; }
     .concept-body h3{
@@ -149,14 +174,20 @@
       grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:16px;
     }
-    .visual-grid figure{ margin:0; }
-    .visual-grid img,
-    .visual-full img{
-      width:100%;
+    .visual-grid figure,
+    .visual-full{ margin:0; }
+    .visual-frame{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
       border:1px solid var(--line);
       border-radius:var(--radius2);
-      display:block;
+      background:var(--panel2);
       box-shadow:var(--shadow);
+    }
+    .visual-frame .project-img{
+      max-height:min(60vh, 560px);
     }
     .visual-cap{
       margin-top:8px;
@@ -222,7 +253,9 @@
           <span>Closed-loop</span>
           <span>Biomimicry</span>
         </div>
-        <img class="project-hero-img" src="assets/hero-rendering.jpg" alt="Hsinta Eco Power Plant exterior rendering" width="1024" height="1024" loading="eager" />
+        <div class="project-hero-frame">
+          <img class="project-hero-img" src="assets/hero-rendering.jpg" alt="Hsinta Eco Power Plant exterior rendering" width="1024" height="1024" loading="eager" />
+        </div>
       </div>
     </section>
 
@@ -265,28 +298,28 @@
         </div>
         <div class="concept-grid">
           <article class="concept-card">
-            <img src="assets/network-diagram.jpg" alt="Network loop diagram" width="1200" height="900" loading="lazy" />
+            <div class="concept-media"><img class="project-img" src="assets/network-diagram.jpg" alt="Network loop diagram" width="2113" height="2198" loading="lazy" /></div>
             <div class="concept-body">
               <h3 id="c1Title">Network (the loop)</h3>
               <p id="c1Body">Algae as biofuel is symbiotic with the local fish farms that manage daily algae accumulation; the farms' aerators run on the electricity the plant generates, closing the loop.</p>
             </div>
           </article>
           <article class="concept-card">
-            <img src="assets/stitching-diagram.jpg" alt="Site stitching diagram" width="1200" height="900" loading="lazy" />
+            <div class="concept-media"><img class="project-img" src="assets/stitching-diagram.jpg" alt="Site stitching diagram" width="567" height="802" loading="lazy" /></div>
             <div class="concept-body">
               <h3 id="c2Title">Stitching</h3>
               <p id="c2Body">The building responds to its site. Soil swells and the plant's curve follow the bay and surrounding fish farms, while an increased shoreline ratio boosts species diversity in the shallows.</p>
             </div>
           </article>
           <article class="concept-card">
-            <img src="assets/skin-biomimicry.jpg" alt="Biomimicry skin diagram" width="1200" height="900" loading="lazy" />
+            <div class="concept-media"><img class="project-img" src="assets/skin-biomimicry.jpg" alt="Biomimicry skin diagram" width="530" height="1600" loading="lazy" /></div>
             <div class="concept-body">
               <h3 id="c3Title">Skin</h3>
               <p id="c3Body">A biomimetic outer shell, drawn from leaves and natural skins, protects the core while providing breathing and thermal control, integrated into the building rather than left exposed.</p>
             </div>
           </article>
           <article class="concept-card">
-            <img src="assets/algae-filter.jpg" alt="Algae clean-air filter diagram" width="1200" height="900" loading="lazy" />
+            <div class="concept-media"><img class="project-img" src="assets/algae-filter.jpg" alt="Algae clean-air filter diagram" width="1426" height="6591" loading="lazy" /></div>
             <div class="concept-body">
               <h3 id="c4Title">Clean-air filter</h3>
               <p id="c4Body">At scale, the algae system acts as the world's largest clean-air filter, cutting CO2 while producing renewable bio-fuel for Taiwan.</p>
@@ -351,16 +384,16 @@
         </div>
         <div class="visual-grid">
           <figure>
-            <img src="assets/ecosystem-section.jpg" alt="Top section of ecosystem" width="1600" height="1200" loading="lazy" />
+            <div class="visual-frame"><img class="project-img" src="assets/ecosystem-section.jpg" alt="Top section of ecosystem" width="2000" height="1310" loading="lazy" /></div>
             <figcaption class="visual-cap" id="v1Cap">Top section of the ecosystem</figcaption>
           </figure>
           <figure>
-            <img src="assets/roof-exploded.jpg" alt="Exploded roof axonometric" width="512" height="1024" loading="lazy" />
+            <div class="visual-frame"><img class="project-img" src="assets/roof-exploded.jpg" alt="Exploded roof axonometric" width="512" height="1024" loading="lazy" /></div>
             <figcaption class="visual-cap" id="v2Cap">Exploded roof axonometric</figcaption>
           </figure>
         </div>
         <figure class="visual-full">
-          <img src="assets/site-plan.jpg" alt="Full site plan" width="478" height="1024" loading="lazy" />
+          <div class="visual-frame"><img class="project-img" src="assets/site-plan.jpg" alt="Full site plan" width="478" height="1024" loading="lazy" /></div>
           <figcaption class="visual-cap" id="v3Cap">Full site plan</figcaption>
         </figure>
       </div>
@@ -372,7 +405,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Hsinta Eco Power Plant</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.00</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.01</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -382,7 +415,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.00";
+const BUILD = "v0.1.01";
 
 const i18n = {
   en: {
