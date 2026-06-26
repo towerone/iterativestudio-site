@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
+  <title>Hsinta Eco Power Plant | Iterative Studio</title>
+  <meta name="description" content="A closed-loop power plant concept woven into its estuary: bio-diesel, an algae clean-air filter, and a scripted ~1,000-panel roof built in a Revit and Dynamo ecosystem." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css?v=0.3.23" />
+  <link rel="stylesheet" href="/assets/white.css?v=0.2.03" />
+  <style>
+    .project-hero-img{
+      width:100%;
+      margin-top:24px;
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      display:block;
+      box-shadow:var(--shadow);
+    }
+    .project-meta-line{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .project-title{
+      margin:0 0 12px;
+      font-size:clamp(34px, 5vw, 52px);
+      line-height:1.08;
+      letter-spacing:-0.02em;
+    }
+    .project-title sup{
+      font-size:.45em;
+      font-weight:600;
+      color:var(--faint);
+      vertical-align:super;
+    }
+    .project-tagline{
+      margin:0;
+      font-size:clamp(17px, 2.2vw, 22px);
+      line-height:1.45;
+      color:var(--muted);
+      max-width:52ch;
+    }
+    .project-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:18px;
+    }
+    .project-tags span{
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--faint);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:4px 10px;
+      background:var(--panel2);
+    }
+    .project-lede{
+      font-size:18px;
+      line-height:1.7;
+      color:var(--text);
+      max-width:68ch;
+    }
+    .concept-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:20px;
+    }
+    .concept-card{
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      background:var(--panel);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .concept-card img{
+      width:100%;
+      display:block;
+      border-bottom:1px solid var(--line);
+      background:var(--panel2);
+    }
+    .concept-body{ padding:16px 18px 18px; }
+    .concept-body h3{
+      margin:0 0 8px;
+      font-size:16px;
+      letter-spacing:-0.01em;
+    }
+    .concept-body p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+    .param-table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:15px;
+    }
+    .param-table th,
+    .param-table td{
+      text-align:left;
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      vertical-align:top;
+    }
+    .param-table th{
+      width:160px;
+      color:var(--accent);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:600;
+    }
+    .method-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:16px;
+    }
+    .method-card{
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      background:var(--panel);
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .method-card h3{
+      margin:0 0 8px;
+      font-size:14px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--accent);
+    }
+    .method-card p{
+      margin:0;
+      font-size:14px;
+      line-height:1.55;
+      color:var(--muted);
+    }
+    .visual-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:16px;
+    }
+    .visual-grid figure{ margin:0; }
+    .visual-grid img,
+    .visual-full img{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      display:block;
+      box-shadow:var(--shadow);
+    }
+    .visual-cap{
+      margin-top:8px;
+      font-size:12px;
+      color:var(--faint);
+      letter-spacing:.04em;
+    }
+    .visual-full{ margin-top:16px; }
+    .project-footnote{
+      margin:0;
+      font-size:12px;
+      color:var(--faint);
+      line-height:1.5;
+      max-width:42ch;
+      text-align:right;
+    }
+    @media (max-width: 820px){
+      .concept-grid,
+      .method-grid,
+      .visual-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body class="page-white">
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+      <div class="header-hole" aria-hidden="true"></div>
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="page-back">
+          <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
+        </p>
+        <p class="project-meta-line" id="metaLine">Hsinta Eco Power Plant* · Taiwan · 2018</p>
+        <h1 class="project-title" id="heroTitle">Hsinta Eco Power Plant<sup>*</sup></h1>
+        <p class="project-tagline" id="heroTagline">A closed-loop power plant that breathes, woven into its estuary.</p>
+        <div class="project-tags" aria-label="Project tags">
+          <span>Generative</span>
+          <span>Revit + Dynamo</span>
+          <span>Closed-loop</span>
+          <span>Biomimicry</span>
+        </div>
+        <img class="project-hero-img" src="assets/hero-rendering.jpg" alt="Hsinta Eco Power Plant exterior rendering" width="1024" height="1024" loading="eager" />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="overviewTitle">Overview</h2>
+        </div>
+        <p class="project-lede" id="overviewBody">Hsinta reimagines the power plant as part of its ecosystem rather than an adversary to it: bio-diesel generates electricity while algae, fed by the plant, doubles as the world's largest clean-air filter and a renewable fuel source. The site is stitched into its surrounding estuary and fish farms, and a single scripted roof system of roughly 1,000 panels expresses the closed loop as one coherent, buildable surface. It was my first true generative design project, built mainly in a Revit and Dynamo ecosystem where the carpet-like roof forced a real upgrade in scripting and workflow discipline.</p>
+        <ul class="bullets" style="margin-top:24px;">
+          <li id="bullet1">First true generative design project: roughly 1,000 roof panels as a single scripted system</li>
+          <li id="bullet2">Built mainly in Revit + Dynamo, with most renders from the Revit ecosystem</li>
+          <li id="bullet3">Closed-loop concept made visible: bio-diesel, algae air filter, fish-farm symbiosis</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="roleTitle">Role</h2>
+        </div>
+        <p class="project-lede" id="roleBody">The role centered on translating an ecological closed-loop concept into a coherent, buildable architecture through computational design. Working mainly within a Revit and Dynamo ecosystem, the carpet-like roof of roughly 1,000 panels was driven as a single scripted system, controlling scale and repetition while keeping the surface buildable and the design intent editable. Learning Python under pressure to solve a real geometry and control problem, the work established a repeatable, script-driven workflow, with most renderings produced from the Revit environment. Completed under supervision in collaboration with a partner firm, the project secured a position among much larger firms and was showcased at the Chiang Kai-shek Memorial Hall.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="whyTitle">Why it matters</h2>
+        </div>
+        <p class="project-lede" id="whyBody">Hsinta sits at the origin of the studio's method: a system-level idea (an energy and ecology loop) encoded as a controllable, scripted geometry rather than a one-off form. It is an early, headed use of computational design, where the generative roof logic stays inside the modeling environment, every step remains verifiable, and the output is structured for hand-off to a downstream team.</p>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="conceptsTitle">Concepts</h2>
+        </div>
+        <div class="concept-grid">
+          <article class="concept-card">
+            <img src="assets/network-diagram.jpg" alt="Network loop diagram" width="1200" height="900" loading="lazy" />
+            <div class="concept-body">
+              <h3 id="c1Title">Network (the loop)</h3>
+              <p id="c1Body">Algae as biofuel is symbiotic with the local fish farms that manage daily algae accumulation; the farms' aerators run on the electricity the plant generates, closing the loop.</p>
+            </div>
+          </article>
+          <article class="concept-card">
+            <img src="assets/stitching-diagram.jpg" alt="Site stitching diagram" width="1200" height="900" loading="lazy" />
+            <div class="concept-body">
+              <h3 id="c2Title">Stitching</h3>
+              <p id="c2Body">The building responds to its site. Soil swells and the plant's curve follow the bay and surrounding fish farms, while an increased shoreline ratio boosts species diversity in the shallows.</p>
+            </div>
+          </article>
+          <article class="concept-card">
+            <img src="assets/skin-biomimicry.jpg" alt="Biomimicry skin diagram" width="1200" height="900" loading="lazy" />
+            <div class="concept-body">
+              <h3 id="c3Title">Skin</h3>
+              <p id="c3Body">A biomimetic outer shell, drawn from leaves and natural skins, protects the core while providing breathing and thermal control, integrated into the building rather than left exposed.</p>
+            </div>
+          </article>
+          <article class="concept-card">
+            <img src="assets/algae-filter.jpg" alt="Algae clean-air filter diagram" width="1200" height="900" loading="lazy" />
+            <div class="concept-body">
+              <h3 id="c4Title">Clean-air filter</h3>
+              <p id="c4Body">At scale, the algae system acts as the world's largest clean-air filter, cutting CO2 while producing renewable bio-fuel for Taiwan.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="techTitle">Technical breakdown</h2>
+        </div>
+        <table class="param-table">
+          <tr>
+            <th id="techEnvLabel">Environment</th>
+            <td id="techEnv">Revit + Dynamo visual scripting, with Python for geometry control</td>
+          </tr>
+          <tr>
+            <th id="techRoofLabel">Roof system</th>
+            <td id="techRoof">~1,000 panels driven as a single scripted array; scale and repetition controlled, surface kept buildable</td>
+          </tr>
+          <tr>
+            <th id="techRenderLabel">Renders</th>
+            <td id="techRender">Produced mainly from the Revit ecosystem</td>
+          </tr>
+          <tr>
+            <th id="techEcoLabel">Ecology</th>
+            <td id="techEco">Lagoon depth ~4 m for piscivorous fish; 60 cm exploration pavers; increased shoreline ratio for biodiversity</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="methodTitle">Method &amp; AI assist</h2>
+        </div>
+        <div class="method-grid">
+          <div class="method-card">
+            <h3 id="m1Title">Constraint-first</h3>
+            <p id="m1Body">A system loop drives the form; intent lives in readable parameters.</p>
+          </div>
+          <div class="method-card">
+            <h3 id="m2Title">Geometry stays editable</h3>
+            <p id="m2Body">Change a parameter and the ~1,000-panel roof regenerates as one surface.</p>
+          </div>
+          <div class="method-card">
+            <h3 id="m3Title">Hand-off ready</h3>
+            <p id="m3Body">Scripted roof and drawings feed a downstream team's documentation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="visualsTitle">Visuals</h2>
+        </div>
+        <div class="visual-grid">
+          <figure>
+            <img src="assets/ecosystem-section.jpg" alt="Top section of ecosystem" width="1600" height="1200" loading="lazy" />
+            <figcaption class="visual-cap" id="v1Cap">Top section of the ecosystem</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/roof-exploded.jpg" alt="Exploded roof axonometric" width="512" height="1024" loading="lazy" />
+            <figcaption class="visual-cap" id="v2Cap">Exploded roof axonometric</figcaption>
+          </figure>
+        </div>
+        <figure class="visual-full">
+          <img src="assets/site-plan.jpg" alt="Full site plan" width="478" height="1024" loading="lazy" />
+          <figcaption class="visual-cap" id="v3Cap">Full site plan</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
+        <div class="footer-note" id="footerNote">Hsinta Eco Power Plant</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.00</div>
+      </div>
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+      <div class="footer-right">
+        <p class="project-footnote" id="collabNote">* Completed under supervision / collaboration with a partner firm</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const BUILD = "v0.1.00";
+
+const i18n = {
+  en: {
+    backLink: "← Practical AI for the built environment",
+    navProjects: "Projects", navAbout: "About", navContact: "Contact",
+    metaLine: "Hsinta Eco Power Plant* · Taiwan · 2018",
+    heroTitle: "Hsinta Eco Power Plant",
+    heroTagline: "A closed-loop power plant that breathes, woven into its estuary.",
+    overviewTitle: "Overview",
+    overviewBody: "Hsinta reimagines the power plant as part of its ecosystem rather than an adversary to it: bio-diesel generates electricity while algae, fed by the plant, doubles as the world's largest clean-air filter and a renewable fuel source. The site is stitched into its surrounding estuary and fish farms, and a single scripted roof system of roughly 1,000 panels expresses the closed loop as one coherent, buildable surface. It was my first true generative design project, built mainly in a Revit and Dynamo ecosystem where the carpet-like roof forced a real upgrade in scripting and workflow discipline.",
+    bullet1: "First true generative design project: roughly 1,000 roof panels as a single scripted system",
+    bullet2: "Built mainly in Revit + Dynamo, with most renders from the Revit ecosystem",
+    bullet3: "Closed-loop concept made visible: bio-diesel, algae air filter, fish-farm symbiosis",
+    roleTitle: "Role",
+    roleBody: "The role centered on translating an ecological closed-loop concept into a coherent, buildable architecture through computational design. Working mainly within a Revit and Dynamo ecosystem, the carpet-like roof of roughly 1,000 panels was driven as a single scripted system, controlling scale and repetition while keeping the surface buildable and the design intent editable. Learning Python under pressure to solve a real geometry and control problem, the work established a repeatable, script-driven workflow, with most renderings produced from the Revit environment. Completed under supervision in collaboration with a partner firm, the project secured a position among much larger firms and was showcased at the Chiang Kai-shek Memorial Hall.",
+    whyTitle: "Why it matters",
+    whyBody: "Hsinta sits at the origin of the studio's method: a system-level idea (an energy and ecology loop) encoded as a controllable, scripted geometry rather than a one-off form. It is an early, headed use of computational design, where the generative roof logic stays inside the modeling environment, every step remains verifiable, and the output is structured for hand-off to a downstream team.",
+    conceptsTitle: "Concepts",
+    c1Title: "Network (the loop)", c1Body: "Algae as biofuel is symbiotic with the local fish farms that manage daily algae accumulation; the farms' aerators run on the electricity the plant generates, closing the loop.",
+    c2Title: "Stitching", c2Body: "The building responds to its site. Soil swells and the plant's curve follow the bay and surrounding fish farms, while an increased shoreline ratio boosts species diversity in the shallows.",
+    c3Title: "Skin", c3Body: "A biomimetic outer shell, drawn from leaves and natural skins, protects the core while providing breathing and thermal control, integrated into the building rather than left exposed.",
+    c4Title: "Clean-air filter", c4Body: "At scale, the algae system acts as the world's largest clean-air filter, cutting CO2 while producing renewable bio-fuel for Taiwan.",
+    techTitle: "Technical breakdown",
+    techEnvLabel: "Environment", techEnv: "Revit + Dynamo visual scripting, with Python for geometry control",
+    techRoofLabel: "Roof system", techRoof: "~1,000 panels driven as a single scripted array; scale and repetition controlled, surface kept buildable",
+    techRenderLabel: "Renders", techRender: "Produced mainly from the Revit ecosystem",
+    techEcoLabel: "Ecology", techEco: "Lagoon depth ~4 m for piscivorous fish; 60 cm exploration pavers; increased shoreline ratio for biodiversity",
+    methodTitle: "Method & AI assist",
+    m1Title: "Constraint-first", m1Body: "A system loop drives the form; intent lives in readable parameters.",
+    m2Title: "Geometry stays editable", m2Body: "Change a parameter and the ~1,000-panel roof regenerates as one surface.",
+    m3Title: "Hand-off ready", m3Body: "Scripted roof and drawings feed a downstream team's documentation.",
+    visualsTitle: "Visuals",
+    v1Cap: "Top section of the ecosystem",
+    v2Cap: "Exploded roof axonometric",
+    v3Cap: "Full site plan",
+    footerNote: "Hsinta Eco Power Plant",
+    collabNote: "* Completed under supervision / collaboration with a partner firm"
+  },
+  zh: {
+    backLink: "← 建築與環境的實用 AI",
+    navProjects: "專案", navAbout: "關於", navContact: "聯絡",
+    metaLine: "興達生態發電廠* · 台灣 · 2018",
+    heroTitle: "興達生態發電廠",
+    heroTagline: "一座會呼吸的閉環發電廠，編織入它的河口環境。",
+    overviewTitle: "概述",
+    overviewBody: "興達將發電廠重新想像為生態系的一部分，而非與自然對立：生質柴油發電，藻類由電廠滋養，同時成為全球最大的清淨空氣過濾器與再生燃料來源。基地被縫合進周圍的河口與魚塭，約一千片的單一腳本化屋頂系統，把這個閉環表達為一個連貫且可建造的曲面。這是我第一個真正的生成式設計專案，主要在 Revit 與 Dynamo 環境中建構，地毯般的屋頂迫使腳本與工作流程的紀律真正升級。",
+    bullet1: "第一個真正的生成式設計專案：約一千片屋頂面板作為單一腳本化系統",
+    bullet2: "主要以 Revit + Dynamo 建構，多數渲染來自 Revit 環境",
+    bullet3: "讓閉環概念可見：生質柴油、藻類空氣過濾、與魚塭共生",
+    roleTitle: "角色",
+    roleBody: "此角色的核心，是透過計算式設計，將生態閉環概念轉化為連貫且可建造的建築。主要於 Revit 與 Dynamo 環境中工作，約一千片面板的地毯狀屋頂以單一腳本系統驅動，控制尺度與重複，同時保持表面可建造、設計意圖可編輯。為了解決真實的幾何與控制問題，在壓力下學習 Python，並建立可重複、以腳本驅動的工作流程，多數渲染由 Revit 環境產出。本案在合作事務所的監督／協作下完成，於眾多更大型的事務所中取得一席之地，並於中正紀念堂展出。",
+    whyTitle: "為何重要",
+    whyBody: "興達位於工作室方法論的源頭：將系統層級的構想（能量與生態的循環）編碼為可控、腳本化的幾何，而非一次性的造型。它是計算式設計早期且受控（有頭）的應用，生成式屋頂邏輯始終保留於建模環境中，每一步皆可驗證，成果並以可交付下游團隊的結構整理。",
+    conceptsTitle: "概念",
+    c1Title: "網絡（循環）", c1Body: "藻類作為生質燃料，與在地魚塭共生：魚塭每日處理藻類累積，而其曝氣機仰賴電廠產生的電力，形成閉環。",
+    c2Title: "縫合", c2Body: "建築回應基地。土丘與廠體曲線順應海灣與周邊魚塭，並以提高的岸線比例提升淺水帶的物種多樣性。",
+    c3Title: "表皮", c3Body: "仿生外殼取法於葉片與自然表皮，保護核心的同時提供呼吸與熱調節，整合於建築之中，而非外露。",
+    c4Title: "清淨空氣過濾器", c4Body: "在規模上，藻類系統如同全球最大的清淨空氣過濾器，減少二氧化碳並為台灣產出再生生質燃料。",
+    techTitle: "技術拆解",
+    techEnvLabel: "環境", techEnv: "Revit + Dynamo 視覺化程式設計，並以 Python 控制幾何",
+    techRoofLabel: "屋頂系統", techRoof: "約一千片面板以單一腳本陣列驅動；控制尺度與重複，保持表面可建造",
+    techRenderLabel: "渲染", techRender: "主要由 Revit 環境產出",
+    techEcoLabel: "生態", techEco: "潟湖水深約 4 公尺以適合掠食性魚類；60 公分探索步道鋪面；提高岸線比例以增進生物多樣性",
+    methodTitle: "方法與 AI 輔助",
+    m1Title: "限制優先", m1Body: "系統循環驅動形體，設計意圖以可讀參數承載。",
+    m2Title: "幾何保持可編輯", m2Body: "調整參數，約一千片面板的屋頂即以單一曲面重新生成。",
+    m3Title: "可交付", m3Body: "腳本化屋頂與圖面供下游團隊深化圖說。",
+    visualsTitle: "圖像",
+    v1Cap: "生態系上方剖面",
+    v2Cap: "屋頂分解軸測",
+    v3Cap: "整體基地配置",
+    footerNote: "興達生態發電廠",
+    collabNote: "* 在合作事務所的監督／協作下完成"
+  }
+};
+
+let lang = "en";
+
+function setLang(next){
+  lang = next;
+  const t = i18n[lang];
+  const toggle = document.getElementById("langToggle");
+  if (toggle) toggle.classList.toggle("is-en-active", lang === "en");
+  for (const key in t){
+    const el = document.getElementById(key);
+    if (el) el.textContent = t[key];
+  }
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+}
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLang(lang === "en" ? "zh" : "en");
+});
+
+const buildEl = document.getElementById("buildVersion");
+if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
+setLang("en");
+  </script>
+</body>
+</html>
