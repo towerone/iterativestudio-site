@@ -98,6 +98,17 @@
       color:var(--text);
       max-width:68ch;
     }
+    .section-intro .project-lede{
+      margin-inline:auto;
+    }
+    .section-intro{
+      text-align:center;
+    }
+    .section-intro .bullets{
+      display:inline-block;
+      margin:24px auto 0;
+      text-align:left;
+    }
     .concept-grid{
       display:grid;
       grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -290,13 +301,13 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-intro">
       <div class="container">
         <div class="section-head">
           <h2 id="overviewTitle">Overview</h2>
         </div>
         <p class="project-lede" id="overviewBody">Hsinta reimagines the power plant as part of its ecosystem rather than an adversary to it: bio-diesel generates electricity while algae, fed by the plant, doubles as the world's largest clean-air filter and a renewable fuel source. The site is stitched into its surrounding estuary and fish farms, and a single scripted roof system of roughly 1,000 panels expresses the closed loop as one coherent, buildable surface. It was my first true generative design project, built mainly in a Revit and Dynamo ecosystem where the carpet-like roof forced a real upgrade in scripting and workflow discipline.</p>
-        <ul class="bullets" style="margin-top:24px;">
+        <ul class="bullets">
           <li id="bullet1">First true generative design project: roughly 1,000 roof panels as a single scripted system</li>
           <li id="bullet2">Built mainly in Revit + Dynamo, with most renders from the Revit ecosystem</li>
           <li id="bullet3">Closed-loop concept made visible: bio-diesel, algae air filter, fish-farm symbiosis</li>
@@ -304,7 +315,7 @@
       </div>
     </section>
 
-    <section class="section section-muted">
+    <section class="section section-muted section-intro">
       <div class="container">
         <div class="section-head">
           <h2 id="roleTitle">Role</h2>
@@ -313,7 +324,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-intro">
       <div class="container">
         <div class="section-head">
           <h2 id="whyTitle">Why it matters</h2>
@@ -436,7 +447,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Hsinta Eco Power Plant</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.05</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.06</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -446,7 +457,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.05";
+const BUILD = "v0.1.06";
 
 const i18n = {
   en: {
