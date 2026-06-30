@@ -10,28 +10,37 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/hero-rendering.jpg" />
   <link rel="stylesheet" href="/assets/style.css?v=0.3.23" />
   <link rel="stylesheet" href="/assets/white.css?v=0.2.03" />
   <style>
-    .project-hero-frame{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-top:24px;
-      padding:12px;
-      border:1px solid var(--line);
-      border-radius:var(--radius2);
-      background:var(--panel2);
-      box-shadow:var(--shadow);
+    body.page-white .hero-project.hero-comp-pillars{
+      min-height:min(78vh, 820px);
+      border-bottom:1px solid var(--line);
     }
-    .project-hero-img{
-      width:auto;
-      height:auto;
-      max-width:100%;
-      max-height:min(72vh, 720px);
-      object-fit:contain;
-      object-position:center;
-      display:block;
+    body.page-white .hero-project .hero-inner{
+      min-height:min(78vh, 820px);
+      padding:48px 0 56px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+    body.page-white .hero-project .hero-pillar-bg-img.is-hero-base{
+      object-position:center 58%;
+    }
+    body.page-white .hero-project .project-meta-line,
+    body.page-white .hero-project .project-title,
+    body.page-white .hero-project .project-tagline{
+      position:relative;
+      z-index:1;
+      max-width:min(52ch, 92%);
+    }
+    body.page-white .hero-project .project-tagline{
+      color:color-mix(in srgb, var(--text) 72%, var(--muted));
+    }
+    body.page-white .hero-project .project-tags span{
+      background:color-mix(in srgb, var(--panel) 72%, transparent);
+      backdrop-filter:blur(6px);
     }
     .project-img{
       width:auto;
@@ -111,6 +120,22 @@
     }
     .concept-media .project-img{
       max-height:min(52vh, 440px);
+    }
+    .concept-media.is-fill{
+      padding:0;
+      aspect-ratio:4 / 3;
+      overflow:hidden;
+      position:relative;
+    }
+    .concept-media.is-fill .project-img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      max-width:none;
+      max-height:none;
+      object-fit:cover;
+      object-position:center;
     }
     .concept-body{ padding:16px 18px 18px; }
     .concept-body h3{
@@ -239,7 +264,16 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero hero-comp-pillars hero-project">
+      <div class="hero-pillar-bg" aria-hidden="true">
+        <div class="hero-pillar-bg-images">
+          <img class="hero-pillar-bg-img is-hero-base" src="assets/hero-rendering.jpg" alt="" width="1024" height="1024" decoding="async" fetchpriority="high" />
+        </div>
+        <div class="hero-pillar-bg-scrim"></div>
+        <div class="hero-pillar-bg-overlay"></div>
+        <div class="hero-pillar-bg-fade"></div>
+      </div>
+
       <div class="container hero-inner">
         <p class="page-back">
           <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
@@ -252,9 +286,6 @@
           <span>Revit + Dynamo</span>
           <span>Closed-loop</span>
           <span>Biomimicry</span>
-        </div>
-        <div class="project-hero-frame">
-          <img class="project-hero-img" src="assets/hero-rendering.jpg" alt="Hsinta Eco Power Plant exterior rendering" width="1024" height="1024" loading="eager" />
         </div>
       </div>
     </section>
@@ -298,14 +329,14 @@
         </div>
         <div class="concept-grid">
           <article class="concept-card">
-            <div class="concept-media"><img class="project-img" src="assets/network-diagram.jpg" alt="Network loop diagram" width="2113" height="2198" loading="lazy" /></div>
+            <div class="concept-media is-fill"><img class="project-img" src="assets/network-diagram.jpg?v=2" alt="Network loop diagram — bio-diesel and algae closed loop" width="1024" height="1024" loading="lazy" /></div>
             <div class="concept-body">
               <h3 id="c1Title">Network (the loop)</h3>
               <p id="c1Body">Algae as biofuel is symbiotic with the local fish farms that manage daily algae accumulation; the farms' aerators run on the electricity the plant generates, closing the loop.</p>
             </div>
           </article>
           <article class="concept-card">
-            <div class="concept-media"><img class="project-img" src="assets/stitching-diagram.jpg" alt="Site stitching diagram" width="567" height="802" loading="lazy" /></div>
+            <div class="concept-media is-fill"><img class="project-img" src="assets/stitching-diagram.jpg" alt="Site stitching diagram" width="567" height="802" loading="lazy" /></div>
             <div class="concept-body">
               <h3 id="c2Title">Stitching</h3>
               <p id="c2Body">The building responds to its site. Soil swells and the plant's curve follow the bay and surrounding fish farms, while an increased shoreline ratio boosts species diversity in the shallows.</p>
@@ -405,7 +436,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Hsinta Eco Power Plant</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.01</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.02</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -415,7 +446,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.01";
+const BUILD = "v0.1.02";
 
 const i18n = {
   en: {
