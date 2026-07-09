@@ -39,6 +39,36 @@
         font-size:clamp(13px, 3.6vw, 15px);
       }
     }
+    .about-hero-row{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(180px,0.85fr);
+      gap:28px 36px;
+      align-items:center;
+      margin-top:4px;
+    }
+    .about-hero-row .lead{
+      margin:0;
+      max-width:none;
+    }
+    .about-hero-visual{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-width:0;
+    }
+    .about-hero-visual img{
+      width:100%;
+      max-width:340px;
+      height:auto;
+      display:block;
+    }
+    @media (max-width:820px){
+      .about-hero-row{
+        grid-template-columns:1fr;
+        gap:20px;
+      }
+      .about-hero-visual img{ max-width:280px; margin:0 auto; }
+    }
   </style>
 </head>
 
@@ -83,9 +113,14 @@
 
         <h1 id="heroTitle">A studio built on iteration.</h1>
 
-        <p class="lead" id="heroLead">
-          Iterative Studio is an architecture and computational design practice working between Taiwan and the US. We pair traditional, licensed architectural practice with a headed AI workflow: AI works underneath the architect to test, refine, and optimize, while every decision stays in human hands. The result is buildings that live within their environment, and documents you can actually build from.
-        </p>
+        <div class="about-hero-row">
+          <p class="lead" id="heroLead">
+            Iterative Studio is an architecture and computational design practice working between Taiwan and the US. We pair traditional, licensed architectural practice with a headed AI workflow: AI works underneath the architect to test, refine, and optimize, while every decision stays in human hands. The result is buildings that live within their environment, and documents you can actually build from.
+          </p>
+          <div class="about-hero-visual">
+            <img src="/assets/about/iteration-cycle.png" alt="Iterative Studio cycle: Requirements, Analysis and Design, Testing, Evaluation" width="638" height="638" loading="lazy" />
+          </div>
+        </div>
 
         <div class="grid-2" style="margin-top:18px;">
           <a class="project-card" href="#studio">
@@ -207,7 +242,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">About</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.73</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.74</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -221,7 +256,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.73";
+const BUILD = "v0.1.74";
 
 const i18n = {
   en: {
