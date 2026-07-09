@@ -115,7 +115,7 @@
           <figure class="detail" tabindex="0" role="button" data-key="d5" data-num="05" data-img="/assets/comp-design/detailing-d05-modular-corner.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d05-modular-corner.jpg" alt="Revit-modeled modular corner connection with bolted joint" width="2424" height="1915" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d5t">Modular corner piece</span><span class="detail-note" id="d5n">Revit-modeled modular corner piece designed for Iterative Studio. Combines sculptural presence with practical seating, scaling from an art installation to a loungeable, buildable structure through repeatable modules.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d6" data-num="06" data-img="/assets/comp-design/detailing-d06-legacy-autocad-stair-landing.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d06-legacy-autocad-stair-landing.jpg" alt="Legacy AutoCAD stair landing, tread, and handrail cable detail sheet" width="1110" height="1110" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d6t">Legacy AutoCAD stair detail</span><span class="detail-note" id="d6n">Legacy AutoCAD stair detail sheet built with Xrefs (early linked-drawing workflow, 10+ years old). Included as a proof of [i]'s technical depth: coordinated linework, callouts, and constructable detail resolution across referenced files.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d7" data-num="07" data-img="/assets/comp-design/detailing-d07-facade-setting-out.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d07-facade-setting-out.jpg" alt="Facade setting-out point grid from Dynamo parametric model" width="1024" height="1024" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d7t">Facade setting-out grid</span><span class="detail-note" id="d7n">This detail is generated from a core Dynamo parametric model that rationalizes the facade's complex geometry. The script populates a structured point grid and computes the elevation (Z) of each node at ~100 mm spacing across the surface. These coordinates export directly as setting-out data, giving fabricators precise per-point reference values. Installation therefore tracks the model with no manual interpolation, preserving design intent.</span></figcaption></figure>
-          <figure class="detail" tabindex="0" role="button" data-key="d8" data-num="08"><div class="detail-img" aria-hidden="true"><span class="detail-num">08</span></div><figcaption class="detail-cap"><span class="detail-title" id="d8t">Expansion joint</span><span class="detail-note" id="d8n">Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d8" data-num="08" data-img="/assets/comp-design/detailing-d08-legacy-autocad-xrefs.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d08-legacy-autocad-xrefs.jpg" alt="Legacy AutoCAD construction document with Xref-linked sheets" width="2400" height="2400" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d8t">Legacy AutoCAD Xref set</span><span class="detail-note" id="d8n">Legacy AutoCAD construction document built with Xrefs: 2-4 externally referenced drawings are linked so updates propagate across sheets. Included as proof of [i]'s early understanding of multi-file coordination workflow (a proto-generative drawing system for consistency, revision control, and scalable documentation).</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d9" data-num="09"><div class="detail-img" aria-hidden="true"><span class="detail-num">09</span></div><figcaption class="detail-cap"><span class="detail-title" id="d9t">Eave & soffit</span><span class="detail-note" id="d9n">Ventilation path, insect screen, and a clean shadow line under the overhang.</span></figcaption></figure>
           <div class="hole"><span class="hole-title" id="h2t">Where headless AI struggles</span><p class="hole-body" id="h2b">A model can generate one striking image. It cannot hold the gradual variance across hundreds of coordinated nodes, where each point shifts slightly with substrate, angle, and tolerance, yet must stay consistent with the whole graph. That accumulated, cross-referenced judgement is exactly what construction documents demand and what generation alone cannot keep honest.</p></div>
           <figure class="detail" tabindex="0" role="button" data-key="d10" data-num="10"><div class="detail-img" aria-hidden="true"><span class="detail-num">10</span></div><figcaption class="detail-cap"><span class="detail-title" id="d10t">Threshold & balcony</span><span class="detail-note" id="d10n">The flat, trafficked, waterproofed node where most leaks are actually born.</span></figcaption></figure>
@@ -147,7 +147,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Detailing</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.19</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.20</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -168,7 +168,7 @@
   </div>
 
   <script>
-const BUILD = "v0.3.19";
+const BUILD = "v0.3.20";
 
 const i18n = {
   en: {
@@ -190,7 +190,7 @@ const i18n = {
     d5t: "Modular corner piece", d5n: "Revit-modeled modular corner piece designed for Iterative Studio. Combines sculptural presence with practical seating, scaling from an art installation to a loungeable, buildable structure through repeatable modules.",
     d6t: "Legacy AutoCAD stair detail", d6n: "Legacy AutoCAD stair detail sheet built with Xrefs (early linked-drawing workflow, 10+ years old). Included as a proof of [i]'s technical depth: coordinated linework, callouts, and constructable detail resolution across referenced files.",
     d7t: "Facade setting-out grid", d7n: "This detail is generated from a core Dynamo parametric model that rationalizes the facade's complex geometry. The script populates a structured point grid and computes the elevation (Z) of each node at ~100 mm spacing across the surface. These coordinates export directly as setting-out data, giving fabricators precise per-point reference values. Installation therefore tracks the model with no manual interpolation, preserving design intent.",
-    d8t: "Expansion joint", d8n: "Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.",
+    d8t: "Legacy AutoCAD Xref set", d8n: "Legacy AutoCAD construction document built with Xrefs: 2-4 externally referenced drawings are linked so updates propagate across sheets. Included as proof of [i]'s early understanding of multi-file coordination workflow (a proto-generative drawing system for consistency, revision control, and scalable documentation).",
     d9t: "Eave & soffit", d9n: "Ventilation path, insect screen, and a clean shadow line under the overhang.",
     d10t: "Threshold & balcony", d10n: "The flat, trafficked, waterproofed node where most leaks are actually born.",
     d11t: "Facade, structure & openings", d11n: "Three stacked views of the same facade zone — elevation, opening geometry, and the structural system below. Windows sit inside resolved detail parameters: change an opening's shape and the rest of the facade redraws with it. Structural beams within the zone follow the same drivers, so one parameter click updates both the envelope drawing and the framing it supports. Control points move up or down to soften curves or tune any element to the design; geometry, structure, and sheet stay one coordinated graph.",
@@ -227,7 +227,7 @@ const i18n = {
     d5t: "模組化轉角構件", d5n: "為 Iterative Studio 以 Revit 建模的模組化轉角構件。結合雕塑感與實用座椅功能，透過可重複的模組，從藝術裝置擴展為可坐、可建造的結構。",
     d6t: "舊版 AutoCAD 樓梯細部", d6n: "以 Xref 建置的舊版 AutoCAD 樓梯細部圖（早期連結圖面工作流程，逾十年）。作為 [i] 技術深度的證明：跨參考檔協調的線稿、標註與可施工細部解析。",
     d7t: "立面定位網格", d7n: "此細部由核心 Dynamo 參數化模型生成，用以合理化立面複雜幾何。腳本填入結構化點網格，並在表面以約 100 公釐間距計算各節點標高（Z）。這些座標可直接匯出為定位放樣資料，為製造商提供精確的逐點參考值。因此安裝可依模型追蹤，無需人工內插，得以保留設計意圖。",
-    d8t: "伸縮縫", d8n: "建築會動。細部化的接縫讓兩個構造各自呼吸而不撕裂飾面。",
+    d8t: "舊版 AutoCAD Xref 圖集", d8n: "以 Xref 建置的舊版 AutoCAD 施工文件：2-4 張外部參考圖面連結，更新可跨圖同步。用以證明 [i] 早期對多檔協調工作流程的理解（一種原型式生成圖面系統，服務一致性、修訂控制與可擴充文件）。",
     d9t: "簷口與天花", d9n: "通風路徑、防蟲網，以及出簷下乾淨的陰影線。",
     d10t: "門檻與陽台", d10n: "平整、會被踩踏、需防水的節點，多數漏水其實由此而生。",
     d11t: "立面、結構與開口", d11n: "同一立面區段的三層疊圖——立面、開口幾何，以及下方的結構系統。窗戶落在已解決的細部參數之內：變更開口形狀，其餘立面隨之重繪。區段內的結構梁共用同一組驅動條件，因此一次參數點擊即可同時更新外皮圖面與其承載的構架。控制點上下移動可柔化曲線或微調任何元素以貼合設計；幾何、結構與圖面維持同一協調圖譜。",
