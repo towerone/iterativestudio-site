@@ -12,7 +12,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="/assets/white.css" />
-  <style>html{scroll-behavior:smooth}</style>
+  <style>
+    html{scroll-behavior:smooth}
+    body.page-white .lead.founder-lead{
+      font-size:clamp(14px, 1.2vw + 10px, 18px);
+      line-height:1.55;
+      max-width:68ch;
+    }
+    body.page-white .lead.founder-lead .cv-inline-link{
+      display:inline;
+      white-space:nowrap;
+      margin-left:.4em;
+      font-weight:600;
+      font-size:.94em;
+      color:var(--text);
+      text-decoration:underline;
+      text-underline-offset:3px;
+      text-decoration-thickness:1px;
+    }
+    body.page-white .lead.founder-lead .cv-inline-link:hover{
+      color:var(--text);
+      opacity:.78;
+    }
+    @media (max-width:640px){
+      body.page-white .lead.founder-lead{
+        font-size:clamp(13px, 3.6vw, 15px);
+      }
+    }
+  </style>
 </head>
 
 <body class="page-white">
@@ -141,8 +168,8 @@
           <p id="founderTag">An architect who builds the tools as well as the buildings.</p>
         </div>
 
-        <p class="lead" id="founderBody1">
-          Iterative Studio is led by its founder, a US-licensed architect with more than 18 years of practice across New York and Taiwan. The path runs from interiors and civic work at a top global practice, to leading BIM teams on museums, towers, and parametric facades, to founding a studio where AI is put to work under the architect's hand.
+        <p class="lead founder-lead">
+          <span id="founderBody1">Iterative Studio is led by its founder, a US-licensed architect with more than 18 years of practice across New York and Taiwan. The path runs from interiors and civic work at a top global practice, to leading BIM teams on museums, towers, and parametric facades, to founding a studio where AI is put to work under the architect's hand.</span><a class="cv-inline-link" href="/about/cv/" id="founderCvLink">Condensed CV →</a>
         </p>
 
         <div class="hero-cards">
@@ -164,7 +191,7 @@
           </div>
         </div>
 
-        <p class="lead" id="founderBody2" style="margin-top:18px;">
+        <p class="lead founder-lead" id="founderBody2" style="margin-top:18px;">
           That mix of licensure, research, and lived experience across cultures is the studio's real engine: buildings designed to live within their environment, and workflows designed to keep the architect in charge.
         </p>
 
@@ -180,7 +207,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">About</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.72</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.73</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -194,7 +221,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.72";
+const BUILD = "v0.1.73";
 
 const i18n = {
   en: {
@@ -232,6 +259,7 @@ const i18n = {
     founderTitle: "The Founder",
     founderTag: "An architect who builds the tools as well as the buildings.",
     founderBody1: "Iterative Studio is led by its founder, a US-licensed architect with more than 18 years of practice across New York and Taiwan. The path runs from interiors and civic work at a top global practice, to leading BIM teams on museums, towers, and parametric facades, to founding a studio where AI is put to work under the architect's hand.",
+    founderCvLink: "Condensed CV →",
     fCard1Title: "Licensed",
     fCard1Body: "Registered Architect (New York State), AIA, NCARB, LEED AP",
     fCard2Title: "Research",
@@ -280,6 +308,7 @@ const i18n = {
     founderTitle: "創辦人",
     founderTag: "一位既蓋房子、也打造工具的建築師。",
     founderBody1: "Iterative Studio 由創辦人主持：一位擁有超過 18 年紐約與台灣實務經驗的美國執業建築師。從國際頂尖事務所的室內與公共工作，到帶領 BIM 團隊完成博物館、高塔與參數化立面，再到創立一間讓 AI 在建築師手下工作的工作室。",
+    founderCvLink: "精簡履歷 →",
     fCard1Title: "執照",
     fCard1Body: "紐約州註冊建築師、AIA、NCARB、LEED AP",
     fCard2Title: "研究",

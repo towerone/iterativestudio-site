@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
+  <title>Condensed CV | Iterative Studio</title>
+  <meta name="description" content="Condensed CV for Carnell, founder of Iterative Studio: US-licensed architect, BIM and AI generative design, patents, publications, and awards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="/assets/white.css" />
+  <style>
+    html{scroll-behavior:smooth}
+    body.page-white .cv-hero-inner{
+      max-width:52rem;
+    }
+    body.page-white .cv-cred{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:clamp(13px, 1.1vw + 10px, 16px);
+      line-height:1.45;
+      letter-spacing:.01em;
+    }
+    body.page-white .cv-lead{
+      margin-top:14px;
+      font-size:clamp(14px, 1.15vw + 10px, 17px);
+      line-height:1.6;
+      max-width:68ch;
+    }
+    body.page-white .cv-section{
+      padding-top:28px;
+      padding-bottom:8px;
+    }
+    body.page-white .cv-section + .cv-section{
+      border-top:1px solid var(--line);
+      margin-top:8px;
+    }
+    body.page-white .cv-section-title{
+      margin:0 0 16px;
+      font-size:clamp(17px, 1.2vw + 12px, 20px);
+      letter-spacing:-.01em;
+      color:var(--text);
+    }
+    body.page-white .cv-role{
+      margin:0 0 22px;
+      padding:16px 18px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+    }
+    body.page-white .cv-role:last-child{margin-bottom:0}
+    body.page-white .cv-role-head{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px 14px;
+      align-items:baseline;
+      justify-content:space-between;
+      margin:0 0 10px;
+    }
+    body.page-white .cv-role-title{
+      margin:0;
+      font-size:clamp(14px, 1.05vw + 11px, 16px);
+      font-weight:600;
+      line-height:1.35;
+      color:var(--text);
+      max-width:48ch;
+    }
+    body.page-white .cv-role-when{
+      margin:0;
+      font-size:12px;
+      font-weight:600;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    body.page-white .cv-role .bullets{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:clamp(13px, 0.9vw + 11px, 15px);
+      line-height:1.55;
+    }
+    body.page-white .cv-role .bullets li + li{margin-top:6px}
+    body.page-white .cv-list{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:clamp(13px, 0.9vw + 11px, 15px);
+      line-height:1.6;
+      max-width:72ch;
+    }
+    body.page-white .cv-list li + li{margin-top:8px}
+    body.page-white .cv-list strong{color:var(--text);font-weight:600}
+    body.page-white .cv-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:12px;
+    }
+    body.page-white .cv-card{
+      padding:16px 18px;
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+    }
+    body.page-white .cv-card h3{
+      margin:0 0 8px;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      color:var(--text);
+    }
+    body.page-white .cv-card p,
+    body.page-white .cv-card .bullets{
+      margin:0;
+      color:var(--muted);
+      font-size:clamp(13px, 0.9vw + 11px, 14px);
+      line-height:1.55;
+    }
+    body.page-white .cv-card .bullets{padding-left:16px}
+    body.page-white .cv-card .bullets li + li{margin-top:5px}
+    @media (max-width:720px){
+      body.page-white .cv-grid{grid-template-columns:1fr}
+      body.page-white .cv-role-head{flex-direction:column;gap:4px}
+      body.page-white .cv-role{padding:14px 14px}
+    }
+  </style>
+</head>
+
+<body class="page-white">
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+
+      <div class="header-hole" aria-hidden="true"></div>
+
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner cv-hero-inner">
+        <p class="page-back">
+          <a class="page-back-link" href="/about/" id="backLink">← About</a>
+        </p>
+
+        <p class="kicker" id="kickerText">Condensed CV</p>
+        <h1 id="heroTitle">Carnell</h1>
+        <p class="cv-cred" id="heroCred">AIA, NCARB, LEED AP · US Registered Architect</p>
+        <p class="lead cv-lead" id="heroLead">
+          Registered architect with 18+ years of experience spanning the USA and Taiwan. Advanced BIM, AI generative design, parametric systems, and net-zero architecture. Founder of Iterative Studio.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:52rem;">
+
+        <div class="cv-section">
+          <h2 class="cv-section-title" id="secProfile">Profile</h2>
+          <p class="lead cv-lead" id="profileBody" style="margin:0;">
+            Registered architect with 18+ years of experience spanning the USA and Taiwan, specializing in advanced BIM, AI generative design, parametric design, and net-zero architecture. Founder of an independent design studio operating between Taiwan and the US. Academic researcher in AI generative design and environmental architecture. Published author, patent holder, and international conference speaker. U.S. Coast Guard veteran.
+          </p>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title" id="secExperience">Experience highlights</h2>
+
+          <article class="cv-role">
+            <div class="cv-role-head">
+              <h3 class="cv-role-title" id="exp1Title">Experimental design, AI &amp; robotics · R&amp;D, precision manufacturing (Taiwan)</h3>
+              <p class="cv-role-when" id="exp1When">Current</p>
+            </div>
+            <ul class="bullets">
+              <li id="exp1Li1">International company ranked among the top five in global recognition in its field, and a leader in innovation and design</li>
+              <li id="exp1Li2">Unified product tooling so a single mold serves five products through varied techniques, sharply reducing the parts required per product</li>
+              <li id="exp1Li3">Applied AI-driven generative design (Python) to analyze materials, structural performance, and production workflows</li>
+              <li id="exp1Li4">Currently leading initiatives to unify and automate manufacturing, integrating automation and AI agents across operations</li>
+              <li id="exp1Li5">Developed the framework for an automated modular production line; built an AI chatbot to streamline customer product search</li>
+            </ul>
+          </article>
+
+          <article class="cv-role">
+            <div class="cv-role-head">
+              <h3 class="cv-role-title" id="exp2Title">Founder &amp; head designer · independent architecture studio (Taiwan-US)</h3>
+              <p class="cv-role-when" id="exp2When">Current</p>
+            </div>
+            <ul class="bullets">
+              <li id="exp2Li1">Designed and delivered two zero-energy sustainable homes in the Midwest, from BIM model through construction documents</li>
+              <li id="exp2Li2">Won a competition to design and build a sustainable community pavilion</li>
+              <li id="exp2Li3">Directed interior completion and construction management for multi-unit residential work in Taiwan</li>
+              <li id="exp2Li4">Currently designing the renovation of a multi-unit residential building with ground-floor retail</li>
+              <li id="exp2Li5">Pioneering a human-led, AI-assisted construction methodology: the architect retains full control of documentation in Revit while AI works underneath to generate formulas and test detailing and framing variables, surfacing small dimensional changes that can reduce construction costs by up to 25%</li>
+            </ul>
+          </article>
+
+          <article class="cv-role">
+            <div class="cv-role-head">
+              <h3 class="cv-role-title" id="exp3Title">Lead design and BIM roles · architecture firms (Taiwan)</h3>
+              <p class="cv-role-when" id="exp3When">Multiple years</p>
+            </div>
+            <ul class="bullets">
+              <li id="exp3Li1">Designed a parametric museum facade with over 12,000 uniquely sized glass panels and compiled the government BIM package</li>
+              <li id="exp3Li2">Developed a parametric pedestrian bridge model with integrated structural analysis</li>
+              <li id="exp3Li3">Led BIM design for a large educational building, a temple complex, a 15-building factory campus, and a 23-story healthcare tower</li>
+            </ul>
+          </article>
+
+          <article class="cv-role">
+            <div class="cv-role-head">
+              <h3 class="cv-role-title" id="exp4Title">Project architect and design roles · architecture firms (USA), including a top global practice</h3>
+              <p class="cv-role-when" id="exp4When">USA</p>
+            </div>
+            <ul class="bullets">
+              <li id="exp4Li1">Managed construction documents and consultant coordination for a 100,000 sq ft executive interior renovation for a major bank</li>
+              <li id="exp4Li2">Contributed construction documentation within a 30-person team for a landmark NYC train station redevelopment spanning a full city block</li>
+              <li id="exp4Li3">Served as LEED coordinator for a project pursuing LEED Platinum certification</li>
+              <li id="exp4Li4">Designed and documented a 6-story monumental stair for a 220,000 sq ft financial-sector headquarters interior</li>
+              <li id="exp4Li5">Delivered a solo lobby renovation from design through full construction documents</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title" id="secEducation">Education</h2>
+          <ul class="cv-list">
+            <li id="edu1"><strong>Doctoral studies, Architecture</strong> · National Cheng Kung University, Taiwan (AI generative design &amp; environmental programming; coursework completed, research publication in progress)</li>
+            <li id="edu2"><strong>Master of Architecture (M.Arch II)</strong> · Tunghai University, Taiwan</li>
+            <li id="edu3"><strong>Bachelor of Architecture (B.Arch)</strong> · City University of New York (CCNY)</li>
+            <li id="edu4"><strong>Additional study</strong> · Architectural Lighting, Parsons School of Design; Les Écoles d'Art Américaines de Fontainebleau, France (Maverick award recipient)</li>
+          </ul>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title" id="secPubs">Patent, publications &amp; speaking</h2>
+          <ul class="cv-list">
+            <li id="pub1"><strong>Patent:</strong> Earthquake proactive resistance system (2021)</li>
+            <li id="pub2"><strong>Book contribution:</strong> Biomimicry, technical development chapter (2022)</li>
+            <li id="pub3"><strong>Speaker:</strong> Space Syntax Symposium</li>
+            <li id="pub4"><strong>Guest lecturer:</strong> university lecture on AI development and space syntax (2024); biomimicry launch panel, Singapore (2023)</li>
+          </ul>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title" id="secAwards">Awards &amp; press</h2>
+          <ul class="cv-list">
+            <li id="aw1">Honorable Mention: Hsinta Power Plant international competition (2018)</li>
+            <li id="aw2">Third Place: Intelligent Green Building Design Competition (2017)</li>
+            <li id="aw3">First Place: AIAS national design review competition (2005)</li>
+            <li id="aw4">First Place: PCI-AIAS park visitors center design competition (2005)</li>
+            <li id="aw5">Second Place: CCNY ADA competition (2005)</li>
+            <li id="aw6">Second Place: Northeastern Veterans Memorial Competition (2005)</li>
+            <li id="aw7">Featured: Crit Magazine student award winners and competition winners issues; Architect's Newspaper "Top of the class"</li>
+          </ul>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title" id="secSkills">Skills</h2>
+          <div class="cv-grid">
+            <div class="cv-card">
+              <h3 id="sk1Title">BIM &amp; computational design</h3>
+              <p id="sk1Body">Revit (Architecture, Structure, MEP), Dynamo, Rhino + Grasshopper, Navisworks, AutoCAD, BIM LOD 100-400</p>
+            </div>
+            <div class="cv-card">
+              <h3 id="sk2Title">Other tools</h3>
+              <p id="sk2Body">Inventor, Adobe Suite</p>
+            </div>
+            <div class="cv-card">
+              <h3 id="sk3Title">Languages</h3>
+              <p id="sk3Body">English (native), Mandarin Chinese (conversational)</p>
+            </div>
+            <div class="cv-card">
+              <h3 id="sk4Title">Additional</h3>
+              <ul class="bullets">
+                <li id="sk4Li1">U.S. Coast Guard veteran, honorable discharge</li>
+                <li id="sk4Li2">Former AIAS chapter president; managed student trips and co-managed a 200-student conference</li>
+                <li id="sk4Li3">29 countries and 45 U.S. states traveled; lived over two months in six countries across Europe and Asia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-actions" style="margin-top:28px;">
+          <a class="btn" href="/contact/" id="cvCta">Get in touch</a>
+          <a class="btn btn-ghost" href="/about/" id="cvBack" style="margin-left:8px;">Back to About</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
+        <div class="footer-note" id="footerNote">Condensed CV</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.73</div>
+      </div>
+
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerTagline">
+          Systems-first workflows for architecture and the built environment.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const BUILD = "v0.1.73";
+
+const i18n = {
+  en: {
+    backLink: "← About",
+    kickerText: "Condensed CV",
+    heroTitle: "Carnell",
+    heroCred: "AIA, NCARB, LEED AP · US Registered Architect",
+    heroLead: "Registered architect with 18+ years of experience spanning the USA and Taiwan. Advanced BIM, AI generative design, parametric systems, and net-zero architecture. Founder of Iterative Studio.",
+    navProjects: "Projects", navAbout: "About", navContact: "Contact",
+    secProfile: "Profile",
+    profileBody: "Registered architect with 18+ years of experience spanning the USA and Taiwan, specializing in advanced BIM, AI generative design, parametric design, and net-zero architecture. Founder of an independent design studio operating between Taiwan and the US. Academic researcher in AI generative design and environmental architecture. Published author, patent holder, and international conference speaker. U.S. Coast Guard veteran.",
+    secExperience: "Experience highlights",
+    exp1Title: "Experimental design, AI & robotics · R&D, precision manufacturing (Taiwan)",
+    exp1When: "Current",
+    exp1Li1: "International company ranked among the top five in global recognition in its field, and a leader in innovation and design",
+    exp1Li2: "Unified product tooling so a single mold serves five products through varied techniques, sharply reducing the parts required per product",
+    exp1Li3: "Applied AI-driven generative design (Python) to analyze materials, structural performance, and production workflows",
+    exp1Li4: "Currently leading initiatives to unify and automate manufacturing, integrating automation and AI agents across operations",
+    exp1Li5: "Developed the framework for an automated modular production line; built an AI chatbot to streamline customer product search",
+    exp2Title: "Founder & head designer · independent architecture studio (Taiwan-US)",
+    exp2When: "Current",
+    exp2Li1: "Designed and delivered two zero-energy sustainable homes in the Midwest, from BIM model through construction documents",
+    exp2Li2: "Won a competition to design and build a sustainable community pavilion",
+    exp2Li3: "Directed interior completion and construction management for multi-unit residential work in Taiwan",
+    exp2Li4: "Currently designing the renovation of a multi-unit residential building with ground-floor retail",
+    exp2Li5: "Pioneering a human-led, AI-assisted construction methodology: the architect retains full control of documentation in Revit while AI works underneath to generate formulas and test detailing and framing variables, surfacing small dimensional changes that can reduce construction costs by up to 25%",
+    exp3Title: "Lead design and BIM roles · architecture firms (Taiwan)",
+    exp3When: "Multiple years",
+    exp3Li1: "Designed a parametric museum facade with over 12,000 uniquely sized glass panels and compiled the government BIM package",
+    exp3Li2: "Developed a parametric pedestrian bridge model with integrated structural analysis",
+    exp3Li3: "Led BIM design for a large educational building, a temple complex, a 15-building factory campus, and a 23-story healthcare tower",
+    exp4Title: "Project architect and design roles · architecture firms (USA), including a top global practice",
+    exp4When: "USA",
+    exp4Li1: "Managed construction documents and consultant coordination for a 100,000 sq ft executive interior renovation for a major bank",
+    exp4Li2: "Contributed construction documentation within a 30-person team for a landmark NYC train station redevelopment spanning a full city block",
+    exp4Li3: "Served as LEED coordinator for a project pursuing LEED Platinum certification",
+    exp4Li4: "Designed and documented a 6-story monumental stair for a 220,000 sq ft financial-sector headquarters interior",
+    exp4Li5: "Delivered a solo lobby renovation from design through full construction documents",
+    secEducation: "Education",
+    edu1: "Doctoral studies, Architecture · National Cheng Kung University, Taiwan (AI generative design & environmental programming; coursework completed, research publication in progress)",
+    edu2: "Master of Architecture (M.Arch II) · Tunghai University, Taiwan",
+    edu3: "Bachelor of Architecture (B.Arch) · City University of New York (CCNY)",
+    edu4: "Additional study · Architectural Lighting, Parsons School of Design; Les Écoles d'Art Américaines de Fontainebleau, France (Maverick award recipient)",
+    secPubs: "Patent, publications & speaking",
+    pub1: "Patent: Earthquake proactive resistance system (2021)",
+    pub2: "Book contribution: Biomimicry, technical development chapter (2022)",
+    pub3: "Speaker: Space Syntax Symposium",
+    pub4: "Guest lecturer: university lecture on AI development and space syntax (2024); biomimicry launch panel, Singapore (2023)",
+    secAwards: "Awards & press",
+    aw1: "Honorable Mention: Hsinta Power Plant international competition (2018)",
+    aw2: "Third Place: Intelligent Green Building Design Competition (2017)",
+    aw3: "First Place: AIAS national design review competition (2005)",
+    aw4: "First Place: PCI-AIAS park visitors center design competition (2005)",
+    aw5: "Second Place: CCNY ADA competition (2005)",
+    aw6: "Second Place: Northeastern Veterans Memorial Competition (2005)",
+    aw7: "Featured: Crit Magazine student award winners and competition winners issues; Architect's Newspaper "Top of the class"",
+    secSkills: "Skills",
+    sk1Title: "BIM & computational design",
+    sk1Body: "Revit (Architecture, Structure, MEP), Dynamo, Rhino + Grasshopper, Navisworks, AutoCAD, BIM LOD 100-400",
+    sk2Title: "Other tools",
+    sk2Body: "Inventor, Adobe Suite",
+    sk3Title: "Languages",
+    sk3Body: "English (native), Mandarin Chinese (conversational)",
+    sk4Title: "Additional",
+    sk4Li1: "U.S. Coast Guard veteran, honorable discharge",
+    sk4Li2: "Former AIAS chapter president; managed student trips and co-managed a 200-student conference",
+    sk4Li3: "29 countries and 45 U.S. states traveled; lived over two months in six countries across Europe and Asia",
+    cvCta: "Get in touch",
+    cvBack: "Back to About",
+    footerNote: "Condensed CV",
+    footerTagline: "Systems-first workflows for architecture and the built environment."
+  },
+  zh: {
+    backLink: "← 關於",
+    kickerText: "精簡履歷",
+    heroTitle: "Carnell",
+    heroCred: "AIA、NCARB、LEED AP · 美國註冊建築師",
+    heroLead: "擁有超過 18 年美國與台灣實務經驗的註冊建築師。專長進階 BIM、AI 生成式設計、參數化系統與淨零建築。Iterative Studio 創辦人。",
+    navProjects: "專案", navAbout: "關於", navContact: "聯絡",
+    secProfile: "簡介",
+    profileBody: "擁有超過 18 年美國與台灣經驗的註冊建築師，專長進階 BIM、AI 生成式設計、參數化設計與淨零建築。於台灣與美國之間經營獨立設計工作室。學術研究聚焦 AI 生成式設計與環境建築。書籍作者、專利持有人、國際研討會講者。美國海岸防衛隊退伍軍人。",
+    secExperience: "經歷摘要",
+    exp1Title: "實驗設計、AI 與機器人 · 研發部門，精密製造（台灣）",
+    exp1When: "現職",
+    exp1Li1: "所屬國際企業於其領域之全球知名度位居前五，並以創新與設計見長",
+    exp1Li2: "整合產品模具，使單一模具透過不同工法服務五款產品，大幅降低每件產品所需零件數",
+    exp1Li3: "運用 AI 生成式設計（Python）分析材料、結構性能與生產流程",
+    exp1Li4: "目前主導製造流程整合與自動化，將自動化與 AI 代理導入營運",
+    exp1Li5: "建立自動化模組化產線架構；開發 AI 聊天機器人簡化客戶產品搜尋",
+    exp2Title: "創辦人暨首席設計師 · 獨立建築工作室（台灣-美國）",
+    exp2When: "現職",
+    exp2Li1: "於美國中西部完成兩棟零耗能永續住宅，從 BIM 模型到施工圖全程交付",
+    exp2Li2: "贏得永續社區涼亭設計與建造競賽",
+    exp2Li3: "主導台灣集合住宅室內完工與施工管理",
+    exp2Li4: "目前進行一棟含一樓零售之集合住宅整修設計",
+    exp2Li5: "推動以人為主、AI 輔助的施工方法：建築師在 Revit 中全程掌控圖說，AI 在底層生成公式並測試細部與構架變量，找出可降低最高約 25% 營建成本的微小尺寸調整",
+    exp3Title: "首席設計與 BIM 職務 · 建築事務所（台灣）",
+    exp3When: "多年",
+    exp3Li1: "設計超過 12,000 片獨特尺寸玻璃的參數化博物館立面，並完成政府 BIM 交付包",
+    exp3Li2: "開發整合結構分析的參數化人行橋模型",
+    exp3Li3: "主導大型教育建築、廟宇複合體、15 棟廠房園區與 23 層醫療高塔之 BIM 設計",
+    exp4Title: "專案建築師與設計職務 · 建築事務所（美國），含頂尖國際事務所",
+    exp4When: "美國",
+    exp4Li1: "管理約 100,000 平方英尺銀行高階室內整修之施工圖與顧問協調",
+    exp4Li2: "於約 30 人團隊中參與橫跨整街區的紐約地標車站再開發施工圖文件",
+    exp4Li3: "擔任追求 LEED Platinum 認證案之 LEED 協調人",
+    exp4Li4: "為約 220,000 平方英尺金融總部室內設計並出圖六層紀念性樓梯",
+    exp4Li5: "獨立完成大廳整修，從設計到完整施工圖",
+    secEducation: "學歷",
+    edu1: "建築博士班 · 國立成功大學，台灣（AI 生成式設計與環境程序；課程完成，研究發表進行中）",
+    edu2: "建築碩士（M.Arch II）· 東海大學，台灣",
+    edu3: "建築學士（B.Arch）· 紐約市立大學（CCNY）",
+    edu4: "其他研修 · Parsons 建築照明；法國楓丹白露美國藝術學院（Maverick 獎）",
+    secPubs: "專利、出版與演講",
+    pub1: "專利：地震主動抵抗系統（2021）",
+    pub2: "書籍章節：仿生學技術發展章節（2022）",
+    pub3: "講者：Space Syntax Symposium",
+    pub4: "客座講座：大學 AI 發展與空間句法講座（2024）；新加坡仿生學發表座談（2023）",
+    secAwards: "獎項與媒體",
+    aw1: "佳作：興達電廠國際競圖（2018）",
+    aw2: "第三名：智慧綠建築設計競賽（2017）",
+    aw3: "第一名：AIAS 全國設計評圖競賽（2005）",
+    aw4: "第一名：PCI-AIAS 公園遊客中心設計競賽（2005）",
+    aw5: "第二名：CCNY ADA 競賽（2005）",
+    aw6: "第二名：Northeastern Veterans Memorial 競賽（2005）",
+    aw7: "媒體：Crit Magazine 學生獎與競賽得獎專題；Architect's Newspaper「Top of the class」",
+    secSkills: "技能",
+    sk1Title: "BIM 與計算式設計",
+    sk1Body: "Revit（建築、結構、機電）、Dynamo、Rhino + Grasshopper、Navisworks、AutoCAD、BIM LOD 100-400",
+    sk2Title: "其他工具",
+    sk2Body: "Inventor、Adobe 套件",
+    sk3Title: "語言",
+    sk3Body: "英語（母語）、華語（會話）",
+    sk4Title: "其他",
+    sk4Li1: "美國海岸防衛隊退伍，榮譽退役",
+    sk4Li2: "曾任 AIAS 分會會長；籌辦學生行程並共同管理約 200 人學生會議",
+    sk4Li3: "旅行 29 國與 45 個美國州；於歐亞六國各旅居逾兩個月",
+    cvCta: "與我們聯絡",
+    cvBack: "返回關於",
+    footerNote: "精簡履歷",
+    footerTagline: "以系統為先的建築與環境工作流程。"
+  }
+};
+
+// Education list items need bold labels in EN; store HTML-safe structured labels
+const eduHtml = {
+  en: {
+    edu1: ["Doctoral studies, Architecture", "National Cheng Kung University, Taiwan (AI generative design & environmental programming; coursework completed, research publication in progress)"],
+    edu2: ["Master of Architecture (M.Arch II)", "Tunghai University, Taiwan"],
+    edu3: ["Bachelor of Architecture (B.Arch)", "City University of New York (CCNY)"],
+    edu4: ["Additional study", "Architectural Lighting, Parsons School of Design; Les Écoles d'Art Américaines de Fontainebleau, France (Maverick award recipient)"]
+  },
+  zh: {
+    edu1: ["建築博士班", "國立成功大學，台灣（AI 生成式設計與環境程序；課程完成，研究發表進行中）"],
+    edu2: ["建築碩士（M.Arch II）", "東海大學，台灣"],
+    edu3: ["建築學士（B.Arch）", "紐約市立大學（CCNY）"],
+    edu4: ["其他研修", "Parsons 建築照明；法國楓丹白露美國藝術學院（Maverick 獎）"]
+  }
+};
+
+const pubHtml = {
+  en: {
+    pub1: ["Patent:", "Earthquake proactive resistance system (2021)"],
+    pub2: ["Book contribution:", "Biomimicry, technical development chapter (2022)"],
+    pub3: ["Speaker:", "Space Syntax Symposium"],
+    pub4: ["Guest lecturer:", "university lecture on AI development and space syntax (2024); biomimicry launch panel, Singapore (2023)"]
+  },
+  zh: {
+    pub1: ["專利：", "地震主動抵抗系統（2021）"],
+    pub2: ["書籍章節：", "仿生學技術發展章節（2022）"],
+    pub3: ["講者：", "Space Syntax Symposium"],
+    pub4: ["客座講座：", "大學 AI 發展與空間句法講座（2024）；新加坡仿生學發表座談（2023）"]
+  }
+};
+
+let lang = "en";
+
+function setLang(next) {
+  lang = next;
+  const t = i18n[lang];
+  const toggle = document.getElementById("langToggle");
+  toggle.classList.toggle("is-en-active", lang === "en");
+
+  Object.keys(t).forEach((id) => {
+    if (id.startsWith("edu") || id.startsWith("pub")) return;
+    const el = document.getElementById(id);
+    if (el) el.textContent = t[id];
+  });
+
+  Object.keys(eduHtml[lang]).forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const [label, rest] = eduHtml[lang][id];
+    el.innerHTML = "";
+    const strong = document.createElement("strong");
+    strong.textContent = label;
+    el.appendChild(strong);
+    el.appendChild(document.createTextNode(" · " + rest));
+  });
+
+  Object.keys(pubHtml[lang]).forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const [label, rest] = pubHtml[lang][id];
+    el.innerHTML = "";
+    const strong = document.createElement("strong");
+    strong.textContent = label;
+    el.appendChild(strong);
+    el.appendChild(document.createTextNode(" " + rest));
+  });
+}
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLang(lang === "en" ? "zh" : "en");
+});
+
+const buildEl = document.getElementById("buildVersion");
+if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
+setLang("en");
+  </script>
+</body>
+</html>
