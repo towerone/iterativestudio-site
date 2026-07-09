@@ -113,7 +113,7 @@
           <figure class="detail" tabindex="0" role="button" data-key="d4" data-num="04" data-img="/assets/comp-design/detailing-d04-north-fork-pavilion.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d04-north-fork-pavilion.jpg" alt="North Fork Ranch community pavilion Revit construction detail set" width="2141" height="2142" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d4t">North Fork pavilion details</span><span class="detail-note" id="d4n">North Fork Ranch community pavilion detail drawing built in Revit. Framing is developed through generative, rule-based methods, then verified and refined in a headed workflow by drilling down into a construction detail set that is buildable and repeatable.</span></figcaption></figure>
           <div class="hole"><span class="hole-title" id="h1t">Why nodes carry the design</span><p class="hole-body" id="h1b">A building fails at its weakest node. The concept lives or dies at the points where assemblies actually connect — parapet, sill, threshold. Each node is where intent meets gravity, water, and tolerance; resolve one poorly and the whole graph reads the failure.</p></div>
           <figure class="detail" tabindex="0" role="button" data-key="d5" data-num="05" data-img="/assets/comp-design/detailing-d05-modular-corner.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d05-modular-corner.jpg" alt="Revit-modeled modular corner connection with bolted joint" width="2424" height="1915" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d5t">Modular corner piece</span><span class="detail-note" id="d5n">Revit-modeled modular corner piece designed for Iterative Studio. Combines sculptural presence with practical seating, scaling from an art installation to a loungeable, buildable structure through repeatable modules.</span></figcaption></figure>
-          <figure class="detail" tabindex="0" role="button" data-key="d6" data-num="06"><div class="detail-img" aria-hidden="true"><span class="detail-num">06</span></div><figcaption class="detail-cap"><span class="detail-title" id="d6t">Slab edge & floor line</span><span class="detail-note" id="d6n">Thermal break and fire stop at the floor line, with the facade reading continuous outside.</span></figcaption></figure>
+          <figure class="detail" tabindex="0" role="button" data-key="d6" data-num="06" data-img="/assets/comp-design/detailing-d06-legacy-autocad-stair.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d06-legacy-autocad-stair.jpg" alt="Legacy AutoCAD stair detail sheet with Xrefs and callouts" width="1186" height="978" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d6t">Legacy AutoCAD stair detail</span><span class="detail-note" id="d6n">Legacy AutoCAD stair detail sheet built with Xrefs (early linked-drawing workflow, 10+ years old). Included as a proof of [i]'s technical depth: coordinated linework, callouts, and constructable detail resolution across referenced files.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d7" data-num="07" data-img="/assets/comp-design/detailing-d07-facade-setting-out.jpg"><div class="detail-img"><img src="/assets/comp-design/detailing-d07-facade-setting-out.jpg" alt="Facade setting-out point grid from Dynamo parametric model" width="1024" height="1024" loading="lazy" /></div><figcaption class="detail-cap"><span class="detail-title" id="d7t">Facade setting-out grid</span><span class="detail-note" id="d7n">This detail is generated from a core Dynamo parametric model that rationalizes the facade's complex geometry. The script populates a structured point grid and computes the elevation (Z) of each node at ~100 mm spacing across the surface. These coordinates export directly as setting-out data, giving fabricators precise per-point reference values. Installation therefore tracks the model with no manual interpolation, preserving design intent.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d8" data-num="08"><div class="detail-img" aria-hidden="true"><span class="detail-num">08</span></div><figcaption class="detail-cap"><span class="detail-title" id="d8t">Expansion joint</span><span class="detail-note" id="d8n">Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.</span></figcaption></figure>
           <figure class="detail" tabindex="0" role="button" data-key="d9" data-num="09"><div class="detail-img" aria-hidden="true"><span class="detail-num">09</span></div><figcaption class="detail-cap"><span class="detail-title" id="d9t">Eave & soffit</span><span class="detail-note" id="d9n">Ventilation path, insect screen, and a clean shadow line under the overhang.</span></figcaption></figure>
@@ -147,7 +147,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Detailing</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.13</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.14</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -168,7 +168,7 @@
   </div>
 
   <script>
-const BUILD = "v0.3.13";
+const BUILD = "v0.3.14";
 
 const i18n = {
   en: {
@@ -188,7 +188,7 @@ const i18n = {
     d3t: "Parametric elevation & openings", d3n: "This elevation and its detail windows are built as a single parametric drawing in which one driving parameter governs the entire window geometry. Changing that single value regenerates the opening's shape and recomputes how it is cut out, propagating the change across the elevation and its linked details. The logic ties back to early AI-driven work, so dependencies resolve automatically instead of requiring manual redrawing. One edit therefore flows fluidly through the construction documents and the set updates itself.",
     d4t: "North Fork pavilion details", d4n: "North Fork Ranch community pavilion detail drawing built in Revit. Framing is developed through generative, rule-based methods, then verified and refined in a headed workflow by drilling down into a construction detail set that is buildable and repeatable.",
     d5t: "Modular corner piece", d5n: "Revit-modeled modular corner piece designed for Iterative Studio. Combines sculptural presence with practical seating, scaling from an art installation to a loungeable, buildable structure through repeatable modules.",
-    d6t: "Slab edge & floor line", d6n: "Thermal break and fire stop at the floor line, with the facade reading continuous outside.",
+    d6t: "Legacy AutoCAD stair detail", d6n: "Legacy AutoCAD stair detail sheet built with Xrefs (early linked-drawing workflow, 10+ years old). Included as a proof of [i]'s technical depth: coordinated linework, callouts, and constructable detail resolution across referenced files.",
     d7t: "Facade setting-out grid", d7n: "This detail is generated from a core Dynamo parametric model that rationalizes the facade's complex geometry. The script populates a structured point grid and computes the elevation (Z) of each node at ~100 mm spacing across the surface. These coordinates export directly as setting-out data, giving fabricators precise per-point reference values. Installation therefore tracks the model with no manual interpolation, preserving design intent.",
     d8t: "Expansion joint", d8n: "Buildings move. A detailed joint lets two assemblies breathe without tearing finishes.",
     d9t: "Eave & soffit", d9n: "Ventilation path, insect screen, and a clean shadow line under the overhang.",
@@ -225,7 +225,7 @@ const i18n = {
     d3t: "參數化立面與開口", d3n: "此立面及其細部窗戶以單一參數化圖面建置，由一個驅動參數統御整體開窗幾何。變更該數值即可重新生成開口形狀並重算挖空方式，變更沿立面與連結細部同步傳遞。邏輯可追溯至早期 AI 驅動工作，相依關係自動解析，無需人工重繪。因此一次編輯即可流暢貫穿施工文件，圖集自行更新。",
     d4t: "North Fork 涼亭細部", d4n: "以 Revit 繪製的 North Fork Ranch 社區涼亭細部圖。構架先以生成式、規則導向方法發展，再在有頭工作流程中下鑽至可建造、可重複的施工細部圖集，加以驗證與精煉。",
     d5t: "模組化轉角構件", d5n: "為 Iterative Studio 以 Revit 建模的模組化轉角構件。結合雕塑感與實用座椅功能，透過可重複的模組，從藝術裝置擴展為可坐、可建造的結構。",
-    d6t: "樓板邊緣與樓層線", d6n: "樓層線處的隔熱斷橋與防火填塞，外側立面仍讀為連續。",
+    d6t: "舊版 AutoCAD 樓梯細部", d6n: "以 Xref 建置的舊版 AutoCAD 樓梯細部圖（早期連結圖面工作流程，逾十年）。作為 [i] 技術深度的證明：跨參考檔協調的線稿、標註與可施工細部解析。",
     d7t: "立面定位網格", d7n: "此細部由核心 Dynamo 參數化模型生成，用以合理化立面複雜幾何。腳本填入結構化點網格，並在表面以約 100 公釐間距計算各節點標高（Z）。這些座標可直接匯出為定位放樣資料，為製造商提供精確的逐點參考值。因此安裝可依模型追蹤，無需人工內插，得以保留設計意圖。",
     d8t: "伸縮縫", d8n: "建築會動。細部化的接縫讓兩個構造各自呼吸而不撕裂飾面。",
     d9t: "簷口與天花", d9n: "通風路徑、防蟲網，以及出簷下乾淨的陰影線。",
