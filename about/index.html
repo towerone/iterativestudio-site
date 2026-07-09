@@ -41,7 +41,7 @@
     }
     .about-hero-row{
       display:grid;
-      grid-template-columns:minmax(0,1.15fr) minmax(180px,0.85fr);
+      grid-template-columns:minmax(180px,0.85fr) minmax(0,1.15fr);
       gap:28px 36px;
       align-items:center;
       margin-top:4px;
@@ -114,12 +114,12 @@
         <h1 id="heroTitle">A studio built on iteration.</h1>
 
         <div class="about-hero-row">
+          <div class="about-hero-visual">
+            <img src="/assets/about/iteration-cycle.png?v=2" alt="Iterative Studio cycle: Requirements, Analysis and Design, Testing, Evaluation" width="638" height="638" loading="lazy" />
+          </div>
           <p class="lead" id="heroLead">
             Iterative Studio is an architecture and computational design practice working between Taiwan and the US. We pair traditional, licensed architectural practice with a headed AI workflow: AI works underneath the architect to test, refine, and optimize, while every decision stays in human hands. The result is buildings that live within their environment, and documents you can actually build from.
           </p>
-          <div class="about-hero-visual">
-            <img src="/assets/about/iteration-cycle.png" alt="Iterative Studio cycle: Requirements, Analysis and Design, Testing, Evaluation" width="638" height="638" loading="lazy" />
-          </div>
         </div>
 
         <div class="grid-2" style="margin-top:18px;">
@@ -242,7 +242,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">About</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.74</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.75</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -256,7 +256,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.74";
+const BUILD = "v0.1.75";
 
 const i18n = {
   en: {
