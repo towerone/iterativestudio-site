@@ -72,12 +72,50 @@
     /* Built portfolio cards with media */
     #built .grid-2{gap:16px}
     #built .project-card{
+      position:relative;
       padding:0 !important;
       overflow:hidden;
       display:flex;
       flex-direction:column;
       border-radius:16px;
+      color:inherit;
+      text-decoration:none !important;
     }
+    #built a.project-card{
+      color:inherit;
+      text-decoration:none !important;
+    }
+    #built .project-title,
+    #built .project-desc{
+      display:block;
+      width:100%;
+    }
+    #built .project-top{
+      display:flex;
+      width:100%;
+      flex-wrap:wrap;
+      align-items:baseline;
+      justify-content:space-between;
+    }
+    #built .project-card-hit{
+      position:absolute;
+      inset:0;
+      z-index:3;
+      text-indent:-9999px;
+      overflow:hidden;
+    }
+    #built .built-crosslink{
+      margin:18px 0 0;
+      text-align:center;
+      font-size:14px;
+      line-height:1.5;
+    }
+    #built .built-crosslink a{
+      color:var(--text);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+    #built .built-crosslink a:hover{ opacity:.78; }
     #built .project-media{
       position:relative;
       aspect-ratio:4/3;
@@ -164,7 +202,7 @@
         <h1 id="heroTitle">The studio desk.</h1>
 
         <p class="lead" id="heroLead">
-          Most studio pages read like an archive. This one reads like a desk: the projects moving right now sit on top, and the built work that proves the method sits underneath. Some professional work stays intentionally confidential.
+          Most studio pages read like an archive. This one reads like a desk: live projects sit on top, and the built work that proves the method sits underneath. Some professional work stays intentionally confidential.
         </p>
       </div>
     </section>
@@ -173,7 +211,7 @@
       <div class="container">
         <div class="section-head">
           <h2 id="deskTitle">On the desk now</h2>
-          <p id="deskBody">Three projects are moving right now. Different scales, one method.</p>
+          <p id="deskBody">Three projects on the desk. Different scales, one headed method.</p>
         </div>
 
         <div class="desk-stack">
@@ -275,7 +313,8 @@
             <div class="project-desc" id="b2d">Ranch house and pavilion options tested against real site, program, and greenbelt constraints.</div>
           </div>
 
-          <a class="project-card" href="/projects/hsinta/">
+          <div class="project-card">
+            <a class="project-card-hit" href="/projects/hsinta/" aria-label="Hsinta Eco Power plant">Hsinta Eco Power plant</a>
             <div class="project-media">
               <img src="/assets/carousel/hista-powerplant-render.jpg" alt="Hsinta Eco Power plant exterior rendering" width="1024" height="1024" loading="lazy" />
             </div>
@@ -283,8 +322,8 @@
               <div class="project-title" id="b3t">Hsinta Eco Power plant</div>
               <div class="project-year" id="b3y">Taiwan · 2018</div>
             </div>
-            <div class="project-desc" id="b3d">A closed-loop power plant concept with roughly 1,000 roof panels driven as a single scripted system. Award winner.</div>
-          </a>
+            <div class="project-desc" id="b3d">A closed-loop power plant concept with roughly 1,000 roof panels driven as a single scripted system. Honorable Mention, international competition (2018).</div>
+          </div>
 
           <div class="project-card">
             <div class="project-media">
@@ -292,7 +331,7 @@
             </div>
             <div class="project-top">
               <div class="project-title" id="b4t">Daheli Fude Temple</div>
-              <div class="project-year" id="b4y">Taiwan</div>
+              <div class="project-year" id="b4y">Taiwan · 2026</div>
             </div>
             <div class="project-desc" id="b4d">Curved temple walls generated and rationalized through parametric control, with a full construction set from the model.</div>
           </div>
@@ -320,6 +359,10 @@
           </div>
         </div>
 
+        <p class="built-crosslink">
+          <a href="/computational-design/detailing/" id="builtDetailingLink">Several of these projects appear node by node on the Detailing page.</a>
+        </p>
+
         <div class="section-actions">
           <a class="btn" href="/contact/" id="builtCta">Start a conversation</a>
         </div>
@@ -332,7 +375,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Projects</div>
-        <div class="footer-version" id="buildVersion">Build: v0.2.80</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.81</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -346,17 +389,17 @@
   </footer>
 
   <script>
-const BUILD = "v0.2.80";
+const BUILD = "v0.2.81";
 
 const i18n = {
   en: {
     backLink: "← Practical AI for the built environment",
     kickerText: "Projects",
     heroTitle: "The studio desk.",
-    heroLead: "Most studio pages read like an archive. This one reads like a desk: the projects moving right now sit on top, and the built work that proves the method sits underneath. Some professional work stays intentionally confidential.",
+    heroLead: "Most studio pages read like an archive. This one reads like a desk: live projects sit on top, and the built work that proves the method sits underneath. Some professional work stays intentionally confidential.",
     navProjects: "Projects", navAbout: "About", navContact: "Contact",
     deskTitle: "On the desk now",
-    deskBody: "Three projects are moving right now. Different scales, one method.",
+    deskBody: "Three projects on the desk. Different scales, one headed method.",
     d1e: "Research · Robotics · 01",
     d1s: "Actively building",
     d1t: "Selene: a street-level environmental sensing robot",
@@ -386,13 +429,14 @@ const i18n = {
     b2t: "North Fork House", b2y: "Colorado · 2020",
     b2d: "Ranch house and pavilion options tested against real site, program, and greenbelt constraints.",
     b3t: "Hsinta Eco Power plant", b3y: "Taiwan · 2018",
-    b3d: "A closed-loop power plant concept with roughly 1,000 roof panels driven as a single scripted system. Award winner.",
-    b4t: "Daheli Fude Temple", b4y: "Taiwan",
+    b3d: "A closed-loop power plant concept with roughly 1,000 roof panels driven as a single scripted system. Honorable Mention, international competition (2018).",
+    b4t: "Daheli Fude Temple", b4y: "Taiwan · 2026",
     b4d: "Curved temple walls generated and rationalized through parametric control, with a full construction set from the model.",
     b5t: "My Museum", b5y: "Taiwan · 2020",
     b5d: "An envelope of 2,000+ uniquely angled glass panels held as one legible, buildable parametric facade system.",
     b6t: "Crouching Dragon", b6y: "Taiwan · 2022",
     b6d: "A tubular bridge driven by a single base curve, kept editable end to end in Dynamo.",
+    builtDetailingLink: "Several of these projects appear node by node on the Detailing page.",
     builtCta: "Start a conversation",
     footerNote: "Projects",
     footerTagline: "Systems-first workflows for architecture and the built environment."
@@ -401,10 +445,10 @@ const i18n = {
     backLink: "← 建築與環境的實用 AI",
     kickerText: "專案",
     heroTitle: "工作室的桌面。",
-    heroLead: "多數工作室頁面像檔案庫，這一頁更像一張桌子：正在推進的專案放在最上面，底下是驗證這套方法的已建成作品。部分專業工作依約刻意保密。",
+    heroLead: "多數工作室頁面像檔案庫，這一頁更像一張桌子：進行中的專案在上，底下是驗證這套方法的已建成作品。部分專業工作依約刻意保密。",
     navProjects: "專案", navAbout: "關於", navContact: "聯絡",
     deskTitle: "桌上進行中",
-    deskBody: "三個專案正在推進。尺度不同，方法相同。",
+    deskBody: "桌上三個專案。尺度不同，同一套有頭方法。",
     d1e: "研究 · 機器人 · 01",
     d1s: "建造中",
     d1t: "Selene：街道尺度的環境感測機器人",
@@ -434,13 +478,14 @@ const i18n = {
     b2t: "North Fork 住宅", b2y: "科羅拉多 · 2020",
     b2d: "牧場住宅與涼亭方案，在真實基地、機能與綠帶條件下反覆測試。",
     b3t: "興達生態電廠", b3y: "台灣 · 2018",
-    b3d: "閉環電廠概念，約 1,000 片屋頂面板以單一腳本系統驅動。獲獎作品。",
-    b4t: "大河里福德祠", b4y: "台灣",
+    b3d: "閉環電廠概念，約 1,000 片屋頂面板以單一腳本系統驅動。國際競賽佳作（2018）。",
+    b4t: "大河里福德祠", b4y: "台灣 · 2026",
     b4d: "曲面廟牆以參數化控制生成並理性化，施工圖直接出自模型。",
     b5t: "博物館立面研究", b5y: "台灣 · 2020",
     b5d: "2,000 多片角度各異的玻璃面板，收攏為單一清晰可建造的參數化立面系統。",
     b6t: "臥龍橋", b6y: "台灣 · 2022",
     b6d: "由單一基準曲線驅動的管狀橋，於 Dynamo 中全程可編輯。",
+    builtDetailingLink: "其中多個專案也以節點形式出現在細部頁。",
     builtCta: "開始對話",
     footerNote: "專案",
     footerTagline: "以系統為先的建築與環境工作流程。"
