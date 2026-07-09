@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
+  <title>Projects | Iterative Studio</title>
+  <meta name="description" content="Projects at Iterative Studio: the work moving on the desk right now, from a street-level environmental sensing robot to AI-assisted framing, above the built work that proves the method." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="/assets/white.css" />
+  <style>
+    /* Desk cards (scoped additions; base from white.css) */
+    html{scroll-behavior:smooth}
+    .desk-stack{display:flex;flex-direction:column;gap:16px;margin-top:8px}
+    .desk-card{border:1px solid rgba(0,0,0,.12);border-radius:14px;padding:22px;background:transparent}
+    .desk-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+    .desk-eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+    .desk-status{font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(0,0,0,.18);border-radius:999px;white-space:nowrap}
+    .desk-title{font-size:20px;font-weight:600;margin:10px 0 8px}
+    .desk-body{opacity:.85;line-height:1.6}
+    .desk-card ul{margin:12px 0 0 18px;padding:0}
+    .desk-card li{margin:6px 0;line-height:1.5}
+    .desk-note{margin-top:14px;font-size:14px;opacity:.6}
+  </style>
+</head>
+
+<body class="page-white">
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+
+      <div class="header-hole" aria-hidden="true"></div>
+
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="page-back">
+          <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
+        </p>
+
+        <p class="kicker" id="kickerText">Projects</p>
+
+        <h1 id="heroTitle">The studio desk.</h1>
+
+        <p class="lead" id="heroLead">
+          Most studio pages read like an archive. This one reads like a desk: the projects moving right now sit on top, and the built work that proves the method sits underneath. Some professional work stays intentionally confidential.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="desk">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="deskTitle">On the desk now</h2>
+          <p id="deskBody">Three projects are moving right now. Different scales, one method.</p>
+        </div>
+
+        <div class="desk-stack">
+          <div class="desk-card">
+            <div class="desk-top">
+              <div class="desk-eyebrow" id="d1e">Research · Robotics · 01</div>
+              <div class="desk-status" id="d1s">Actively building</div>
+            </div>
+            <div class="desk-title" id="d1t">Selene: a street-level environmental sensing robot</div>
+            <div class="desk-body" id="d1b">
+              Satellites see city heat in broad strokes. They miss what happens under trees, between buildings, at the height where people actually live. Selene is a mobile sensor robot built to gather that missing street-level data and feed it into a generative AI model that predicts how heat moves through urban space.
+            </div>
+            <ul>
+              <li id="d1l1">3D printed structure, with parts developed through generative design in Rhino and Grasshopper</li>
+              <li id="d1l2">Dry-bulb, wet-bulb, and globe temperature sensing on a remote-controlled chassis with onboard processing</li>
+              <li id="d1l3">Each printed version tests structure, weight, and sensor placement; the design is iterating right now</li>
+            </ul>
+          </div>
+
+          <div class="desk-card">
+            <div class="desk-top">
+              <div class="desk-eyebrow" id="d2e">Professional practice · 02</div>
+              <div class="desk-status" id="d2s">Ongoing</div>
+            </div>
+            <div class="desk-title" id="d2t">Manufacturing R&amp;D: one mold instead of five</div>
+            <div class="desk-body" id="d2b">
+              Ongoing R&amp;D inside a precision manufacturing environment, where the studio's generative design methods move from architecture into product tooling. Client details are held in confidence.
+            </div>
+            <ul>
+              <li id="d2l1">Unified product tooling: one mold now serves a family of products that previously required five</li>
+              <li id="d2l2">Python generative design used to analyze materials, structural performance, and production workflows</li>
+              <li id="d2l3">Current focus: process automation and AI integration across the manufacturing line</li>
+            </ul>
+          </div>
+
+          <div class="desk-card">
+            <div class="desk-top">
+              <div class="desk-eyebrow" id="d3e">Architecture · 03</div>
+              <div class="desk-status" id="d3s">In design</div>
+            </div>
+            <div class="desk-title" id="d3t">Rio Rancho house: headed AI meets conventional framing</div>
+            <div class="desk-body" id="d3b">
+              A house used as a working testbed for one question: can AI tools be introduced into an ordinary, conventional framing workflow without taking the architect's hands off the wheel? AI works underneath, testing framing and detailing variables, while the documents stay in Revit.
+            </div>
+            <ul>
+              <li id="d3l1">Conventional wood framing kept as the base method; nothing exotic</li>
+              <li id="d3l2">AI explores dimensional and detailing variables to find real cost windows, such as trimming a span to cut material cost by up to 25 percent</li>
+              <li id="d3l3">Every AI suggestion is verified in the headed model before it touches the drawings</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="desk-note" id="deskNote">Essays and desk notes will join this page soon.</p>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="built">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="builtTitle">Built and proven</h2>
+          <p id="builtBody">The finished work that proves the method, drawn from the studio portfolio.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-title" id="b1t">Calla Lily School</div>
+              <div class="project-year" id="b1y">Ethiopia · 2021</div>
+            </div>
+            <div class="project-desc" id="b1d">A biomimicry-led school where the native calla lily sets the geometry of classrooms, roof, and circulation.</div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-title" id="b2t">North Fork House</div>
+              <div class="project-year" id="b2y">Colorado · 2020</div>
+            </div>
+            <div class="project-desc" id="b2d">Ranch house and pavilion options tested against real site, program, and greenbelt constraints.</div>
+          </div>
+
+          <a class="project-card" href="/projects/hsinta/">
+            <div class="project-top">
+              <div class="project-title" id="b3t">Hsinta Eco Power plant</div>
+              <div class="project-year" id="b3y">Taiwan · 2018</div>
+            </div>
+            <div class="project-desc" id="b3d">A closed-loop power plant concept with roughly 1,000 roof panels driven as a single scripted system. Award winner.</div>
+          </a>
+
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-title" id="b4t">Daheli Fude Temple</div>
+              <div class="project-year" id="b4y">Taiwan</div>
+            </div>
+            <div class="project-desc" id="b4d">Curved temple walls generated and rationalized through parametric control, with a full construction set from the model.</div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-title" id="b5t">My Museum</div>
+              <div class="project-year" id="b5y">Taiwan · 2020</div>
+            </div>
+            <div class="project-desc" id="b5d">An envelope of 2,000+ uniquely angled glass panels held as one legible, buildable parametric facade system.</div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-top">
+              <div class="project-title" id="b6t">Crouching Dragon</div>
+              <div class="project-year" id="b6y">Taiwan · 2022</div>
+            </div>
+            <div class="project-desc" id="b6d">A tubular bridge driven by a single base curve, kept editable end to end in Dynamo.</div>
+          </div>
+        </div>
+
+        <div class="section-actions">
+          <a class="btn" href="/contact/" id="builtCta">Start a conversation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
+        <div class="footer-note" id="footerNote">Projects</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.78</div>
+      </div>
+
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerTagline">
+          Systems-first workflows for architecture and the built environment.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const BUILD = "v0.2.78";
+
+const i18n = {
+  en: {
+    backLink: "← Practical AI for the built environment",
+    kickerText: "Projects",
+    heroTitle: "The studio desk.",
+    heroLead: "Most studio pages read like an archive. This one reads like a desk: the projects moving right now sit on top, and the built work that proves the method sits underneath. Some professional work stays intentionally confidential.",
+    navProjects: "Projects", navAbout: "About", navContact: "Contact",
+    deskTitle: "On the desk now",
+    deskBody: "Three projects are moving right now. Different scales, one method.",
+    d1e: "Research · Robotics · 01",
+    d1s: "Actively building",
+    d1t: "Selene: a street-level environmental sensing robot",
+    d1b: "Satellites see city heat in broad strokes. They miss what happens under trees, between buildings, at the height where people actually live. Selene is a mobile sensor robot built to gather that missing street-level data and feed it into a generative AI model that predicts how heat moves through urban space.",
+    d1l1: "3D printed structure, with parts developed through generative design in Rhino and Grasshopper",
+    d1l2: "Dry-bulb, wet-bulb, and globe temperature sensing on a remote-controlled chassis with onboard processing",
+    d1l3: "Each printed version tests structure, weight, and sensor placement; the design is iterating right now",
+    d2e: "Professional practice · 02",
+    d2s: "Ongoing",
+    d2t: "Manufacturing R&D: one mold instead of five",
+    d2b: "Ongoing R&D inside a precision manufacturing environment, where the studio's generative design methods move from architecture into product tooling. Client details are held in confidence.",
+    d2l1: "Unified product tooling: one mold now serves a family of products that previously required five",
+    d2l2: "Python generative design used to analyze materials, structural performance, and production workflows",
+    d2l3: "Current focus: process automation and AI integration across the manufacturing line",
+    d3e: "Architecture · 03",
+    d3s: "In design",
+    d3t: "Rio Rancho house: headed AI meets conventional framing",
+    d3b: "A house used as a working testbed for one question: can AI tools be introduced into an ordinary, conventional framing workflow without taking the architect's hands off the wheel? AI works underneath, testing framing and detailing variables, while the documents stay in Revit.",
+    d3l1: "Conventional wood framing kept as the base method; nothing exotic",
+    d3l2: "AI explores dimensional and detailing variables to find real cost windows, such as trimming a span to cut material cost by up to 25 percent",
+    d3l3: "Every AI suggestion is verified in the headed model before it touches the drawings",
+    deskNote: "Essays and desk notes will join this page soon.",
+    builtTitle: "Built and proven",
+    builtBody: "The finished work that proves the method, drawn from the studio portfolio.",
+    b1t: "Calla Lily School", b1y: "Ethiopia · 2021",
+    b1d: "A biomimicry-led school where the native calla lily sets the geometry of classrooms, roof, and circulation.",
+    b2t: "North Fork House", b2y: "Colorado · 2020",
+    b2d: "Ranch house and pavilion options tested against real site, program, and greenbelt constraints.",
+    b3t: "Hsinta Eco Power plant", b3y: "Taiwan · 2018",
+    b3d: "A closed-loop power plant concept with roughly 1,000 roof panels driven as a single scripted system. Award winner.",
+    b4t: "Daheli Fude Temple", b4y: "Taiwan",
+    b4d: "Curved temple walls generated and rationalized through parametric control, with a full construction set from the model.",
+    b5t: "My Museum", b5y: "Taiwan · 2020",
+    b5d: "An envelope of 2,000+ uniquely angled glass panels held as one legible, buildable parametric facade system.",
+    b6t: "Crouching Dragon", b6y: "Taiwan · 2022",
+    b6d: "A tubular bridge driven by a single base curve, kept editable end to end in Dynamo.",
+    builtCta: "Start a conversation",
+    footerNote: "Projects",
+    footerTagline: "Systems-first workflows for architecture and the built environment."
+  },
+  zh: {
+    backLink: "← 建築與環境的實用 AI",
+    kickerText: "專案",
+    heroTitle: "工作室的桌面。",
+    heroLead: "多數工作室頁面像檔案庫，這一頁更像一張桌子：正在推進的專案放在最上面，底下是驗證這套方法的已建成作品。部分專業工作依約刻意保密。",
+    navProjects: "專案", navAbout: "關於", navContact: "聯絡",
+    deskTitle: "桌上進行中",
+    deskBody: "三個專案正在推進。尺度不同，方法相同。",
+    d1e: "研究 · 機器人 · 01",
+    d1s: "建造中",
+    d1t: "Selene：街道尺度的環境感測機器人",
+    d1b: "衛星只能粗略看見城市的熱，卻看不見樹蔭下、建築之間、人真正生活高度上發生的事。Selene 是一台移動式感測機器人，用來收集這些缺失的街道尺度數據，並輸入預測城市熱流動的生成式 AI 模型。",
+    d1l1: "3D 列印結構，零件以 Rhino 與 Grasshopper 的生成式設計方法發展",
+    d1l2: "遙控底盤搭載乾球、濕球與黑球溫度感測，並具備機上運算",
+    d1l3: "每一版列印都在測試結構、重量與感測器配置，設計目前持續迭代中",
+    d2e: "專業實務 · 02",
+    d2s: "進行中",
+    d2t: "製造研發：用一副模具取代五副",
+    d2b: "在精密製造環境中持續進行的研發工作，把工作室的生成式設計方法從建築帶入產品模具。客戶細節依約保密。",
+    d2l1: "統一產品模具：一副模具即可服務原本需要五副的產品家族",
+    d2l2: "以 Python 生成式設計分析材料、結構性能與生產流程",
+    d2l3: "目前重點：製造端的流程自動化與 AI 整合",
+    d3e: "建築 · 03",
+    d3s: "設計中",
+    d3t: "Rio Rancho 住宅：有頭 AI 遇上傳統構架",
+    d3b: "這棟住宅是一個工作中的實驗場，回答一個問題：能否把 AI 工具帶進普通的傳統木構架流程，而建築師的手始終不離方向盤？AI 在底層測試構架與細部變數，圖面仍留在 Revit。",
+    d3l1: "以傳統木構架為基礎方法，不搞花招",
+    d3l2: "AI 探索尺寸與細部變數，找出真實的成本空間，例如縮短一段跨距即可減少最多 25% 的材料成本",
+    d3l3: "每一項 AI 建議都先在有頭模型中驗證，才進入圖面",
+    deskNote: "隨筆與桌面筆記即將加入此頁。",
+    builtTitle: "已建成與驗證",
+    builtBody: "驗證這套方法的完成作品，取自工作室作品集。",
+    b1t: "卡拉百合學校", b1y: "衣索比亞 · 2021",
+    b1d: "以仿生為導向的學校，原生卡拉百合的形態決定教室、屋頂與動線的幾何。",
+    b2t: "North Fork 住宅", b2y: "科羅拉多 · 2020",
+    b2d: "牧場住宅與涼亭方案，在真實基地、機能與綠帶條件下反覆測試。",
+    b3t: "興達生態電廠", b3y: "台灣 · 2018",
+    b3d: "閉環電廠概念，約 1,000 片屋頂面板以單一腳本系統驅動。獲獎作品。",
+    b4t: "大河里福德祠", b4y: "台灣",
+    b4d: "曲面廟牆以參數化控制生成並理性化，施工圖直接出自模型。",
+    b5t: "博物館立面研究", b5y: "台灣 · 2020",
+    b5d: "2,000 多片角度各異的玻璃面板，收攏為單一清晰可建造的參數化立面系統。",
+    b6t: "臥龍橋", b6y: "台灣 · 2022",
+    b6d: "由單一基準曲線驅動的管狀橋，於 Dynamo 中全程可編輯。",
+    builtCta: "開始對話",
+    footerNote: "專案",
+    footerTagline: "以系統為先的建築與環境工作流程。"
+  }
+};
+
+let lang = "en";
+
+function setLang(next) {
+  lang = next;
+  const t = i18n[lang];
+  const toggle = document.getElementById("langToggle");
+  toggle.classList.toggle("is-en-active", lang === "en");
+
+  Object.keys(t).forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t[id];
+  });
+}
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLang(lang === "en" ? "zh" : "en");
+});
+
+const buildEl = document.getElementById("buildVersion");
+if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
+setLang("en");
+  </script>
+</body>
+</html>
