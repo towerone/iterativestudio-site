@@ -6,23 +6,152 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
   <title>Biomimicry | Iterative Studio</title>
-  <meta name="description" content="Biomimicry at Iterative Studio: learning from living systems for architecture and the built environment." />
+  <meta name="description" content="Biomimicry-led architecture and systems at Iterative Studio: existing projects and work now on the desk." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css?v=0.3.02" />
-  <link rel="stylesheet" href="/assets/white.css?v=0.2.02" />
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="/assets/white.css" />
   <style>
-    .dev-note{
-      margin:22px 0 0;
-      padding:16px 18px;
-      max-width:42rem;
-      border:1px dashed var(--line);
+    html{scroll-behavior:smooth}
+    .bio-pillars{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+      margin-top:22px;
+    }
+    .bio-pillar{
+      border:1px solid var(--line);
       border-radius:var(--radius2);
-      background:var(--panel2);
+      background:var(--panel);
+      box-shadow:var(--shadow);
+      padding:18px 16px;
+    }
+    .bio-pillar-kicker{
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--faint);
+      margin:0 0 8px;
+    }
+    .bio-pillar h3{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-.01em;
+      color:var(--text);
+    }
+    .bio-pillar p{
+      margin:0;
       color:var(--muted);
-      font-size:15px;
+      font-size:14px;
       line-height:1.55;
+    }
+    .bio-pillar.is-lead{
+      border-color:color-mix(in srgb, var(--accent, #4a7fd4) 28%, var(--line));
+      background:color-mix(in srgb, var(--accent, #4a7fd4) 6%, var(--panel));
+    }
+    .bio-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:14px;
+      margin-top:8px;
+    }
+    .bio-card{
+      display:flex;
+      flex-direction:column;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--panel);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      text-decoration:none !important;
+      color:inherit;
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    a.bio-card:hover{
+      transform:translateY(-2px);
+      border-color:color-mix(in srgb, var(--accent, #4a7fd4) 28%, var(--line));
+      background:var(--panel2);
+    }
+    .bio-card-media{
+      aspect-ratio:16/10;
+      background:#11141a;
+      overflow:hidden;
+    }
+    .bio-card-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .bio-card-body{padding:14px 16px 16px}
+    .bio-card-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .bio-card-title{
+      font-weight:600;
+      font-size:16px;
+      letter-spacing:-.01em;
+      color:var(--text);
+    }
+    .bio-card-meta{
+      font-size:12px;
+      letter-spacing:.04em;
+      color:var(--faint);
+      white-space:nowrap;
+    }
+    .bio-card-body p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.55;
+    }
+    .bio-status{
+      display:inline-block;
+      margin:0 0 8px;
+      padding:3px 9px;
+      border-radius:999px;
+      border:1px solid color-mix(in srgb, var(--accent, #4a7fd4) 30%, var(--line));
+      background:color-mix(in srgb, var(--accent, #4a7fd4) 8%, transparent);
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:var(--text);
+    }
+    .bio-status.is-built{
+      border-color:rgba(0,0,0,.14);
+      background:transparent;
+    }
+    .bio-status.is-award{
+      border-color:color-mix(in srgb, #c9a227 40%, var(--line));
+      background:color-mix(in srgb, #c9a227 10%, transparent);
+    }
+    .bio-status.is-dev{
+      border-color:color-mix(in srgb, var(--accent, #4a7fd4) 35%, var(--line));
+    }
+    .section-actions.bio-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-start;
+      margin-top:8px;
+    }
+    .bio-close{
+      margin:0 0 16px;
+      max-width:62ch;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:15px;
+    }
+    @media (max-width:820px){
+      .bio-pillars{grid-template-columns:1fr}
+      .bio-grid{grid-template-columns:1fr}
+      .bio-card-meta{white-space:normal;text-align:right}
     }
   </style>
 </head>
@@ -61,9 +190,188 @@
           <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
         </p>
         <p class="kicker" id="kickerText">Biomimicry</p>
-        <h1 id="heroTitle">Biomimicry</h1>
-        <p class="lead" id="heroLead">Biomimicry page coming next.</p>
-        <p class="dev-note" id="devNote">More to come.</p>
+        <h1 id="heroTitle">Nature as method.</h1>
+        <p class="lead" id="heroLead">Biomimicry is not a style layer. It is how Iterative Studio reads form, process, and performance from living systems, then turns those lessons into buildable architecture and working tools.</p>
+        <p class="lead" id="heroSub" style="margin-top:10px;font-size:clamp(14px,1.1vw + 10px,16px);">The practice stays biomimicry-first. Biophilia and bioutilization sit beside it as the human and working sides of the same nature-led method.</p>
+
+        <div class="bio-pillars" aria-label="Three pillars">
+          <article class="bio-pillar is-lead">
+            <p class="bio-pillar-kicker" id="col1k">Lead</p>
+            <h3 id="col1t">Biomimicry</h3>
+            <p id="col1b">Nature as model. Learn what living systems already solved, then rationalize it into geometry, structure, and process you can build.</p>
+          </article>
+          <article class="bio-pillar">
+            <p class="bio-pillar-kicker" id="col2k">Support</p>
+            <h3 id="col2t">Biophilia</h3>
+            <p id="col2b">Nature as human need. Daylight, greenery, material, and view shape comfort, dwelling, and the way people move through space.</p>
+          </article>
+          <article class="bio-pillar">
+            <p class="bio-pillar-kicker" id="col3k">Support</p>
+            <h3 id="col3t">Bioutilization</h3>
+            <p id="col3b">Nature as working component. Living systems that filter, cool, grow, and cycle, put to work inside the project itself.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="existing">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="existTitle">Already in the work</h2>
+          <p id="existBody">These projects already carry biomimicry and nature-led thinking, from seed geometry to closed-loop systems.</p>
+        </div>
+
+        <div class="bio-grid">
+          <div class="bio-card">
+            <div class="bio-card-media">
+              <img src="/assets/carousel/ethiopia-school-render.jpg" alt="Calla Lily School" width="962" height="1024" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-built" id="p1s">Built</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="p1t">Calla Lily School</div>
+                <div class="bio-card-meta" id="p1y">Ethiopia · 2021</div>
+              </div>
+              <p id="p1b">The calla lily seed sets the school's geometry. Classrooms, roof, and circulation grow from one natural model, then resolve into passive light, air, and water.</p>
+            </div>
+          </div>
+
+          <div class="bio-card">
+            <div class="bio-card-media">
+              <img src="/assets/hero-flip/biomimicry-blue-dot-mercury-filter-2017.jpg" alt="Blue Dot Mercury Filter" width="1024" height="1024" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-award" id="p2s">Award</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="p2t">Blue Dot Mercury Filter</div>
+                <div class="bio-card-meta" id="p2y">2017</div>
+              </div>
+              <p id="p2b">An award-winning systems project that takes biomimicry past the building scale into filtration and product logic.</p>
+            </div>
+          </div>
+
+          <a class="bio-card" href="/projects/hsinta/">
+            <div class="bio-card-media">
+              <img src="/assets/carousel/hista-powerplant-render.jpg" alt="Hsinta Eco Power Plant" width="1024" height="1024" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-award" id="p3s">Award</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="p3t">Hsinta Eco Power Plant</div>
+                <div class="bio-card-meta" id="p3y">Taiwan · 2018</div>
+              </div>
+              <p id="p3b">A closed-loop power concept where living-process thinking drives the roof and the energy cycle as one system.</p>
+            </div>
+          </a>
+
+          <div class="bio-card">
+            <div class="bio-card-media">
+              <img src="/assets/carousel/earth-god-temple-render.jpg" alt="Daheli Fude Temple" width="1024" height="1024" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-built" id="p4s">Built</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="p4t">Daheli Fude Temple</div>
+                <div class="bio-card-meta" id="p4y">Taiwan · 2026</div>
+              </div>
+              <p id="p4b">Complex curved walls held like a living surface: continuous, editable, and drawn as a full construction set from the model.</p>
+            </div>
+          </div>
+
+          <div class="bio-card">
+            <div class="bio-card-media">
+              <img src="/assets/carousel/my-museum-render.jpg" alt="My Museum" width="1024" height="1024" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-built" id="p5s">Built</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="p5t">My Museum</div>
+                <div class="bio-card-meta" id="p5y">Taiwan · 2020</div>
+              </div>
+              <p id="p5b">Thousands of uniquely angled panels governed by one rule set, variation without losing buildability.</p>
+            </div>
+          </div>
+
+          <div class="bio-card">
+            <div class="bio-card-media">
+              <img src="/assets/carousel/crouching-dragon-render.jpg" alt="Crouching Dragon" width="1024" height="1024" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-built" id="p6s">Built</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="p6t">Crouching Dragon</div>
+                <div class="bio-card-meta" id="p6y">Taiwan · 2022</div>
+              </div>
+              <p id="p6b">A tubular bridge grown from a single base curve, organic in form and disciplined in construction logic.</p>
+            </div>
+          </div>
+
+          <div class="bio-card">
+            <div class="bio-card-media">
+              <img src="/assets/carousel/north-fork-house-render.jpg?v=3" alt="North Fork House" width="1024" height="1024" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-built" id="p7s">Built</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="p7t">North Fork House</div>
+                <div class="bio-card-meta" id="p7y">Colorado · 2020</div>
+              </div>
+              <p id="p7b">House and pavilion options tested against site, habitat, and greenbelt, so the building lives with the land.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="desk">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="deskTitle">On the desk next</h2>
+          <p id="deskBody">The method is still moving. Current research keeps biomimicry close to live environmental data, filtration systems, and buildable studio tools.</p>
+        </div>
+
+        <div class="bio-grid">
+          <a class="bio-card" href="/projects/">
+            <div class="bio-card-media">
+              <img src="/assets/projects/selene-robot.jpg" alt="Selene environmental sensing robot" width="1152" height="760" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-dev" id="f1s">In development</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="f1t">Selene</div>
+                <div class="bio-card-meta" id="f1y">Robotics</div>
+              </div>
+              <p id="f1b">A street-level sensing robot gathering the environmental grain satellites miss, feeding models that learn how heat and comfort move where people actually walk.</p>
+            </div>
+          </a>
+
+          <div class="bio-card">
+            <div class="bio-card-media">
+              <img src="/assets/comp-design/hero-botanical.jpg" alt="Nature-led filtration research direction" width="1200" height="800" loading="lazy" />
+            </div>
+            <div class="bio-card-body">
+              <span class="bio-status is-dev" id="f2s">In development</span>
+              <div class="bio-card-top">
+                <div class="bio-card-title" id="f2t">Biomimicry filtration · in development</div>
+                <div class="bio-card-meta" id="f2y">R&amp;D</div>
+              </div>
+              <p id="f2b">A studio R&amp;D track translating living filtration logic into a next-generation system architecture. Details stay inside the studio while the work matures.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="bio-close" id="closeLine">Headed tools help test options. The architect still verifies every decision in Rhino and Revit.</p>
+        <div class="section-actions bio-actions">
+          <a class="btn" href="/projects/" id="ctaProjects">See projects</a>
+          <a class="btn btn-ghost" href="/contact/" id="ctaContact">Start a conversation</a>
+        </div>
+        <p class="section-return" style="margin-top:22px;">
+          <a class="section-return-link" href="/" id="homeReturn">← Back to home</a>
+        </p>
       </div>
     </section>
   </main>
@@ -73,7 +381,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Biomimicry</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.01</div>
+        <div class="footer-version" id="buildVersion">Build: v0.2.01</div>
       </div>
       <div class="footer-mark" aria-hidden="true">[i]</div>
       <div class="footer-right">
@@ -83,49 +391,128 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.01";
+const BUILD = "v0.2.01";
+
 const i18n = {
   en: {
     backLink: "← Practical AI for the built environment",
     kickerText: "Biomimicry",
-    heroTitle: "Biomimicry",
-    heroLead: "Biomimicry page coming next.",
-    devNote: "More to come.",
+    heroTitle: "Nature as method.",
+    heroLead: "Biomimicry is not a style layer. It is how Iterative Studio reads form, process, and performance from living systems, then turns those lessons into buildable architecture and working tools.",
+    heroSub: "The practice stays biomimicry-first. Biophilia and bioutilization sit beside it as the human and working sides of the same nature-led method.",
     navBiomimicry: "Biomimicry",
     navProjects: "Projects",
     navAbout: "About",
     navContact: "Contact",
+    col1k: "Lead",
+    col1t: "Biomimicry",
+    col1b: "Nature as model. Learn what living systems already solved, then rationalize it into geometry, structure, and process you can build.",
+    col2k: "Support",
+    col2t: "Biophilia",
+    col2b: "Nature as human need. Daylight, greenery, material, and view shape comfort, dwelling, and the way people move through space.",
+    col3k: "Support",
+    col3t: "Bioutilization",
+    col3b: "Nature as working component. Living systems that filter, cool, grow, and cycle, put to work inside the project itself.",
+    existTitle: "Already in the work",
+    existBody: "These projects already carry biomimicry and nature-led thinking, from seed geometry to closed-loop systems.",
+    p1s: "Built", p1t: "Calla Lily School", p1y: "Ethiopia · 2021",
+    p1b: "The calla lily seed sets the school's geometry. Classrooms, roof, and circulation grow from one natural model, then resolve into passive light, air, and water.",
+    p2s: "Award", p2t: "Blue Dot Mercury Filter", p2y: "2017",
+    p2b: "An award-winning systems project that takes biomimicry past the building scale into filtration and product logic.",
+    p3s: "Award", p3t: "Hsinta Eco Power Plant", p3y: "Taiwan · 2018",
+    p3b: "A closed-loop power concept where living-process thinking drives the roof and the energy cycle as one system.",
+    p4s: "Built", p4t: "Daheli Fude Temple", p4y: "Taiwan · 2026",
+    p4b: "Complex curved walls held like a living surface: continuous, editable, and drawn as a full construction set from the model.",
+    p5s: "Built", p5t: "My Museum", p5y: "Taiwan · 2020",
+    p5b: "Thousands of uniquely angled panels governed by one rule set, variation without losing buildability.",
+    p6s: "Built", p6t: "Crouching Dragon", p6y: "Taiwan · 2022",
+    p6b: "A tubular bridge grown from a single base curve, organic in form and disciplined in construction logic.",
+    p7s: "Built", p7t: "North Fork House", p7y: "Colorado · 2020",
+    p7b: "House and pavilion options tested against site, habitat, and greenbelt, so the building lives with the land.",
+    deskTitle: "On the desk next",
+    deskBody: "The method is still moving. Current research keeps biomimicry close to live environmental data, filtration systems, and buildable studio tools.",
+    f1s: "In development", f1t: "Selene", f1y: "Robotics",
+    f1b: "A street-level sensing robot gathering the environmental grain satellites miss, feeding models that learn how heat and comfort move where people actually walk.",
+    f2s: "In development", f2t: "Biomimicry filtration · in development", f2y: "R&D",
+    f2b: "A studio R&D track translating living filtration logic into a next-generation system architecture. Details stay inside the studio while the work matures.",
+    closeLine: "Headed tools help test options. The architect still verifies every decision in Rhino and Revit.",
+    ctaProjects: "See projects",
+    ctaContact: "Start a conversation",
+    homeReturn: "← Back to home",
     footerNote: "Biomimicry",
     footerTagline: "Systems-first workflows for architecture and the built environment."
   },
   zh: {
     backLink: "← 建築與環境的實用 AI",
     kickerText: "生物擬態",
-    heroTitle: "生物擬態",
-    heroLead: "生物擬態頁面建置中。",
-    devNote: "內容陸續上線。",
+    heroTitle: "以自然為方法。",
+    heroLead: "生物擬態不是表面風格。它是 Iterative Studio 從生命系統讀取形式、過程與效能，再轉成可建造建築與可用工具的方法。",
+    heroSub: "實務以生物擬態為先；親生命設計與生物利用，是同一套自然導向方法中偏人和偏系統的兩面。",
     navBiomimicry: "生物擬態",
     navProjects: "專案",
     navAbout: "關於",
     navContact: "聯絡",
+    col1k: "主軸",
+    col1t: "生物擬態",
+    col1b: "自然作為模型。先問生命系統已解決什麼，再合理化為可建造的幾何、結構與流程。",
+    col2k: "支撐",
+    col2t: "親生命設計",
+    col2b: "自然作為人的需求。光、綠意、材料與視野影響舒適、停留，以及人在空間中的移動。",
+    col3k: "支撐",
+    col3t: "生物利用",
+    col3b: "自然作為工作元件。讓會過濾、降溫、生長與循環的生命系統，真正進入專案運作。",
+    existTitle: "已在作品之中",
+    existBody: "這些專案早已帶有生物擬態與自然導向思考，從種子幾何到閉環系統。",
+    p1s: "已建成", p1t: "卡拉百合學校", p1y: "衣索比亞 · 2021",
+    p1b: "卡拉百合種子設定學校幾何。教室、屋頂與動線由同一自然模型長出，再落成被動的光、風與水。",
+    p2s: "獲獎", p2t: "藍點汞過濾", p2y: "2017",
+    p2b: "得獎系統專案，把生物擬態從建築尺度推進到過濾與產品邏輯。",
+    p3s: "獲獎", p3t: "興達生態電廠", p3y: "台灣 · 2018",
+    p3b: "閉環電力概念：以生命過程思維驅動屋頂與能源循環成為同一系統。",
+    p4s: "已建成", p4t: "大河里福德祠", p4y: "台灣 · 2026",
+    p4b: "複雜曲面牆如生命表面一般被持住：連續、可編輯，並由模型直接出完整施工圖集。",
+    p5s: "已建成", p5t: "我的博物館", p5y: "台灣 · 2020",
+    p5b: "數千片角度各異的面板由單一規則集治理，變化而不失可建造性。",
+    p6s: "已建成", p6t: "臥龍橋", p6y: "台灣 · 2022",
+    p6b: "由單一基準曲線長出的管狀橋，形式有機、施工邏輯嚴謹。",
+    p7s: "已建成", p7t: "North Fork 住宅", p7y: "科羅拉多 · 2020",
+    p7b: "住宅與涼亭方案在基地、棲地與綠帶條件下反覆測試，讓建築與土地共生。",
+    deskTitle: "接下來的桌面",
+    deskBody: "方法仍在推進。目前研究把生物擬態接到真實環境數據、過濾系統，以及可建造的工作室工具。",
+    f1s: "開發中", f1t: "Selene", f1y: "機器人",
+    f1b: "街道尺度的感測機器人，收集衛星看不見的環境細節，餵給學習熱與舒適如何在人行走之處流動的模型。",
+    f2s: "開發中", f2t: "生物擬態過濾 · 開發中", f2y: "研發",
+    f2b: "一條把生命過濾邏輯轉成新一代系統架構的研發線。細節先留在工作室內，等工作成熟再公開。",
+    closeLine: "有頭工具協助測試選項。建築師仍在 Rhino 與 Revit 中驗證每一個決定。",
+    ctaProjects: "看專案",
+    ctaContact: "開始對話",
+    homeReturn: "← 返回首頁",
     footerNote: "生物擬態",
     footerTagline: "以系統為先的建築與環境工作流程。"
   }
 };
+
 let lang = "en";
+
 function setLang(next) {
   lang = next;
   const t = i18n[lang];
-  document.getElementById("langToggle").classList.toggle("is-en-active", lang === "en");
+  const toggle = document.getElementById("langToggle");
+  if (toggle) toggle.classList.toggle("is-en-active", lang === "en");
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
   Object.keys(t).forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.textContent = t[id];
   });
 }
+
 document.getElementById("langToggle").addEventListener("click", () => {
   setLang(lang === "en" ? "zh" : "en");
 });
-document.getElementById("buildVersion").textContent = `Build: ${BUILD}`;
+
+const buildEl = document.getElementById("buildVersion");
+if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
 setLang("en");
   </script>
 </body>
