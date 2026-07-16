@@ -11,6 +11,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Corinthia&family=Inter:wght@400;600&family=Sixtyfour&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css?v=0.3.23" />
+  <style>
+    /* Biomimicry entry strip (home only) */
+    .biomimicry-strip{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      width:100%;
+      margin-top:var(--stack-gap, 12px);
+      margin-bottom:0;
+      padding:10px 16px;
+      border-radius:var(--radius, 14px);
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      color:rgba(255,255,255,.94);
+      text-decoration:none !important;
+      box-shadow:0 8px 24px rgba(0,0,0,.12);
+      transition:background .15s ease, border-color .15s ease, transform .15s ease;
+      position:relative;
+      z-index:3;
+    }
+    .biomimicry-strip:hover,
+    .biomimicry-strip:focus-visible{
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.38);
+      transform:translateY(-1px);
+      outline:none;
+    }
+    .biomimicry-strip:focus-visible{
+      box-shadow:0 0 0 2px rgba(74,127,212,.55), 0 8px 24px rgba(0,0,0,.12);
+    }
+    .biomimicry-strip-label{
+      font-weight:600;
+      font-size:14px;
+      letter-spacing:.02em;
+      line-height:1.2;
+    }
+    .biomimicry-strip-go{
+      font-size:13px;
+      font-weight:600;
+      opacity:.78;
+      letter-spacing:.04em;
+      white-space:nowrap;
+    }
+    @media (max-width:720px){
+      .biomimicry-strip{
+        padding:10px 14px;
+        max-height:none;
+      }
+      .biomimicry-strip-label{ font-size:13.5px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -29,6 +83,7 @@
 
       <div class="header-right">
         <nav class="nav">
+          <a class="header-link" href="/biomimicry/" id="navBiomimicry">Biomimicry</a>
           <a class="header-link" href="/projects/" id="navProjects">Projects</a>
           <a class="header-link" href="/about/" id="navAbout">About</a>
           <a class="header-link" href="/contact/" id="navContact">Contact</a>
@@ -210,6 +265,11 @@
 
           <p class="hero-footnote kicker" id="kickerText">Building AI for the Built Environment</p>
 
+          <a class="biomimicry-strip" href="/biomimicry/" id="biomimicryStrip" aria-label="Biomimicry">
+            <span class="biomimicry-strip-label" id="biomimicryStripLabel">Biomimicry</span>
+            <span class="biomimicry-strip-go" id="biomimicryStripGo">Explore →</span>
+          </a>
+
           <div class="project-carousel" id="projectCarousel">
             <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" type="button" aria-label="Previous project">
               <span aria-hidden="true">‹</span>
@@ -382,7 +442,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.23</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.24</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -425,9 +485,12 @@ projects: [
 carouselPause: "Pause",
 carouselPlay: "Play",
 carouselGo: "Go",
+navBiomimicry: "Biomimicry",
 navProjects: "Projects",
 navAbout: "About",
 navContact: "Contact",
+biomimicryStripLabel: "Biomimicry",
+biomimicryStripGo: "Explore →",
 panel1Title: "Computational design systems",
 panel1Body: "Parametric models that preserve intent: controllable geometry, readable parameters, and predictable behavior.",
 heroDetailLabel1: "Rules",
@@ -511,9 +574,12 @@ projects: [
 carouselPause: "暫停",
 carouselPlay: "播放",
 carouselGo: "前往",
+navBiomimicry: "生物擬態",
 navProjects: "專案",
 navAbout: "關於",
 navContact: "聯絡",
+biomimicryStripLabel: "生物擬態",
+biomimicryStripGo: "了解更多 →",
 panel1Title: "計算式設計系統",
 panel1Body: "保留設計意圖的參數化模型：可控的幾何、可讀的參數、可預期的行為。",
 heroDetailLabel1: "規則",
@@ -581,7 +647,7 @@ flipperCaptions: [
 
 let lang = "en";
 
-const BUILD = "v0.3.23";
+const BUILD = "v0.3.24";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -1015,9 +1081,18 @@ if (carouselPauseBtn) {
 carouselPauseBtn.setAttribute("aria-label", carouselPaused ? t.carouselPlay : t.carouselPause);
 }
 
+const navBio = document.getElementById("navBiomimicry");
+if (navBio) navBio.textContent = t.navBiomimicry;
 document.getElementById("navProjects").textContent = t.navProjects;
 document.getElementById("navAbout").textContent = t.navAbout;
 document.getElementById("navContact").textContent = t.navContact;
+
+const bioLabel = document.getElementById("biomimicryStripLabel");
+const bioGo = document.getElementById("biomimicryStripGo");
+const bioStrip = document.getElementById("biomimicryStrip");
+if (bioLabel) bioLabel.textContent = t.biomimicryStripLabel;
+if (bioGo) bioGo.textContent = t.biomimicryStripGo;
+if (bioStrip) bioStrip.setAttribute("aria-label", t.biomimicryStripLabel);
 
 document.getElementById("panel1Title").textContent = t.panel1Title;
 document.getElementById("panel1Body").textContent = t.panel1Body;
