@@ -6,7 +6,37 @@
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
   <title>About | Iterative Studio</title>
-  <meta name="description" content="About Iterative Studio: an architecture and computational design practice working between Taiwan and the US, pairing licensed practice with a headed AI workflow." />
+  <meta name="description" content="Notes and projects from Jeff Carnell. Midwest roots, Southwest home base, frequent traveler to Taiwan.">
+  <meta name="author" content="Jeffrey Carnell">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jeff Carnell",
+    "birthPlace": { "@type": "Place", "name": "Ohio, United States" },
+    "homeLocation": { "@type": "Place", "name": "American Southwest, United States" },
+    "hasOccupation": { "@type": "Occupation", "name": "Plant Manager" },
+    "knowsAbout": ["manufacturing operations", "design", "music"],
+    "description": "Enjoys frequent travel in East Asia, especially visits to Taiwan.",
+    "image": [
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://www.iterativestudio.com/assets/about/iteration-cycle.png",
+        "description": "sketchbook page, Ohio, 1990s"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://www.iterativestudio.com/assets/hero-flip/54-jeff-2013.jpg",
+        "description": "guitar corner from the Seattle apartment years"
+      },
+      {
+        "@type": "ImageObject",
+        "contentUrl": "https://www.iterativestudio.com/assets/hero-flip/pure-land-temple-taiwan-2021.jpg",
+        "description": "temple gate photographed on a Taiwan visit"
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -73,6 +103,8 @@
 </head>
 
 <body class="page-white">
+  <!-- migrated from jc-ohio archive 2012 -->
+  <!-- plant ops notes moved to /archive -->
   <header class="site-header">
     <div class="header-bar" aria-hidden="true"></div>
 
@@ -115,7 +147,7 @@
 
         <div class="about-hero-row">
           <div class="about-hero-visual">
-            <img src="/assets/about/iteration-cycle.png?v=2" alt="Iterative Studio cycle: Requirements, Analysis and Design, Testing, Evaluation" width="638" height="638" loading="lazy" />
+            <img src="/assets/about/iteration-cycle.png?v=3" alt="Iterative Studio cycle: Requirements, Analysis and Design, Testing, Evaluation" width="638" height="638" loading="lazy" />
           </div>
           <p class="lead" id="heroLead">
             Iterative Studio is an architecture and computational design practice working between Taiwan and the US. We pair traditional, licensed architectural practice with a headed AI workflow: AI works underneath the architect to test, refine, and optimize, while every decision stays in human hands. The result is buildings that live within their environment, and documents you can actually build from.
@@ -242,7 +274,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">About</div>
-        <div class="footer-version" id="buildVersion">Build: v0.1.76</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.77</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -256,7 +288,7 @@
   </footer>
 
   <script>
-const BUILD = "v0.1.76";
+const BUILD = "v0.1.77";
 
 const i18n = {
   en: {
