@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)" />
+  <title>Spatial Analytics | Iterative Studio</title>
+  <meta name="description" content="Spatial analytics for the built environment: space syntax network analysis (integration, choice, isovists) extended with microclimate data and headed AI to predict and shape pedestrian movement." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="/assets/white.css" />
+</head>
+
+<body class="page-white">
+  <header class="site-header">
+    <div class="header-bar" aria-hidden="true"></div>
+    <div class="header-inner">
+      <div class="header-left">
+        <a class="brand" href="/">
+          <span class="brand-mark">[i]</span>
+          <span class="brand-name header-link">Iterative Studio</span>
+        </a>
+      </div>
+      <div class="header-hole" aria-hidden="true"></div>
+      <div class="header-right">
+        <nav class="nav">
+          <a class="header-link" href="/biomimicry/" id="navBiomimicry">Biomimicry</a>
+          <a class="header-link" href="/spatial-analytics/" id="navSpatial">Spatial Analytics</a>
+          <a class="header-link" href="/projects/" id="navProjects">Projects</a>
+          <a class="header-link" href="/about/" id="navAbout">About</a>
+          <a class="header-link" href="/contact/" id="navContact">Contact</a>
+          <button class="lang-toggle" id="langToggle" type="button" aria-label="Language toggle">
+            <span class="lang-top">EN</span>
+            <span class="lang-divider"></span>
+            <span class="lang-bottom">中文</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="page-back">
+          <a class="page-back-link" href="/" id="backLink">← Practical AI for the built environment</a>
+        </p>
+        <p class="kicker" id="kickerText">Spatial Analytics</p>
+        <h1 id="heroTitle">The grammar of space, extended by AI.</h1>
+        <p class="lead" id="heroLead">
+          Space syntax gave architecture a measurable language for movement: integration, choice, isovists, natural movement. We treat that language as the precursor and use AI to read what the graph alone cannot: heat, shade, material, and the street as people actually experience it.
+        </p>
+
+        <div class="hero-cards">
+          <div class="mini-card">
+            <div class="mini-title" id="card1Title">Integration</div>
+            <div class="mini-body" id="card1Body">How connected a space is to all others. The classic predictor of footfall.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-title" id="card2Title">Choice</div>
+            <div class="mini-body" id="card2Body">How often a route lies on the shortest paths through the network. Where movement concentrates.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-title" id="card3Title">Isovist</div>
+            <div class="mini-body" id="card3Body">What can be seen from a point. The geometry of visibility that guides orientation.</div>
+          </div>
+          <div class="mini-card">
+            <div class="mini-title" id="card4Title">The Residual</div>
+            <div class="mini-body" id="card4Body">The share of movement the graph cannot see. Our research and design target.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-grid">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="section1Title">Configuration first: the space syntax core</h2>
+          <p id="section1Body">Bill Hillier's insight still holds: layout itself is the primary generator of movement. We build that baseline rigorously before any AI enters the pipeline.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3 id="panel1Title">Network analysis</h3>
+            <p id="panel1Body">Axial and segment models of buildings, campuses, and streets, computed in DepthmapX and Grasshopper based workflows.</p>
+            <ul class="bullets">
+              <li id="panel1Li1">Axial maps and segment angular analysis</li>
+              <li id="panel1Li2">Integration and choice at multiple radii</li>
+              <li id="panel1Li3">Visual graph analysis and isovist fields</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3 id="panel2Title">Natural movement, measured</h3>
+            <p id="panel2Body">Configuration predicts a majority of pedestrian flows. We benchmark model output against observed movement so the numbers stay honest.</p>
+            <ul class="bullets">
+              <li id="panel2Li1">Gate counts and observation protocols</li>
+              <li id="panel2Li2">Correlation benchmarks against predictions</li>
+              <li id="panel2Li3">Clear reporting of what the model explains and what it misses</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="section2Title">Where the graph goes blind, AI keeps reading</h2>
+          <p id="section2Body">An axial map is identical with or without trees, arcades, or afternoon heat. Whatever those do to movement lands in the residual. That is exactly where we point the machine learning.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel">
+            <h3 id="panel3Title">Environmental coupling</h3>
+            <p id="panel3Body">Microclimate variables joined to the spatial graph, so thermal comfort becomes a first-class spatial parameter.</p>
+            <ul class="bullets">
+              <li id="panel3Li1">Thermal comfort mapping (PET) and radiation studies</li>
+              <li id="panel3Li2">Shading geometry, canopy, and arcade conditions</li>
+              <li id="panel3Li3">Sky view factor and urban heat island metrics</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3 id="panel4Title">Headed AI</h3>
+            <p id="panel4Body">Machine learning enlarges the variable set and tests design options underneath, while every decision stays verifiable in Rhino and Revit.</p>
+            <ul class="bullets">
+              <li id="panel4Li1">Learning models on enriched spatial plus environmental data</li>
+              <li id="panel4Li2">Generative options in Dynamo and Grasshopper</li>
+              <li id="panel4Li3">Architect-verified outputs, never black box hand-offs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="section3Title">Applied spatial analysis</h2>
+          <p id="section3Body">For masterplans, campuses, retail, and public space: analysis that answers where people will walk, stop, and gather, and design moves that change the answer.</p>
+        </div>
+
+        <div class="projects-grid">
+          <a class="project-card" href="/contact/">
+            <div class="project-top">
+              <div class="project-title" id="svc1Title">Movement and footfall studies</div>
+              <div class="project-year" id="svc1Tag">Analysis</div>
+            </div>
+            <div class="project-desc" id="svc1Desc">Integration and choice mapping with observed-count validation for streets, lobbies, and floor plans.</div>
+            <div class="project-meta">DepthmapX • Grasshopper • Field counts</div>
+          </a>
+
+          <a class="project-card" href="/contact/">
+            <div class="project-top">
+              <div class="project-title" id="svc2Title">Layout and wayfinding optimization</div>
+              <div class="project-year" id="svc2Tag">Design</div>
+            </div>
+            <div class="project-desc" id="svc2Desc">Isovist and visibility-driven options for circulation, signage reduction, and program placement.</div>
+            <div class="project-meta">VGA • Isovists • Generative options</div>
+          </a>
+
+          <a class="project-card" href="/contact/">
+            <div class="project-top">
+              <div class="project-title" id="svc3Title">Microclimate-aware public space</div>
+              <div class="project-year" id="svc3Tag">Research + Design</div>
+            </div>
+            <div class="project-desc" id="svc3Desc">Shade, comfort, and movement modeled together so plazas and streets perform in subtropical heat.</div>
+            <div class="project-meta">PET • Shading • Headed AI</div>
+          </a>
+        </div>
+
+        <div class="section-actions">
+          <a class="btn" href="/contact/" id="ctaBtn">Ask about a spatial analysis study</a>
+        </div>
+
+        <p class="footer-map-credit" style="margin-top:18px; text-align:center;" id="credLine">
+          Method presented at the 14th International Space Syntax Symposium (SSS14, Cyprus): Contextual Space Syntax using AI generative design.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">© Iterative Studio</div>
+        <div class="footer-note" id="footerNote">Spatial analytics</div>
+        <div class="footer-version" id="buildVersion">Build: v0.1.01</div>
+      </div>
+      <div class="footer-mark" aria-hidden="true">[i]</div>
+      <div class="footer-right">
+        <p class="footer-map-credit" id="footerTagline">
+          Evidence-based spatial logic for architecture and the built environment.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+const BUILD = "v0.1.01";
+
+const i18n = {
+  en: {
+    backLink: "← Practical AI for the built environment",
+    kickerText: "Spatial Analytics",
+    heroTitle: "The grammar of space, extended by AI.",
+    heroLead: "Space syntax gave architecture a measurable language for movement: integration, choice, isovists, natural movement. We treat that language as the precursor and use AI to read what the graph alone cannot: heat, shade, material, and the street as people actually experience it.",
+    card1Title: "Integration", card1Body: "How connected a space is to all others. The classic predictor of footfall.",
+    card2Title: "Choice", card2Body: "How often a route lies on the shortest paths through the network. Where movement concentrates.",
+    card3Title: "Isovist", card3Body: "What can be seen from a point. The geometry of visibility that guides orientation.",
+    card4Title: "The Residual", card4Body: "The share of movement the graph cannot see. Our research and design target.",
+    navBiomimicry: "Biomimicry", navSpatial: "Spatial Analytics", navProjects: "Projects", navAbout: "About", navContact: "Contact",
+    section1Title: "Configuration first: the space syntax core",
+    section1Body: "Bill Hillier's insight still holds: layout itself is the primary generator of movement. We build that baseline rigorously before any AI enters the pipeline.",
+    panel1Title: "Network analysis",
+    panel1Body: "Axial and segment models of buildings, campuses, and streets, computed in DepthmapX and Grasshopper based workflows.",
+    panel1Li1: "Axial maps and segment angular analysis",
+    panel1Li2: "Integration and choice at multiple radii",
+    panel1Li3: "Visual graph analysis and isovist fields",
+    panel2Title: "Natural movement, measured",
+    panel2Body: "Configuration predicts a majority of pedestrian flows. We benchmark model output against observed movement so the numbers stay honest.",
+    panel2Li1: "Gate counts and observation protocols",
+    panel2Li2: "Correlation benchmarks against predictions",
+    panel2Li3: "Clear reporting of what the model explains and what it misses",
+    section2Title: "Where the graph goes blind, AI keeps reading",
+    section2Body: "An axial map is identical with or without trees, arcades, or afternoon heat. Whatever those do to movement lands in the residual. That is exactly where we point the machine learning.",
+    panel3Title: "Environmental coupling",
+    panel3Body: "Microclimate variables joined to the spatial graph, so thermal comfort becomes a first-class spatial parameter.",
+    panel3Li1: "Thermal comfort mapping (PET) and radiation studies",
+    panel3Li2: "Shading geometry, canopy, and arcade conditions",
+    panel3Li3: "Sky view factor and urban heat island metrics",
+    panel4Title: "Headed AI",
+    panel4Body: "Machine learning enlarges the variable set and tests design options underneath, while every decision stays verifiable in Rhino and Revit.",
+    panel4Li1: "Learning models on enriched spatial plus environmental data",
+    panel4Li2: "Generative options in Dynamo and Grasshopper",
+    panel4Li3: "Architect-verified outputs, never black box hand-offs",
+    section3Title: "Applied spatial analysis",
+    section3Body: "For masterplans, campuses, retail, and public space: analysis that answers where people will walk, stop, and gather, and design moves that change the answer.",
+    svc1Title: "Movement and footfall studies", svc1Tag: "Analysis",
+    svc1Desc: "Integration and choice mapping with observed-count validation for streets, lobbies, and floor plans.",
+    svc2Title: "Layout and wayfinding optimization", svc2Tag: "Design",
+    svc2Desc: "Isovist and visibility-driven options for circulation, signage reduction, and program placement.",
+    svc3Title: "Microclimate-aware public space", svc3Tag: "Research + Design",
+    svc3Desc: "Shade, comfort, and movement modeled together so plazas and streets perform in subtropical heat.",
+    ctaBtn: "Ask about a spatial analysis study",
+    credLine: "Method presented at the 14th International Space Syntax Symposium (SSS14, Cyprus): Contextual Space Syntax using AI generative design.",
+    footerNote: "Spatial analytics",
+    footerTagline: "Evidence-based spatial logic for architecture and the built environment."
+  },
+  zh: {
+    backLink: "← 建築與環境的實用 AI",
+    kickerText: "空間分析",
+    heroTitle: "空間的文法，由 AI 延伸。",
+    heroLead: "空間型構理論（Space Syntax）為建築提供了一套可量測的移動語言：整合度、穿行度、視域、自然移動。我們把這套語言視為先行者，再用 AI 讀取圖論看不到的部分：熱、遮蔭、材質，以及人們真實體驗中的街道。",
+    card1Title: "整合度 Integration", card1Body: "一個空間與其他所有空間的連通程度，是人流的經典預測指標。",
+    card2Title: "穿行度 Choice", card2Body: "一條路徑落在網絡最短路徑上的頻率，顯示人流聚集之處。",
+    card3Title: "視域 Isovist", card3Body: "從一點所能看見的範圍，引導方向感的可視性幾何。",
+    card4Title: "殘差 The Residual", card4Body: "圖論無法解釋的那部分移動，正是我們研究與設計的目標。",
+    navBiomimicry: "生物擬態", navSpatial: "空間分析", navProjects: "專案", navAbout: "關於", navContact: "聯絡",
+    section1Title: "構型優先：空間型構的核心",
+    section1Body: "Bill Hillier 的洞見至今成立：空間佈局本身是移動的首要生成者。在任何 AI 進入流程之前，我們先嚴謹建立這個基準。",
+    panel1Title: "網絡分析",
+    panel1Body: "以 DepthmapX 與 Grasshopper 工作流建立建築、校園與街道的軸線與線段模型。",
+    panel1Li1: "軸線圖與線段角度分析",
+    panel1Li2: "多重半徑下的整合度與穿行度",
+    panel1Li3: "視覺圖譜分析（VGA）與視域場",
+    panel2Title: "被量測的自然移動",
+    panel2Body: "空間構型能預測大多數的人行流動。我們以實地觀測校核模型輸出，讓數字保持誠實。",
+    panel2Li1: "閘門計數與觀測程序",
+    panel2Li2: "預測與實測的相關性校核",
+    panel2Li3: "清楚呈現模型解釋了什麼、遺漏了什麼",
+    section2Title: "圖論的盲區，AI 接著讀",
+    section2Body: "無論有沒有樹木、騎樓或午後的高溫，軸線圖都長得一樣。這些因素對移動的影響全都落在殘差裡，而那正是我們讓機器學習瞄準的地方。",
+    panel3Title: "環境參數耦合",
+    panel3Body: "將微氣候變數接入空間圖譜，讓熱舒適成為一等公民的空間參數。",
+    panel3Li1: "熱舒適度（PET）分佈與輻射研究",
+    panel3Li2: "遮蔭幾何、樹冠與騎樓條件",
+    panel3Li3: "天空可視率（SVF）與都市熱島指標",
+    panel4Title: "有頭 AI",
+    panel4Body: "機器學習在底層擴充變數並測試設計選項，每一項決策仍在 Rhino 與 Revit 中可驗證。",
+    panel4Li1: "以空間加環境的擴充資料訓練模型",
+    panel4Li2: "Dynamo 與 Grasshopper 生成式選項",
+    panel4Li3: "由建築師驗證的輸出，絕不黑箱交付",
+    section3Title: "應用空間分析",
+    section3Body: "面向總體規劃、校園、零售與公共空間：分析回答人們會在哪裡行走、停留與聚集，設計則改變這個答案。",
+    svc1Title: "人流與動線研究", svc1Tag: "分析",
+    svc1Desc: "整合度與穿行度分析，並以實測計數驗證，適用於街道、大廳與平面配置。",
+    svc2Title: "配置與尋路最佳化", svc2Tag: "設計",
+    svc2Desc: "以視域與可視性驅動的動線、標示減量與機能配置方案。",
+    svc3Title: "微氣候導向的公共空間", svc3Tag: "研究 + 設計",
+    svc3Desc: "遮蔭、舒適與移動一併建模，讓廣場與街道在亞熱帶高溫下依然好用。",
+    ctaBtn: "洽詢空間分析研究",
+    credLine: "研究方法發表於第 14 屆國際空間型構研討會（SSS14，賽普勒斯）：Contextual Space Syntax using AI generative design。",
+    footerNote: "空間分析",
+    footerTagline: "以實證為基礎的建築與環境空間邏輯。"
+  }
+};
+
+let lang = "en";
+
+function setLang(next) {
+  lang = next;
+  const t = i18n[lang];
+  const toggle = document.getElementById("langToggle");
+  toggle.classList.toggle("is-en-active", lang === "en");
+  for (const [id, text] of Object.entries(t)) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+}
+
+document.getElementById("langToggle").addEventListener("click", () => {
+  setLang(lang === "en" ? "zh" : "en");
+});
+
+const buildEl = document.getElementById("buildVersion");
+if (buildEl) buildEl.textContent = `Build: ${BUILD}`;
+
+setLang("en");
+  </script>
+</body>
+</html>

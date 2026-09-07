@@ -57,12 +57,32 @@
       letter-spacing:.04em;
       white-space:nowrap;
     }
+    .entry-strips{
+      display:flex;
+      align-items:stretch;
+      gap:10px;
+      width:100%;
+      margin-top:var(--stack-gap, 12px);
+      margin-bottom:0;
+      position:relative;
+      z-index:3;
+    }
+    .entry-strips .biomimicry-strip{
+      width:auto;
+      flex:1 1 0;
+      margin-top:0;
+      min-width:0;
+    }
     @media (max-width:720px){
       .biomimicry-strip{
         padding:10px 14px;
         max-height:none;
       }
       .biomimicry-strip-label{ font-size:13.5px; }
+      .entry-strips{
+        flex-direction:column;
+        gap:8px;
+      }
     }
   </style>
 </head>
@@ -84,6 +104,7 @@
       <div class="header-right">
         <nav class="nav">
           <a class="header-link" href="/biomimicry/" id="navBiomimicry">Biomimicry</a>
+          <a class="header-link" href="/spatial-analytics/" id="navSpatial">Spatial Analytics</a>
           <a class="header-link" href="/projects/" id="navProjects">Projects</a>
           <a class="header-link" href="/about/" id="navAbout">About</a>
           <a class="header-link" href="/contact/" id="navContact">Contact</a>
@@ -265,10 +286,16 @@
 
           <p class="hero-footnote kicker" id="kickerText">Building AI for the Built Environment</p>
 
-          <a class="biomimicry-strip" href="/biomimicry/" id="biomimicryStrip" aria-label="Biomimicry">
-            <span class="biomimicry-strip-label" id="biomimicryStripLabel">Biomimicry</span>
-            <span class="biomimicry-strip-go" id="biomimicryStripGo">Explore →</span>
-          </a>
+          <div class="entry-strips">
+            <a class="biomimicry-strip" href="/biomimicry/" id="biomimicryStrip" aria-label="Biomimicry">
+              <span class="biomimicry-strip-label" id="biomimicryStripLabel">Biomimicry</span>
+              <span class="biomimicry-strip-go" aria-hidden="true">→</span>
+            </a>
+            <a class="biomimicry-strip" href="/spatial-analytics/" id="spatialStrip" aria-label="Spatial Analytics">
+              <span class="biomimicry-strip-label" id="spatialStripLabel">Spatial Analytics</span>
+              <span class="biomimicry-strip-go" aria-hidden="true">→</span>
+            </a>
+          </div>
 
           <div class="project-carousel" id="projectCarousel">
             <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" type="button" aria-label="Previous project">
@@ -442,7 +469,7 @@
       <div class="footer-left">
         <div class="footer-brand">© Iterative Studio</div>
         <div class="footer-note" id="footerNote">Building AI for the Built Environment</div>
-        <div class="footer-version" id="buildVersion">Build: v0.3.25</div>
+        <div class="footer-version" id="buildVersion">Build: v0.3.26</div>
       </div>
 
       <div class="footer-mark" aria-hidden="true">[i]</div>
@@ -486,11 +513,13 @@ carouselPause: "Pause",
 carouselPlay: "Play",
 carouselGo: "Go",
 navBiomimicry: "Biomimicry",
+navSpatial: "Spatial Analytics",
 navProjects: "Projects",
 navAbout: "About",
 navContact: "Contact",
 biomimicryStripLabel: "Biomimicry",
 biomimicryStripGo: "Explore →",
+spatialStripLabel: "Spatial Analytics",
 panel1Title: "Computational design systems",
 panel1Body: "Parametric models that preserve intent: controllable geometry, readable parameters, and predictable behavior.",
 heroDetailLabel1: "Rules",
@@ -575,11 +604,13 @@ carouselPause: "暫停",
 carouselPlay: "播放",
 carouselGo: "前往",
 navBiomimicry: "生物擬態",
+navSpatial: "空間分析",
 navProjects: "專案",
 navAbout: "關於",
 navContact: "聯絡",
 biomimicryStripLabel: "生物擬態",
 biomimicryStripGo: "了解更多 →",
+spatialStripLabel: "空間分析",
 panel1Title: "計算式設計系統",
 panel1Body: "保留設計意圖的參數化模型：可控的幾何、可讀的參數、可預期的行為。",
 heroDetailLabel1: "規則",
@@ -647,7 +678,7 @@ flipperCaptions: [
 
 let lang = "en";
 
-const BUILD = "v0.3.25";
+const BUILD = "v0.3.26";
 
 const CAROUSEL_INTERVAL_MS = 10000;
 let carouselIndex = 0;
@@ -1083,6 +1114,8 @@ carouselPauseBtn.setAttribute("aria-label", carouselPaused ? t.carouselPlay : t.
 
 const navBio = document.getElementById("navBiomimicry");
 if (navBio) navBio.textContent = t.navBiomimicry;
+const navSpatial = document.getElementById("navSpatial");
+if (navSpatial) navSpatial.textContent = t.navSpatial;
 document.getElementById("navProjects").textContent = t.navProjects;
 document.getElementById("navAbout").textContent = t.navAbout;
 document.getElementById("navContact").textContent = t.navContact;
@@ -1093,6 +1126,10 @@ const bioStrip = document.getElementById("biomimicryStrip");
 if (bioLabel) bioLabel.textContent = t.biomimicryStripLabel;
 if (bioGo) bioGo.textContent = t.biomimicryStripGo;
 if (bioStrip) bioStrip.setAttribute("aria-label", t.biomimicryStripLabel);
+const spatialLabel = document.getElementById("spatialStripLabel");
+const spatialStrip = document.getElementById("spatialStrip");
+if (spatialLabel) spatialLabel.textContent = t.spatialStripLabel;
+if (spatialStrip) spatialStrip.setAttribute("aria-label", t.spatialStripLabel);
 
 document.getElementById("panel1Title").textContent = t.panel1Title;
 document.getElementById("panel1Body").textContent = t.panel1Body;
